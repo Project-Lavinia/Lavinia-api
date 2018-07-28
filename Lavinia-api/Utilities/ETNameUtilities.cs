@@ -23,9 +23,9 @@ namespace LaviniaApi.Utilities
         /// <returns>A string code</returns>
         private static string NameToCode(string name)
         {
-            name = name.ToLowerInvariant();
+            string lowerName = name.ToLowerInvariant();
 
-            if (ParliamentaryElectionSet.Contains(name))
+            if (ParliamentaryElectionSet.Contains(lowerName))
             {
                 return PARLIAMENTARY_ELECTION_CODE;
             }
