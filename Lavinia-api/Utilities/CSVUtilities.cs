@@ -21,9 +21,13 @@ namespace LaviniaApi.Utilities
             List<T> objects = new List<T>();
             StreamReader file = new StreamReader(filePath);
             FieldParser parser = new FieldParser(filePath, ";");
-            string actualHeaderString = file.ReadLine(); // Skip
+            file.ReadLine(); // Skip header string
             string currentLine;
-            while ((currentLine = file.ReadLine()) != null) objects.Add(new T().Parse(currentLine, parser));
+            while ((currentLine = file.ReadLine()) != null)
+            {
+                objects.Add(new T().Parse(currentLine, parser));
+            }
+            file.Dispose();
             return objects;
         }
 
@@ -40,15 +44,18 @@ namespace LaviniaApi.Utilities
         {
             List<VDModel> objects = new List<VDModel>();
             StreamReader file = new StreamReader(filePath);
-            string actualHeaderString = file.ReadLine(); // Skip
+            file.ReadLine(); // Skip header string
             string currentLine;
             while ((currentLine = file.ReadLine()) != null)
             {
                 string[] objectFields = currentLine.Split(";");
                 if (objectFields.Length != 18)
+                {
                     throw new CsvFileFormatException(
                         $"Found a line with length {objectFields.Length} instead of the required 18.", filePath,
                         currentLine);
+                }
+
                 VDModel currentObject = new VDModel
                 {
                     Fylkenummer = objectFields[0],
@@ -71,7 +78,7 @@ namespace LaviniaApi.Utilities
                 };
                 objects.Add(currentObject);
             }
-
+            file.Dispose();
             return objects;
         }
 
@@ -88,15 +95,18 @@ namespace LaviniaApi.Utilities
         {
             List<VDModel> objects = new List<VDModel>();
             StreamReader file = new StreamReader(filePath);
-            string actualHeaderString = file.ReadLine(); // Skip
+            file.ReadLine(); // Skip header string
             string currentLine;
             while ((currentLine = file.ReadLine()) != null)
             {
                 string[] objectFields = currentLine.Split(";");
                 if (objectFields.Length != 18)
+                {
                     throw new CsvFileFormatException(
                         $"Found a line with length {objectFields.Length} instead of the required 18.", filePath,
                         currentLine);
+                }
+
                 VDModel currentObject = new VDModel
                 {
                     Fylkenummer = objectFields[0],
@@ -119,7 +129,7 @@ namespace LaviniaApi.Utilities
                 };
                 objects.Add(currentObject);
             }
-
+            file.Dispose();
             return objects.ToArray<VDModel>();
         }
     }

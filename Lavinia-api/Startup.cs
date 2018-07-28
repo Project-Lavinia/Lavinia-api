@@ -13,7 +13,8 @@ namespace LaviniaApi
 {
     public class Startup
     {
-        IHostingEnvironment _env;
+        private IHostingEnvironment _env;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -40,10 +41,14 @@ namespace LaviniaApi
                 {
                     options.IncludeXmlComments(xmlDocFile);
                 }
-                options.SwaggerDoc("v1.0.0", new Info {
+
+                options.SwaggerDoc("v1.0.0", new Info
+                {
                     Title = "API for election result data",
                     Version = "v1.0.0",
-                    Description = "This API provides the back-end for calculating seats and data for the Mandater project." });
+                    Description =
+                        "This API provides the back-end for calculating seats and data for the Mandater project."
+                });
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             SetUpDatabase(services);
@@ -53,13 +58,9 @@ namespace LaviniaApi
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ElectionContext context)
         {
             _env = env;
-            app.UseSwagger(options =>
-            {
-                
-            });
+            app.UseSwagger(options => { });
             app.UseSwaggerUI(options =>
             {
-                //options.SwaggerEndpoint("/swagger/v0.1.0/swagger.json", "API for election result data");
                 options.SwaggerEndpoint("/swagger/v1.0.0/swagger.json", "API for election result data");
             });
             app.UseStaticFiles();
@@ -69,7 +70,6 @@ namespace LaviniaApi
 
         private static void SetUpDatabase(IServiceCollection services)
         {
-            //services.AddDbContext<VDContext>(options => options.UseInMemoryDatabase("Testing"));
             services.AddDbContext<ElectionContext>(options => options.UseInMemoryDatabase("ModelDB"));
         }
     }

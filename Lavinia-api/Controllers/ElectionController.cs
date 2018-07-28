@@ -49,6 +49,7 @@ namespace LaviniaApi.Controllers
             try
             {
                 if (deep.HasValue && deep.Value)
+                {
                     return Ok(
                         _context.Countries
                             .Include(c => c.ElectionTypes)
@@ -56,6 +57,8 @@ namespace LaviniaApi.Controllers
                             .ThenInclude(c => c.Counties)
                             .ThenInclude(c => c.Results)
                     );
+                }
+
                 return Ok(_context.Countries);
             }
             catch (Exception e)
@@ -82,18 +85,21 @@ namespace LaviniaApi.Controllers
             try
             {
                 if (deep.HasValue && deep.Value)
+                {
                     return Ok(
                         _context.Countries
                             .Include(c => c.ElectionTypes)
                             .ThenInclude(c => c.Elections)
                             .ThenInclude(c => c.Counties)
                             .ThenInclude(c => c.Results)
-                            .First(c => c.CountryCode == countryCode.ToUpper())
+                            .First(c => c.CountryCode == countryCode.ToUpperInvariant())
                     );
+                }
+
                 return Ok(
                     _context.Countries
                         .Include(c => c.ElectionTypes)
-                        .First(c => c.CountryCode == countryCode.ToUpper())
+                        .First(c => c.CountryCode == countryCode.ToUpperInvariant())
                 );
             }
             catch (Exception e)
@@ -121,22 +127,24 @@ namespace LaviniaApi.Controllers
             try
             {
                 if (deep.HasValue && deep.Value)
+                {
                     return Ok(
                         _context.Countries
                             .Include(c => c.ElectionTypes)
                             .ThenInclude(c => c.Elections)
                             .ThenInclude(c => c.Counties)
                             .ThenInclude(c => c.Results)
-                            .First(c => c.CountryCode == countryCode.ToUpper())
+                            .First(c => c.CountryCode == countryCode.ToUpperInvariant())
                             .ElectionTypes
                             .First(c => c.InternationalName == ETNameUtilities.CodeToName(electionCode))
                     );
+                }
 
                 return Ok(
                     _context.Countries
                         .Include(c => c.ElectionTypes)
                         .ThenInclude(c => c.Elections)
-                        .First(c => c.CountryCode == countryCode.ToUpper())
+                        .First(c => c.CountryCode == countryCode.ToUpperInvariant())
                         .ElectionTypes
                         .First(c => c.InternationalName == ETNameUtilities.CodeToName(electionCode))
                 );
@@ -167,24 +175,27 @@ namespace LaviniaApi.Controllers
             try
             {
                 if (deep.HasValue && deep.Value)
+                {
                     return Ok(
                         _context.Countries
                             .Include(c => c.ElectionTypes)
                             .ThenInclude(c => c.Elections)
                             .ThenInclude(c => c.Counties)
                             .ThenInclude(c => c.Results)
-                            .First(c => c.CountryCode == countryCode.ToUpper())
+                            .First(c => c.CountryCode == countryCode.ToUpperInvariant())
                             .ElectionTypes
                             .First(c => c.InternationalName == ETNameUtilities.CodeToName(electionCode))
                             .Elections
                             .First(c => c.Year == year)
                     );
+                }
+
                 return Ok(
                     _context.Countries
                         .Include(c => c.ElectionTypes)
                         .ThenInclude(c => c.Elections)
                         .ThenInclude(c => c.Counties)
-                        .First(c => c.CountryCode == countryCode.ToUpper())
+                        .First(c => c.CountryCode == countryCode.ToUpperInvariant())
                         .ElectionTypes
                         .First(c => c.InternationalName == ETNameUtilities.CodeToName(electionCode))
                         .Elections

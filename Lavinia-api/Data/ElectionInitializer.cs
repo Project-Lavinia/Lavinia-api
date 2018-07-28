@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace LaviniaApi.Data
 {
-    public class ElectionInitializer
+    public static class ElectionInitializer
     {
         /// <summary>
         ///     Initializes the database, if the db is empty this method will build a model to seed it.
@@ -21,7 +21,10 @@ namespace LaviniaApi.Data
 
             // Make sure the DB is ready and empty
             context.Database.EnsureCreated();
-            if (context.Countries.Any()) return;
+            if (context.Countries.Any())
+            {
+                return;
+            }
 
             // Catch all Argument/KeyNotFound/CsvFileFormatExceptions thrown by model validation
             try
@@ -34,8 +37,10 @@ namespace LaviniaApi.Data
                 // Iterate through countries
                 string[] countryDirectories = Directory.GetDirectories(root);
                 if (countryDirectories.Length != countryModels.Count)
+                {
                     throw new ArgumentException(
                         $"The number of directories in {root} does not match the number found in States.csv");
+                }
 
                 foreach (Country country in countryModels)
                 {
@@ -68,7 +73,9 @@ namespace LaviniaApi.Data
         {
             // Check if the countryId is valid
             if (!Directory.Exists(root))
+            {
                 throw new KeyNotFoundException($"Could not find any directory with the path: {root}");
+            }
 
             // Get a list of ElectionTypeFormats
             List<ElectionTypeFormat> electionTypes =
@@ -81,8 +88,10 @@ namespace LaviniaApi.Data
             // Iterate through the country's election types
             string[] electionTypeFiles = Directory.GetDirectories(root);
             if (electionTypeFiles.Length != electionTypes.Count)
+            {
                 throw new ArgumentException(
                     $"The number of directories in {root} does not match the number found in ElectionTypes.csv.");
+            }
 
             foreach (ElectionType electionTypeModel in electionTypeModels)
             {
@@ -98,7 +107,9 @@ namespace LaviniaApi.Data
         {
             // Check if the electionTypeId is valid
             if (!Directory.Exists(root))
+            {
                 throw new KeyNotFoundException($"Could not find any directory with the path: {root}");
+            }
 
             List<ElectionFormat> elections =
                 CsvUtilities.CsvToList<ElectionFormat>(Path.Combine(root, "Elections.csv"));
@@ -106,8 +117,10 @@ namespace LaviniaApi.Data
 
             string[] electionFiles = Directory.GetFiles(root);
             if (electionFiles.Length != elections.Count + 1)
+            {
                 throw new ArgumentException(
                     $"The number of elections in {root} does not match the number found in Elections.csv.");
+            }
 
             // Iterate through the elections
             foreach (Election electionModel in electionModels)

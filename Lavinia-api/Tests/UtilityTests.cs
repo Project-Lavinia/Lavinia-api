@@ -40,8 +40,9 @@ namespace Mandater.Tests
         public void ReadFirstObjectTest()
         {
             StreamReader file = new StreamReader(filePath);
-            string actualHeaderString = file.ReadLine();
+            file.ReadLine(); // Skip the header string
             string objectLine = file.ReadLine();
+            file.Dispose();
             string[] objectFields = objectLine.Split(";");
             VDModel vdModel = new VDModel
             {
@@ -72,7 +73,7 @@ namespace Mandater.Tests
         {
             StreamReader file = new StreamReader(filePath);
             string actualHeaderString = file.ReadLine();
-            string lineToConvert = file.ReadLine();
+            file.Dispose();
             Assert.Equal(expectedHeaderString, actualHeaderString);
         }
     }
