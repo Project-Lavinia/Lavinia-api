@@ -16,7 +16,10 @@ namespace Mandater.Tests
         {
             // Testing attempt on adding model with missing data
             Country country = new Country {InternationalName = internationalName, CountryCode = shortName};
-            if (useNull) country = null;
+            if (useNull)
+            {
+                country = null;
+            }
 
             Assert.Throws<ArgumentException>(() => CustomValidation.ValidateCountry(country, new HashSet<int>()));
         }

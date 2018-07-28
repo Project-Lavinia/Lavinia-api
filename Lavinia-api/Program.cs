@@ -18,7 +18,7 @@ namespace LaviniaApi
                 try
                 {
                     ElectionContext context = services.GetRequiredService<ElectionContext>();
-                    ILogger logger = services.GetRequiredService <ILogger<Program>>();
+                    ILogger logger = services.GetRequiredService<ILogger<Program>>();
                     logger.Log(LogLevel.Information, "Called 1!");
                     ElectionInitializer.Initialize(context, logger);
                 }
@@ -28,12 +28,15 @@ namespace LaviniaApi
                     logger.LogError(ex, "An error occurred while seeding ElectionContext");
                 }
             }
+
             host.Run();
         }
 
-        private static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+        private static IWebHost BuildWebHost(string[] args)
+        {
+            return WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .Build();
+        }
     }
 }

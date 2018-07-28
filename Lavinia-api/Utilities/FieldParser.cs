@@ -31,8 +31,11 @@
         {
             string[] fields = line.Split(Separator);
             if (fields.Length != expectedLength)
+            {
                 throw new CsvFileFormatException(
                     $"The line has incorrect length, expected: {expectedLength}, got: {line.Length}.", File, line);
+            }
+
             Line = line;
             return fields;
         }
@@ -47,7 +50,10 @@
         public Algorithm ParseAlgorithm(string value, string field)
         {
             if (!AlgorithmUtilities.TryParse(value, out Algorithm algorithm))
+            {
                 throw new CsvFileFormatException($"The {field} \"{value}\" is not a valid algorithm name.", File, Line);
+            }
+
             return algorithm;
         }
 
@@ -61,7 +67,10 @@
         public int ParseInt(string value, string field)
         {
             if (!int.TryParse(value, out int result))
+            {
                 throw new CsvFileFormatException($"The {field} \"{value}\" is not a valid integer.", File, Line);
+            }
+
             return result;
         }
 
@@ -75,7 +84,10 @@
         public double ParseDouble(string value, string field)
         {
             if (!double.TryParse(value, out double result))
+            {
                 throw new CsvFileFormatException($"The {field} \"{value}\" is not a valid double.", File, Line);
+            }
+
             return result;
         }
 
@@ -93,13 +105,19 @@
         public string ParseString(string value, string field, int minLength, int maxLength)
         {
             if (value.Length < minLength)
+            {
                 throw new CsvFileFormatException(
                     $"The {field} \"{value}\" is shorter than the minimum length. Expected a value >= {minLength}, got: {value.Length}",
                     File, Line);
+            }
+
             if (maxLength != -1 && value.Length > maxLength)
+            {
                 throw new CsvFileFormatException(
                     $"The field {field} \"{value}\" is longer than the maximum length. Expected a value < {maxLength}, got: {value.Length}",
                     File, Line);
+            }
+
             return value;
         }
     }

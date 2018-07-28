@@ -55,11 +55,20 @@ namespace LaviniaApi.Utilities
         {
             string curName = name.ToLower();
 
-            if (ModifiedSainteLaguesSet.Contains(curName)) return Algorithm.ModifiedSainteLagues;
+            if (ModifiedSainteLaguesSet.Contains(curName))
+            {
+                return Algorithm.ModifiedSainteLagues;
+            }
 
-            if (SainteLaguesSet.Contains(curName)) return Algorithm.SainteLagues;
+            if (SainteLaguesSet.Contains(curName))
+            {
+                return Algorithm.SainteLagues;
+            }
 
-            if (DHondtSet.Contains(curName)) return Algorithm.DHondt;
+            if (DHondtSet.Contains(curName))
+            {
+                return Algorithm.DHondt;
+            }
 
             throw new ArgumentException($"{name} is not a valid algorithm name.");
         }

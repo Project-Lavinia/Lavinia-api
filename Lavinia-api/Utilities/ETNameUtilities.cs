@@ -25,7 +25,10 @@ namespace LaviniaApi.Utilities
         {
             name = name.ToLower();
 
-            if (ParliamentaryElectionSet.Contains(name)) return PARLIAMENTARY_ELECTION_CODE;
+            if (ParliamentaryElectionSet.Contains(name))
+            {
+                return PARLIAMENTARY_ELECTION_CODE;
+            }
 
             throw new ArgumentException($"{name} is not a valid ElectionType name.");
         }

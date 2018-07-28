@@ -49,6 +49,7 @@ namespace LaviniaApi.Controllers
             try
             {
                 if (deep.HasValue && deep.Value)
+                {
                     return Ok(
                         _context.Countries
                             .Include(c => c.ElectionTypes)
@@ -56,6 +57,8 @@ namespace LaviniaApi.Controllers
                             .ThenInclude(c => c.Counties)
                             .ThenInclude(c => c.Results)
                     );
+                }
+
                 return Ok(_context.Countries);
             }
             catch (Exception e)
@@ -82,6 +85,7 @@ namespace LaviniaApi.Controllers
             try
             {
                 if (deep.HasValue && deep.Value)
+                {
                     return Ok(
                         _context.Countries
                             .Include(c => c.ElectionTypes)
@@ -90,6 +94,8 @@ namespace LaviniaApi.Controllers
                             .ThenInclude(c => c.Results)
                             .First(c => c.CountryCode == countryCode.ToUpper())
                     );
+                }
+
                 return Ok(
                     _context.Countries
                         .Include(c => c.ElectionTypes)
@@ -121,6 +127,7 @@ namespace LaviniaApi.Controllers
             try
             {
                 if (deep.HasValue && deep.Value)
+                {
                     return Ok(
                         _context.Countries
                             .Include(c => c.ElectionTypes)
@@ -131,6 +138,7 @@ namespace LaviniaApi.Controllers
                             .ElectionTypes
                             .First(c => c.InternationalName == ETNameUtilities.CodeToName(electionCode))
                     );
+                }
 
                 return Ok(
                     _context.Countries
@@ -167,6 +175,7 @@ namespace LaviniaApi.Controllers
             try
             {
                 if (deep.HasValue && deep.Value)
+                {
                     return Ok(
                         _context.Countries
                             .Include(c => c.ElectionTypes)
@@ -179,6 +188,8 @@ namespace LaviniaApi.Controllers
                             .Elections
                             .First(c => c.Year == year)
                     );
+                }
+
                 return Ok(
                     _context.Countries
                         .Include(c => c.ElectionTypes)
