@@ -61,7 +61,6 @@ namespace LaviniaApi
             app.UseSwagger(options => { });
             app.UseSwaggerUI(options =>
             {
-                //options.SwaggerEndpoint("/swagger/v0.1.0/swagger.json", "API for election result data");
                 options.SwaggerEndpoint("/swagger/v1.0.0/swagger.json", "API for election result data");
             });
             app.UseStaticFiles();
@@ -71,7 +70,6 @@ namespace LaviniaApi
 
         private static void SetUpDatabase(IServiceCollection services)
         {
-            //services.AddDbContext<VDContext>(options => options.UseInMemoryDatabase("Testing"));
             services.AddDbContext<ElectionContext>(options => options.UseInMemoryDatabase("ModelDB"));
         }
     }
