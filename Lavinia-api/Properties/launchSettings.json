@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Lavinia_api": {
+    "LaviniaApi": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
