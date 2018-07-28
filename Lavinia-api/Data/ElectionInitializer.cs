@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace LaviniaApi.Data
 {
-    public class ElectionInitializer
+    public static class ElectionInitializer
     {
         /// <summary>
         ///     Initializes the database, if the db is empty this method will build a model to seed it.
