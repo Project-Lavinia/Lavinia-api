@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace LaviniaApi.Utilities
 {
-    public class ETNameUtilities
+    public static class ETNameUtilities
     {
         // Our internal textual ElectionType codes
         private const string PARLIAMENTARY_ELECTION_CODE = "pe";
