@@ -6,13 +6,13 @@ using Xunit;
 
 namespace Mandater.Tests
 {
-    public class CustomValidationTests
+    public static class CustomValidationTests
     {
         [Theory]
         [InlineData(true, "Norway", "NO")]
         [InlineData(false, null, "NO")]
         [InlineData(false, "Norway", null)]
-        public void ValidateCountryMissingDataTest(bool useNull, string internationalName, string shortName)
+        public static void ValidateCountryMissingDataTest(bool useNull, string internationalName, string shortName)
         {
             // Testing attempt on adding model with missing data
             Country country = new Country {InternationalName = internationalName, CountryCode = shortName};
@@ -38,7 +38,7 @@ namespace Mandater.Tests
         }
 
         [Fact]
-        public void ValidateCountryTest()
+        public static void ValidateCountryTest()
         {
             Country country = GetCountry(1);
             CustomValidation.ValidateCountry(country, new HashSet<int>());
