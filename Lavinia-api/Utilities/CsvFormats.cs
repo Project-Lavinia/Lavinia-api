@@ -113,8 +113,8 @@
     /// </summary>
     public class CountryFormat : ICsvFormat<CountryFormat>
     {
-        public string CountryCode;
-        public string InternationalName;
+        public string CountryCode { get; private set; }
+        public string InternationalName { get; private set; }
 
         /// <summary>
         ///     Parses a line following the CountryFormat and returns an CountryFormat object
@@ -141,8 +141,8 @@
     /// </summary>
     public class ElectionTypeFormat : ICsvFormat<ElectionTypeFormat>
     {
-        public string ElectionTypeCode;
-        public string InternationalName;
+        public string ElectionTypeCode { get; private set; }
+        public string InternationalName { get; private set; }
 
         /// <summary>
         ///     Parses a line following the ElectionTypeFormat and returns an ElectionTypeFormat object
@@ -169,11 +169,11 @@
     /// </summary>
     public class CountyDataFormat : ICsvFormat<CountyDataFormat>
     {
-        public double Areal;
-        public string County;
-        public int Population;
-        public int Seats;
-        public int Year;
+        public double Areal { get; private set; }
+        public string County { get; private set; }
+        public int Population { get; private set; }
+        public int Seats { get; private set; }
+        public int Year { get; private set; }
 
         /// <summary>
         ///     Parses a line following the CountyDataFormat and returns an CountyDataFormat object
