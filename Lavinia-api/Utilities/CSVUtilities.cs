@@ -27,7 +27,7 @@ namespace LaviniaApi.Utilities
             {
                 objects.Add(new T().Parse(currentLine, parser));
             }
-
+            file.Dispose();
             return objects;
         }
 
@@ -78,7 +78,7 @@ namespace LaviniaApi.Utilities
                 };
                 objects.Add(currentObject);
             }
-
+            file.Dispose();
             return objects;
         }
 
@@ -129,7 +129,7 @@ namespace LaviniaApi.Utilities
                 };
                 objects.Add(currentObject);
             }
-
+            file.Dispose();
             return objects.ToArray<VDModel>();
         }
     }
