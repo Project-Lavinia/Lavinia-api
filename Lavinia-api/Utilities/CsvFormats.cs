@@ -169,11 +169,11 @@
     /// </summary>
     public class CountyDataFormat : ICsvFormat<CountyDataFormat>
     {
-        public double Area { get; set; }
-        public string County;
-        public int Population;
-        public int Seats;
-        public int Year;
+        public double Area { get; private set; }
+        public string County { get; private set; }
+        public int Population { get; private set; }
+        public int Seats { get; private set; }
+        public int Year { get; private set; }
 
         /// <summary>
         ///     Parses a line following the CountyDataFormat and returns an CountyDataFormat object
