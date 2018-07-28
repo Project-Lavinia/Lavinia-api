@@ -124,7 +124,7 @@ namespace LaviniaApi.Data
 
             if (double.IsNaN(countyData.Areal))
             {
-                throw new ArgumentException("CountyData.Areal cannot be null.");
+                throw new ArgumentException("CountyData.Area cannot be null.");
             }
 
 

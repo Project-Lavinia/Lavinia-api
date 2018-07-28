@@ -169,11 +169,11 @@
     /// </summary>
     public class CountyDataFormat : ICsvFormat<CountyDataFormat>
     {
-        public double Areal { get; private set; }
-        public string County { get; private set; }
-        public int Population { get; private set; }
-        public int Seats { get; private set; }
-        public int Year { get; private set; }
+        public double Area { get; set; }
+        public string County;
+        public int Population;
+        public int Seats;
+        public int Year;
 
         /// <summary>
         ///     Parses a line following the CountyDataFormat and returns an CountyDataFormat object
@@ -186,7 +186,7 @@
             string[] fields = parser.ParseLength(line, 5);
             int year = parser.ParseInt(fields[0], "Year");
             string county = parser.ParseString(fields[1], "County", 3, 20);
-            double areal = parser.ParseDouble(fields[2], "Areal");
+            double areal = parser.ParseDouble(fields[2], "Area");
             int population = parser.ParseInt(fields[3], "Population");
             int seats = parser.ParseInt(fields[4], "Seats");
 
@@ -194,7 +194,7 @@
             {
                 Year = year,
                 County = county,
-                Areal = areal,
+                Area = areal,
                 Population = population,
                 Seats = seats
             };
