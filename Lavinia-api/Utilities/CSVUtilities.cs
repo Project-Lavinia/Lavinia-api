@@ -21,7 +21,7 @@ namespace LaviniaApi.Utilities
             List<T> objects = new List<T>();
             StreamReader file = new StreamReader(filePath);
             FieldParser parser = new FieldParser(filePath, ";");
-            string actualHeaderString = file.ReadLine(); // Skip
+            file.ReadLine(); // Skip header string
             string currentLine;
             while ((currentLine = file.ReadLine()) != null)
             {
@@ -44,7 +44,7 @@ namespace LaviniaApi.Utilities
         {
             List<VDModel> objects = new List<VDModel>();
             StreamReader file = new StreamReader(filePath);
-            string actualHeaderString = file.ReadLine(); // Skip
+            file.ReadLine(); // Skip header string
             string currentLine;
             while ((currentLine = file.ReadLine()) != null)
             {
@@ -95,7 +95,7 @@ namespace LaviniaApi.Utilities
         {
             List<VDModel> objects = new List<VDModel>();
             StreamReader file = new StreamReader(filePath);
-            string actualHeaderString = file.ReadLine(); // Skip
+            file.ReadLine(); // Skip header string
             string currentLine;
             while ((currentLine = file.ReadLine()) != null)
             {
