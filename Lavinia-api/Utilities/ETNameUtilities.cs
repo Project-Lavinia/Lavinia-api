@@ -41,13 +41,12 @@ namespace LaviniaApi.Utilities
         /// <returns>The full name of the ElectionType</returns>
         public static string CodeToName(string code)
         {
-            switch (code)
+            if (code == PARLIAMENTARY_ELECTION_CODE)
             {
-                case PARLIAMENTARY_ELECTION_CODE:
-                    return PARLIAMENTARY_ELECTION_NAME;
-                default:
-                    throw new ArgumentException($"{code} is not recognized.");
+                return PARLIAMENTARY_ELECTION_NAME;
             }
+
+            throw new ArgumentException($"{code} is not recognized.");
         }
 
         /// <summary>
