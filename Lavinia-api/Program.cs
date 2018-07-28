@@ -19,7 +19,6 @@ namespace LaviniaApi
                 {
                     ElectionContext context = services.GetRequiredService<ElectionContext>();
                     ILogger logger = services.GetRequiredService<ILogger<Program>>();
-                    logger.Log(LogLevel.Information, "Called 1!");
                     ElectionInitializer.Initialize(context, logger);
                 }
                 catch (Exception ex)
