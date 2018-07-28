@@ -13,7 +13,7 @@ namespace LaviniaApi.Utilities
 
         // Our accepted names for the different algorithms
         private static readonly string[] ParliamentaryElectionSet =
-            {PARLIAMENTARY_ELECTION_CODE.ToLower(), PARLIAMENTARY_ELECTION_NAME.ToLower(), "stortingsvalg"};
+            {PARLIAMENTARY_ELECTION_CODE.ToLowerInvariant(), PARLIAMENTARY_ELECTION_NAME.ToLowerInvariant(), "stortingsvalg"};
 
         /// <summary>
         ///     Accepts a string and returns the matching code.
@@ -23,7 +23,7 @@ namespace LaviniaApi.Utilities
         /// <returns>A string code</returns>
         private static string NameToCode(string name)
         {
-            name = name.ToLower();
+            name = name.ToLowerInvariant();
 
             if (ParliamentaryElectionSet.Contains(name))
             {

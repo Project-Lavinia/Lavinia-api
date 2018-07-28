@@ -41,9 +41,9 @@ namespace LaviniaApi.Utilities
         private const string dHondt = "d'Hondt";
 
         // Our accepted names for the different algorithms
-        private static readonly string[] ModifiedSainteLaguesSet = {modifiedSainteLagues.ToLower()};
-        private static readonly string[] SainteLaguesSet = {sainteLagues.ToLower()};
-        private static readonly string[] DHondtSet = {dHondt.ToLower()};
+        private static readonly string[] ModifiedSainteLaguesSet = {modifiedSainteLagues.ToLowerInvariant()};
+        private static readonly string[] SainteLaguesSet = {sainteLagues.ToLowerInvariant()};
+        private static readonly string[] DHondtSet = {dHondt.ToLowerInvariant()};
 
         /// <summary>
         ///     Accepts a string and returns the matching algorithm enum.
@@ -53,7 +53,7 @@ namespace LaviniaApi.Utilities
         /// <returns>An algorithm enum</returns>
         private static Algorithm StringToAlgorithm(string name)
         {
-            string curName = name.ToLower();
+            string curName = name.ToLowerInvariant();
 
             if (ModifiedSainteLaguesSet.Contains(curName))
             {
@@ -101,7 +101,7 @@ namespace LaviniaApi.Utilities
         /// <returns>True if we have an enum for the algorithm, false otherwise.</returns>
         private static bool IsAlgorithm(string name)
         {
-            string curName = name.ToLower();
+            string curName = name.ToLowerInvariant();
             return ModifiedSainteLaguesSet.Contains(curName)
                    || SainteLaguesSet.Contains(curName)
                    || DHondtSet.Contains(curName);
