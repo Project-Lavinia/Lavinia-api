@@ -73,7 +73,6 @@ namespace Mandater.Tests
         {
             StreamReader file = new StreamReader(filePath);
             string actualHeaderString = file.ReadLine();
-            string lineToConvert = file.ReadLine();
             file.Dispose();
             Assert.Equal(expectedHeaderString, actualHeaderString);
         }
