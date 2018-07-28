@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace LaviniaApi.Utilities
 {
-    public class ETNameUtilities
+    public static class ETNameUtilities
     {
         // Our internal textual ElectionType codes
         private const string PARLIAMENTARY_ELECTION_CODE = "pe";
@@ -13,7 +13,7 @@ namespace LaviniaApi.Utilities
 
         // Our accepted names for the different algorithms
         private static readonly string[] ParliamentaryElectionSet =
-            {PARLIAMENTARY_ELECTION_CODE.ToLower(), PARLIAMENTARY_ELECTION_NAME.ToLower(), "stortingsvalg"};
+            {PARLIAMENTARY_ELECTION_CODE.ToLowerInvariant(), PARLIAMENTARY_ELECTION_NAME.ToLowerInvariant(), "stortingsvalg"};
 
         /// <summary>
         ///     Accepts a string and returns the matching code.
@@ -23,9 +23,12 @@ namespace LaviniaApi.Utilities
         /// <returns>A string code</returns>
         private static string NameToCode(string name)
         {
-            name = name.ToLower();
+            string lowerName = name.ToLowerInvariant();
 
-            if (ParliamentaryElectionSet.Contains(name)) return PARLIAMENTARY_ELECTION_CODE;
+            if (ParliamentaryElectionSet.Contains(lowerName))
+            {
+                return PARLIAMENTARY_ELECTION_CODE;
+            }
 
             throw new ArgumentException($"{name} is not a valid ElectionType name.");
         }
@@ -38,13 +41,12 @@ namespace LaviniaApi.Utilities
         /// <returns>The full name of the ElectionType</returns>
         public static string CodeToName(string code)
         {
-            switch (code)
+            if (code == PARLIAMENTARY_ELECTION_CODE)
             {
-                case PARLIAMENTARY_ELECTION_CODE:
-                    return PARLIAMENTARY_ELECTION_NAME;
-                default:
-                    throw new ArgumentException($"{code} is not recognized.");
+                return PARLIAMENTARY_ELECTION_NAME;
             }
+
+            throw new ArgumentException($"{code} is not recognized.");
         }
 
         /// <summary>

@@ -86,6 +86,7 @@ namespace LaviniaApi.Utilities
         {
             Dictionary<string, County> countyModels = new Dictionary<string, County>();
             foreach (ResultFormat resultFormat in results)
+            {
                 if (!countyModels.ContainsKey(resultFormat.Fylkenavn))
                 {
                     CountyDataFormat curCountyData = countyData.Single(cD => cD.County.Equals(resultFormat.Fylkenavn));
@@ -98,6 +99,7 @@ namespace LaviniaApi.Utilities
                     };
                     countyModels.Add(resultFormat.Fylkenavn, countyModel);
                 }
+            }
 
             return countyModels.Values.ToList();
         }
