@@ -37,9 +37,9 @@ namespace LaviniaApi.Utilities
             Algorithm algorithm = parser.ParseAlgorithm(fields[1], "Algorithm");
             double firstDivisor = parser.ParseDouble(fields[2], "FirstDivisor");
             double threshold = parser.ParseDouble(fields[3], "Threshold");
-            double areaFactor = parser.ParseDouble(fields[4], "Threshold");
-            int seats = parser.ParseInt(fields[4], "Seats");
-            int levelingSeats = parser.ParseInt(fields[5], "LevelingSeats");
+            double areaFactor = parser.ParseDouble(fields[4], "AreaFactor");
+            int seats = parser.ParseInt(fields[5], "Seats");
+            int levelingSeats = parser.ParseInt(fields[6], "LevelingSeats");
 
             return new ElectionFormat
             {
