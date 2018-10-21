@@ -1,5 +1,8 @@
 ﻿// ReSharper disable StringLiteralTypo
 // ReSharper disable IdentifierTypo
+
+using Microsoft.AspNetCore.Identity.UI.Pages.Internal.Account.Manage;
+
 namespace LaviniaApi.Utilities
 {
     public interface ICsvFormat<out T>
@@ -17,6 +20,7 @@ namespace LaviniaApi.Utilities
         public Algorithm Algorithm { get; private set; }
         public double FirstDivisor { get; private set; }
         public double Threshold { get; private set; }
+        public double AreaFactor { get; private set; }
         public int Seats { get; private set; }
         public int LevelingSeats { get; private set; }
 
@@ -33,6 +37,7 @@ namespace LaviniaApi.Utilities
             Algorithm algorithm = parser.ParseAlgorithm(fields[1], "Algorithm");
             double firstDivisor = parser.ParseDouble(fields[2], "FirstDivisor");
             double threshold = parser.ParseDouble(fields[3], "Threshold");
+            double areaFactor = parser.ParseDouble(fields[4], "Threshold");
             int seats = parser.ParseInt(fields[4], "Seats");
             int levelingSeats = parser.ParseInt(fields[5], "LevelingSeats");
 
@@ -42,6 +47,7 @@ namespace LaviniaApi.Utilities
                 Algorithm = algorithm,
                 FirstDivisor = firstDivisor,
                 Threshold = threshold,
+                AreaFactor = areaFactor,
                 Seats = seats,
                 LevelingSeats = levelingSeats
             };
