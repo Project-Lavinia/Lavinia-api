@@ -13,10 +13,18 @@ namespace LaviniaApi.Data
         {
         }
 
+        // API v1
         public DbSet<Country> Countries { get; set; }
+
+        // API v2
+        public DbSet<PartyVotes> PartyVotes { get; set; }
+        public DbSet<DistrictMetrics> DistrictMetrics { get; set; }
+        public DbSet<ElectionParameters> ElectionParameters { get; set; }
+        public DbSet<AlgorithmParameters> AlgorithmParameters { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // API v1
             modelBuilder.Entity<Country>()
                 .HasKey(c => c.CountryCode);
             modelBuilder.Entity<Country>()
@@ -33,6 +41,8 @@ namespace LaviniaApi.Data
                 .HasAlternateKey(r => r.ResultId);
             modelBuilder.Entity<CountyData>()
                 .HasAlternateKey(cD => cD.CountyDataId);
+
+            // API v2
         }
     }
 }
