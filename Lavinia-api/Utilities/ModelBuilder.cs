@@ -6,6 +6,7 @@ namespace LaviniaApi.Utilities
 {
     public static class ModelBuilder
     {
+        // API v1
         /// <summary>
         ///     Builds a list of Country object based on a list of CountryFormat objects
         /// </summary>
@@ -125,6 +126,17 @@ namespace LaviniaApi.Utilities
             }
 
             return resultModels;
+        }
+
+        // API v2
+        /// <summary>
+        /// Takes a list of CountyDataFormat and builds a list of DistrictMetrics
+        /// </summary>
+        /// <param name="countyData">A list of CountyDataFormat</param>
+        /// <returns>A list of DistrictMetrics</returns>
+        public static List<DistrictMetrics> BuildDistrictMetrics(IEnumerable<CountyDataFormat> countyData)
+        {
+            return countyData.Select(data => new DistrictMetrics {Area = data.Area, District = data.County, ElectionYear = data.Year, Population = data.Population}).ToList();
         }
     }
 }

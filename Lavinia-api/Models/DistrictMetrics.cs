@@ -10,7 +10,7 @@ namespace LaviniaApi.Models
     {
         public string District { get; set; }
         public int ElectionYear { get; set; }
-        public int Area { get; set; }
+        public double Area { get; set; }
         public int Population { get; set; }
     }
 }

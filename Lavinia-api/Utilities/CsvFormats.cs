@@ -1,10 +1,13 @@
-﻿namespace LaviniaApi.Utilities
+﻿// ReSharper disable StringLiteralTypo
+// ReSharper disable IdentifierTypo
+namespace LaviniaApi.Utilities
 {
     public interface ICsvFormat<out T>
     {
         T Parse(string line, FieldParser parser);
     }
 
+    // API v1
     /// <summary>
     ///     Represents the parsed values of a line from the Elections.csv file
     /// </summary>
@@ -200,4 +203,6 @@
             };
         }
     }
+
+    // API v2
 }
