@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace LaviniaApi.Data
 {
+    // API v1
     public static class ElectionInitializer
     {
         /// <summary>
