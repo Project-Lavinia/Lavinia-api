@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace LaviniaApi.Models
 {
+    // API v2
     public class DistrictMetrics
     {
         public string District { get; set; }

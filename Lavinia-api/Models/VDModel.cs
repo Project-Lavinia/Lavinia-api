@@ -1,5 +1,6 @@
 ﻿namespace LaviniaApi.Models
 {
+    // API v1
     public class VDModel
     {
         public long Id { get; set; }
