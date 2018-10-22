@@ -32,7 +32,7 @@ namespace LaviniaApi.Utilities
         /// <returns>An ElectionFormat object containing the parsed values</returns>
         public ElectionFormat Parse(string line, FieldParser parser)
         {
-            string[] fields = parser.ParseLength(line, 6);
+            string[] fields = parser.ParseLength(line, 7);
             int year = parser.ParseInt(fields[0], "Year");
             Algorithm algorithm = parser.ParseAlgorithm(fields[1], "Algorithm");
             double firstDivisor = parser.ParseDouble(fields[2], "FirstDivisor");
