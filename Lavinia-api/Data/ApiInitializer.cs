@@ -79,7 +79,7 @@ namespace LaviniaApi.Data
         {
             IEnumerable<PartyVotes> partyVotes = new List<PartyVotes>();
 
-            string electionType = Path.GetDirectoryName(root);
+            string electionType = Path.GetFileName(root);
             string[] filePaths = Directory.GetFiles(root);
 
             foreach (string filePath in filePaths)
