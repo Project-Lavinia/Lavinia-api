@@ -8,16 +8,16 @@ namespace Mandater.Tests
 {
     public class UtilityTests
     {
-        private readonly string filePath = "../../../Data/Countries/NO/ParliamentaryElection/2017.csv";
+        private const string FilePath = "../../../Data/Countries/NO/PE/2017.csv";
 
-        private readonly string expectedHeaderString =
-            "Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnavn;Partikode;Partinavn;Oppslutning prosentvis;Antall stemmeberettigede;Antall forhåndsstemmer;Antall valgtingstemmer;Antall stemmer totalt;Endring % siste tilsvarende valg;Endring % siste ekvivalente valg;Antall mandater;Antall utjevningsmandater;";
+        private const string ExpectedHeaderString = "Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnavn;Partikode;Partinavn;Oppslutning prosentvis;Antall stemmeberettigede;Antall forhåndsstemmer;Antall valgtingstemmer;Antall stemmer totalt;Endring % siste tilsvarende valg;Endring % siste ekvivalente valg;Antall mandater;Antall utjevningsmandater;";
 
+        // API v1
         [Fact]
         public void ReadAllTest()
         {
             int expectedNumberOfVotes = 800947; // from VDs own site
-            List<VDModel> objects = CsvUtilities.CsvToList(filePath);
+            List<VDModel> objects = CsvUtilities.CsvToList(FilePath);
             List<VDModel> APResults = objects.FindAll(a => a.Partinavn == "Arbeiderpartiet");
             int actualNumberOfVotes = 0;
             foreach (VDModel element in APResults)
@@ -32,14 +32,15 @@ namespace Mandater.Tests
         [Fact]
         public void ReadFileTest()
         {
-            StreamReader streamReader = new StreamReader(filePath);
+            StreamReader streamReader = new StreamReader(FilePath);
             Assert.NotNull(streamReader);
         }
 
+        // API v1
         [Fact]
         public void ReadFirstObjectTest()
         {
-            StreamReader file = new StreamReader(filePath);
+            StreamReader file = new StreamReader(FilePath);
             file.ReadLine(); // Skip the header string
             string objectLine = file.ReadLine();
             file.Dispose();
@@ -71,10 +72,10 @@ namespace Mandater.Tests
         [Fact]
         public void ReadHeadersTest()
         {
-            StreamReader file = new StreamReader(filePath);
+            StreamReader file = new StreamReader(FilePath);
             string actualHeaderString = file.ReadLine();
             file.Dispose();
-            Assert.Equal(expectedHeaderString, actualHeaderString);
+            Assert.Equal(ExpectedHeaderString, actualHeaderString);
         }
     }
 }
