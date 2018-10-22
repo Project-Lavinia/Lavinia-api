@@ -1,0 +1,121 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using LaviniaApi.Data;
+using LaviniaApi.Models;
+using LaviniaApi.Utilities;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+
+namespace LaviniaApi.Controllers
+{
+    /// <inheritdoc />
+    /// <summary>
+    ///     Controller that serves data regarding political elections in various levels, for the Mandater project at the
+    ///     University of Oslo, department of political science
+    /// </summary>
+    [EnableCors("CorsPolicy")]
+    [Produces("application/json")]
+    [Route("api/v2.0.0/")]
+    public class ApiController : Controller
+    {
+        private readonly ElectionContext _context;
+        private readonly ILogger _logger;
+
+        /// <summary>
+        ///     Constructor for the ApiController, enables database access and logging
+        /// </summary>
+        /// <param name="context">ElectionContext object that allows access to the database</param>
+        /// <param name="logger">Logger that gives information about the context of a log message</param>
+        public ApiController(ElectionContext context, ILogger<ApiController> logger)
+        {
+            _context = context;
+            _logger = logger;
+        }
+
+
+        /// <summary>
+        ///     Returns either a shallow or a deep ElectionType object, where a deep object contains the entire hierarchy of data
+        ///     from the ElectionType down.
+        /// </summary>
+        /// <param name="year">Four digit election year</param>
+        /// <param name="partyCode">One to N character party code</param>
+        /// <param name="district">Name of district</param>
+        /// <returns>Party votes for a given year</returns>
+        [ProducesResponseType(typeof(IEnumerable<PartyVotes>), 200)]
+        [ProducesResponseType(500)]
+        [HttpGet("votes")]
+        public IActionResult GetVotes(int year = 0, string partyCode = "ALL", string district = "ALL")
+        {
+            _logger.LogInformation("GetVotes called with parameters year = " + year + ", partyCode = " + partyCode + ", district = " + district);
+            try
+            {
+                return Ok(
+                    _context.PartyVotes
+                        .Where(pV => (pV.ElectionYear == year || year == 0) && (pV.Party.Equals(partyCode) || partyCode.Equals("ALL")) && (pV.District.Equals(district) || district.Equals("ALL")))
+                );
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Something has gone terribly wrong in GetElectionType");
+                return new StatusCodeResult(500);
+            }
+        }
+
+        /// <summary>
+        ///     Returns either a shallow or a deep Election object, where a deep object contains the entire hierarchy of data from
+        ///     the Election down.
+        /// </summary>
+        /// <param name="deep">Optional boolean parameter, the method returns a deep list if true</param>
+        /// <param name="countryCode">Two character country code, ISO 3166-1 alpha-2</param>
+        /// <param name="electionCode">Two character election type code</param>
+        /// <param name="year">Four digit election year</param>
+        /// <returns>Election of a given type and a given year for a given country</returns>
+        [ProducesResponseType(typeof(Election), 200)]
+        [ProducesResponseType(500)]
+        [HttpGet("{countryCode}/{electionCode}/{year}")]
+        public IActionResult GetElection(string countryCode, string electionCode, int year, bool? deep)
+        {
+            _logger.LogInformation("GetElectionType called with parameters countryCode = " + countryCode +
+                                   ", electionCode = " + electionCode + ", year = " + year + ", deep = " + deep);
+            try
+            {
+                if (deep.HasValue && deep.Value)
+                {
+                    return Ok(
+                        _context.Countries
+                            .Include(c => c.ElectionTypes)
+                            .ThenInclude(c => c.Elections)
+                            .ThenInclude(c => c.Counties)
+                            .ThenInclude(c => c.Results)
+                            .First(c => c.CountryCode == countryCode.ToUpperInvariant())
+                            .ElectionTypes
+                            .First(c => c.InternationalName == ETNameUtilities.CodeToName(electionCode))
+                            .Elections
+                            .First(c => c.Year == year)
+                    );
+                }
+
+                return Ok(
+                    _context.Countries
+                        .Include(c => c.ElectionTypes)
+                        .ThenInclude(c => c.Elections)
+                        .ThenInclude(c => c.Counties)
+                        .First(c => c.CountryCode == countryCode.ToUpperInvariant())
+                        .ElectionTypes
+                        .First(c => c.InternationalName == ETNameUtilities.CodeToName(electionCode))
+                        .Elections
+                        .First(c => c.Year == year)
+                );
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Something has gone terribly wrong in GetElection");
+                return new StatusCodeResult(500);
+            }
+        }
+    }
+}
