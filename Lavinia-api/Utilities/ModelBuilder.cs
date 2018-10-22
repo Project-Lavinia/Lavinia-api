@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using LaviniaApi.Models;
 
@@ -134,9 +135,36 @@ namespace LaviniaApi.Utilities
         /// </summary>
         /// <param name="countyData">A list of CountyDataFormat</param>
         /// <returns>A list of DistrictMetrics</returns>
-        public static List<DistrictMetrics> BuildDistrictMetrics(IEnumerable<CountyDataFormat> countyData)
+        public static IEnumerable<DistrictMetrics> BuildDistrictMetrics(IEnumerable<CountyDataFormat> countyData)
         {
-            return countyData.Select(data => new DistrictMetrics {Area = data.Area, District = data.County, ElectionYear = data.Year, Population = data.Population}).ToList();
+            return countyData.Select(data => new DistrictMetrics {Area = data.Area, District = data.County, ElectionYear = data.Year, Population = data.Population});
+        }
+
+        public static IEnumerable<ElectionParameters> BuildElectionParameters(IEnumerable<ElectionFormat> electionData, string electionType)
+        {
+            return electionData.Select(data => new ElectionParameters
+            {
+                Algorithm = BuildAlgorithmParameters(data), AreaFactor = data.AreaFactor, DistrictSeats = data.Seats,
+                ElectionType = electionType, ElectionYear = data.Year, LevelingSeats = data.LevelingSeats,
+                Threshold = data.Threshold
+            });
+        }
+
+        private static AlgorithmParameters BuildAlgorithmParameters(ElectionFormat data)
+        {
+            switch (data.Algorithm)
+            {
+                case Algorithm.Undefined:
+                    return null;
+                case Algorithm.ModifiedSainteLagues:
+                    return new SainteLagueParameters {Algorithm = data.Algorithm, FirstDivisor = data.FirstDivisor};
+                case Algorithm.SainteLagues:
+                    return new AlgorithmParameters {Algorithm = data.Algorithm};
+                case Algorithm.DHondt:
+                    return new AlgorithmParameters {Algorithm = data.Algorithm};
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
 }

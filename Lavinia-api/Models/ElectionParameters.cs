@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LaviniaApi.Utilities;
 
 namespace LaviniaApi.Models
 {
@@ -10,9 +11,9 @@ namespace LaviniaApi.Models
     {
         public int ElectionYear { get; set; }
         public string ElectionType { get; set; }
-        public string Algorithm { get; set; }
-        public int Threshold { get; set; }
-        public int AreaFactor { get; set; }
+        public AlgorithmParameters Algorithm { get; set; }
+        public double Threshold { get; set; }
+        public double AreaFactor { get; set; }
         public int DistrictSeats { get; set; }
         public int LevelingSeats { get; set; }
     }

@@ -9,6 +9,6 @@ namespace LaviniaApi.Models
     // API v2
     public class SainteLagueParameters : AlgorithmParameters
     {
-        public int FirstDivisor { get; set; }
+        public double FirstDivisor { get; set; }
     }
 }
