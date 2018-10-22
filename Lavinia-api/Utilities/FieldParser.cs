@@ -33,7 +33,7 @@
             if (fields.Length != expectedLength)
             {
                 throw new CsvFileFormatException(
-                    $"The line has incorrect length, expected: {expectedLength}, got: {line.Length}.", File, line);
+                    $"The line has incorrect length, expected: {expectedLength}, got: {fields.Length}.", File, line);
             }
 
             Line = line;

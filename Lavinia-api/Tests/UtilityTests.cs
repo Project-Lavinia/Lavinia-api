@@ -4,7 +4,7 @@ using LaviniaApi.Models;
 using LaviniaApi.Utilities;
 using Xunit;
 
-namespace Mandater.Tests
+namespace LaviniaApi.Tests
 {
     public class UtilityTests
     {

@@ -13,5 +13,6 @@ namespace LaviniaApi.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public Algorithm Algorithm { get; set; }
+        public double FirstDivisor { get; set; }
     }
 }

@@ -150,14 +150,14 @@ namespace LaviniaApi.Utilities
             });
         }
 
-        private static AlgorithmParameters BuildAlgorithmParameters(ElectionFormat data)
+        public static AlgorithmParameters BuildAlgorithmParameters(ElectionFormat data)
         {
             switch (data.Algorithm)
             {
                 case Algorithm.Undefined:
                     return null;
                 case Algorithm.ModifiedSainteLagues:
-                    return new SainteLagueParameters {Algorithm = data.Algorithm, FirstDivisor = data.FirstDivisor};
+                    return new AlgorithmParameters {Algorithm = data.Algorithm, FirstDivisor = data.FirstDivisor};
                 case Algorithm.SainteLagues:
                     return new AlgorithmParameters {Algorithm = data.Algorithm};
                 case Algorithm.DHondt:

@@ -4,7 +4,7 @@ using LaviniaApi.Data;
 using LaviniaApi.Models;
 using Xunit;
 
-namespace Mandater.Tests
+namespace LaviniaApi.Tests
 {
     public static class CustomValidationTests
     {
