@@ -159,7 +159,6 @@ namespace LaviniaApi.Utilities
                 case Algorithm.ModifiedSainteLagues:
                     return new AlgorithmParameters {Algorithm = data.Algorithm, FirstDivisor = data.FirstDivisor};
                 case Algorithm.SainteLagues:
-                    return new AlgorithmParameters {Algorithm = data.Algorithm};
                 case Algorithm.DHondt:
                     return new AlgorithmParameters {Algorithm = data.Algorithm};
                 default:
