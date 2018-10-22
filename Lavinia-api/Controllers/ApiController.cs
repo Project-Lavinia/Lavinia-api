@@ -64,5 +64,31 @@ namespace LaviniaApi.Controllers
                 return new StatusCodeResult(500);
             }
         }
+
+        /// <summary>
+        ///     Returns a list of all District metrics that matches the required parameters
+        /// </summary>
+        /// <param name="year">Four digit election year</param>
+        /// <param name="district">Name of district</param>
+        /// <returns>District metrics matching the requirements</returns>
+        [ProducesResponseType(typeof(IEnumerable<DistrictMetrics>), 200)]
+        [ProducesResponseType(500)]
+        [HttpGet("metrics")]
+        public IActionResult GetMetrics(int year = 0, string district = "ALL")
+        {
+            _logger.LogInformation("GetMetrics called with parameters year = " + year + ", district = " + district);
+            try
+            {
+                return Ok(
+                    _context.DistrictMetrics
+                        .Where(dM => (dM.ElectionYear == year || year == 0) && (dM.District.Equals(district) || district.Equals("ALL")))
+                );
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Something has gone terribly wrong in GetMetrics");
+                return new StatusCodeResult(500);
+            }
+        }
     }
 }
