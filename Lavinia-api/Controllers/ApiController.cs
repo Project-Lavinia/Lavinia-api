@@ -38,8 +38,7 @@ namespace LaviniaApi.Controllers
 
 
         /// <summary>
-        ///     Returns either a shallow or a deep ElectionType object, where a deep object contains the entire hierarchy of data
-        ///     from the ElectionType down.
+        ///     Returns a list of all Party votes that meet the required parameters.
         /// </summary>
         /// <param name="year">Four digit election year</param>
         /// <param name="partyCode">One to N character party code</param>
@@ -66,7 +65,7 @@ namespace LaviniaApi.Controllers
         }
 
         /// <summary>
-        ///     Returns a list of all District metrics that matches the required parameters
+        ///     Returns a list of all District metrics that matches the required parameters.
         /// </summary>
         /// <param name="year">Four digit election year</param>
         /// <param name="district">Name of district</param>
@@ -87,6 +86,32 @@ namespace LaviniaApi.Controllers
             catch (Exception e)
             {
                 _logger.LogError(e, "Something has gone terribly wrong in GetMetrics");
+                return new StatusCodeResult(500);
+            }
+        }
+
+        /// <summary>
+        ///     Returns a list of all Election parameters that matches the required parameters.
+        /// </summary>
+        /// <param name="year">Four digit election year</param>
+        /// <returns>Election parameters matching the requirements</returns>
+        [ProducesResponseType(typeof(IEnumerable<ElectionParameters>), 200)]
+        [ProducesResponseType(500)]
+        [HttpGet("parameters")]
+        public IActionResult GetParameters(int year = 0)
+        {
+            _logger.LogInformation("GetParameters called with parameters year = " + year);
+            try
+            {
+                return Ok(
+                    _context.ElectionParameters
+                        .Include(eP => eP.Algorithm)
+                        .Where(eP => eP.ElectionYear == year || year == 0)
+                );
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Something has gone terribly wrong in GetParameters");
                 return new StatusCodeResult(500);
             }
         }
