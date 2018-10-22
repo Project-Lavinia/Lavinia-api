@@ -39,6 +39,9 @@ namespace LaviniaApi.Data
                 IEnumerable<ElectionParameters> electionParameters = ParseElectionParameters(root);
                 context.ElectionParameters.AddRange(electionParameters);
 
+                IEnumerable<PartyVotes> partyVotes = ParsePartyVotes(root);
+                context.PartyVotes.AddRange(partyVotes);
+
                 context.SaveChanges();
             }
             catch (ArgumentException argumentException)
@@ -70,6 +73,28 @@ namespace LaviniaApi.Data
             IEnumerable<ElectionFormat> electionData = CsvUtilities.CsvToList<ElectionFormat>(filePath);
             IEnumerable<ElectionParameters> electionParameterModels = ModelBuilder.BuildElectionParameters(electionData, "PE");
             return electionParameterModels;
+        }
+
+        private static IEnumerable<PartyVotes> ParsePartyVotes(string root)
+        {
+            IEnumerable<PartyVotes> partyVotes = new List<PartyVotes>();
+
+            string electionType = Path.GetDirectoryName(root);
+            string[] filePaths = Directory.GetFiles(root);
+
+            foreach (string filePath in filePaths)
+            {
+                if (Path.GetFileName(filePath) == "Elections.csv")
+                {
+                    continue;
+                }
+
+                int electionYear = int.Parse(Path.GetFileNameWithoutExtension(filePath));
+                IEnumerable<ResultFormat> election = CsvUtilities.CsvToList<ResultFormat>(filePath);
+                partyVotes = partyVotes.Concat(ModelBuilder.BuildPartyVotes(election, electionType, electionYear));
+            }
+
+            return partyVotes;
         }
     }
 }

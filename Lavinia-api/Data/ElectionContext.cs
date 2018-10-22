@@ -20,7 +20,6 @@ namespace LaviniaApi.Data
         public DbSet<PartyVotes> PartyVotes { get; set; }
         public DbSet<DistrictMetrics> DistrictMetrics { get; set; }
         public DbSet<ElectionParameters> ElectionParameters { get; set; }
-        public DbSet<AlgorithmParameters> AlgorithmParameters { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

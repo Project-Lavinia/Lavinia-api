@@ -166,5 +166,14 @@ namespace LaviniaApi.Utilities
                     throw new ArgumentOutOfRangeException();
             }
         }
+
+        public static IEnumerable<PartyVotes> BuildPartyVotes(IEnumerable<ResultFormat> election, string electionType, int electionYear)
+        {
+            return election.Select(data => new PartyVotes
+            {
+                District = data.Fylkenavn, ElectionType = electionType, ElectionYear = electionYear,
+                Party = data.Partikode, Votes = data.AntallStemmerTotalt
+            });
+        }
     }
 }
