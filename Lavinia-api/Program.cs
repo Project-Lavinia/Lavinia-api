@@ -19,7 +19,10 @@ namespace LaviniaApi
                 {
                     ElectionContext context = services.GetRequiredService<ElectionContext>();
                     ILogger logger = services.GetRequiredService<ILogger<Program>>();
+                    // API v1
                     ElectionInitializer.Initialize(context, logger);
+                    // API v2
+                    ApiInitializer.Initialize(context, logger);
                 }
                 catch (Exception ex)
                 {

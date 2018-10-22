@@ -42,6 +42,12 @@ namespace LaviniaApi.Data
                 .HasAlternateKey(cD => cD.CountyDataId);
 
             // API v2
+            modelBuilder.Entity<PartyVotes>()
+                .HasKey(p => new {p.ElectionYear, p.District, p.Party, p.ElectionType});
+            modelBuilder.Entity<DistrictMetrics>()
+                .HasKey(d => new {d.ElectionYear, d.District});
+            modelBuilder.Entity<ElectionParameters>()
+                .HasKey(e => new {e.ElectionYear, e.ElectionType});
         }
     }
 }
