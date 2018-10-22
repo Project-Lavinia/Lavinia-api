@@ -59,6 +59,7 @@ namespace LaviniaApi.Data
             }
         }
 
+        // Parses CountyData.csv -> DistrictMetrics
         private static IEnumerable<DistrictMetrics> ParseDistrictMetrics(string path)
         {
             string filePath = Path.Combine(path, "CountyData.csv");
@@ -67,6 +68,7 @@ namespace LaviniaApi.Data
             return districtMetricsModels;
         }
 
+        // Parses Elections.csv -> ElectionParameters
         private static IEnumerable<ElectionParameters> ParseElectionParameters(string path)
         {
             string filePath = Path.Combine(path, "Elections.csv");
@@ -75,6 +77,7 @@ namespace LaviniaApi.Data
             return electionParameterModels;
         }
 
+        // Parses <year>.csv -> PartyVotes
         private static IEnumerable<PartyVotes> ParsePartyVotes(string root)
         {
             IEnumerable<PartyVotes> partyVotes = new List<PartyVotes>();
