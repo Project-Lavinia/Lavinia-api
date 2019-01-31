@@ -22,6 +22,10 @@ namespace LaviniaApi.Controllers
     [Route("api/v2.0.0/")]
     public class ApiController : Controller
     {
+        private const int DefaultNumberOfYears = 3;
+        private const string DefaultPartyCode = "ALL";
+        private const string DefaultDistrict = "ALL";
+
         private readonly ElectionContext _context;
         private readonly ILogger _logger;
 
@@ -47,14 +51,14 @@ namespace LaviniaApi.Controllers
         [ProducesResponseType(typeof(IEnumerable<PartyVotes>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("votes")]
-        public IActionResult GetVotes(int year = 0, string partyCode = "ALL", string district = "ALL")
+        public IActionResult GetVotes(int? year, string partyCode = DefaultPartyCode, string district = DefaultDistrict)
         {
             _logger.LogInformation("GetVotes called with parameters year = " + year + ", partyCode = " + partyCode + ", district = " + district);
             try
             {
                 return Ok(
                     _context.PartyVotes
-                        .Where(pV => (pV.ElectionYear == year || year == 0) && (pV.Party.Equals(partyCode) || partyCode.Equals("ALL")) && (pV.District.Equals(district) || district.Equals("ALL")))
+                        .Where(pV => (pV.ElectionYear == year || year == null) && (pV.Party.Equals(partyCode) || partyCode.Equals(DefaultPartyCode)) && (pV.District.Equals(district) || district.Equals(DefaultDistrict)))
                 );
             }
             catch (Exception e)
@@ -75,16 +79,19 @@ namespace LaviniaApi.Controllers
         [ProducesResponseType(typeof(IEnumerable<PartyVotes>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("votes/previous")]
-        public IActionResult GetPreviousVotes(int year = 0, string partyCode = "ALL", string district = "ALL", int number = 3)
+        public IActionResult GetPreviousVotes(int? year, int? number, string partyCode = DefaultPartyCode, string district = DefaultDistrict)
         {
             _logger.LogInformation("GetVotes called with parameters year = " + year + ", partyCode = " + partyCode + ", district = " + district);
             try
             {
-                List<int> years = GetPreviousNYears(year, number);
+                int definedYear = year ?? DateTime.UtcNow.Year;
+                int definedNumber = number ?? DefaultNumberOfYears;
+
+                List<int> years = GetPreviousNYears(definedYear, definedNumber);
 
                 return Ok(
                     _context.PartyVotes
-                        .Where(pV => years.Contains(pV.ElectionYear) && (pV.Party.Equals(partyCode) || partyCode.Equals("ALL")) && (pV.District.Equals(district) || district.Equals("ALL")))
+                        .Where(pV => years.Contains(pV.ElectionYear) && (pV.Party.Equals(partyCode) || partyCode.Equals(DefaultPartyCode)) && (pV.District.Equals(district) || district.Equals(DefaultDistrict)))
                 );
             }
             catch (Exception e)
@@ -103,14 +110,14 @@ namespace LaviniaApi.Controllers
         [ProducesResponseType(typeof(IEnumerable<DistrictMetrics>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("metrics")]
-        public IActionResult GetMetrics(int year = 0, string district = "ALL")
+        public IActionResult GetMetrics(int? year, string district = DefaultDistrict)
         {
             _logger.LogInformation("GetMetrics called with parameters year = " + year + ", district = " + district);
             try
             {
                 return Ok(
                     _context.DistrictMetrics
-                        .Where(dM => (dM.ElectionYear == year || year == 0) && (dM.District.Equals(district) || district.Equals("ALL")))
+                        .Where(dM => (dM.ElectionYear == year || year == null) && (dM.District.Equals(district) || district.Equals(DefaultDistrict)))
                 );
             }
             catch (Exception e)
@@ -124,21 +131,25 @@ namespace LaviniaApi.Controllers
         ///     Returns a list of all District metrics from a number of elections before the specified year.
         /// </summary>
         /// <param name="year">Four digit election year</param>
+        /// <param name="number">Number of District metrics to return</param>
         /// <param name="district">Name of district</param>
         /// <returns>District metrics for a number of elections</returns>
         [ProducesResponseType(typeof(IEnumerable<DistrictMetrics>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("metrics/previous")]
-        public IActionResult GetPreviousMetrics(int year = 0, string district = "ALL", int number = 3)
+        public IActionResult GetPreviousMetrics(int? year, int? number, string district = DefaultDistrict)
         {
             _logger.LogInformation("GetMetrics called with parameters year = " + year + ", district = " + district);
             try
             {
-                List<int> years = GetPreviousNYears(year, number);
+                int definedYear = year ?? DateTime.UtcNow.Year;
+                int definedNumber = number ?? DefaultNumberOfYears;
+
+                List<int> years = GetPreviousNYears(definedYear, definedNumber);
 
                 return Ok(
                     _context.DistrictMetrics
-                        .Where(dM => years.Contains(dM.ElectionYear) && (dM.District.Equals(district) || district.Equals("ALL")))
+                        .Where(dM => years.Contains(dM.ElectionYear) && (dM.District.Equals(district) || district.Equals(DefaultDistrict)))
                 );
             }
             catch (Exception e)
@@ -156,7 +167,7 @@ namespace LaviniaApi.Controllers
         [ProducesResponseType(typeof(IEnumerable<ElectionParameters>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("parameters")]
-        public IActionResult GetParameters(int year = 0)
+        public IActionResult GetParameters(int? year)
         {
             _logger.LogInformation("GetParameters called with parameters year = " + year);
             try
@@ -165,7 +176,7 @@ namespace LaviniaApi.Controllers
                     _context.ElectionParameters
                         .Include(eP => eP.Algorithm.Parameters)
                         .Include(eP => eP.DistrictSeats)
-                        .Where(eP => eP.ElectionYear == year || year == 0)
+                        .Where(eP => eP.ElectionYear == year || year == null)
                 );
             }
             catch (Exception e)
@@ -185,12 +196,15 @@ namespace LaviniaApi.Controllers
         [ProducesResponseType(typeof(IEnumerable<ElectionParameters>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("parameters/previous")]
-        public IActionResult GetPreviousParameters(int year = 0, int number = 3)
+        public IActionResult GetPreviousParameters(int? year, int? number)
         {
             _logger.LogInformation("GetParameters called with parameters year = " + year);
             try
             {
-                List<int> years = GetPreviousNYears(year, number);
+                int definedYear = year ?? DateTime.UtcNow.Year;
+                int definedNumber = number ?? DefaultNumberOfYears;
+
+                List<int> years = GetPreviousNYears(definedYear, definedNumber);
 
                 return Ok(
                     _context.ElectionParameters
