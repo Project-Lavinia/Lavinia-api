@@ -20,7 +20,7 @@ namespace LaviniaApi.Controllers
     [EnableCors("CorsPolicy")]
     [Produces("application/json")]
     [Route("api/v2.0.0/")]
-    public class ApiController : Controller
+    public class NOController : Controller
     {
         private const int DefaultNumberOfYears = 3;
         private const string DefaultPartyCode = "ALL";
@@ -34,7 +34,7 @@ namespace LaviniaApi.Controllers
         /// </summary>
         /// <param name="context">ElectionContext object that allows access to the database</param>
         /// <param name="logger">Logger that gives information about the context of a log message</param>
-        public ApiController(ElectionContext context, ILogger<ApiController> logger)
+        public NOController(ElectionContext context, ILogger<NOController> logger)
         {
             _context = context;
             _logger = logger;
@@ -53,12 +53,17 @@ namespace LaviniaApi.Controllers
         [HttpGet("votes")]
         public IActionResult GetVotes(int? year, string partyCode = DefaultPartyCode, string district = DefaultDistrict)
         {
-            _logger.LogInformation("GetVotes called with parameters year = " + year + ", partyCode = " + partyCode + ", district = " + district);
+            _logger.LogInformation("GetVotes called with parameters year = " + year + ", partyCode = " + partyCode +
+                                   ", district = " + district);
             try
             {
                 return Ok(
                     _context.PartyVotes
-                        .Where(pV => (pV.ElectionYear == year || year == null) && (pV.Party.Equals(partyCode) || partyCode.Equals(DefaultPartyCode)) && (pV.District.Equals(district) || district.Equals(DefaultDistrict)))
+                        .Where(pV =>
+                            (pV.ElectionYear == year || year == null) &&
+                            (pV.Party.Equals(partyCode) || partyCode.Equals(DefaultPartyCode)) &&
+                            (pV.District.Equals(district) || district.Equals(DefaultDistrict))
+                        )
                 );
             }
             catch (Exception e)
@@ -79,9 +84,11 @@ namespace LaviniaApi.Controllers
         [ProducesResponseType(typeof(IEnumerable<PartyVotes>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("votes/previous")]
-        public IActionResult GetPreviousVotes(int? year, int? number, string partyCode = DefaultPartyCode, string district = DefaultDistrict)
+        public IActionResult GetPreviousVotes(int? year, int? number, string partyCode = DefaultPartyCode,
+            string district = DefaultDistrict)
         {
-            _logger.LogInformation("GetVotes called with parameters year = " + year + ", partyCode = " + partyCode + ", district = " + district);
+            _logger.LogInformation("GetVotes called with parameters year = " + year + ", partyCode = " + partyCode +
+                                   ", district = " + district);
             try
             {
                 int definedYear = year ?? DateTime.UtcNow.Year;
@@ -91,7 +98,10 @@ namespace LaviniaApi.Controllers
 
                 return Ok(
                     _context.PartyVotes
-                        .Where(pV => years.Contains(pV.ElectionYear) && (pV.Party.Equals(partyCode) || partyCode.Equals(DefaultPartyCode)) && (pV.District.Equals(district) || district.Equals(DefaultDistrict)))
+                        .Where(pV =>
+                            years.Contains(pV.ElectionYear) &&
+                            (pV.Party.Equals(partyCode) || partyCode.Equals(DefaultPartyCode)) &&
+                            (pV.District.Equals(district) || district.Equals(DefaultDistrict)))
                 );
             }
             catch (Exception e)
@@ -117,7 +127,9 @@ namespace LaviniaApi.Controllers
             {
                 return Ok(
                     _context.DistrictMetrics
-                        .Where(dM => (dM.ElectionYear == year || year == null) && (dM.District.Equals(district) || district.Equals(DefaultDistrict)))
+                        .Where(dM =>
+                            (dM.ElectionYear == year || year == null) &&
+                            (dM.District.Equals(district) || district.Equals(DefaultDistrict)))
                 );
             }
             catch (Exception e)
@@ -149,7 +161,9 @@ namespace LaviniaApi.Controllers
 
                 return Ok(
                     _context.DistrictMetrics
-                        .Where(dM => years.Contains(dM.ElectionYear) && (dM.District.Equals(district) || district.Equals(DefaultDistrict)))
+                        .Where(dM =>
+                            years.Contains(dM.ElectionYear) &&
+                            (dM.District.Equals(district) || district.Equals(DefaultDistrict)))
                 );
             }
             catch (Exception e)
