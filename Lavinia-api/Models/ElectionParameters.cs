@@ -16,5 +16,6 @@ namespace LaviniaApi.Models
         public double AreaFactor { get; set; }
         public List<ListElement<int>> DistrictSeats { get; set; }
         public int LevelingSeats { get; set; }
+        public int TotalVotes { get; set; }
     }
 }

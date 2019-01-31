@@ -36,11 +36,18 @@ namespace LaviniaApi.Data
                 context.DistrictMetrics.AddRange(districtMetrics);
 
                 root = Path.Combine(root, "PE");
-                IEnumerable<ElectionParameters> electionParameters = ParseElectionParameters(root);
+                List<ElectionParameters> electionParameters = new List<ElectionParameters>(ParseElectionParameters(root)) ;
                 context.ElectionParameters.AddRange(electionParameters);
 
-                IEnumerable<PartyVotes> partyVotes = ParsePartyVotes(root);
+                List<PartyVotes> partyVotes = new List<PartyVotes>(ParsePartyVotes(root));
                 context.PartyVotes.AddRange(partyVotes);
+
+                foreach (PartyVotes partyVote in partyVotes)
+                {
+                    int year = partyVote.ElectionYear;
+                    int votes = partyVote.Votes;
+                    electionParameters.First(eP => eP.ElectionYear == year).TotalVotes += votes;
+                }
 
                 context.SaveChanges();
             }

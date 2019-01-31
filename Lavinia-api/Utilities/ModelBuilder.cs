@@ -159,7 +159,8 @@ namespace LaviniaApi.Utilities
                 ElectionType = electionType,
                 ElectionYear = data.Year,
                 LevelingSeats = data.LevelingSeats,
-                Threshold = data.Threshold
+                Threshold = data.Threshold,
+                TotalVotes = 0
             });
         }
 
@@ -170,15 +171,17 @@ namespace LaviniaApi.Utilities
                 case AlgorithmUtilities.Undefined:
                     return null;
                 case AlgorithmUtilities.ModifiedSainteLagues:
-                    ListElement<double> listElement = new ListElement<double>
-                    {
-                        Key = "First Divisor",
-                        Value = data.FirstDivisor
-                    };
-                    AlgorithmParameters tmp = new AlgorithmParameters
-                        {Algorithm = data.AlgorithmString, Parameters = new List<ListElement<double>> {listElement}};
                     return new AlgorithmParameters
-                        {Algorithm = data.AlgorithmString, Parameters = new List<ListElement<double>> {listElement}};
+                    {
+                        Algorithm = data.AlgorithmString, Parameters = new List<ListElement<double>>
+                        {
+                            new ListElement<double>
+                            {
+                                Key = "First Divisor",
+                                Value = data.FirstDivisor
+                            }
+                        }
+                    };
                 case AlgorithmUtilities.SainteLagues:
                 case AlgorithmUtilities.DHondt:
                     return new AlgorithmParameters
