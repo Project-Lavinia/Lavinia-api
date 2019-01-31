@@ -18,6 +18,7 @@ namespace LaviniaApi.Utilities
     {
         public int Year { get; private set; }
         public Algorithm Algorithm { get; private set; }
+        public string AlgorithmString { get; private set; }
         public double FirstDivisor { get; private set; }
         public double Threshold { get; private set; }
         public double AreaFactor { get; private set; }
@@ -35,6 +36,7 @@ namespace LaviniaApi.Utilities
             string[] fields = parser.ParseLength(line, 7);
             int year = parser.ParseInt(fields[0], "Year");
             Algorithm algorithm = parser.ParseAlgorithm(fields[1], "Algorithm");
+            string algorithmString = parser.ParseAlgorithmToString(fields[1], "Algorithm");
             double firstDivisor = parser.ParseDouble(fields[2], "FirstDivisor");
             double threshold = parser.ParseDouble(fields[3], "Threshold");
             double areaFactor = parser.ParseDouble(fields[4], "AreaFactor");
@@ -45,6 +47,7 @@ namespace LaviniaApi.Utilities
             {
                 Year = year,
                 Algorithm = algorithm,
+                AlgorithmString = algorithmString,
                 FirstDivisor = firstDivisor,
                 Threshold = threshold,
                 AreaFactor = areaFactor,

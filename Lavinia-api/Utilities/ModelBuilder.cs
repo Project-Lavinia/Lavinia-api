@@ -137,36 +137,59 @@ namespace LaviniaApi.Utilities
         /// <returns>A list of DistrictMetrics</returns>
         public static IEnumerable<DistrictMetrics> BuildDistrictMetrics(IEnumerable<CountyDataFormat> countyData)
         {
-            return countyData.Select(data => new DistrictMetrics {Area = data.Area, District = data.County, ElectionYear = data.Year, Population = data.Population});
+            return countyData.Select(data => new DistrictMetrics
+                {Area = data.Area, District = data.County, ElectionYear = data.Year, Population = data.Population});
         }
 
-        public static IEnumerable<ElectionParameters> BuildElectionParameters(IEnumerable<ElectionFormat> electionData, string electionType)
+        public static IEnumerable<ElectionParameters> BuildElectionParameters(IEnumerable<ElectionFormat> electionData,
+            string electionType)
         {
             return electionData.Select(data => new ElectionParameters
             {
-                Algorithm = BuildAlgorithmParameters(data), AreaFactor = data.AreaFactor, DistrictSeats = data.Seats,
-                ElectionType = electionType, ElectionYear = data.Year, LevelingSeats = data.LevelingSeats,
+                Algorithm = BuildAlgorithmParameters(data),
+                AreaFactor = data.AreaFactor,
+                DistrictSeats = new List<ListElement<int>>
+                {
+                    new ListElement<int>
+                    {
+                        Key = "SUM",
+                        Value = data.Seats
+                    }
+                },
+                ElectionType = electionType,
+                ElectionYear = data.Year,
+                LevelingSeats = data.LevelingSeats,
                 Threshold = data.Threshold
             });
         }
 
         public static AlgorithmParameters BuildAlgorithmParameters(ElectionFormat data)
         {
-            switch (data.Algorithm)
+            switch (data.AlgorithmString)
             {
-                case Algorithm.Undefined:
+                case AlgorithmUtilities.Undefined:
                     return null;
-                case Algorithm.ModifiedSainteLagues:
-                    return new AlgorithmParameters {Algorithm = data.Algorithm, FirstDivisor = data.FirstDivisor};
-                case Algorithm.SainteLagues:
-                case Algorithm.DHondt:
-                    return new AlgorithmParameters {Algorithm = data.Algorithm};
+                case AlgorithmUtilities.ModifiedSainteLagues:
+                    ListElement<double> listElement = new ListElement<double>
+                    {
+                        Key = "First Divisor",
+                        Value = data.FirstDivisor
+                    };
+                    AlgorithmParameters tmp = new AlgorithmParameters
+                        {Algorithm = data.AlgorithmString, Parameters = new List<ListElement<double>> {listElement}};
+                    return new AlgorithmParameters
+                        {Algorithm = data.AlgorithmString, Parameters = new List<ListElement<double>> {listElement}};
+                case AlgorithmUtilities.SainteLagues:
+                case AlgorithmUtilities.DHondt:
+                    return new AlgorithmParameters
+                        {Algorithm = data.AlgorithmString, Parameters = new List<ListElement<double>>()};
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException("Did not recognise the algorithm: " + data.AlgorithmString);
             }
         }
 
-        public static IEnumerable<PartyVotes> BuildPartyVotes(IEnumerable<ResultFormat> election, string electionType, int electionYear)
+        public static IEnumerable<PartyVotes> BuildPartyVotes(IEnumerable<ResultFormat> election, string electionType,
+            int electionYear)
         {
             return election.Select(data => new PartyVotes
             {

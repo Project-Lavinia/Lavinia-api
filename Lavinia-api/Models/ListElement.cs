@@ -8,11 +8,11 @@ using LaviniaApi.Utilities;
 // API v2
 namespace LaviniaApi.Models
 {
-    public class AlgorithmParameters
+    public class ListElement<T>
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Algorithm { get; set; }
-        public List<ListElement<double>> Parameters { get; set; }
+        public string Key { get; set; }
+        public T Value { get; set; }
     }
 }

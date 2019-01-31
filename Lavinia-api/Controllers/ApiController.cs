@@ -163,7 +163,8 @@ namespace LaviniaApi.Controllers
             {
                 return Ok(
                     _context.ElectionParameters
-                        .Include(eP => eP.Algorithm)
+                        .Include(eP => eP.Algorithm.Parameters)
+                        .Include(eP => eP.DistrictSeats)
                         .Where(eP => eP.ElectionYear == year || year == 0)
                 );
             }
@@ -193,7 +194,8 @@ namespace LaviniaApi.Controllers
 
                 return Ok(
                     _context.ElectionParameters
-                        .Include(eP => eP.Algorithm)
+                        .Include(eP => eP.Algorithm.Parameters)
+                        .Include(eP => eP.DistrictSeats)
                         .Where(eP => years.Contains(eP.ElectionYear))
                 );
             }

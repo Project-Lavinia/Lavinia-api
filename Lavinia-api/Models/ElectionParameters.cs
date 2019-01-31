@@ -14,7 +14,7 @@ namespace LaviniaApi.Models
         public AlgorithmParameters Algorithm { get; set; }
         public double Threshold { get; set; }
         public double AreaFactor { get; set; }
-        public int DistrictSeats { get; set; }
+        public List<ListElement<int>> DistrictSeats { get; set; }
         public int LevelingSeats { get; set; }
     }
 }
