@@ -11,14 +11,14 @@ using Microsoft.Extensions.Logging;
 namespace LaviniaApi.Data
 {
     // API v2
-    public static class ApiInitializer
+    public static class NOInitializer
     {
         /// <summary>
         ///     Initializes the database, if the db is empty this method will build a model to seed it.
         /// </summary>
         /// <param name="context">The context to be initialized.</param>
         /// <param name="logger">Where to log any issues.</param>
-        public static void Initialize(ElectionContext context, ILogger logger)
+        public static void Initialize(NOContext context, ILogger logger)
         {
             string root = Path.Combine("Data", "Countries", "NO");
 

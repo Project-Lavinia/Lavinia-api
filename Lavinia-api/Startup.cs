@@ -55,7 +55,7 @@ namespace LaviniaApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ElectionContext context)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             _env = env;
             app.UseSwagger(options => { });
@@ -72,6 +72,7 @@ namespace LaviniaApi
         private static void SetUpDatabase(IServiceCollection services)
         {
             services.AddDbContext<ElectionContext>(options => options.UseInMemoryDatabase("ModelDB"));
+            services.AddDbContext<NOContext>(options => options.UseInMemoryDatabase("ModelDB"));
         }
     }
 }

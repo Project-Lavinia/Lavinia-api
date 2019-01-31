@@ -26,15 +26,15 @@ namespace LaviniaApi.Controllers
         private const string DefaultPartyCode = "ALL";
         private const string DefaultDistrict = "ALL";
 
-        private readonly ElectionContext _context;
+        private readonly NOContext _context;
         private readonly ILogger _logger;
 
         /// <summary>
         ///     Constructor for the ApiController, enables database access and logging
         /// </summary>
-        /// <param name="context">ElectionContext object that allows access to the database</param>
+        /// <param name="context">NOContext object that allows access to the database</param>
         /// <param name="logger">Logger that gives information about the context of a log message</param>
-        public NOController(ElectionContext context, ILogger<NOController> logger)
+        public NOController(NOContext context, ILogger<NOController> logger)
         {
             _context = context;
             _logger = logger;
