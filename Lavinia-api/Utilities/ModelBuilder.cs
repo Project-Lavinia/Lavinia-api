@@ -89,9 +89,19 @@ namespace LaviniaApi.Utilities
             Dictionary<string, County> countyModels = new Dictionary<string, County>();
             foreach (ResultFormat resultFormat in results)
             {
+                CountyDataFormat curCountyData = new CountyDataFormat();
+
                 if (!countyModels.ContainsKey(resultFormat.Fylkenavn))
                 {
-                    CountyDataFormat curCountyData = countyData.Single(cD => cD.County.Equals(resultFormat.Fylkenavn));
+                    try
+                    {
+                        curCountyData =
+                            countyData.Single(cD => cD.County.Equals(resultFormat.Fylkenavn));
+                    }
+                    catch (System.InvalidOperationException)
+                    {
+                        Console.WriteLine($"{resultFormat.Fylkenavn} - {resultFormat.AntallStemmerTotalt}");
+                    }
 
                     County countyModel = new County
                     {

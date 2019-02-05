@@ -46,7 +46,16 @@ namespace LaviniaApi.Data
                 {
                     int year = partyVote.ElectionYear;
                     int votes = partyVote.Votes;
-                    electionParameters.First(eP => eP.ElectionYear == year).TotalVotes += votes;
+                    try
+                    {
+                        electionParameters.First(eP => eP.ElectionYear == year).TotalVotes += votes;
+                    }
+                    catch (InvalidOperationException)
+                    {
+                        Console.WriteLine("Could not find any ElectionParameter for the year: " + year);
+                        Environment.Exit(0);
+                    }
+                    
                 }
 
                 context.SaveChanges();

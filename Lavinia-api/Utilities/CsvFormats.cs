@@ -67,14 +67,7 @@ namespace LaviniaApi.Utilities
         public string Partikode { get; private set; }
         public string Partinavn { get; private set; }
         public double OppslutningProsentvis { get; private set; }
-        private int AntallStemmeberettigede { get; set; }
-        private int AntallForhåndsstemmer { get; set; }
-        private int AntallValgtingstemmer { get; set; }
         public int AntallStemmerTotalt { get; private set; }
-        private double EndringProsentSisteTilsvarendeValg { get; set; }
-        private double EndringProsentSisteEkvivalenteValg { get; set; }
-        private int AntallMandater { get; set; }
-        private int AntallUtjevningsmandater { get; set; }
 
         /// <summary>
         ///     Parses a line following the ResultFormat and returns an ResultFormat object
@@ -90,16 +83,7 @@ namespace LaviniaApi.Utilities
             string partikode = parser.ParseString(fields[6], "Partikode", 1, 10);
             string partinavn = parser.ParseString(fields[7], "Partinavn", 1, -1);
             double oppslutningProsentvis = parser.ParseDouble(fields[8], "Oppslutning prosentvis");
-            int antallStemmeberettigde = parser.ParseInt(fields[9], "Antall stemmeberettigde");
-            int antallForhåndsstemmer = parser.ParseInt(fields[10], "Antall forhåndsstemmer");
-            int antallValgtingstemmer = parser.ParseInt(fields[11], "Antall valgtingstemmer");
             int antallStemmerTotalt = parser.ParseInt(fields[12], "AntallStemmerTotalt");
-            double endringProsentSisteTilsvarendeValg =
-                parser.ParseDouble(fields[13], "Endring prosent siste tilsvarende valg");
-            double endringProsentSisteEkvivalenteValg =
-                parser.ParseDouble(fields[14], "Endring prosent siste ekvivalente valg");
-            int antallMandater = parser.ParseInt(fields[15], "Antall mandater");
-            int antallUtjevningsmandater = parser.ParseInt(fields[16], "Antall utjevningsmandater");
 
             return new ResultFormat
             {
@@ -108,14 +92,7 @@ namespace LaviniaApi.Utilities
                 Partikode = partikode,
                 Partinavn = partinavn,
                 OppslutningProsentvis = oppslutningProsentvis,
-                AntallStemmeberettigede = antallStemmeberettigde,
-                AntallForhåndsstemmer = antallForhåndsstemmer,
-                AntallValgtingstemmer = antallValgtingstemmer,
-                AntallStemmerTotalt = antallStemmerTotalt,
-                EndringProsentSisteTilsvarendeValg = endringProsentSisteTilsvarendeValg,
-                EndringProsentSisteEkvivalenteValg = endringProsentSisteEkvivalenteValg,
-                AntallMandater = antallMandater,
-                AntallUtjevningsmandater = antallUtjevningsmandater
+                AntallStemmerTotalt = antallStemmerTotalt
             };
         }
     }

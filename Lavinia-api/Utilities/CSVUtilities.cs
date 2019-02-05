@@ -25,7 +25,10 @@ namespace LaviniaApi.Utilities
             string currentLine;
             while ((currentLine = file.ReadLine()) != null)
             {
-                objects.Add(new T().Parse(currentLine, parser));
+                if (!currentLine.Contains('#'))
+                {
+                    objects.Add(new T().Parse(currentLine, parser));
+                }
             }
             file.Dispose();
             return objects;

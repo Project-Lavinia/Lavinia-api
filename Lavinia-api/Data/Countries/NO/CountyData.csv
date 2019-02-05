@@ -1,4 +1,5 @@
-﻿Year;County;Area;Population;Seats
+﻿Year;County;Area;Population;Seats;Leveling Seats
+# 2017
 2017;Akershus;4918;556254;16
 2017;Aust-Agder;9157;111495;3
 2017;Buskerud;14912;265164;8
@@ -18,6 +19,7 @@
 2017;Vest-Agder;7277;174324;5
 2017;Vestfold;2224;236424;6
 2017;Østfold;4182;278352;8
+# 2013
 2013;Akershus;4918;556254;16
 2013;Aust-Agder;9157;111495;3
 2013;Buskerud;14912;265164;8
@@ -37,41 +39,371 @@
 2013;Vest-Agder;7277;174324;5
 2013;Vestfold;2224;236424;6
 2013;Østfold;4182;278352;8
-2009;Akershus;4918;488546;15
-2009;Aust-Agder;9157;103356;3
-2009;Buskerud;14910;242360;8
-2009;Finnmark;48618;73174;4
-2009;Hedmark;27397;188318;7
-2009;Hordaland;15460;445060;14
-2009;Møre og Romsdal;15121;244578;8
-2009;Nordland;38456;237005;9
-2009;Nord-Trøndelag;22412;127953;5
-2009;Oppland;25192;183680;6
-2009;Oslo;454;521892;16
-2009;Rogaland;9378;388841;12
-2009;Sogn og Fjordane;18623;107246;4
-2009;Sør-Trøndelag;18848;270260;9
-2009;Telemark;15299;166084;5
-2009;Troms;25877;152611;6
-2009;Vest-Agder;7276;160125;5
-2009;Vestfold;2224;219478;6
-2009;Østfold;4182;256640;8
-2005;Akershus;4918;488546;15
-2005;Aust-Agder;9157;103356;3
-2005;Buskerud;14910;242360;8
-2005;Finnmark;48618;73174;4
-2005;Hedmark;27397;188318;7
-2005;Hordaland;15460;445060;14
-2005;Møre og Romsdal;15121;244578;8
-2005;Nordland;38456;237005;9
-2005;Nord-Trøndelag;22412;127953;5
-2005;Oppland;25192;183680;6
-2005;Oslo;454;521892;16
-2005;Rogaland;9378;388841;12
-2005;Sogn og Fjordane;18623;107246;4
-2005;Sør-Trøndelag;18848;270260;9
-2005;Telemark;15299;166084;5
-2005;Troms;25877;152611;6
-2005;Vest-Agder;7276;160125;5
-2005;Vestfold;2224;219478;6
-2005;Østfold;4182;256640;8
+# 2009
+2009;Akershus;4918;488618;15
+2009;Aust-Agder;9157;103374;3
+2009;Buskerud;14910;242331;8
+2009;Finnmark;48618;73210;4
+2009;Hedmark;27397;188326;7
+2009;Hordaland;15460;445059;14
+2009;Møre og Romsdal;15121;244570;8
+2009;Nordland;38456;237057;9
+2009;Nord-Trøndelag;22412;127973;5
+2009;Oppland;25192;183690;6
+2009;Oslo;454;521886;16
+2009;Rogaland;9378;388848;12
+2009;Sogn og Fjordane;18623;107222;4
+2009;Sør-Trøndelag;18848;270266;9
+2009;Telemark;15299;166124;5
+2009;Troms;25877;152628;6
+2009;Vest-Agder;7276;160127;5
+2009;Vestfold;2224;219480;6
+2009;Østfold;4182;256668;8
+# 2005
+2005;Akershus;4918;488618;15
+2005;Aust-Agder;9157;103374;3
+2005;Buskerud;14910;242331;8
+2005;Finnmark;48618;73210;4
+2005;Hedmark;27397;188326;7
+2005;Hordaland;15460;445059;14
+2005;Møre og Romsdal;15121;244570;8
+2005;Nordland;38456;237057;9
+2005;Nord-Trøndelag;22412;127973;5
+2005;Oppland;25192;183690;6
+2005;Oslo;454;521886;16
+2005;Rogaland;9378;388848;12
+2005;Sogn og Fjordane;18623;107222;4
+2005;Sør-Trøndelag;18848;270266;9
+2005;Telemark;15299;166124;5
+2005;Troms;25877;152628;6
+2005;Vest-Agder;7276;160127;5
+2005;Vestfold;2224;219480;6
+2005;Østfold;4182;256668;8
+# 2001
+2001;Akershus;4918;488618;12
+2001;Aust-Agder;9157;103374;4
+2001;Buskerud;14910;242331;7
+2001;Finnmark;48618;73210;4
+2001;Hedmark;27397;188326;8
+2001;Hordaland;15460;445059;15
+2001;Møre og Romsdal;15121;244570;10
+2001;Nordland;38456;237057;12
+2001;Nord-Trøndelag;22412;127973;6
+2001;Oppland;25192;183690;7
+2001;Oslo;454;521886;15
+2001;Rogaland;9378;388848;10
+2001;Sogn og Fjordane;18623;107222;5
+2001;Sør-Trøndelag;18848;270266;10
+2001;Telemark;15299;166124;6
+2001;Troms;25877;152628;6
+2001;Vest-Agder;7276;160127;5
+2001;Vestfold;2224;219480;7
+2001;Østfold;4182;256668;8
+# 1997
+1997;Akershus;0;439928;12
+1997;Aust-Agder;0;100211;4
+1997;Bergen;0;0;0
+1997;Buskerud;0;229366;7
+1997;Finnmark;0;76461;4
+1997;Hedmark;0;186247;8
+1997;Hordaland;0;425247;15
+1997;Møre og Romsdal;0;241032;10
+1997;Nord-Trøndelag;0;127325;6
+1997;Nordland;0;241147;12
+1997;Oppland;0;182883;7
+1997;Oslo;0;488659;15
+1997;Rogaland;0;357027;10
+1997;Sogn og Fjordane;0;107738;5
+1997;Sør-Trøndelag;0;257196;10
+1997;Telemark;0;163213;6
+1997;Troms;0;151160;6
+1997;Trøndelag;0;0;0
+1997;Vest-Agder;0;150426;5
+1997;Vestfold;0;204440;7
+1997;Østfold;0;240251;8
+# 1993
+1993;Akershus;0;405991;12
+1993;Aust-Agder;0;96011;4
+1993;Bergen;0;0;0
+1993;Buskerud;0;223266;7
+1993;Finnmark;0;74073;4
+1993;Hedmark;0;186418;8
+1993;Hordaland;0;405063;15
+1993;Møre og Romsdal;0;237599;10
+1993;Nord-Trøndelag;0;126769;6
+1993;Nordland;0;240078;12
+1993;Oppland;0;182341;7
+1993;Oslo;0;453730;15
+1993;Rogaland;0;329542;10
+1993;Sogn og Fjordane;0;106066;5
+1993;Sør-Trøndelag;0;248076;10
+1993;Telemark;0;163240;6
+1993;Troms;0;146489;6
+1993;Trøndelag;0;0;0
+1993;Vest-Agder;0;142015;5
+1993;Vestfold;0;194477;7
+1993;Østfold;0;237045;8
+# 1989
+1989;Akershus;0;405991;12
+1989;Aust-Agder;0;96011;4
+1989;Bergen;0;0;0
+1989;Buskerud;0;223266;7
+1989;Finnmark;0;74073;4
+1989;Hedmark;0;186418;8
+1989;Hordaland;0;405063;15
+1989;Møre og Romsdal;0;237599;10
+1989;Nord-Trøndelag;0;126769;6
+1989;Nordland;0;240078;12
+1989;Oppland;0;182341;7
+1989;Oslo;0;453730;15
+1989;Rogaland;0;329542;10
+1989;Sogn og Fjordane;0;106066;5
+1989;Sør-Trøndelag;0;248076;10
+1989;Telemark;0;163240;6
+1989;Troms;0;146489;6
+1989;Trøndelag;0;0;0
+1989;Vest-Agder;0;142015;5
+1989;Vestfold;0;194477;7
+1989;Østfold;0;237045;8
+# 1985
+1985;Akershus;0;366673;12
+1985;Aust-Agder;0;89733;4
+1985;Bergen;0;0;0
+1985;Buskerud;0;213608;7
+1985;Finnmark;0;78692;4
+1985;Hedmark;0;186698;8
+1985;Hordaland;0;390526;15
+1985;Møre og Romsdal;0;235719;10
+1985;Nord-Trøndelag;0;125233;6
+1985;Nordland;0;243808;12
+1985;Oppland;0;180285;7
+1985;Oslo;0;454872;15
+1985;Rogaland;0;302386;10
+1985;Sogn og Fjordane;0;105271;5
+1985;Sør-Trøndelag;0;243709;10
+1985;Telemark;0;161673;6
+1985;Troms;0;145996;6
+1985;Trøndelag;0;0;0
+1985;Vest-Agder;0;135696;5
+1985;Vestfold;0;185922;7
+1985;Østfold;0;232400;8
+# 1981
+1981;Akershus;0;366673;10
+1981;Aust-Agder;0;89733;4
+1981;Bergen;0;0;0
+1981;Buskerud;0;213608;7
+1981;Finnmark;0;78692;4
+1981;Hedmark;0;186698;8
+1981;Hordaland;0;390526;15
+1981;Møre og Romsdal;0;235719;10
+1981;Nord-Trøndelag;0;125233;6
+1981;Nordland;0;243808;12
+1981;Oppland;0;180285;7
+1981;Oslo;0;454872;15
+1981;Rogaland;0;302386;10
+1981;Sogn og Fjordane;0;105271;5
+1981;Sør-Trøndelag;0;243709;10
+1981;Telemark;0;161673;6
+1981;Troms;0;145996;6
+1981;Trøndelag;0;0;0
+1981;Vest-Agder;0;135696;5
+1981;Vestfold;0;185922;7
+1981;Østfold;0;232400;8
+# 1977
+1977;Akershus;0;332561;10
+1977;Aust-Agder;0;81734;4
+1977;Bergen;0;0;0
+1977;Buskerud;0;201306;7
+1977;Finnmark;0;76929;4
+1977;Hedmark;0;179994;8
+1977;Hordaland;0;376928;15
+1977;Møre og Romsdal;0;225741;10
+1977;Nord-Trøndelag;0;119087;6
+1977;Nordland;0;240874;12
+1977;Oppland;0;174074;7
+1977;Oslo;0;475563;15
+1977;Rogaland;0;272453;10
+1977;Sogn og Fjordane;0;101672;5
+1977;Sør-Trøndelag;0;235721;10
+1977;Telemark;0;157426;6
+1977;Troms;0;137925;6
+1977;Trøndelag;0;0;0
+1977;Vest-Agder;0;126178;5
+1977;Vestfold;0;177584;7
+1977;Østfold;0;224023;8
+# 1973
+1973;Akershus;0;332561;10
+1973;Aust-Agder;0;81734;4
+1973;Bergen;0;0;0
+1973;Buskerud;0;201306;7
+1973;Finnmark;0;76929;4
+1973;Hedmark;0;179994;8
+1973;Hordaland;0;376928;15
+1973;Møre og Romsdal;0;225741;10
+1973;Nord-Trøndelag;0;119087;6
+1973;Nordland;0;240874;11
+1973;Oppland;0;174074;7
+1973;Oslo;0;475563;15
+1973;Rogaland;0;272453;12
+1973;Sogn og Fjordane;0;101672;5
+1973;Sør-Trøndelag;0;235721;10
+1973;Telemark;0;157426;6
+1973;Troms;0;137925;6
+1973;Trøndelag;0;0;0
+1973;Vest-Agder;0;126178;5
+1973;Vestfold;0;177584;7
+1973;Østfold;0;224023;8
+# 1969
+1969;Akershus;0;257647;7
+1969;Aust-Agder;0;77721;4
+1969;Bergen;0;116876;10
+1969;Buskerud;0;186805;7
+1969;Finnmark;0;73929;4
+1969;Hedmark;0;177462;8
+1969;Hordaland;0;233656;5
+1969;Møre og Romsdal;0;215452;10
+1969;Nord-Trøndelag;0;116336;6
+1969;Nordland;0;241990;12
+1969;Oppland;0;166684;7
+1969;Oslo;0;484711;13
+1969;Rogaland;0;246565;10
+1969;Sogn og Fjordane;0;100568;5
+1969;Sør-Trøndelag;0;217071;10
+1969;Telemark;0;152911;6
+1969;Troms;0;129880;6
+1969;Trøndelag;0;0;0
+1969;Vest-Agder;0;112953;5
+1969;Vestfold;0;163527;7
+1969;Østfold;0;207324;8
+# 1965
+1965;Akershus;0;257647;7
+1965;Aust-Agder;0;77721;4
+1965;Bergen;0;116876;5
+1965;Buskerud;0;186805;7
+1965;Finnmark;0;73929;4
+1965;Hedmark;0;177462;8
+1965;Hordaland;0;233656;10
+1965;Møre og Romsdal;0;215452;10
+1965;Nord-Trøndelag;0;116336;6
+1965;Nordland;0;241990;12
+1965;Oppland;0;166684;7
+1965;Oslo;0;484711;13
+1965;Rogaland;0;246565;10
+1965;Sogn og Fjordane;0;100568;5
+1965;Sør-Trøndelag;0;217071;10
+1965;Telemark;0;152911;6
+1965;Troms;0;129880;6
+1965;Trøndelag;0;0;0
+1965;Vest-Agder;0;112953;5
+1965;Vestfold;0;163527;7
+1965;Østfold;0;207324;8
+# 1961
+1961;Akershus;0;206403;7
+1961;Aust-Agder;0;76347;4
+1961;Bergen;0;114720;5
+1961;Buskerud;0;162760;7
+1961;Finnmark;0;69139;4
+1961;Hedmark;0;176434;8
+1961;Hordaland;0;212054;10
+1961;Møre og Romsdal;0;204652;10
+1961;Nord-Trøndelag;0;114717;6
+1961;Nordland;0;233379;12
+1961;Oppland;0;164639;7
+1961;Oslo;0;451247;13
+1961;Rogaland;0;225754;10
+1961;Sogn og Fjordane;0;98478;5
+1961;Sør-Trøndelag;0;204717;10
+1961;Telemark;0;143589;6
+1961;Troms;0;123271;6
+1961;Trøndelag;0;0;0
+1961;Vest-Agder;0;103409;5
+1961;Vestfold;0;165235;7
+1961;Østfold;0;194729;8
+# 1957
+1957;Akershus;0;206403;7
+1957;Aust-Agder;0;76347;4
+1957;Bergen;0;114720;5
+1957;Buskerud;0;162760;7
+1957;Finnmark;0;69139;4
+1957;Hedmark;0;176434;8
+1957;Hordaland;0;212054;10
+1957;Møre og Romsdal;0;204652;10
+1957;Nord-Trøndelag;0;114717;6
+1957;Nordland;0;233379;12
+1957;Oppland;0;164639;7
+1957;Oslo;0;451247;13
+1957;Rogaland;0;225754;10
+1957;Sogn og Fjordane;0;98478;5
+1957;Sør-Trøndelag;0;204717;10
+1957;Telemark;0;143589;6
+1957;Troms;0;123271;6
+1957;Trøndelag;0;0;0
+1957;Vest-Agder;0;103409;5
+1957;Vestfold;0;165235;7
+1957;Østfold;0;194729;8
+# 1953
+1953;Akershus;0;0;7
+1953;Aust-Agder;0;0;4
+1953;Bergen;0;0;5
+1953;Buskerud;0;0;7
+1953;Finnmark;0;0;4
+1953;Hedmark;0;0;8
+1953;Hordaland;0;0;10
+1953;Møre og Romsdal;0;0;10
+1953;Nord-Trøndelag;0;0;6
+1953;Nordland;0;0;12
+1953;Oppland;0;0;7
+1953;Oslo;0;0;13
+1953;Rogaland;0;0;10
+1953;Sogn og Fjordane;0;0;5
+1953;Sør-Trøndelag;0;0;10
+1953;Telemark;0;0;6
+1953;Troms;0;0;6
+1953;Trøndelag;0;0;0
+1953;Vest-Agder;0;0;5
+1953;Vestfold;0;0;7
+1953;Østfold;0;0;8
+# 1949
+1949;Akershus;0;0;7
+1949;Aust-Agder;0;0;4
+1949;Bergen;0;0;5
+1949;Buskerud;0;0;5
+1949;Finnmark;0;0;3
+1949;Hedmark;0;0;7
+1949;Hordaland;0;0;8
+1949;Møre og Romsdal;0;0;7
+1949;Nord-Trøndelag;0;0;5
+1949;Nordland;0;0;8
+1949;Oppland;0;0;6
+1949;Oslo;0;0;7
+1949;Rogaland;0;0;5
+1949;Sogn og Fjordane;0;0;5
+1949;Sør-Trøndelag;0;0;6
+1949;Telemark;0;0;5
+1949;Troms;0;0;5
+1949;Trøndelag;0;0;0
+1949;Vest-Agder;0;0;4
+1949;Vestfold;0;0;4
+1949;Østfold;0;0;6
+# 1945
+1945;Akershus;0;0;7
+1945;Aust-Agder;0;0;4
+1945;Bergen;0;0;5
+1945;Buskerud;0;0;5
+1945;Finnmark;0;0;3
+1945;Hedmark;0;0;7
+1945;Hordaland;0;0;8
+1945;Møre og Romsdal;0;0;7
+1945;Nord-Trøndelag;0;0;5
+1945;Nordland;0;0;8
+1945;Oppland;0;0;6
+1945;Oslo;0;0;7
+1945;Rogaland;0;0;5
+1945;Sogn og Fjordane;0;0;5
+1945;Sør-Trøndelag;0;0;6
+1945;Telemark;0;0;5
+1945;Troms;0;0;5
+1945;Trøndelag;0;0;0
+1945;Vest-Agder;0;0;4
+1945;Vestfold;0;0;4
+1945;Østfold;0;0;6
