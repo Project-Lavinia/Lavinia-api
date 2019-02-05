@@ -102,7 +102,6 @@
 # 1997
 1997;Akershus;0;439928;12
 1997;Aust-Agder;0;100211;4
-1997;Bergen;0;0;0
 1997;Buskerud;0;229366;7
 1997;Finnmark;0;76461;4
 1997;Hedmark;0;186247;8
@@ -117,14 +116,12 @@
 1997;Sør-Trøndelag;0;257196;10
 1997;Telemark;0;163213;6
 1997;Troms;0;151160;6
-1997;Trøndelag;0;0;0
 1997;Vest-Agder;0;150426;5
 1997;Vestfold;0;204440;7
 1997;Østfold;0;240251;8
 # 1993
 1993;Akershus;0;405991;12
 1993;Aust-Agder;0;96011;4
-1993;Bergen;0;0;0
 1993;Buskerud;0;223266;7
 1993;Finnmark;0;74073;4
 1993;Hedmark;0;186418;8
@@ -139,14 +136,12 @@
 1993;Sør-Trøndelag;0;248076;10
 1993;Telemark;0;163240;6
 1993;Troms;0;146489;6
-1993;Trøndelag;0;0;0
 1993;Vest-Agder;0;142015;5
 1993;Vestfold;0;194477;7
 1993;Østfold;0;237045;8
 # 1989
 1989;Akershus;0;405991;12
 1989;Aust-Agder;0;96011;4
-1989;Bergen;0;0;0
 1989;Buskerud;0;223266;7
 1989;Finnmark;0;74073;4
 1989;Hedmark;0;186418;8
@@ -161,14 +156,12 @@
 1989;Sør-Trøndelag;0;248076;10
 1989;Telemark;0;163240;6
 1989;Troms;0;146489;6
-1989;Trøndelag;0;0;0
 1989;Vest-Agder;0;142015;5
 1989;Vestfold;0;194477;7
 1989;Østfold;0;237045;8
 # 1985
 1985;Akershus;0;366673;12
 1985;Aust-Agder;0;89733;4
-1985;Bergen;0;0;0
 1985;Buskerud;0;213608;7
 1985;Finnmark;0;78692;4
 1985;Hedmark;0;186698;8
@@ -183,14 +176,12 @@
 1985;Sør-Trøndelag;0;243709;10
 1985;Telemark;0;161673;6
 1985;Troms;0;145996;6
-1985;Trøndelag;0;0;0
 1985;Vest-Agder;0;135696;5
 1985;Vestfold;0;185922;7
 1985;Østfold;0;232400;8
 # 1981
 1981;Akershus;0;366673;10
 1981;Aust-Agder;0;89733;4
-1981;Bergen;0;0;0
 1981;Buskerud;0;213608;7
 1981;Finnmark;0;78692;4
 1981;Hedmark;0;186698;8
@@ -205,14 +196,12 @@
 1981;Sør-Trøndelag;0;243709;10
 1981;Telemark;0;161673;6
 1981;Troms;0;145996;6
-1981;Trøndelag;0;0;0
 1981;Vest-Agder;0;135696;5
 1981;Vestfold;0;185922;7
 1981;Østfold;0;232400;8
 # 1977
 1977;Akershus;0;332561;10
 1977;Aust-Agder;0;81734;4
-1977;Bergen;0;0;0
 1977;Buskerud;0;201306;7
 1977;Finnmark;0;76929;4
 1977;Hedmark;0;179994;8
@@ -227,14 +216,12 @@
 1977;Sør-Trøndelag;0;235721;10
 1977;Telemark;0;157426;6
 1977;Troms;0;137925;6
-1977;Trøndelag;0;0;0
 1977;Vest-Agder;0;126178;5
 1977;Vestfold;0;177584;7
 1977;Østfold;0;224023;8
 # 1973
 1973;Akershus;0;332561;10
 1973;Aust-Agder;0;81734;4
-1973;Bergen;0;0;0
 1973;Buskerud;0;201306;7
 1973;Finnmark;0;76929;4
 1973;Hedmark;0;179994;8
@@ -249,7 +236,6 @@
 1973;Sør-Trøndelag;0;235721;10
 1973;Telemark;0;157426;6
 1973;Troms;0;137925;6
-1973;Trøndelag;0;0;0
 1973;Vest-Agder;0;126178;5
 1973;Vestfold;0;177584;7
 1973;Østfold;0;224023;8
@@ -271,7 +257,6 @@
 1969;Sør-Trøndelag;0;217071;10
 1969;Telemark;0;152911;6
 1969;Troms;0;129880;6
-1969;Trøndelag;0;0;0
 1969;Vest-Agder;0;112953;5
 1969;Vestfold;0;163527;7
 1969;Østfold;0;207324;8
@@ -293,7 +278,6 @@
 1965;Sør-Trøndelag;0;217071;10
 1965;Telemark;0;152911;6
 1965;Troms;0;129880;6
-1965;Trøndelag;0;0;0
 1965;Vest-Agder;0;112953;5
 1965;Vestfold;0;163527;7
 1965;Østfold;0;207324;8
@@ -315,7 +299,6 @@
 1961;Sør-Trøndelag;0;204717;10
 1961;Telemark;0;143589;6
 1961;Troms;0;123271;6
-1961;Trøndelag;0;0;0
 1961;Vest-Agder;0;103409;5
 1961;Vestfold;0;165235;7
 1961;Østfold;0;194729;8
@@ -337,7 +320,6 @@
 1957;Sør-Trøndelag;0;204717;10
 1957;Telemark;0;143589;6
 1957;Troms;0;123271;6
-1957;Trøndelag;0;0;0
 1957;Vest-Agder;0;103409;5
 1957;Vestfold;0;165235;7
 1957;Østfold;0;194729;8
@@ -359,7 +341,6 @@
 1953;Sør-Trøndelag;0;0;10
 1953;Telemark;0;0;6
 1953;Troms;0;0;6
-1953;Trøndelag;0;0;0
 1953;Vest-Agder;0;0;5
 1953;Vestfold;0;0;7
 1953;Østfold;0;0;8
@@ -381,7 +362,6 @@
 1949;Sør-Trøndelag;0;0;6
 1949;Telemark;0;0;5
 1949;Troms;0;0;5
-1949;Trøndelag;0;0;0
 1949;Vest-Agder;0;0;4
 1949;Vestfold;0;0;4
 1949;Østfold;0;0;6
@@ -403,7 +383,6 @@
 1945;Sør-Trøndelag;0;0;6
 1945;Telemark;0;0;5
 1945;Troms;0;0;5
-1945;Trøndelag;0;0;0
 1945;Vest-Agder;0;0;4
 1945;Vestfold;0;0;4
 1945;Østfold;0;0;6
