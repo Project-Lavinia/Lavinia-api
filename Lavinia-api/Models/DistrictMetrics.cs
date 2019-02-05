@@ -12,5 +12,6 @@ namespace LaviniaApi.Models
         public int ElectionYear { get; set; }
         public double Area { get; set; }
         public int Population { get; set; }
+        public int Seats { get; set; }
     }
 }

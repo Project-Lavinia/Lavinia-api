@@ -148,29 +148,43 @@ namespace LaviniaApi.Utilities
         public static IEnumerable<DistrictMetrics> BuildDistrictMetrics(IEnumerable<CountyDataFormat> countyData)
         {
             return countyData.Select(data => new DistrictMetrics
-                {Area = data.Area, District = data.County, ElectionYear = data.Year, Population = data.Population});
+                {Area = data.Area, District = data.County, ElectionYear = data.Year, Population = data.Population, Seats = data.Seats});
         }
 
         public static IEnumerable<ElectionParameters> BuildElectionParameters(IEnumerable<ElectionFormat> electionData,
-            string electionType)
+            string electionType, IEnumerable<DistrictMetrics> districtMetrics)
         {
-            return electionData.Select(data => new ElectionParameters
+            return electionData.Select(data =>
             {
-                Algorithm = BuildAlgorithmParameters(data),
-                AreaFactor = data.AreaFactor,
-                DistrictSeats = new List<ListElement<int>>
+                List<ListElement<int>> districtSeats = new List<ListElement<int>>{new ListElement<int>
                 {
-                    new ListElement<int>
-                    {
-                        Key = "SUM",
-                        Value = data.Seats
-                    }
-                },
-                ElectionType = electionType,
-                ElectionYear = data.Year,
-                LevelingSeats = data.LevelingSeats,
-                Threshold = data.Threshold,
-                TotalVotes = 0
+                    Key = "SUM",
+                    Value = data.Seats
+                }};
+
+                if (data.AreaFactor < 0)
+                {
+                    districtSeats.AddRange(
+                        districtMetrics.Where(dM => dM.ElectionYear == data.Year)
+                            .Select(dM => new ListElement<int>
+                                {
+                                    Key = dM.District,
+                                    Value = dM.Seats
+                                }));
+                }
+
+
+                return new ElectionParameters
+                {
+                    Algorithm = BuildAlgorithmParameters(data),
+                    AreaFactor = data.AreaFactor,
+                    DistrictSeats = districtSeats,
+                    ElectionType = electionType,
+                    ElectionYear = data.Year,
+                    LevelingSeats = data.LevelingSeats,
+                    Threshold = data.Threshold,
+                    TotalVotes = 0
+                };
             });
         }
 

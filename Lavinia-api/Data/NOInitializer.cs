@@ -36,7 +36,7 @@ namespace LaviniaApi.Data
                 context.DistrictMetrics.AddRange(districtMetrics);
 
                 root = Path.Combine(root, "PE");
-                List<ElectionParameters> electionParameters = new List<ElectionParameters>(ParseElectionParameters(root)) ;
+                List<ElectionParameters> electionParameters = new List<ElectionParameters>(ParseElectionParameters(root, districtMetrics)) ;
                 context.ElectionParameters.AddRange(electionParameters);
 
                 List<PartyVotes> partyVotes = new List<PartyVotes>(ParsePartyVotes(root));
@@ -85,11 +85,11 @@ namespace LaviniaApi.Data
         }
 
         // Parses Elections.csv -> ElectionParameters
-        private static IEnumerable<ElectionParameters> ParseElectionParameters(string path)
+        private static IEnumerable<ElectionParameters> ParseElectionParameters(string path, IEnumerable<DistrictMetrics> districtMetrics)
         {
             string filePath = Path.Combine(path, "Elections.csv");
             IEnumerable<ElectionFormat> electionData = CsvUtilities.CsvToList<ElectionFormat>(filePath);
-            IEnumerable<ElectionParameters> electionParameterModels = ModelBuilder.BuildElectionParameters(electionData, "PE");
+            IEnumerable<ElectionParameters> electionParameterModels = ModelBuilder.BuildElectionParameters(electionData, "PE", districtMetrics);
             return electionParameterModels;
         }
 
