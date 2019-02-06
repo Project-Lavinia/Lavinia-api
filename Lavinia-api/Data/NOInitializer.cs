@@ -52,8 +52,7 @@ namespace LaviniaApi.Data
                     }
                     catch (InvalidOperationException)
                     {
-                        Console.WriteLine("Could not find any ElectionParameter for the year: " + year);
-                        Environment.Exit(0);
+                        throw new ArgumentException($"Could not find any ElectionParameter for the year: {year}");
                     }
                     
                 }

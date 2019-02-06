@@ -98,9 +98,9 @@ namespace LaviniaApi.Utilities
                         curCountyData =
                             countyData.Single(cD => cD.County.Equals(resultFormat.Fylkenavn));
                     }
-                    catch (System.InvalidOperationException)
+                    catch (InvalidOperationException)
                     {
-                        Console.WriteLine($"{resultFormat.Fylkenavn} - {resultFormat.AntallStemmerTotalt}");
+                        throw new ArgumentException($"Found no region with the name: {resultFormat.Fylkenavn}");
                     }
 
                     County countyModel = new County

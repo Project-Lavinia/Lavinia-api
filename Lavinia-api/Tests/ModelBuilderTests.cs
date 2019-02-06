@@ -18,7 +18,7 @@ namespace LaviniaApi.Tests
         {
             AlgorithmParameters ap = ModelBuilder.BuildAlgorithmParameters(_election);
             Assert.Equal(AlgorithmUtilities.ModifiedSainteLagues, ap.Algorithm);
-            //Assert.Equal(1.4, ap.Parameters["FirstDivisor"]);
+            Assert.Equal(1.4, ap.Parameters[0].Value);
         }
     }
 }
