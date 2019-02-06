@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>E:\Shared\BtSync\Anders Jakob\UIO\Jobb\Mandater\Lavinia-api\Lavinia-api\Lavinia-api.xml</DocumentationFile>
+    <DocumentationFile>Lavinia-api.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
