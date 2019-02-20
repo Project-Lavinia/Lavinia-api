@@ -86,22 +86,20 @@ namespace LaviniaApi.Utilities
         /// <returns>A list of Counties</returns>
         public static List<County> BuildCounties(List<ResultFormat> results, IEnumerable<CountyDataFormat> countyData)
         {
+            IEnumerable<CountyDataFormat> countyDataFormats = countyData.ToList();
+
             Dictionary<string, County> countyModels = new Dictionary<string, County>();
             foreach (ResultFormat resultFormat in results)
             {
-                CountyDataFormat curCountyData = new CountyDataFormat();
-
-                if (!countyModels.ContainsKey(resultFormat.Fylkenavn))
+                if (countyModels.ContainsKey(resultFormat.Fylkenavn))
                 {
-                    try
-                    {
-                        curCountyData =
-                            countyData.Single(cD => cD.County.Equals(resultFormat.Fylkenavn));
-                    }
-                    catch (InvalidOperationException)
-                    {
-                        throw new ArgumentException($"Found no region with the name: {resultFormat.Fylkenavn}");
-                    }
+                    continue;
+                }
+                
+                try
+                {
+                    CountyDataFormat curCountyData =
+                        countyDataFormats.Single(cD => cD.County.Equals(resultFormat.Fylkenavn));
 
                     County countyModel = new County
                     {
@@ -110,6 +108,10 @@ namespace LaviniaApi.Utilities
                         Results = new List<Result>()
                     };
                     countyModels.Add(resultFormat.Fylkenavn, countyModel);
+                }
+                catch (InvalidOperationException)
+                {
+                    throw new ArgumentException($"Found no region with the name: {resultFormat.Fylkenavn}");
                 }
             }
 
@@ -151,6 +153,14 @@ namespace LaviniaApi.Utilities
                 {Area = data.Area, District = data.County, ElectionYear = data.Year, Population = data.Population, Seats = data.Seats});
         }
 
+        /// <summary>
+        /// Takes a list of ElectionFormat, an election type and a list of DistrictMetrics, and returns a list of ElectionParameters.
+        /// The returned list contains information about which parameters were used for each election.
+        /// </summary>
+        /// <param name="electionData"></param>
+        /// <param name="electionType"></param>
+        /// <param name="districtMetrics"></param>
+        /// <returns></returns>
         public static IEnumerable<ElectionParameters> BuildElectionParameters(IEnumerable<ElectionFormat> electionData,
             string electionType, IEnumerable<DistrictMetrics> districtMetrics)
         {
@@ -188,6 +198,12 @@ namespace LaviniaApi.Utilities
             });
         }
 
+
+        /// <summary>
+        /// Takes an ElectionFormat, extracts information about the algorithm used and returns an AlgorithmParameter
+        /// </summary>
+        /// <param name="data">ElectionFormat - Information about a particular election</param>
+        /// <returns>AlgorithmParameters - Parameters used in the election</returns>
         public static AlgorithmParameters BuildAlgorithmParameters(ElectionFormat data)
         {
             switch (data.AlgorithmString)
@@ -211,10 +227,18 @@ namespace LaviniaApi.Utilities
                     return new AlgorithmParameters
                         {Algorithm = data.AlgorithmString, Parameters = new List<ListElement<double>>()};
                 default:
-                    throw new ArgumentOutOfRangeException("Did not recognise the algorithm: " + data.AlgorithmString);
+                    throw new ArgumentOutOfRangeException("Did not recognize the algorithm: " + data.AlgorithmString);
             }
         }
 
+        /// <summary>
+        /// Takes a list of ResultFormat, an election type and an election year, and returns a list of PartyVotes.
+        /// The returned list contains information about how many votes each party got in each district for a particular election.
+        /// </summary>
+        /// <param name="election">List of ResultFormat</param>
+        /// <param name="electionType">Type of election</param>
+        /// <param name="electionYear">Which year the election was held</param>
+        /// <returns>List of PartyVotes</returns>
         public static IEnumerable<PartyVotes> BuildPartyVotes(IEnumerable<ResultFormat> election, string electionType,
             int electionYear)
         {

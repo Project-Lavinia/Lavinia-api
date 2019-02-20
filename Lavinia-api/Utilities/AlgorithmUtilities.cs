@@ -19,17 +19,17 @@ namespace LaviniaApi.Utilities
         ///     The Modified Sainte-Lagüe method in accordance with the Norwegian system. TODO: More accurate description of
         ///     Modified Sainte-Lagüe
         /// </summary>
-        ModifiedSainteLagues,
+        ModifiedSainteLagues = 1,
 
         /// <summary>
         ///     Normal Sainte-Lagüe method TODO: More accurate description of Sainte-Lagüe
         /// </summary>
-        SainteLagues,
+        SainteLagues = 3,
 
         /// <summary>
         ///     D'Hondt method TODO: More accurate description of D'Hondt
         /// </summary>
-        DHondt
+        DHondt = 2
     }
 
     /// <summary>

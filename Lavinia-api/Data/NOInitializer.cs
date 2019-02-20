@@ -22,9 +22,7 @@ namespace LaviniaApi.Data
         {
             string root = Path.Combine("Data", "Countries", "NO");
 
-            // Make sure the DB is ready and empty
-            context.Database.EnsureCreated();
-            if (context.PartyVotes.Any())
+            if (!DatabaseIsReady(context))
             {
                 return;
             }
@@ -32,31 +30,21 @@ namespace LaviniaApi.Data
             // Catch all Argument/KeyNotFound/CsvFileFormatExceptions thrown by model validation
             try
             {
-                IEnumerable<DistrictMetrics> districtMetrics = ParseDistrictMetrics(root);
+                // Parse all DistrictMetrics
+                IEnumerable<DistrictMetrics> districtMetrics = ParseDistrictMetrics(root).ToList();
                 context.DistrictMetrics.AddRange(districtMetrics);
-
+                
+                // Parse all ElectionParameters
                 root = Path.Combine(root, "PE");
-                List<ElectionParameters> electionParameters = new List<ElectionParameters>(ParseElectionParameters(root, districtMetrics)) ;
+                List<ElectionParameters> electionParameters = ParseElectionParameters(root, districtMetrics).ToList();
                 context.ElectionParameters.AddRange(electionParameters);
 
-                List<PartyVotes> partyVotes = new List<PartyVotes>(ParsePartyVotes(root));
+                // Parse all PartyVotes
+                List<PartyVotes> partyVotes = ParsePartyVotes(root).ToList();
                 context.PartyVotes.AddRange(partyVotes);
 
-                foreach (PartyVotes partyVote in partyVotes)
-                {
-                    int year = partyVote.ElectionYear;
-                    int votes = partyVote.Votes;
-                    try
-                    {
-                        electionParameters.First(eP => eP.ElectionYear == year).TotalVotes += votes;
-                    }
-                    catch (InvalidOperationException)
-                    {
-                        throw new ArgumentException($"Could not find any ElectionParameter for the year: {year}");
-                    }
-                    
-                }
-
+                // Sum the total number of votes cast in an election
+                SumTotalVotes(electionParameters, partyVotes);
                 context.SaveChanges();
             }
             catch (ArgumentException argumentException)
@@ -71,6 +59,32 @@ namespace LaviniaApi.Data
             catch (CsvFileFormatException csvFileFormatException)
             {
                 logger.LogError(csvFileFormatException, "The csv file has a malformed format.");
+            }
+        }
+
+        // Check whether the DB is ready and empty
+        private static bool DatabaseIsReady(NOContext context)
+        {
+            context.Database.EnsureCreated();
+            return !context.PartyVotes.Any();
+        }
+
+        // Sum total votes
+        private static void SumTotalVotes(IReadOnlyCollection<ElectionParameters> electionParameters, IEnumerable<PartyVotes> partyVotes)
+        {
+            foreach (PartyVotes partyVote in partyVotes)
+            {
+                int year = partyVote.ElectionYear;
+                int votes = partyVote.Votes;
+                try
+                {
+                    electionParameters.First(eP => eP.ElectionYear == year).TotalVotes += votes;
+                }
+                catch (InvalidOperationException)
+                {
+                    throw new ArgumentException($"Could not find any ElectionParameter for the year: {year}");
+                }
+                    
             }
         }
 

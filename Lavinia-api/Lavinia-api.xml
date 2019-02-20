@@ -513,5 +513,32 @@
             <param name="countyData">A list of CountyDataFormat</param>
             <returns>A list of DistrictMetrics</returns>
         </member>
+        <member name="M:LaviniaApi.Utilities.ModelBuilder.BuildElectionParameters(System.Collections.Generic.IEnumerable{LaviniaApi.Utilities.ElectionFormat},System.String,System.Collections.Generic.IEnumerable{LaviniaApi.Models.DistrictMetrics})">
+            <summary>
+            Takes a list of ElectionFormat, an election type and a list of DistrictMetrics, and returns a list of ElectionParameters.
+            The returned list contains information about which parameters were used for each election.
+            </summary>
+            <param name="electionData"></param>
+            <param name="electionType"></param>
+            <param name="districtMetrics"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ModelBuilder.BuildAlgorithmParameters(LaviniaApi.Utilities.ElectionFormat)">
+            <summary>
+            Takes an ElectionFormat, extracts information about the algorithm used and returns an AlgorithmParameter
+            </summary>
+            <param name="data">ElectionFormat - Information about a particular election</param>
+            <returns>AlgorithmParameters - Parameters used in the election</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ModelBuilder.BuildPartyVotes(System.Collections.Generic.IEnumerable{LaviniaApi.Utilities.ResultFormat},System.String,System.Int32)">
+            <summary>
+            Takes a list of ResultFormat, an election type and an election year, and returns a list of PartyVotes.
+            The returned list contains information about how many votes each party got in each district for a particular election.
+            </summary>
+            <param name="election">List of ResultFormat</param>
+            <param name="electionType">Type of election</param>
+            <param name="electionYear">Which year the election was held</param>
+            <returns>List of PartyVotes</returns>
+        </member>
     </members>
 </doc>
