@@ -10,9 +10,14 @@ namespace LaviniaApi.Tests
 {
     public class ModelBuilderTests
     {
-        private readonly ElectionFormat _election = new ElectionFormat().Parse("2013;Sainte Laguës (modified);1.4;4.0;1.8;150;19",
-            new FieldParser("TEST", ";"));
+        private static readonly FieldParser _fieldParser = new FieldParser("TEST", ";");
 
+        private static readonly ElectionFormat _election = new ElectionFormat().Parse("2017;Sainte Laguës (modified);1.4;4.0;1.8;150;19",
+            _fieldParser);
+
+        private static readonly CountyDataFormat _countyData = new CountyDataFormat().Parse("2017;Akershus;4918;556254;16", _fieldParser);
+        
+        // Tests a normal input for BuildAlgorithmParameters
         [Fact]
         public void BuildAlgorithmParametersTest()
         {
