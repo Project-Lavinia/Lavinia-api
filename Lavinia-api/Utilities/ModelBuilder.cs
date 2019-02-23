@@ -157,9 +157,9 @@ namespace LaviniaApi.Utilities
         /// Takes a list of ElectionFormat, an election type and a list of DistrictMetrics, and returns a list of ElectionParameters.
         /// The returned list contains information about which parameters were used for each election.
         /// </summary>
-        /// <param name="electionData"></param>
-        /// <param name="electionType"></param>
-        /// <param name="districtMetrics"></param>
+        /// <param name="electionData">List of ElectionFormat</param>
+        /// <param name="electionType">Election type code</param>
+        /// <param name="districtMetrics">List of DistrictMetrics</param>
         /// <returns></returns>
         public static IEnumerable<ElectionParameters> BuildElectionParameters(IEnumerable<ElectionFormat> electionData,
             string electionType, IEnumerable<DistrictMetrics> districtMetrics)

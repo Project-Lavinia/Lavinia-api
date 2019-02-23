@@ -1,0 +1,132 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using LaviniaApi.Models;
+using LaviniaApi.Utilities;
+using Xunit;
+
+namespace LaviniaApi.Tests
+{
+    public class FieldParserTests
+    {
+        // Tests a normal input for ParseLength
+        [Fact]
+        public void ParseLengthTest()
+        {
+            FieldParser fieldParser = new FieldParser("TEST", ";");
+
+            Assert.Collection<string>(fieldParser.ParseLength("A;B;C;", 4), 
+                field => Assert.Contains("A", field),
+                field => Assert.Contains("B", field),
+                field => Assert.Contains("C", field),
+                field => Assert.Contains("", field));
+        }
+
+        // Tests erroneous input for ParseLength
+        [Fact]
+        public void ParseLengthErroneousTest()
+        {
+            FieldParser fieldParser = new FieldParser("TEST", ";");
+
+            // Testing 1 field input when expected length is 2
+            Assert.Throws<CsvFileFormatException>(() => fieldParser.ParseLength("", 2));
+
+            // Testing 2 field input when expected length is 1
+            Assert.Throws<CsvFileFormatException>(() => fieldParser.ParseLength(";", 1));
+        }
+
+        // Tests normal inputs for ParseAlgorithmToString
+        [Fact]
+        public void ParseAlgorithmToStringTest()
+        {
+            FieldParser fieldParser = new FieldParser("TEST", ";");
+            
+            Assert.Equal("Sainte Laguës (modified)", fieldParser.ParseAlgorithmToString("sainte Laguës (modified)", "TEST"));
+            Assert.Equal("Sainte Laguës", fieldParser.ParseAlgorithmToString("Sainte laguës", "TEST"));
+            Assert.Equal("d'Hondt", fieldParser.ParseAlgorithmToString("D'hondt", "TEST"));
+            Assert.Throws<CsvFileFormatException>(() => fieldParser.ParseAlgorithmToString("FAKE ALGORITHM", "Test"));
+        }
+
+        // Tests normal inputs for ParseInt
+        [Fact]
+        public void ParseIntTest()
+        {
+            FieldParser fieldParser = new FieldParser("TEST", ";");
+            
+            // Normal multi-character integer
+            Assert.Equal(123, fieldParser.ParseInt("123", "TEST"));
+
+            // Negative integer
+            Assert.Equal(-1, fieldParser.ParseInt("-1", "TEST"));
+
+            // Empty input
+            Assert.Throws<CsvFileFormatException>(() => fieldParser.ParseInt("", "Test"));
+
+            // Normal double
+            Assert.Throws<CsvFileFormatException>(() => fieldParser.ParseInt("1.2", "Test"));
+            
+            // Negative double
+            Assert.Throws<CsvFileFormatException>(() => fieldParser.ParseInt("-1.2", "Test"));
+
+            // Norwegian normal double
+            Assert.Throws<CsvFileFormatException>(() => fieldParser.ParseInt("1,2", "Test"));
+
+            // Norwegian negative double
+            Assert.Throws<CsvFileFormatException>(() => fieldParser.ParseInt("-1,2", "Test"));
+
+            // Not a number
+            Assert.Throws<CsvFileFormatException>(() => fieldParser.ParseInt("2-3", "Test"));
+        }
+
+        // Tests normal inputs for ParseDouble
+        [Fact]
+        public void ParseDoubleTest()
+        {
+            FieldParser fieldParser = new FieldParser("TEST", ";");
+            
+            // Normal double
+            Assert.Equal(0.123, fieldParser.ParseDouble("0.123", "TEST"));
+
+            // Negative double
+            Assert.Equal(-0.123, fieldParser.ParseDouble("-0.123", "TEST"));
+
+            // Norwegian normal double
+            Assert.Equal(0.123, fieldParser.ParseDouble("0,123", "TEST"));
+
+            // Norwegian negative double
+            Assert.Equal(-0.123, fieldParser.ParseDouble("-0,123", "TEST"));
+
+            // Integer to double
+            Assert.Equal(1.0, fieldParser.ParseDouble("1", "TEST"));
+
+            // Empty input
+            Assert.Throws<CsvFileFormatException>(() => fieldParser.ParseDouble("", "Test"));
+
+            // Not a double
+            Assert.Throws<CsvFileFormatException>(() => fieldParser.ParseDouble("2-3", "Test"));
+        }
+
+        // Tests normal inputs for ParseString
+        [Fact]
+        public void ParseStringTest()
+        {
+            FieldParser fieldParser = new FieldParser("TEST", ";");
+            
+            // Within bounds
+            Assert.Equal("Hey", fieldParser.ParseString("Hey", "TEST", 0, 5));
+
+            // Upper bound
+            Assert.Equal("Hello", fieldParser.ParseString("Hello", "TEST", 0, 5));
+
+            // Lower bound
+            Assert.Equal("", fieldParser.ParseString("", "TEST", 0, 5));
+
+            // Lower bound -1
+            Assert.Throws<CsvFileFormatException>(() => fieldParser.ParseString("", "TEST", 1, 5));
+
+            // Upper bound +1
+            Assert.Throws<CsvFileFormatException>(() => fieldParser.ParseString("Hey", "TEST", 0, 2));
+        }
+    }
+}
