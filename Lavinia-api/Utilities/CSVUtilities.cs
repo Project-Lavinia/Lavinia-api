@@ -25,12 +25,16 @@ namespace LaviniaApi.Utilities
             string currentLine;
             while ((currentLine = file.ReadLine()) != null)
             {
-                objects.Add(new T().Parse(currentLine, parser));
+                if (!currentLine.Contains('#'))
+                {
+                    objects.Add(new T().Parse(currentLine, parser));
+                }
             }
             file.Dispose();
             return objects;
         }
 
+        // API v1
         /// <summary>
         ///     Reads any .csv file in the default format specified at https://www.valgresultat.no and creates a list of simple
         ///     string objects based on the schema.
@@ -82,6 +86,7 @@ namespace LaviniaApi.Utilities
             return objects;
         }
 
+        // API v1
         /// <summary>
         ///     Reads any .csv file in the default format specified at https://www.valgresultat.no and creates an array of VDModel
         ///     objects based on the schema.

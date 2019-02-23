@@ -2,6 +2,7 @@
 
 namespace LaviniaApi.Models
 {
+    // API v1
     public class CountyData
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

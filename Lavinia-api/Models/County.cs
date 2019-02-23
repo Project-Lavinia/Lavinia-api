@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LaviniaApi.Models
 {
+    // API v1
     public class County
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

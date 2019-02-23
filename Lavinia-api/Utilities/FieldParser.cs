@@ -33,13 +33,14 @@
             if (fields.Length != expectedLength)
             {
                 throw new CsvFileFormatException(
-                    $"The line has incorrect length, expected: {expectedLength}, got: {line.Length}.", File, line);
+                    $"The line has incorrect length, expected: {expectedLength}, got: {fields.Length}.", File, line);
             }
 
             Line = line;
             return fields;
         }
-
+        
+        /// API V1
         /// <summary>
         ///     Parses a string to any of the known algorithms.
         /// </summary>
@@ -50,6 +51,24 @@
         public Algorithm ParseAlgorithm(string value, string field)
         {
             if (!AlgorithmUtilities.TryParse(value, out Algorithm algorithm))
+            {
+                throw new CsvFileFormatException($"The {field} \"{value}\" is not a valid algorithm name.", File, Line);
+            }
+
+            return algorithm;
+        }
+
+        /// API V2
+        /// <summary>
+        ///     Parses a string to any of the known algorithms.
+        /// </summary>
+        /// <param name="value">String representation of the algorith</param>
+        /// <param name="field">Name of the field</param>
+        /// <returns>The Algorithm parsed from the string</returns>
+        /// <exception cref="CsvFileFormatException">Is thrown if the string does not match any known algorithm</exception>
+        public string ParseAlgorithmToString(string value, string field)
+        {
+            if (!AlgorithmUtilities.TryParseToString(value, out string algorithm))
             {
                 throw new CsvFileFormatException($"The {field} \"{value}\" is not a valid algorithm name.", File, Line);
             }
@@ -83,7 +102,9 @@
         /// <exception cref="CsvFileFormatException">Is thrown if the string cannot be parsed to a double</exception>
         public double ParseDouble(string value, string field)
         {
-            if (!double.TryParse(value, out double result))
+            string finalValue = value.Replace(",", ".");
+
+            if (!double.TryParse(finalValue, out double result))
             {
                 throw new CsvFileFormatException($"The {field} \"{value}\" is not a valid double.", File, Line);
             }

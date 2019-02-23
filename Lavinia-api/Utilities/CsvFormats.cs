@@ -1,10 +1,16 @@
-﻿namespace LaviniaApi.Utilities
+﻿// ReSharper disable StringLiteralTypo
+// ReSharper disable IdentifierTypo
+
+using Microsoft.AspNetCore.Identity.UI.Pages.Internal.Account.Manage;
+
+namespace LaviniaApi.Utilities
 {
     public interface ICsvFormat<out T>
     {
         T Parse(string line, FieldParser parser);
     }
 
+    // API v1
     /// <summary>
     ///     Represents the parsed values of a line from the Elections.csv file
     /// </summary>
@@ -12,8 +18,10 @@
     {
         public int Year { get; private set; }
         public Algorithm Algorithm { get; private set; }
+        public string AlgorithmString { get; private set; }
         public double FirstDivisor { get; private set; }
         public double Threshold { get; private set; }
+        public double AreaFactor { get; private set; }
         public int Seats { get; private set; }
         public int LevelingSeats { get; private set; }
 
@@ -25,20 +33,24 @@
         /// <returns>An ElectionFormat object containing the parsed values</returns>
         public ElectionFormat Parse(string line, FieldParser parser)
         {
-            string[] fields = parser.ParseLength(line, 6);
+            string[] fields = parser.ParseLength(line, 7);
             int year = parser.ParseInt(fields[0], "Year");
             Algorithm algorithm = parser.ParseAlgorithm(fields[1], "Algorithm");
+            string algorithmString = parser.ParseAlgorithmToString(fields[1], "Algorithm");
             double firstDivisor = parser.ParseDouble(fields[2], "FirstDivisor");
             double threshold = parser.ParseDouble(fields[3], "Threshold");
-            int seats = parser.ParseInt(fields[4], "Seats");
-            int levelingSeats = parser.ParseInt(fields[5], "LevelingSeats");
+            double areaFactor = parser.ParseDouble(fields[4], "AreaFactor");
+            int seats = parser.ParseInt(fields[5], "Seats");
+            int levelingSeats = parser.ParseInt(fields[6], "LevelingSeats");
 
             return new ElectionFormat
             {
                 Year = year,
                 Algorithm = algorithm,
+                AlgorithmString = algorithmString,
                 FirstDivisor = firstDivisor,
                 Threshold = threshold,
+                AreaFactor = areaFactor,
                 Seats = seats,
                 LevelingSeats = levelingSeats
             };
@@ -55,14 +67,7 @@
         public string Partikode { get; private set; }
         public string Partinavn { get; private set; }
         public double OppslutningProsentvis { get; private set; }
-        private int AntallStemmeberettigede { get; set; }
-        private int AntallForhåndsstemmer { get; set; }
-        private int AntallValgtingstemmer { get; set; }
         public int AntallStemmerTotalt { get; private set; }
-        private double EndringProsentSisteTilsvarendeValg { get; set; }
-        private double EndringProsentSisteEkvivalenteValg { get; set; }
-        private int AntallMandater { get; set; }
-        private int AntallUtjevningsmandater { get; set; }
 
         /// <summary>
         ///     Parses a line following the ResultFormat and returns an ResultFormat object
@@ -78,16 +83,7 @@
             string partikode = parser.ParseString(fields[6], "Partikode", 1, 10);
             string partinavn = parser.ParseString(fields[7], "Partinavn", 1, -1);
             double oppslutningProsentvis = parser.ParseDouble(fields[8], "Oppslutning prosentvis");
-            int antallStemmeberettigde = parser.ParseInt(fields[9], "Antall stemmeberettigde");
-            int antallForhåndsstemmer = parser.ParseInt(fields[10], "Antall forhåndsstemmer");
-            int antallValgtingstemmer = parser.ParseInt(fields[11], "Antall valgtingstemmer");
             int antallStemmerTotalt = parser.ParseInt(fields[12], "AntallStemmerTotalt");
-            double endringProsentSisteTilsvarendeValg =
-                parser.ParseDouble(fields[13], "Endring prosent siste tilsvarende valg");
-            double endringProsentSisteEkvivalenteValg =
-                parser.ParseDouble(fields[14], "Endring prosent siste ekvivalente valg");
-            int antallMandater = parser.ParseInt(fields[15], "Antall mandater");
-            int antallUtjevningsmandater = parser.ParseInt(fields[16], "Antall utjevningsmandater");
 
             return new ResultFormat
             {
@@ -96,14 +92,7 @@
                 Partikode = partikode,
                 Partinavn = partinavn,
                 OppslutningProsentvis = oppslutningProsentvis,
-                AntallStemmeberettigede = antallStemmeberettigde,
-                AntallForhåndsstemmer = antallForhåndsstemmer,
-                AntallValgtingstemmer = antallValgtingstemmer,
-                AntallStemmerTotalt = antallStemmerTotalt,
-                EndringProsentSisteTilsvarendeValg = endringProsentSisteTilsvarendeValg,
-                EndringProsentSisteEkvivalenteValg = endringProsentSisteEkvivalenteValg,
-                AntallMandater = antallMandater,
-                AntallUtjevningsmandater = antallUtjevningsmandater
+                AntallStemmerTotalt = antallStemmerTotalt
             };
         }
     }
@@ -200,4 +189,6 @@
             };
         }
     }
+
+    // API v2
 }

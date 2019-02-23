@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using LaviniaApi.Models;
 
@@ -6,6 +7,7 @@ namespace LaviniaApi.Utilities
 {
     public static class ModelBuilder
     {
+        // API v1
         /// <summary>
         ///     Builds a list of Country object based on a list of CountryFormat objects
         /// </summary>
@@ -84,12 +86,20 @@ namespace LaviniaApi.Utilities
         /// <returns>A list of Counties</returns>
         public static List<County> BuildCounties(List<ResultFormat> results, IEnumerable<CountyDataFormat> countyData)
         {
+            IEnumerable<CountyDataFormat> countyDataFormats = countyData.ToList();
+
             Dictionary<string, County> countyModels = new Dictionary<string, County>();
             foreach (ResultFormat resultFormat in results)
             {
-                if (!countyModels.ContainsKey(resultFormat.Fylkenavn))
+                if (countyModels.ContainsKey(resultFormat.Fylkenavn))
                 {
-                    CountyDataFormat curCountyData = countyData.Single(cD => cD.County.Equals(resultFormat.Fylkenavn));
+                    continue;
+                }
+                
+                try
+                {
+                    CountyDataFormat curCountyData =
+                        countyDataFormats.Single(cD => cD.County.Equals(resultFormat.Fylkenavn));
 
                     County countyModel = new County
                     {
@@ -98,6 +108,10 @@ namespace LaviniaApi.Utilities
                         Results = new List<Result>()
                     };
                     countyModels.Add(resultFormat.Fylkenavn, countyModel);
+                }
+                catch (InvalidOperationException)
+                {
+                    throw new ArgumentException($"Found no region with the name: {resultFormat.Fylkenavn}");
                 }
             }
 
@@ -125,6 +139,114 @@ namespace LaviniaApi.Utilities
             }
 
             return resultModels;
+        }
+
+        // API v2
+        /// <summary>
+        /// Takes a list of CountyDataFormat and builds a list of DistrictMetrics
+        /// </summary>
+        /// <param name="countyData">A list of CountyDataFormat</param>
+        /// <returns>A list of DistrictMetrics</returns>
+        public static IEnumerable<DistrictMetrics> BuildDistrictMetrics(IEnumerable<CountyDataFormat> countyData)
+        {
+            return countyData.Select(data => new DistrictMetrics
+                {Area = data.Area, District = data.County, ElectionYear = data.Year, Population = data.Population, Seats = data.Seats});
+        }
+
+        /// <summary>
+        /// Takes a list of ElectionFormat, an election type and a list of DistrictMetrics, and returns a list of ElectionParameters.
+        /// The returned list contains information about which parameters were used for each election.
+        /// </summary>
+        /// <param name="electionData">List of ElectionFormat</param>
+        /// <param name="electionType">Election type code</param>
+        /// <param name="districtMetrics">List of DistrictMetrics</param>
+        /// <returns></returns>
+        public static IEnumerable<ElectionParameters> BuildElectionParameters(IEnumerable<ElectionFormat> electionData,
+            string electionType, IEnumerable<DistrictMetrics> districtMetrics)
+        {
+            return electionData.Select(data =>
+            {
+                List<ListElement<int>> districtSeats = new List<ListElement<int>>{new ListElement<int>
+                {
+                    Key = "SUM",
+                    Value = data.Seats
+                }};
+
+                if (data.AreaFactor < 0)
+                {
+                    districtSeats.AddRange(
+                        districtMetrics.Where(dM => dM.ElectionYear == data.Year)
+                            .Select(dM => new ListElement<int>
+                                {
+                                    Key = dM.District,
+                                    Value = dM.Seats
+                                }));
+                }
+
+
+                return new ElectionParameters
+                {
+                    Algorithm = BuildAlgorithmParameters(data),
+                    AreaFactor = data.AreaFactor,
+                    DistrictSeats = districtSeats,
+                    ElectionType = electionType,
+                    ElectionYear = data.Year,
+                    LevelingSeats = data.LevelingSeats,
+                    Threshold = data.Threshold,
+                    TotalVotes = 0
+                };
+            });
+        }
+
+
+        /// <summary>
+        /// Takes an ElectionFormat, extracts information about the algorithm used and returns an AlgorithmParameter
+        /// </summary>
+        /// <param name="data">ElectionFormat - Information about a particular election</param>
+        /// <returns>AlgorithmParameters - Parameters used in the election</returns>
+        public static AlgorithmParameters BuildAlgorithmParameters(ElectionFormat data)
+        {
+            switch (data.AlgorithmString)
+            {
+                case AlgorithmUtilities.Undefined:
+                    return null;
+                case AlgorithmUtilities.ModifiedSainteLagues:
+                    return new AlgorithmParameters
+                    {
+                        Algorithm = data.AlgorithmString, Parameters = new List<ListElement<double>>
+                        {
+                            new ListElement<double>
+                            {
+                                Key = "First Divisor",
+                                Value = data.FirstDivisor
+                            }
+                        }
+                    };
+                case AlgorithmUtilities.SainteLagues:
+                case AlgorithmUtilities.DHondt:
+                    return new AlgorithmParameters
+                        {Algorithm = data.AlgorithmString, Parameters = new List<ListElement<double>>()};
+                default:
+                    throw new ArgumentOutOfRangeException("Did not recognize the algorithm: " + data.AlgorithmString);
+            }
+        }
+
+        /// <summary>
+        /// Takes a list of ResultFormat, an election type and an election year, and returns a list of PartyVotes.
+        /// The returned list contains information about how many votes each party got in each district for a particular election.
+        /// </summary>
+        /// <param name="election">List of ResultFormat</param>
+        /// <param name="electionType">Type of election</param>
+        /// <param name="electionYear">Which year the election was held</param>
+        /// <returns>List of PartyVotes</returns>
+        public static IEnumerable<PartyVotes> BuildPartyVotes(IEnumerable<ResultFormat> election, string electionType,
+            int electionYear)
+        {
+            return election.Select(data => new PartyVotes
+            {
+                District = data.Fylkenavn, ElectionType = electionType, ElectionYear = electionYear,
+                Party = data.Partikode, Votes = data.AntallStemmerTotalt
+            });
         }
     }
 }

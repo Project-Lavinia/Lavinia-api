@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LaviniaApi.Data
 {
+    // API v1
     public class ElectionContext : DbContext
     {
         public ElectionContext()
@@ -12,9 +13,9 @@ namespace LaviniaApi.Data
         public ElectionContext(DbContextOptions<ElectionContext> options) : base(options)
         {
         }
-
+        
         public DbSet<Country> Countries { get; set; }
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Country>()

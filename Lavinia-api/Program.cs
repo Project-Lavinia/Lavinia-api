@@ -17,14 +17,20 @@ namespace LaviniaApi
                 IServiceProvider services = scope.ServiceProvider;
                 try
                 {
+                    NOContext noContext = services.GetRequiredService<NOContext>();
                     ElectionContext context = services.GetRequiredService<ElectionContext>();
                     ILogger logger = services.GetRequiredService<ILogger<Program>>();
+
+                    // API v1
                     ElectionInitializer.Initialize(context, logger);
+
+                    // API v2
+                    NOInitializer.Initialize(noContext, logger);
                 }
                 catch (Exception ex)
                 {
                     ILogger logger = services.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(ex, "An error occurred while seeding ElectionContext");
+                    logger.LogError(ex, "An error occurred while seeding the contexts");
                 }
             }
 

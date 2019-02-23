@@ -1,0 +1,544 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lavinia-api</name>
+    </assembly>
+    <members>
+        <member name="T:LaviniaApi.Controllers.ElectionController">
+            <summary>
+                Controller that serves data regarding political elections in various levels, for the Mandater project at the
+                University of Oslo, department of political science
+            </summary>
+        </member>
+        <member name="M:LaviniaApi.Controllers.ElectionController.#ctor(LaviniaApi.Data.ElectionContext,Microsoft.Extensions.Logging.ILogger{LaviniaApi.Controllers.ElectionController})">
+            <summary>
+                Constructor for the ElectionController, enables database access and logging
+            </summary>
+            <param name="context">ElectionContext object that allows access to the database</param>
+            <param name="logger">Logger that gives information about the context of a log message</param>
+        </member>
+        <member name="M:LaviniaApi.Controllers.ElectionController.GetCountries(System.Nullable{System.Boolean})">
+            <summary>
+                Default path method that returns a list of shallow Country objects, showing which countries the API has data on.
+                If deep is specified it returns all data.
+            </summary>
+            <param name="deep">Optional boolean parameter, the method returns a deep list if true</param>
+            <returns>List of countries</returns>
+        </member>
+        <member name="M:LaviniaApi.Controllers.ElectionController.GetCountry(System.String,System.Nullable{System.Boolean})">
+            <summary>
+                Returns either a shallow or a deep Country object, where a deep object contains the entire hierarchy of data from
+                the country down.
+            </summary>
+            <param name="deep">Optional boolean parameter, the method returns a deep list if true</param>
+            <param name="countryCode">Two character country code, ISO 3166-1 alpha-2</param>
+            <returns>Country</returns>
+        </member>
+        <member name="M:LaviniaApi.Controllers.ElectionController.GetElectionType(System.String,System.String,System.Nullable{System.Boolean})">
+            <summary>
+                Returns either a shallow or a deep ElectionType object, where a deep object contains the entire hierarchy of data
+                from the ElectionType down.
+            </summary>
+            <param name="deep">Optional boolean parameter, the method returns a deep list if true</param>
+            <param name="electionCode">Two character election type code</param>
+            <param name="countryCode">Two character country code, ISO 3166-1 alpha-2</param>
+            <returns>ElectionType of a given country</returns>
+        </member>
+        <member name="M:LaviniaApi.Controllers.ElectionController.GetElection(System.String,System.String,System.Int32,System.Nullable{System.Boolean})">
+            <summary>
+                Returns either a shallow or a deep Election object, where a deep object contains the entire hierarchy of data from
+                the Election down.
+            </summary>
+            <param name="deep">Optional boolean parameter, the method returns a deep list if true</param>
+            <param name="countryCode">Two character country code, ISO 3166-1 alpha-2</param>
+            <param name="electionCode">Two character election type code</param>
+            <param name="year">Four digit election year</param>
+            <returns>Election of a given type and a given year for a given country</returns>
+        </member>
+        <member name="T:LaviniaApi.Controllers.NOController">
+            <inheritdoc />
+            <summary>
+                Controller that serves data regarding political elections in various levels, for the Mandater project at the
+                University of Oslo, department of political science
+            </summary>
+        </member>
+        <member name="M:LaviniaApi.Controllers.NOController.#ctor(LaviniaApi.Data.NOContext,Microsoft.Extensions.Logging.ILogger{LaviniaApi.Controllers.NOController})">
+            <summary>
+                Constructor for the ApiController, enables database access and logging
+            </summary>
+            <param name="context">NOContext object that allows access to the database</param>
+            <param name="logger">Logger that gives information about the context of a log message</param>
+        </member>
+        <member name="M:LaviniaApi.Controllers.NOController.GetVotes(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+                Returns a list of all Party votes that meet the required parameters.
+            </summary>
+            <param name="year">Four digit election year</param>
+            <param name="partyCode">One to N character party code</param>
+            <param name="district">Name of district</param>
+            <returns>Party votes meeting the requirements</returns>
+        </member>
+        <member name="M:LaviniaApi.Controllers.NOController.GetPreviousVotes(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+                Returns a list of all Party votes from a number of elections before the specified year.
+            </summary>
+            <param name="year">Four digit election year</param>
+            <param name="partyCode">One to N character party code</param>
+            <param name="district">Name of district</param>
+            <param name="number">Number of elections</param>
+            <returns>Party votes for a number of elections</returns>
+        </member>
+        <member name="M:LaviniaApi.Controllers.NOController.GetMetrics(System.Nullable{System.Int32},System.String)">
+            <summary>
+                Returns a list of all District metrics that matches the required parameters.
+            </summary>
+            <param name="year">Four digit election year</param>
+            <param name="district">Name of district</param>
+            <returns>District metrics matching the requirements</returns>
+        </member>
+        <member name="M:LaviniaApi.Controllers.NOController.GetPreviousMetrics(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>
+                Returns a list of all District metrics from a number of elections before the specified year.
+            </summary>
+            <param name="year">Four digit election year</param>
+            <param name="number">Number of District metrics to return</param>
+            <param name="district">Name of district</param>
+            <returns>District metrics for a number of elections</returns>
+        </member>
+        <member name="M:LaviniaApi.Controllers.NOController.GetParameters(System.Nullable{System.Int32})">
+            <summary>
+                Returns a list of all Election parameters that matches the required parameters.
+            </summary>
+            <param name="year">Four digit election year</param>
+            <returns>Election parameters matching the requirements</returns>
+        </member>
+        <member name="M:LaviniaApi.Controllers.NOController.GetPreviousParameters(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+                Returns a list of all Election parameters from a number of elections before the specified year.
+            </summary>
+            <param name="year">Four digit election year</param>
+            <param name="number">Number of years to return</param>
+            <returns>Election parameters for a number of years</returns>
+        </member>
+        <member name="M:LaviniaApi.Data.CustomValidation.ValidateCountry(LaviniaApi.Models.Country,System.Collections.Generic.HashSet{System.Int32})">
+            <summary>
+                Checks whether the given country is a valid model, and then proceeds to look through any connected models
+                that are not in the checkedModels set and ensure that they all result in a valid model.
+            </summary>
+            <param name="country">The model to check.</param>
+            <param name="checkedModels">A set of models that has been checked already.</param>
+        </member>
+        <member name="M:LaviniaApi.Data.CustomValidation.ValidateCounty(LaviniaApi.Models.County,System.Collections.Generic.HashSet{System.Int32})">
+            <summary>
+                Checks whether the given county is a valid model, and then proceeds to look through any connected models
+                that are not in the checkedModels set and ensure that they all result in a valid model.
+            </summary>
+            <param name="county">The model to check.</param>
+            <param name="checkedModels">A set of models that have already been checked.</param>
+        </member>
+        <member name="M:LaviniaApi.Data.CustomValidation.ValidateCountyData(LaviniaApi.Models.CountyData,System.Collections.Generic.HashSet{System.Int32})">
+            <summary>
+                Checks whether the given county data is a valid model, and then proceeds to look through any connected models
+                that are not in the checkedModels set and ensure that they all result in a valid model.
+            </summary>
+            <param name="countyData">The model to check.</param>
+            <param name="checkedModels">A set of models that have already been checked.</param>
+        </member>
+        <member name="M:LaviniaApi.Data.CustomValidation.ValidateElection(LaviniaApi.Models.Election,System.Collections.Generic.HashSet{System.Int32})">
+            <summary>
+                Checks whether the given election is a valid model, and then proceeds to look through any connected models
+                that are not in the checkedModels set and ensure that they all result in a valid model.
+            </summary>
+            <param name="election">The model to check.</param>
+            <param name="checkedModels">A set of already checked models.</param>
+        </member>
+        <member name="M:LaviniaApi.Data.CustomValidation.ValidateElectionType(LaviniaApi.Models.ElectionType,System.Collections.Generic.HashSet{System.Int32})">
+            <summary>
+                Checks whether the given election type is a valid model, and then proceeds to look through any connected models
+                that are not in the checkedModels set and ensure that they all result in a valid model.
+            </summary>
+            <param name="electionType">The model to check.</param>
+            <param name="checkedModels">A set of already checked models.</param>
+        </member>
+        <member name="M:LaviniaApi.Data.CustomValidation.ValidateParty(LaviniaApi.Models.Party,System.Collections.Generic.HashSet{System.Int32})">
+            <summary>
+                Checks whether the given party is a valid model, and then proceeds to look through any connected models
+                that are not in the checkedModels set and ensure that they all result in a valid model.
+            </summary>
+            <param name="party">The model to check.</param>
+            <param name="checkedModels">A set of already checked models.</param>
+        </member>
+        <member name="M:LaviniaApi.Data.CustomValidation.ValidateResult(LaviniaApi.Models.Result,System.Collections.Generic.HashSet{System.Int32})">
+            <summary>
+                Checks whether the given result is a valid model, and then proceeds to look through any connected models
+                that are not in the checkedModels set and ensure that they all result in a valid model.
+            </summary>
+            <param name="result">The model to check.</param>
+            <param name="checkedModels">A set of already checked models.</param>
+        </member>
+        <member name="M:LaviniaApi.Data.ElectionInitializer.Initialize(LaviniaApi.Data.ElectionContext,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+                Initializes the database, if the db is empty this method will build a model to seed it.
+            </summary>
+            <param name="context">The context to be initialized.</param>
+            <param name="logger">Where to log any issues.</param>
+        </member>
+        <member name="M:LaviniaApi.Data.NOInitializer.Initialize(LaviniaApi.Data.NOContext,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+                Initializes the database, if the db is empty this method will build a model to seed it.
+            </summary>
+            <param name="context">The context to be initialized.</param>
+            <param name="logger">Where to log any issues.</param>
+        </member>
+        <member name="T:LaviniaApi.Utilities.Algorithm">
+            API V1
+            <summary>
+                Enum representing the available methods of seat calculation for political systems given a voting district/circuit.
+            </summary>
+        </member>
+        <member name="F:LaviniaApi.Utilities.Algorithm.Undefined">
+            <summary>
+                Algorithm not defined
+            </summary>
+        </member>
+        <member name="F:LaviniaApi.Utilities.Algorithm.ModifiedSainteLagues">
+            <summary>
+                The Modified Sainte-Lagüe method in accordance with the Norwegian system. TODO: More accurate description of
+                Modified Sainte-Lagüe
+            </summary>
+        </member>
+        <member name="F:LaviniaApi.Utilities.Algorithm.SainteLagues">
+            <summary>
+                Normal Sainte-Lagüe method TODO: More accurate description of Sainte-Lagüe
+            </summary>
+        </member>
+        <member name="F:LaviniaApi.Utilities.Algorithm.DHondt">
+            <summary>
+                D'Hondt method TODO: More accurate description of D'Hondt
+            </summary>
+        </member>
+        <member name="T:LaviniaApi.Utilities.AlgorithmUtilities">
+            <summary>
+                Utility class to make operations surrounding the Algorithm enum more practical
+            </summary>
+        </member>
+        <member name="M:LaviniaApi.Utilities.AlgorithmUtilities.StringToAlgorithm(System.String)">
+            API V1
+            <summary>
+                Accepts a string and returns the matching algorithm enum.
+                If no matching enum can be found it throws an ArgumentException.
+            </summary>
+            <param name="name">The name of the algorithm to be converted.</param>
+            <returns>An algorithm enum</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.AlgorithmUtilities.NormaliseAlgorithm(System.String)">
+            API V2
+            <summary>
+                Accepts a string and returns the matching algorithm enum.
+                If no matching enum can be found it throws an ArgumentException.
+            </summary>
+            <param name="name">The name of the algorithm to be converted.</param>
+            <returns>An algorithm enum</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.AlgorithmUtilities.AlgorithmToString(LaviniaApi.Utilities.Algorithm)">
+            API V1
+            <summary>
+                Accepts an algorithm enum and returns our internal textual representation of that algorithm.
+                If there is not any known textual representation of it an ArgumentException is thrown.
+            </summary>
+            <param name="algorithm">The Algorithm enum to be converted.</param>
+            <returns>The name of the algorithm enum</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.AlgorithmUtilities.IsAlgorithm(System.String)">
+            <summary>
+                Checks whether the name matches any algorithm we know.
+            </summary>
+            <param name="name">The name of the algorithm.</param>
+            <returns>True if we have an enum for the algorithm, false otherwise.</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.AlgorithmUtilities.TryParse(System.String,LaviniaApi.Utilities.Algorithm@)">
+            API V1
+            <summary>
+                Attempts to convert the name to an algorithm.
+                If it is successful it returns true and pushes the Algorithm to the algorithm variable.
+                Otherwise it returns false and pushes Algorithm.Undefined to the algorithm variable.
+            </summary>
+            <param name="name">The name of the algorithm.</param>
+            <param name="algorithm">Where the algorithm should be returned.</param>
+            <returns>True if successful, false otherwise.</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.AlgorithmUtilities.TryParseToString(System.String,System.String@)">
+            API V2
+            <summary>
+                Attempts to convert the name to an algorithm.
+                If it is successful it returns true and pushes the Algorithm to the algorithm variable.
+                Otherwise it returns false and pushes Algorithm.Undefined to the algorithm variable.
+            </summary>
+            <param name="name">The name of the algorithm.</param>
+            <param name="algorithm">Where the algorithm should be returned.</param>
+            <returns>True if successful, false otherwise.</returns>
+        </member>
+        <member name="T:LaviniaApi.Utilities.ElectionFormat">
+            <summary>
+                Represents the parsed values of a line from the Elections.csv file
+            </summary>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ElectionFormat.Parse(System.String,LaviniaApi.Utilities.FieldParser)">
+            <summary>
+                Parses a line following the ElectionFormat and returns an ElectionFormat object
+            </summary>
+            <param name="line">The line to parse</param>
+            <param name="parser">The field parser to use</param>
+            <returns>An ElectionFormat object containing the parsed values</returns>
+        </member>
+        <member name="T:LaviniaApi.Utilities.ResultFormat">
+            <summary>
+                Represents the parsed values of a line from the results files
+            </summary>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ResultFormat.Parse(System.String,LaviniaApi.Utilities.FieldParser)">
+            <summary>
+                Parses a line following the ResultFormat and returns an ResultFormat object
+            </summary>
+            <param name="line">The line to parse</param>
+            <param name="parser">The field parser to use</param>
+            <returns>An ResultFormat object containing the parsed values</returns>
+        </member>
+        <member name="T:LaviniaApi.Utilities.CountryFormat">
+            <summary>
+                Represents the parsed values of a line from the Countries.csv file
+            </summary>
+        </member>
+        <member name="M:LaviniaApi.Utilities.CountryFormat.Parse(System.String,LaviniaApi.Utilities.FieldParser)">
+            <summary>
+                Parses a line following the CountryFormat and returns an CountryFormat object
+            </summary>
+            <param name="line">The line to parse</param>
+            <param name="parser">The field parser to use</param>
+            <returns>An CountryFormat object containing the parsed values</returns>
+        </member>
+        <member name="T:LaviniaApi.Utilities.ElectionTypeFormat">
+            <summary>
+                Represents the parsed values of a line from the ElectionTypes.csv file
+            </summary>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ElectionTypeFormat.Parse(System.String,LaviniaApi.Utilities.FieldParser)">
+            <summary>
+                Parses a line following the ElectionTypeFormat and returns an ElectionTypeFormat object
+            </summary>
+            <param name="line">The line to parse</param>
+            <param name="parser">The field parser to use</param>
+            <returns>An ElectionTypeFormat object containing the parsed values</returns>
+        </member>
+        <member name="T:LaviniaApi.Utilities.CountyDataFormat">
+            <summary>
+                Represents the parsed values of a line from the CountyData.csv file
+            </summary>
+        </member>
+        <member name="M:LaviniaApi.Utilities.CountyDataFormat.Parse(System.String,LaviniaApi.Utilities.FieldParser)">
+            <summary>
+                Parses a line following the CountyDataFormat and returns an CountyDataFormat object
+            </summary>
+            <param name="line">The line to parse</param>
+            <param name="parser">The field parser to use</param>
+            <returns>An CountyDataFormat object containing the parsed values</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.CsvUtilities.CsvToList(System.String)">
+            <summary>
+                Reads any .csv file in the default format specified at https://www.valgresultat.no and creates a list of simple
+                string objects based on the schema.
+            </summary>
+            <param name="filePath">
+                The relative or absolute path of the file being read, has to be .csv and cannot contain
+                semicolon (;) in any of its fields as that is the delimiter used.
+            </param>
+            <returns>A list of VDModel objects that can be used for simple in-memory queries or populating a database.</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.CsvUtilities.CsvToVdArray(System.String)">
+            <summary>
+                Reads any .csv file in the default format specified at https://www.valgresultat.no and creates an array of VDModel
+                objects based on the schema.
+            </summary>
+            <param name="filePath">
+                The relative or absolute path of the file being read, has to be .csv and cannot contain
+                semicolon (;) in any of its fields as that is the delimiter used.
+            </param>
+            <returns>An array of VDModel objects that can be used for simple in-memory queries or populating a database.</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ETNameUtilities.NameToCode(System.String)">
+            <summary>
+                Accepts a string and returns the matching code.
+                If no matching enum can be found it throws an ArgumentException.
+            </summary>
+            <param name="name">The name of the ElectionType code.</param>
+            <returns>A string code</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ETNameUtilities.CodeToName(System.String)">
+            <summary>
+                Accepts an ElectionType code and returns the full name.
+                If the code is not recognized an ArgumentException is thrown.
+            </summary>
+            <param name="code">The ElectionType code to be converted.</param>
+            <returns>The full name of the ElectionType</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ETNameUtilities.IsElectionType(System.String)">
+            <summary>
+                Checks whether the name matches any ElectionType we know.
+            </summary>
+            <param name="name">The name of the ElectionType.</param>
+            <returns>True if the name is in our dictionary, false otherwise.</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ETNameUtilities.TryParse(System.String,System.String@)">
+            <summary>
+                Attempts to convert the name to a code.
+                If it is successful it returns true and pushes the code to the code variable.
+                Otherwise it returns false and pushes null to the code variable.
+            </summary>
+            <param name="name">The name of the ElectionType.</param>
+            <param name="code">Where the code should be returned.</param>
+            <returns>True if successful, false otherwise.</returns>
+        </member>
+        <member name="T:LaviniaApi.Utilities.FieldParser">
+            <summary>
+                A class for parsing the fields from a string array.
+            </summary>
+        </member>
+        <member name="M:LaviniaApi.Utilities.FieldParser.#ctor(System.String,System.String)">
+            <summary>
+                The constructor takes the path of the file to be parsed, used to provide meaningful exception information.
+            </summary>
+            <param name="file">Path of the file being parsed</param>
+            <param name="separator">The separator used to separate the fields in the file</param>
+        </member>
+        <member name="M:LaviniaApi.Utilities.FieldParser.ParseLength(System.String,System.Int32)">
+            <summary>
+                Verifies that the string array matches the expected length.
+            </summary>
+            <param name="line">The line to be parsed</param>
+            <param name="expectedLength">The number of fields epected</param>
+            <returns>A string array containing the extracted fields</returns>
+            <exception cref="T:LaviniaApi.Utilities.CsvFileFormatException">Is thrown if the line has incorrect length</exception>
+        </member>
+        <member name="M:LaviniaApi.Utilities.FieldParser.ParseAlgorithm(System.String,System.String)">
+            API V1
+            <summary>
+                Parses a string to any of the known algorithms.
+            </summary>
+            <param name="value">String representation of the algorith</param>
+            <param name="field">Name of the field</param>
+            <returns>The Algorithm parsed from the string</returns>
+            <exception cref="T:LaviniaApi.Utilities.CsvFileFormatException">Is thrown if the string does not match any known algorithm</exception>
+        </member>
+        <member name="M:LaviniaApi.Utilities.FieldParser.ParseAlgorithmToString(System.String,System.String)">
+            API V2
+            <summary>
+                Parses a string to any of the known algorithms.
+            </summary>
+            <param name="value">String representation of the algorith</param>
+            <param name="field">Name of the field</param>
+            <returns>The Algorithm parsed from the string</returns>
+            <exception cref="T:LaviniaApi.Utilities.CsvFileFormatException">Is thrown if the string does not match any known algorithm</exception>
+        </member>
+        <member name="M:LaviniaApi.Utilities.FieldParser.ParseInt(System.String,System.String)">
+            <summary>
+                Parses a string to an integer value.
+            </summary>
+            <param name="value">String represenation of the integer</param>
+            <param name="field">Name of the field</param>
+            <returns>The integer parsed from the string</returns>
+            <exception cref="T:LaviniaApi.Utilities.CsvFileFormatException">Is thrown if the string cannot be parsed to an integer</exception>
+        </member>
+        <member name="M:LaviniaApi.Utilities.FieldParser.ParseDouble(System.String,System.String)">
+            <summary>
+                Prases a string to a duble value.
+            </summary>
+            <param name="value">String representation of the double</param>
+            <param name="field">Name of the field</param>
+            <returns>The double parsed from the string</returns>
+            <exception cref="T:LaviniaApi.Utilities.CsvFileFormatException">Is thrown if the string cannot be parsed to a double</exception>
+        </member>
+        <member name="M:LaviniaApi.Utilities.FieldParser.ParseString(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+                Verifies that a string is within certain length restrictions.
+                Checks if the string length is greater or equal to the minLength (inclusive),
+                and that it is less than the maxLength (exclusive).
+                Set the maxLength to -1 to allow unrestricted length.
+            </summary>
+            <param name="value">String to be checked</param>
+            <param name="field">Name of the field</param>
+            <param name="minLength"></param>
+            <param name="maxLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ModelBuilder.BuildCountries(System.Collections.Generic.List{LaviniaApi.Utilities.CountryFormat})">
+            <summary>
+                Builds a list of Country object based on a list of CountryFormat objects
+            </summary>
+            <param name="countries">A list of CountryFormats</param>
+            <returns>A list of Countries</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ModelBuilder.BuildElections(System.Collections.Generic.List{LaviniaApi.Utilities.ElectionFormat})">
+            <summary>
+                Takes a list of ElectionFormat and builds a list of Elections
+            </summary>
+            <param name="elections">A list of ElectionFormat</param>
+            <returns>A list of Elections</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ModelBuilder.BuildElectionTypes(System.Collections.Generic.List{LaviniaApi.Utilities.ElectionTypeFormat})">
+            <summary>
+                Takes a list of ElectionTypeFormat and builds a list of ElectionTypes
+            </summary>
+            <param name="electionTypes">A list of ElectionTypesFormat</param>
+            <returns>A list of ElectionTypes</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ModelBuilder.BuildCounties(System.Collections.Generic.List{LaviniaApi.Utilities.ResultFormat},System.Collections.Generic.IEnumerable{LaviniaApi.Utilities.CountyDataFormat})">
+            <summary>
+                Takes a list of ResultFormat and a list of CountyDataFormat, and builds a list of Counties
+            </summary>
+            <param name="results">A list of ResultFormat</param>
+            <param name="countyData">A list of CountyDataFormat</param>
+            <returns>A list of Counties</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ModelBuilder.BuildResults(System.Collections.Generic.IEnumerable{LaviniaApi.Utilities.ResultFormat})">
+            <summary>
+                Takes a list of ResultFormat and builds a list of Results
+            </summary>
+            <param name="results">A list of ResultFormat</param>
+            <returns>A list of Results</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ModelBuilder.BuildDistrictMetrics(System.Collections.Generic.IEnumerable{LaviniaApi.Utilities.CountyDataFormat})">
+            <summary>
+            Takes a list of CountyDataFormat and builds a list of DistrictMetrics
+            </summary>
+            <param name="countyData">A list of CountyDataFormat</param>
+            <returns>A list of DistrictMetrics</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ModelBuilder.BuildElectionParameters(System.Collections.Generic.IEnumerable{LaviniaApi.Utilities.ElectionFormat},System.String,System.Collections.Generic.IEnumerable{LaviniaApi.Models.DistrictMetrics})">
+            <summary>
+            Takes a list of ElectionFormat, an election type and a list of DistrictMetrics, and returns a list of ElectionParameters.
+            The returned list contains information about which parameters were used for each election.
+            </summary>
+            <param name="electionData">List of ElectionFormat</param>
+            <param name="electionType">Election type code</param>
+            <param name="districtMetrics">List of DistrictMetrics</param>
+            <returns></returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ModelBuilder.BuildAlgorithmParameters(LaviniaApi.Utilities.ElectionFormat)">
+            <summary>
+            Takes an ElectionFormat, extracts information about the algorithm used and returns an AlgorithmParameter
+            </summary>
+            <param name="data">ElectionFormat - Information about a particular election</param>
+            <returns>AlgorithmParameters - Parameters used in the election</returns>
+        </member>
+        <member name="M:LaviniaApi.Utilities.ModelBuilder.BuildPartyVotes(System.Collections.Generic.IEnumerable{LaviniaApi.Utilities.ResultFormat},System.String,System.Int32)">
+            <summary>
+            Takes a list of ResultFormat, an election type and an election year, and returns a list of PartyVotes.
+            The returned list contains information about how many votes each party got in each district for a particular election.
+            </summary>
+            <param name="election">List of ResultFormat</param>
+            <param name="electionType">Type of election</param>
+            <param name="electionYear">Which year the election was held</param>
+            <returns>List of PartyVotes</returns>
+        </member>
+    </members>
+</doc>

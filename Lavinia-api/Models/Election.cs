@@ -5,6 +5,7 @@ using LaviniaApi.Utilities;
 
 namespace LaviniaApi.Models
 {
+    // API v1
     public class Election
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
