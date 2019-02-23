@@ -8,7 +8,7 @@ using Xunit;
 
 namespace LaviniaApi.Tests
 {
-    public class FieldParserTests
+    public static class FieldParserTests
     {
         // Tests a normal input for ParseLength
         [Fact]

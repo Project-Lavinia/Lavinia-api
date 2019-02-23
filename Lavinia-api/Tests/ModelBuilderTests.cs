@@ -8,7 +8,7 @@ using Xunit;
 
 namespace LaviniaApi.Tests
 {
-    public class ModelBuilderTests
+    public static class ModelBuilderTests
     {
         private static readonly FieldParser FieldParser = new FieldParser("TEST", ";");
 

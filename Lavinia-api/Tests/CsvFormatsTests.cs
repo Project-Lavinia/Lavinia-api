@@ -8,7 +8,7 @@ using Xunit;
 
 namespace LaviniaApi.Tests
 {
-    public class CsvFormatsTests
+    public static class CsvFormatsTests
     {
         // Tests a normal input for ElectionFormat
         [Fact]
