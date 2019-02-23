@@ -12,7 +12,7 @@ namespace LaviniaApi.Tests
     {
         // Tests a normal input for ParseLength
         [Fact]
-        public void ParseLengthTest()
+        public static void ParseLengthTest()
         {
             FieldParser fieldParser = new FieldParser("TEST", ";");
 
@@ -25,7 +25,7 @@ namespace LaviniaApi.Tests
 
         // Tests erroneous input for ParseLength
         [Fact]
-        public void ParseLengthErroneousTest()
+        public static void ParseLengthErroneousTest()
         {
             FieldParser fieldParser = new FieldParser("TEST", ";");
 
@@ -38,7 +38,7 @@ namespace LaviniaApi.Tests
 
         // Tests normal inputs for ParseAlgorithmToString
         [Fact]
-        public void ParseAlgorithmToStringTest()
+        public static void ParseAlgorithmToStringTest()
         {
             FieldParser fieldParser = new FieldParser("TEST", ";");
             
@@ -50,7 +50,7 @@ namespace LaviniaApi.Tests
 
         // Tests normal inputs for ParseInt
         [Fact]
-        public void ParseIntTest()
+        public static void ParseIntTest()
         {
             FieldParser fieldParser = new FieldParser("TEST", ";");
             
@@ -81,7 +81,7 @@ namespace LaviniaApi.Tests
 
         // Tests normal inputs for ParseDouble
         [Fact]
-        public void ParseDoubleTest()
+        public static void ParseDoubleTest()
         {
             FieldParser fieldParser = new FieldParser("TEST", ";");
             
@@ -109,7 +109,7 @@ namespace LaviniaApi.Tests
 
         // Tests normal inputs for ParseString
         [Fact]
-        public void ParseStringTest()
+        public static void ParseStringTest()
         {
             FieldParser fieldParser = new FieldParser("TEST", ";");
             

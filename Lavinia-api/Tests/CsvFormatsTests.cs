@@ -12,7 +12,7 @@ namespace LaviniaApi.Tests
     {
         // Tests a normal input for ElectionFormat
         [Fact]
-        public void ParseElectionFormatTest()
+        public static void ParseElectionFormatTest()
         {
             ElectionFormat election = new ElectionFormat().Parse("2017;Sainte Laguës (modified);1.4;4.0;1.8;150;19",
                 new FieldParser("TEST", ";"));
@@ -28,7 +28,7 @@ namespace LaviniaApi.Tests
         
         // Tests different algorithms for ElectionFormat
         [Fact]
-        public void ParseElectionFormatAlgorithmTest()
+        public static void ParseElectionFormatAlgorithmTest()
         {
             FieldParser tmpParser = new FieldParser("TEST", ";");
 
@@ -54,7 +54,7 @@ namespace LaviniaApi.Tests
 
         // Tests a normal input to ResultFormat
         [Fact]
-        public void ParseResultFormatTest()
+        public static void ParseResultFormatTest()
         {
             ResultFormat result = new ResultFormat().Parse("01;Østfold;;;;;A;Arbeiderpartiet;32,1;216293;12947;38598;51545;-2,9;-8,1;3;0;",
                 new FieldParser("TEST", ";"));
@@ -67,7 +67,7 @@ namespace LaviniaApi.Tests
 
         // Tests a normal input to CountryFormat
         [Fact]
-        public void ParseCountryFormatTest()
+        public static void ParseCountryFormatTest()
         {
             CountryFormat country = new CountryFormat().Parse("NO;Norway",
                 new FieldParser("TEST", ";"));
@@ -77,7 +77,7 @@ namespace LaviniaApi.Tests
 
         // Tests a normal input to ElectionTypeFormat
         [Fact]
-        public void ParseElectionTypeFormatTest()
+        public static void ParseElectionTypeFormatTest()
         {
             ElectionTypeFormat electionType = new ElectionTypeFormat().Parse("PE;Parliamentary Election",
                 new FieldParser("TEST", ";"));
@@ -87,7 +87,7 @@ namespace LaviniaApi.Tests
 
         // Tests a normal input to CountyDataFormat
         [Fact]
-        public void ParseCountyDataFormatTest()
+        public static void ParseCountyDataFormatTest()
         {
             CountyDataFormat countyData = new CountyDataFormat().Parse("2017;Akershus;4918;556254;16",
                 new FieldParser("TEST", ";"));

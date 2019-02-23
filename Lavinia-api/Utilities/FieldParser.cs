@@ -102,9 +102,9 @@
         /// <exception cref="CsvFileFormatException">Is thrown if the string cannot be parsed to a double</exception>
         public double ParseDouble(string value, string field)
         {
-            value = value.Replace(",", ".");
+            string finalValue = value.Replace(",", ".");
 
-            if (!double.TryParse(value, out double result))
+            if (!double.TryParse(finalValue, out double result))
             {
                 throw new CsvFileFormatException($"The {field} \"{value}\" is not a valid double.", File, Line);
             }

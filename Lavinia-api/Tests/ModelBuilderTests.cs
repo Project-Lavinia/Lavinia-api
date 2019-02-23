@@ -14,7 +14,7 @@ namespace LaviniaApi.Tests
 
         // Tests a normal input for BuildDistrictMetrics
         [Fact]
-        public void BuildDistrictMetricsTest()
+        public static void BuildDistrictMetricsTest()
         {
             List<CountyDataFormat> countyData = new List<CountyDataFormat>{new CountyDataFormat().Parse("2017;Akershus;4918;556254;16", FieldParser)};
             IEnumerable<DistrictMetrics> dmList = ModelBuilder.BuildDistrictMetrics(countyData);
@@ -28,7 +28,7 @@ namespace LaviniaApi.Tests
 
         // Tests a normal input for BuildElectionParameters
         [Fact]
-        public void BuildElectionParametersTest()
+        public static void BuildElectionParametersTest()
         {
             List<ElectionFormat> election = new List<ElectionFormat>
             {
@@ -59,7 +59,7 @@ namespace LaviniaApi.Tests
 
         // Tests different DistrictSeat input for BuildElectionParameters
         [Fact]
-        public void BuildElectionParametersDistrictSeatTest()
+        public static void BuildElectionParametersDistrictSeatTest()
         {
             // Tests behaviour for when DistrictSeats are computed
             List<ElectionFormat> election = new List<ElectionFormat>
@@ -103,7 +103,7 @@ namespace LaviniaApi.Tests
 
         // Tests a normal input for BuildAlgorithmParameters
         [Fact]
-        public void BuildAlgorithmParametersTest()
+        public static void BuildAlgorithmParametersTest()
         {
             ElectionFormat election = new ElectionFormat().Parse("2017;Sainte Laguës (modified);1.4;4.0;1.8;150;19",
                 FieldParser);
@@ -115,7 +115,7 @@ namespace LaviniaApi.Tests
 
         // Tests varying algorithm input for BuildAlgorithmParameters
         [Fact]
-        public void BuildAlgorithmParametersAlgorithmTest()
+        public static void BuildAlgorithmParametersAlgorithmTest()
         {
             ElectionFormat election = new ElectionFormat().Parse("2017;Sainte Laguës (modified);1.4;4.0;1.8;150;19",
                 FieldParser);
@@ -139,7 +139,7 @@ namespace LaviniaApi.Tests
 
         // Tests a normal input for BuildPartyVotes
         [Fact]
-        public void BuildPartyVotesTest()
+        public static void BuildPartyVotesTest()
         {
             List<ResultFormat> resultFormat = new List<ResultFormat>{new ResultFormat().Parse("01;Østfold;;;;;A;Arbeiderpartiet;32,1;216293;12947;38598;51545;-2,9;-8,1;3;0;", FieldParser)};
             IEnumerable<PartyVotes> pvList = ModelBuilder.BuildPartyVotes(resultFormat, "PE", 2017);
