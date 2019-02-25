@@ -62,7 +62,8 @@ namespace LaviniaApi
             app.UseSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/swagger/v1.0.0/swagger.json", "API for election result data");
-                options.RoutePrefix = String.Empty;
+                options.RoutePrefix = string.Empty;
+                options.DocumentTitle = "Lavinia API";
             });
             app.UseStaticFiles();
 
