@@ -69,6 +69,13 @@
             <param name="context">NOContext object that allows access to the database</param>
             <param name="logger">Logger that gives information about the context of a log message</param>
         </member>
+        <member name="M:LaviniaApi.Controllers.NOController.GetYears">
+            <summary>
+                Returns a list of all election years available in the API.
+                The list is sorted so the most recent years are at the top of the list.
+            </summary>
+            <returns>List of all election years in the database</returns>
+        </member>
         <member name="M:LaviniaApi.Controllers.NOController.GetVotes(System.Nullable{System.Int32},System.String,System.String)">
             <summary>
                 Returns a list of all Party votes that meet the required parameters.
