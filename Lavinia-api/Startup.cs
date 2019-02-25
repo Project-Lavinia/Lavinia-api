@@ -72,7 +72,7 @@ namespace LaviniaApi
         private static void SetUpDatabase(IServiceCollection services)
         {
             services.AddDbContext<ElectionContext>(options => options.UseInMemoryDatabase("ModelDB"));
-            services.AddDbContext<NOContext>(options => options.UseInMemoryDatabase("ModelDB"));
+            services.AddDbContext<NOContext>(options => options.UseInMemoryDatabase("NODatabase"));
         }
     }
 }
