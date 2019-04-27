@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace LaviniaApi.Controllers
+namespace LaviniaApi.Controllers.v2
 {
     /// <inheritdoc />
     /// <summary>

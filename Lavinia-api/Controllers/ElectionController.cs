@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace LaviniaApi.Controllers
+namespace LaviniaApi.Controllers.v1
 {
     /// <summary>
     ///     Controller that serves data regarding political elections in various levels, for the Mandater project at the
