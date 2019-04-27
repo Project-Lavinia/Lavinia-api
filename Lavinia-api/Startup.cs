@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Lavinia_api;
 using LaviniaApi.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -42,15 +43,20 @@ namespace LaviniaApi
                     options.IncludeXmlComments(xmlDocFile);
                 }
 
-                options.SwaggerDoc("v1.0.0", new Info
+                options.SwaggerDoc("v1", new Info
                 {
                     Title = "API for election result data",
-                    Version = "v1.0.0",
+                    Version = "v1",
                     Description =
                         "This API provides the back-end for calculating seats and data for the Mandater project."
                 });
+                options.SwaggerDoc("v2", new Info {
+                    Title = "API v2.0.0 for election result data",
+                    Version = "v2",
+                    Description = "This API provides the back-end for calculating seats and data for the Lavinia project."
+                });
             });
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(c => c.Conventions.Add(new ApiExplorerGroupPerVersionConvention())).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             SetUpDatabase(services);
         }
 
@@ -58,12 +64,14 @@ namespace LaviniaApi
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             _env = env;
-            app.UseSwagger(options => { });
+            app.UseSwagger(options => {});
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1.0.0/swagger.json", "API for election result data");
-                options.RoutePrefix = string.Empty;
-                options.DocumentTitle = "Lavinia API";
+                options.SwaggerEndpoint("/swagger/v2/swagger.json", "Lavinia API v2");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Lavinia API v1");
+                options.EnableFilter();
+                options.RoutePrefix = String.Empty;
+                options.DocumentTitle = "Lavinia API - Swagger";
             });
             app.UseStaticFiles();
 
