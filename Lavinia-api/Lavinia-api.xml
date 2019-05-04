@@ -4,20 +4,20 @@
         <name>Lavinia-api</name>
     </assembly>
     <members>
-        <member name="T:LaviniaApi.Controllers.ElectionController">
+        <member name="T:LaviniaApi.Controllers.v1.ElectionController">
             <summary>
                 Controller that serves data regarding political elections in various levels, for the Mandater project at the
                 University of Oslo, department of political science
             </summary>
         </member>
-        <member name="M:LaviniaApi.Controllers.ElectionController.#ctor(LaviniaApi.Data.ElectionContext,Microsoft.Extensions.Logging.ILogger{LaviniaApi.Controllers.ElectionController})">
+        <member name="M:LaviniaApi.Controllers.v1.ElectionController.#ctor(LaviniaApi.Data.ElectionContext,Microsoft.Extensions.Logging.ILogger{LaviniaApi.Controllers.v1.ElectionController})">
             <summary>
                 Constructor for the ElectionController, enables database access and logging
             </summary>
             <param name="context">ElectionContext object that allows access to the database</param>
             <param name="logger">Logger that gives information about the context of a log message</param>
         </member>
-        <member name="M:LaviniaApi.Controllers.ElectionController.GetCountries(System.Nullable{System.Boolean})">
+        <member name="M:LaviniaApi.Controllers.v1.ElectionController.GetCountries(System.Nullable{System.Boolean})">
             <summary>
                 Default path method that returns a list of shallow Country objects, showing which countries the API has data on.
                 If deep is specified it returns all data.
@@ -25,7 +25,7 @@
             <param name="deep">Optional boolean parameter, the method returns a deep list if true</param>
             <returns>List of countries</returns>
         </member>
-        <member name="M:LaviniaApi.Controllers.ElectionController.GetCountry(System.String,System.Nullable{System.Boolean})">
+        <member name="M:LaviniaApi.Controllers.v1.ElectionController.GetCountry(System.String,System.Nullable{System.Boolean})">
             <summary>
                 Returns either a shallow or a deep Country object, where a deep object contains the entire hierarchy of data from
                 the country down.
@@ -34,7 +34,7 @@
             <param name="countryCode">Two character country code, ISO 3166-1 alpha-2</param>
             <returns>Country</returns>
         </member>
-        <member name="M:LaviniaApi.Controllers.ElectionController.GetElectionType(System.String,System.String,System.Nullable{System.Boolean})">
+        <member name="M:LaviniaApi.Controllers.v1.ElectionController.GetElectionType(System.String,System.String,System.Nullable{System.Boolean})">
             <summary>
                 Returns either a shallow or a deep ElectionType object, where a deep object contains the entire hierarchy of data
                 from the ElectionType down.
@@ -44,7 +44,7 @@
             <param name="countryCode">Two character country code, ISO 3166-1 alpha-2</param>
             <returns>ElectionType of a given country</returns>
         </member>
-        <member name="M:LaviniaApi.Controllers.ElectionController.GetElection(System.String,System.String,System.Int32,System.Nullable{System.Boolean})">
+        <member name="M:LaviniaApi.Controllers.v1.ElectionController.GetElection(System.String,System.String,System.Int32,System.Nullable{System.Boolean})">
             <summary>
                 Returns either a shallow or a deep Election object, where a deep object contains the entire hierarchy of data from
                 the Election down.
@@ -55,21 +55,28 @@
             <param name="year">Four digit election year</param>
             <returns>Election of a given type and a given year for a given country</returns>
         </member>
-        <member name="T:LaviniaApi.Controllers.NOController">
+        <member name="T:LaviniaApi.Controllers.v2.NOController">
             <inheritdoc />
             <summary>
                 Controller that serves data regarding political elections in various levels, for the Mandater project at the
                 University of Oslo, department of political science
             </summary>
         </member>
-        <member name="M:LaviniaApi.Controllers.NOController.#ctor(LaviniaApi.Data.NOContext,Microsoft.Extensions.Logging.ILogger{LaviniaApi.Controllers.NOController})">
+        <member name="M:LaviniaApi.Controllers.v2.NOController.#ctor(LaviniaApi.Data.NOContext,Microsoft.Extensions.Logging.ILogger{LaviniaApi.Controllers.v2.NOController})">
             <summary>
                 Constructor for the ApiController, enables database access and logging
             </summary>
             <param name="context">NOContext object that allows access to the database</param>
             <param name="logger">Logger that gives information about the context of a log message</param>
         </member>
-        <member name="M:LaviniaApi.Controllers.NOController.GetVotes(System.Nullable{System.Int32},System.String,System.String)">
+        <member name="M:LaviniaApi.Controllers.v2.NOController.GetYears">
+            <summary>
+                Returns a list of all election years available in the API.
+                The list is sorted so the most recent years are at the top of the list.
+            </summary>
+            <returns>List of all election years in the database</returns>
+        </member>
+        <member name="M:LaviniaApi.Controllers.v2.NOController.GetVotes(System.Nullable{System.Int32},System.String,System.String)">
             <summary>
                 Returns a list of all Party votes that meet the required parameters.
             </summary>
@@ -78,7 +85,7 @@
             <param name="district">Name of district</param>
             <returns>Party votes meeting the requirements</returns>
         </member>
-        <member name="M:LaviniaApi.Controllers.NOController.GetPreviousVotes(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+        <member name="M:LaviniaApi.Controllers.v2.NOController.GetPreviousVotes(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
             <summary>
                 Returns a list of all Party votes from a number of elections before the specified year.
             </summary>
@@ -88,7 +95,7 @@
             <param name="number">Number of elections</param>
             <returns>Party votes for a number of elections</returns>
         </member>
-        <member name="M:LaviniaApi.Controllers.NOController.GetMetrics(System.Nullable{System.Int32},System.String)">
+        <member name="M:LaviniaApi.Controllers.v2.NOController.GetMetrics(System.Nullable{System.Int32},System.String)">
             <summary>
                 Returns a list of all District metrics that matches the required parameters.
             </summary>
@@ -96,7 +103,7 @@
             <param name="district">Name of district</param>
             <returns>District metrics matching the requirements</returns>
         </member>
-        <member name="M:LaviniaApi.Controllers.NOController.GetPreviousMetrics(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+        <member name="M:LaviniaApi.Controllers.v2.NOController.GetPreviousMetrics(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
             <summary>
                 Returns a list of all District metrics from a number of elections before the specified year.
             </summary>
@@ -105,14 +112,14 @@
             <param name="district">Name of district</param>
             <returns>District metrics for a number of elections</returns>
         </member>
-        <member name="M:LaviniaApi.Controllers.NOController.GetParameters(System.Nullable{System.Int32})">
+        <member name="M:LaviniaApi.Controllers.v2.NOController.GetParameters(System.Nullable{System.Int32})">
             <summary>
                 Returns a list of all Election parameters that matches the required parameters.
             </summary>
             <param name="year">Four digit election year</param>
             <returns>Election parameters matching the requirements</returns>
         </member>
-        <member name="M:LaviniaApi.Controllers.NOController.GetPreviousParameters(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+        <member name="M:LaviniaApi.Controllers.v2.NOController.GetPreviousParameters(System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
                 Returns a list of all Election parameters from a number of elections before the specified year.
             </summary>

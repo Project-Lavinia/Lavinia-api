@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace LaviniaApi.Controllers
+namespace LaviniaApi.Controllers.v2
 {
     /// <inheritdoc />
     /// <summary>
@@ -38,6 +38,34 @@ namespace LaviniaApi.Controllers
         {
             _context = context;
             _logger = logger;
+        }
+
+
+        /// <summary>
+        ///     Returns a list of all election years available in the API.
+        ///     The list is sorted so the most recent years are at the top of the list.
+        /// </summary>
+        /// <returns>List of all election years in the database</returns>
+        [ProducesResponseType(typeof(IEnumerable<int>), 200)]
+        [ProducesResponseType(500)]
+        [HttpGet("years")]
+        public IActionResult GetYears()
+        {
+            _logger.LogInformation("GetYears was called");
+            try
+            {
+                List<int> years = _context.ElectionParameters.Select(ep => ep.ElectionYear).ToList();
+                years.Sort((a, b) => b.CompareTo(a));
+
+                return Ok(
+                    years
+                );
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Something has gone terribly wrong in GetYears");
+                return new StatusCodeResult(500);
+            }
         }
 
 
