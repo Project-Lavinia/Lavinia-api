@@ -51,10 +51,7 @@ namespace LaviniaApi.Tests
             ListElement<double> ap = ep.Algorithm.Parameters.First();
             Assert.Equal("First Divisor", ap.Key);
             Assert.Equal(1.4, ap.Value);
-
-            ListElement<int>[] seatList = ep.DistrictSeats.ToArray();
-            Assert.Equal("SUM", seatList[0].Key);
-            Assert.Equal(150, seatList[0].Value);
+            Assert.Equal(150, ep.DistrictSeats);
         }
 
         // Tests different DistrictSeat input for BuildElectionParameters
@@ -72,9 +69,7 @@ namespace LaviniaApi.Tests
             IEnumerable<ElectionParameters> epList = ModelBuilder.BuildElectionParameters(election, "PE", dmList);
 
             ElectionParameters ep = epList.First();
-            ListElement<int>[] seatList = ep.DistrictSeats.ToArray();
-            Assert.Equal("SUM", seatList[0].Key);
-            Assert.Equal(150, seatList[0].Value);
+            Assert.Equal(150, ep.DistrictSeats);
 
 
             // Tests behaviour for when DistrictSeats are determined before the election
@@ -92,13 +87,7 @@ namespace LaviniaApi.Tests
             epList = ModelBuilder.BuildElectionParameters(election, "PE", dmList);
 
             ep = epList.First();
-            seatList = ep.DistrictSeats.ToArray();
-            Assert.Equal("SUM", seatList[0].Key);
-            Assert.Equal(155, seatList[0].Value);
-            Assert.Equal("Akershus", seatList[1].Key);
-            Assert.Equal(10, seatList[1].Value);
-            Assert.Equal("Aust-Agder", seatList[2].Key);
-            Assert.Equal(4, seatList[2].Value);
+            Assert.Equal(155, ep.DistrictSeats);
         }
 
         // Tests a normal input for BuildAlgorithmParameters
