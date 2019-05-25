@@ -25,10 +25,8 @@ namespace LaviniaApi.Models
         // A multiplier applied to the number of square kilometers when distributing district seats
         public double AreaFactor { get; set; }
 
-        // If the district seats are predetermined, this list will contain a tuple with the district name and
-        // the number of districts seats for each district in the election
-        // This list will always contain an entry "SUM" for the number of district seats distributed in this election
-        public List<ListElement<int>> DistrictSeats { get; set; }
+        // The number of district seats distributed in this election
+        public int DistrictSeats { get; set; }
 
         // The number of leveling seats to be distributed
         public int LevelingSeats { get; set; }

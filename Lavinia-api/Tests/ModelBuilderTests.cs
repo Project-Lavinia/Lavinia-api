@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using LaviniaApi.Models;
 using LaviniaApi.Utilities;
 using Xunit;
@@ -35,9 +33,7 @@ namespace LaviniaApi.Tests
                 new ElectionFormat().Parse("2017;Sainte Laguës (modified);1.4;4.0;1.8;150;19",
                     FieldParser)
             };
-            List<CountyDataFormat> countyData = new List<CountyDataFormat>{new CountyDataFormat().Parse("2017;Akershus;4918;556254;16", FieldParser)};
-            IEnumerable<DistrictMetrics> dmList = ModelBuilder.BuildDistrictMetrics(countyData);
-            IEnumerable<ElectionParameters> epList = ModelBuilder.BuildElectionParameters(election, "PE", dmList);
+            IEnumerable<ElectionParameters> epList = ModelBuilder.BuildElectionParameters(election, "PE");
 
             ElectionParameters ep = epList.First();
             Assert.Equal(1.8, ep.AreaFactor);
@@ -64,9 +60,7 @@ namespace LaviniaApi.Tests
                 new ElectionFormat().Parse("2017;Sainte Laguës (modified);1.4;4.0;1.8;150;19",
                     FieldParser)
             };
-            List<CountyDataFormat> countyData = new List<CountyDataFormat>{new CountyDataFormat().Parse("2017;Akershus;4918;556254;16", FieldParser)};
-            IEnumerable<DistrictMetrics> dmList = ModelBuilder.BuildDistrictMetrics(countyData);
-            IEnumerable<ElectionParameters> epList = ModelBuilder.BuildElectionParameters(election, "PE", dmList);
+            IEnumerable<ElectionParameters> epList = ModelBuilder.BuildElectionParameters(election, "PE");
 
             ElectionParameters ep = epList.First();
             Assert.Equal(150, ep.DistrictSeats);
@@ -78,13 +72,7 @@ namespace LaviniaApi.Tests
                 new ElectionFormat().Parse("1977;Sainte Laguës (modified);1.4;0.0;-1;155;0",
                     FieldParser)
             };
-            countyData = new List<CountyDataFormat>
-            {
-                new CountyDataFormat().Parse("1977;Akershus;0;332561;10", FieldParser),
-                new CountyDataFormat().Parse("1977;Aust-Agder;0;81734;4", FieldParser)
-            };
-            dmList = ModelBuilder.BuildDistrictMetrics(countyData);
-            epList = ModelBuilder.BuildElectionParameters(election, "PE", dmList);
+            epList = ModelBuilder.BuildElectionParameters(election, "PE");
 
             ep = epList.First();
             Assert.Equal(155, ep.DistrictSeats);

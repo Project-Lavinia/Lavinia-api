@@ -102,7 +102,7 @@ namespace LaviniaApi.Data
         {
             string filePath = Path.Combine(path, "Elections.csv");
             IEnumerable<ElectionFormat> electionData = CsvUtilities.CsvToList<ElectionFormat>(filePath);
-            IEnumerable<ElectionParameters> electionParameterModels = ModelBuilder.BuildElectionParameters(electionData, "PE", districtMetrics);
+            IEnumerable<ElectionParameters> electionParameterModels = ModelBuilder.BuildElectionParameters(electionData, "PE");
             return electionParameterModels;
         }
 

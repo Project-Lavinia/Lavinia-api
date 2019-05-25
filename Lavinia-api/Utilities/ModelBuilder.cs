@@ -159,42 +159,20 @@ namespace LaviniaApi.Utilities
         /// </summary>
         /// <param name="electionData">List of ElectionFormat</param>
         /// <param name="electionType">Election type code</param>
-        /// <param name="districtMetrics">List of DistrictMetrics</param>
         /// <returns></returns>
         public static IEnumerable<ElectionParameters> BuildElectionParameters(IEnumerable<ElectionFormat> electionData,
-            string electionType, IEnumerable<DistrictMetrics> districtMetrics)
+            string electionType)
         {
-            return electionData.Select(data =>
+            return electionData.Select(data => new ElectionParameters
             {
-                List<ListElement<int>> districtSeats = new List<ListElement<int>>{new ListElement<int>
-                {
-                    Key = "SUM",
-                    Value = data.Seats
-                }};
-
-                if (data.AreaFactor < 0)
-                {
-                    districtSeats.AddRange(
-                        districtMetrics.Where(dM => dM.ElectionYear == data.Year)
-                            .Select(dM => new ListElement<int>
-                                {
-                                    Key = dM.District,
-                                    Value = dM.Seats
-                                }));
-                }
-
-
-                return new ElectionParameters
-                {
-                    Algorithm = BuildAlgorithmParameters(data),
-                    AreaFactor = data.AreaFactor,
-                    DistrictSeats = districtSeats,
-                    ElectionType = electionType,
-                    ElectionYear = data.Year,
-                    LevelingSeats = data.LevelingSeats,
-                    Threshold = data.Threshold,
-                    TotalVotes = 0
-                };
+                Algorithm = BuildAlgorithmParameters(data),
+                AreaFactor = data.AreaFactor,
+                DistrictSeats = data.Seats,
+                ElectionType = electionType,
+                ElectionYear = data.Year,
+                LevelingSeats = data.LevelingSeats,
+                Threshold = data.Threshold,
+                TotalVotes = 0
             });
         }
 

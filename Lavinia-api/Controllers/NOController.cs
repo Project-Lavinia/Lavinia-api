@@ -19,7 +19,7 @@ namespace LaviniaApi.Controllers.v2
     /// </summary>
     [EnableCors("CorsPolicy")]
     [Produces("application/json")]
-    [Route("api/v2.0.0/")]
+    [Route("api/v2.1.0/")]
     public class NOController : Controller
     {
         private const int DefaultNumberOfYears = 3;
@@ -217,7 +217,6 @@ namespace LaviniaApi.Controllers.v2
                 return Ok(
                     _context.ElectionParameters
                         .Include(eP => eP.Algorithm.Parameters)
-                        .Include(eP => eP.DistrictSeats)
                         .Where(eP => eP.ElectionYear == year || year == null)
                 );
             }
@@ -251,7 +250,6 @@ namespace LaviniaApi.Controllers.v2
                 return Ok(
                     _context.ElectionParameters
                         .Include(eP => eP.Algorithm.Parameters)
-                        .Include(eP => eP.DistrictSeats)
                         .Where(eP => years.Contains(eP.ElectionYear))
                 );
             }
