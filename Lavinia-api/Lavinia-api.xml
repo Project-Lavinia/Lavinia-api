@@ -78,9 +78,15 @@
         </member>
         <member name="M:LaviniaApi.Controllers.v2.NOController.GetParties(System.Nullable{System.Int32})">
             <summary>
-                Returns a list of all election parties for a given year in the API.
+                Returns a list of all parties for a given year in the API.
             </summary>
             <returns>List of all parties for a given year.</returns>
+        </member>
+        <member name="M:LaviniaApi.Controllers.v2.NOController.GetDistricts(System.Nullable{System.Int32})">
+            <summary>
+                Returns a list of all districts for a given year in the API.
+            </summary>
+            <returns>List of all districts for a given year.</returns>
         </member>
         <member name="M:LaviniaApi.Controllers.v2.NOController.GetVotes(System.Nullable{System.Int32},System.String,System.String)">
             <summary>

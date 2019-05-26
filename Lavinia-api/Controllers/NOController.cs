@@ -70,7 +70,7 @@ namespace LaviniaApi.Controllers.v2
 
 
         /// <summary>
-        ///     Returns a list of all election parties for a given year in the API.
+        ///     Returns a list of all parties for a given year in the API.
         /// </summary>
         /// <returns>List of all parties for a given year.</returns>
         [ProducesResponseType(typeof(IEnumerable<int>), 200)]
@@ -78,7 +78,7 @@ namespace LaviniaApi.Controllers.v2
         [HttpGet("parties")]
         public IActionResult GetParties(int? year)
         {
-            _logger.LogInformation("GetParties was called");
+            _logger.LogInformation("GetParties was called with parameters year = " + year);
             try
             {
                 HashSet<string> partyList = _context.PartyVotes
@@ -92,7 +92,33 @@ namespace LaviniaApi.Controllers.v2
             }
             catch (Exception e)
             {
-                _logger.LogError(e, "Something has gone terribly wrong in GetYears");
+                _logger.LogError(e, "Something has gone terribly wrong in GetParties");
+                return new StatusCodeResult(500);
+            }
+        }
+
+
+        /// <summary>
+        ///     Returns a list of all districts for a given year in the API.
+        /// </summary>
+        /// <returns>List of all districts for a given year.</returns>
+        [ProducesResponseType(typeof(IEnumerable<int>), 200)]
+        [ProducesResponseType(500)]
+        [HttpGet("districts")]
+        public IActionResult GetDistricts(int? year)
+        {
+            _logger.LogInformation("GetDistricts was called with parameters year = " + year);
+            try
+            {
+                return Ok(
+                    _context.DistrictMetrics
+                        .Where(dm => dm.ElectionYear == year || year == null)
+                        .Select(dm => dm.District).ToHashSet().ToList()
+                );
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Something has gone terribly wrong in GetDistricts");
                 return new StatusCodeResult(500);
             }
         }
