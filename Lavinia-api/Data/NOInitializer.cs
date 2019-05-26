@@ -40,8 +40,13 @@ namespace LaviniaApi.Data
                 context.ElectionParameters.AddRange(electionParameters);
 
                 // Parse all PartyVotes
-                List<PartyVotes> partyVotes = ParsePartyVotes(root).ToList();
+                Dictionary<int, List<ResultFormat>> resultFormats = ParseResultFormat(root);
+                List<PartyVotes> partyVotes = ParsePartyVotes(resultFormats, "PE").ToList();
                 context.PartyVotes.AddRange(partyVotes);
+
+                // Create list of all parties
+                List<Party> parties = ParseParties(resultFormats).ToList();
+                context.Parties.AddRange(parties);
 
                 // Sum the total number of votes cast in an election
                 SumTotalVotes(electionParameters, partyVotes);
@@ -106,12 +111,11 @@ namespace LaviniaApi.Data
             return electionParameterModels;
         }
 
-        // Parses <year>.csv -> PartyVotes
-        private static IEnumerable<PartyVotes> ParsePartyVotes(string root)
+        // Parses <year>.csv -> ResultFormat
+        private static Dictionary<int, List<ResultFormat>> ParseResultFormat(string root)
         {
-            IEnumerable<PartyVotes> partyVotes = new List<PartyVotes>();
-
-            string electionType = Path.GetFileName(root);
+            Dictionary<int, List<ResultFormat>> resultFormats = new Dictionary<int, List<ResultFormat>>();
+            
             string[] filePaths = Directory.GetFiles(root);
 
             foreach (string filePath in filePaths)
@@ -120,13 +124,42 @@ namespace LaviniaApi.Data
                 {
                     continue;
                 }
-
+                
                 int electionYear = int.Parse(Path.GetFileNameWithoutExtension(filePath));
-                IEnumerable<ResultFormat> election = CsvUtilities.CsvToList<ResultFormat>(filePath);
-                partyVotes = partyVotes.Concat(ModelBuilder.BuildPartyVotes(election, electionType, electionYear));
+                resultFormats[electionYear] = CsvUtilities.CsvToList<ResultFormat>(filePath);
+            }
+
+            return resultFormats;
+        }
+
+        // Parses ResultFormat -> PartyVotes
+        private static IEnumerable<PartyVotes> ParsePartyVotes(Dictionary<int, List<ResultFormat>> resultFormat, string electionType)
+        {
+            IEnumerable<PartyVotes> partyVotes = new List<PartyVotes>();
+
+            foreach (KeyValuePair<int, List<ResultFormat>> pair in resultFormat)
+            {
+                partyVotes = partyVotes.Concat(ModelBuilder.BuildPartyVotes(pair.Value, electionType, pair.Key));
             }
 
             return partyVotes;
+        }
+
+        // Parses ResultFormat -> Party
+        private static IEnumerable<Party> ParseParties(Dictionary<int, List<ResultFormat>> resultFormat)
+        {
+            Dictionary<string, Party> parties = new Dictionary<string, Party>();
+
+            foreach (KeyValuePair<int, List<ResultFormat>> pair in resultFormat)
+            {
+                IEnumerable<Party> newParties = ModelBuilder.BuildParties(pair.Value);
+                foreach (Party party in newParties)
+                {
+                    parties[party.Name] = party;
+                }
+            }
+
+            return parties.Values;
         }
     }
 }

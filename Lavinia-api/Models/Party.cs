@@ -3,15 +3,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LaviniaApi.Models
 {
-    // API v1
+    // API v2
+    // Stores all the parties in the API
     public class Party
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int PartyId { get; set; }
+        // The full name of the party
+        [Key]
+        public string Name { get; set; }
 
-        [Required] public string Name { get; set; }
-
-        public string InternationalName { get; set; }
-        public string ShortName { get; set; }
+        // The party code
+        public string Code { get; set; }
     }
 }

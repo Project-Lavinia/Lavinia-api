@@ -70,6 +70,35 @@ namespace LaviniaApi.Controllers.v2
 
 
         /// <summary>
+        ///     Returns a list of all election parties for a given year in the API.
+        /// </summary>
+        /// <returns>List of all parties for a given year.</returns>
+        [ProducesResponseType(typeof(IEnumerable<int>), 200)]
+        [ProducesResponseType(500)]
+        [HttpGet("parties")]
+        public IActionResult GetParties(int? year)
+        {
+            _logger.LogInformation("GetParties was called");
+            try
+            {
+                HashSet<string> partyList = _context.PartyVotes
+                    .Where(pv => pv.ElectionYear == year || year == null)
+                    .Select(ep => ep.Party).ToHashSet();
+
+                return Ok(
+                    _context.Parties
+                        .Where(p => partyList.Contains(p.Code))
+                );
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Something has gone terribly wrong in GetYears");
+                return new StatusCodeResult(500);
+            }
+        }
+
+
+        /// <summary>
         ///     Returns a list of all Party votes that meet the required parameters.
         /// </summary>
         /// <param name="year">Four digit election year</param>
