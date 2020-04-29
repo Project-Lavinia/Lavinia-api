@@ -28,8 +28,6 @@ namespace LaviniaApi.Data
                 .HasAlternateKey(e => e.ElectionId);
             modelBuilder.Entity<ElectionType>()
                 .HasAlternateKey(eT => eT.ElectionTypeId);
-            modelBuilder.Entity<Party>()
-                .HasAlternateKey(p => p.PartyId);
             modelBuilder.Entity<Result>()
                 .HasAlternateKey(r => r.ResultId);
             modelBuilder.Entity<CountyData>()
