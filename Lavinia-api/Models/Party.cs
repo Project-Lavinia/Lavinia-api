@@ -10,8 +10,6 @@ namespace LaviniaApi.Models
         public int PartyId { get; set; }
 
         [Required] public string Name { get; set; }
-
-        public string InternationalName { get; set; }
-        public string ShortName { get; set; }
+        [Required] public string Code { get; set; }
     }
 }
