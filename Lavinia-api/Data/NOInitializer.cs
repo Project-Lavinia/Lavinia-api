@@ -148,7 +148,6 @@ namespace LaviniaApi.Data
                     continue;
                 }
 
-                int electionYear = int.Parse(Path.GetFileNameWithoutExtension(filePath));
                 List<ResultFormat> result = CsvUtilities.CsvToList<ResultFormat>(filePath);
                 List<ResultFormat> filteredResults = new List<ResultFormat>();
                 
