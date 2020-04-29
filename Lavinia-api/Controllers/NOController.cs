@@ -70,6 +70,34 @@ namespace LaviniaApi.Controllers.v2
 
 
         /// <summary>
+        ///     Returns a dictionary from party code to party name for all parties available in the API.
+        /// </summary>
+        /// <returns>Dictionary from party code to party name for all parties in the database</returns>
+        [ProducesResponseType(typeof(IEnumerable<int>), 200)]
+        [ProducesResponseType(500)]
+        [HttpGet("parties")]
+        public IActionResult GetParties()
+        {
+            _logger.LogInformation("GetParties was called");
+            try
+            {
+                List<Party> parties = _context.Parties.ToList();
+                Dictionary<string, string> partyDict = new Dictionary<string, string>();
+                parties.ForEach(p => partyDict.Add(p.Code, p.Name));
+
+                return Ok(
+                    partyDict
+                );
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Something has gone terribly wrong in GetYears");
+                return new StatusCodeResult(500);
+            }
+        }
+
+
+        /// <summary>
         ///     Returns a list of all Party votes that meet the required parameters.
         /// </summary>
         /// <param name="year">Four digit election year</param>
