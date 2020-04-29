@@ -43,6 +43,10 @@ namespace LaviniaApi.Data
                 List<PartyVotes> partyVotes = ParsePartyVotes(root).ToList();
                 context.PartyVotes.AddRange(partyVotes);
 
+                // Parse all Parties
+                List<Party> parties = ParseParties(root).ToList();
+                context.Parties.AddRange(parties);
+
                 // Sum the total number of votes cast in an election
                 SumTotalVotes(electionParameters, partyVotes);
                 context.SaveChanges();
@@ -127,6 +131,39 @@ namespace LaviniaApi.Data
             }
 
             return partyVotes;
+        }
+
+        // Parses <year>.csv -> Party
+        private static IEnumerable<Party> ParseParties(string root)
+        {
+            IEnumerable<Party> parties = new List<Party>();
+            HashSet<string> existingParties = new HashSet<string>();
+
+            string[] filePaths = Directory.GetFiles(root);
+
+            foreach (string filePath in filePaths)
+            {
+                if (Path.GetFileName(filePath) == "Elections.csv")
+                {
+                    continue;
+                }
+
+                int electionYear = int.Parse(Path.GetFileNameWithoutExtension(filePath));
+                List<ResultFormat> result = CsvUtilities.CsvToList<ResultFormat>(filePath);
+                List<ResultFormat> filteredResults = new List<ResultFormat>();
+                
+                result.ForEach(r =>
+                {
+                    if (!existingParties.Contains(r.Partikode))
+                    {
+                        existingParties.Add(r.Partikode);
+                        filteredResults.Add(r);
+                    }
+                });
+                parties = parties.Concat(ModelBuilder.BuildParties(filteredResults));
+            }
+
+            return parties;
         }
     }
 }

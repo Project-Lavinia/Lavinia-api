@@ -14,6 +14,7 @@ namespace LaviniaApi.Data
         {
         }
         public DbSet<PartyVotes> PartyVotes { get; set; }
+        public DbSet<Party> Parties { get; set; }
         public DbSet<DistrictMetrics> DistrictMetrics { get; set; }
         public DbSet<ElectionParameters> ElectionParameters { get; set; }
 
@@ -21,6 +22,8 @@ namespace LaviniaApi.Data
         {
             modelBuilder.Entity<PartyVotes>()
                 .HasKey(p => new {p.ElectionYear, p.District, p.Party, p.ElectionType});
+            modelBuilder.Entity<Party>()
+                .HasKey(p => p.Code);
             modelBuilder.Entity<DistrictMetrics>()
                 .HasKey(d => new {d.ElectionYear, d.District});
             modelBuilder.Entity<ElectionParameters>()
