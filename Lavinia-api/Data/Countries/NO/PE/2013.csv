@@ -14,7 +14,6 @@
 01;Østfold;;;;;MDG;Miljøpartiet de Grønne;2;209038;1048;2120;3168;1,8;1,2;0;0;
 01;Østfold;;;;;PIR;Piratpartiet;0,3;209038;138;378;516;0,3;0,3;0;0;
 01;Østfold;;;;;PP;Pensjonistpartiet;0,6;209038;314;642;956;-0,3;-0,8;0;0;
-01;Østfold;;;;;BLANKE;Blanke;0,6;209038;192;703;895;0;-1;0;0;
 02;Akershus;;;;;A;Arbeiderpartiet;28,4;394439;22193;69171;91364;-5,2;-2,6;5;0;
 02;Akershus;;;;;SV;Sosialistisk Venstreparti;3,5;394439;3025;8280;11305;-2,1;-0,7;1;1;
 02;Akershus;;;;;RØDT;Rødt;0,7;394439;787;1578;2365;-0,1;-0,4;0;0;
@@ -32,7 +31,6 @@
 02;Akershus;;;;;PIR;Piratpartiet;0,3;394439;279;827;1106;0,3;0,3;0;0;
 02;Akershus;;;;;PP;Pensjonistpartiet;0,5;394439;593;964;1557;0;-0,8;0;0;
 02;Akershus;;;;;SFP;Samfunnspartiet;0;394439;19;58;77;0;0;0;0;
-02;Akershus;;;;;BLANKE;Blanke;0,4;394439;316;951;1267;0;-0,6;0;0;
 03;Oslo;;;;;A;Arbeiderpartiet;30,4;435787;38636;67365;106001;-4,6;-2,7;6;0;
 03;Oslo;;;;;SV;Sosialistisk Venstreparti;6,3;435787;7682;14242;21924;-4;0;1;0;
 03;Oslo;;;;;RØDT;Rødt;3,2;435787;4203;6930;11133;-0,8;-0,4;0;0;
@@ -51,7 +49,6 @@
 03;Oslo;;;;;PIR;Piratpartiet;0,4;435787;463;894;1357;0,4;0,4;0;0;
 03;Oslo;;;;;PP;Pensjonistpartiet;0,3;435787;569;603;1172;0;0;0;0;
 03;Oslo;;;;;SFP;Samfunnspartiet;0;435787;25;45;70;0;0;0;0;
-03;Oslo;;;;;BLANKE;Blanke;0,4;435787;453;846;1299;0;0,1;0;0;
 04;Hedmark;;;;;A;Arbeiderpartiet;43,2;148098;12759;35935;48694;-3,9;-2,7;3;0;
 04;Hedmark;;;;;SV;Sosialistisk Venstreparti;3,9;148098;1287;3106;4393;-2,7;-0,5;1;1;
 04;Hedmark;;;;;RØDT;Rødt;0,7;148098;288;485;773;0,1;-0,1;0;0;
@@ -66,7 +63,6 @@
 04;Hedmark;;;;;MDG;Miljøpartiet de Grønne;2;148098;763;1461;2224;1,7;0,9;0;0;
 04;Hedmark;;;;;PIR;Piratpartiet;0,3;148098;92;219;311;0,3;0,3;0;0;
 04;Hedmark;;;;;PP;Pensjonistpartiet;1,5;148098;710;1009;1719;-0,4;-1,7;0;0;
-04;Hedmark;;;;;BLANKE;Blanke;0,6;148098;147;518;665;0;-1,3;0;0;
 05;Oppland;;;;;A;Arbeiderpartiet;41;142014;10221;33829;44050;-4,8;-3,1;3;0;
 05;Oppland;;;;;SV;Sosialistisk Venstreparti;2,9;142014;932;2233;3165;-2,2;-1;0;0;
 05;Oppland;;;;;RØDT;Rødt;0,8;142014;282;535;817;0,2;-0,4;0;0;
@@ -82,7 +78,6 @@
 05;Oppland;;;;;MDG;Miljøpartiet de Grønne;2,4;142014;868;1715;2583;2,1;1,3;0;0;
 05;Oppland;;;;;PIR;Piratpartiet;0,3;142014;76;222;298;0,3;0,3;0;0;
 05;Oppland;;;;;PP;Pensjonistpartiet;0,7;142014;265;537;802;-0,1;-0,7;0;0;
-05;Oppland;;;;;BLANKE;Blanke;0,5;142014;123;365;488;0;-0,9;0;0;
 06;Buskerud;;;;;A;Arbeiderpartiet;31,8;193404;13172;34400;47572;-5,3;-3,1;3;0;
 06;Buskerud;;;;;SV;Sosialistisk Venstreparti;2,7;193404;1182;2912;4094;-1,8;-0,4;0;0;
 06;Buskerud;;;;;RØDT;Rødt;0,6;193404;282;623;905;0;-0,4;0;0;
@@ -98,7 +93,6 @@
 06;Buskerud;;;;;MDG;Miljøpartiet de Grønne;2,2;193404;1066;2279;3345;1,9;1,4;0;0;
 06;Buskerud;;;;;PIR;Piratpartiet;0,3;193404;140;368;508;0,3;0,3;0;0;
 06;Buskerud;;;;;SFP;Samfunnspartiet;0;193404;13;43;56;0;0;0;0;
-06;Buskerud;;;;;BLANKE;Blanke;0,5;193404;186;631;817;0,1;-0,7;0;0;
 07;Vestfold;;;;;A;Arbeiderpartiet;29,6;176779;12063;28806;40869;-4,1;-2,3;2;0;
 07;Vestfold;;;;;SV;Sosialistisk Venstreparti;3,8;176779;1503;3763;5266;-2,7;0;0;0;
 07;Vestfold;;;;;RØDT;Rødt;0,7;176779;373;559;932;0;-0,7;0;0;
@@ -114,7 +108,6 @@
 07;Vestfold;;;;;MDG;Miljøpartiet de Grønne;2,5;176779;1220;2187;3407;2,1;1,4;0;0;
 07;Vestfold;;;;;PIR;Piratpartiet;0,3;176779;130;344;474;0,3;0,3;0;0;
 07;Vestfold;;;;;PP;Pensjonistpartiet;0,4;176779;216;380;596;0;-0,3;0;0;
-07;Vestfold;;;;;BLANKE;Blanke;0,5;176779;195;512;707;0,1;-0,6;0;0;
 08;Telemark;;;;;A;Arbeiderpartiet;36,7;128352;7541;28422;35963;-4,9;-1,1;3;0;
 08;Telemark;;;;;SV;Sosialistisk Venstreparti;3,3;128352;872;2320;3192;-2,1;-0,8;0;0;
 08;Telemark;;;;;RØDT;Rødt;0,9;128352;269;615;884;-0,3;-0,7;0;0;
@@ -129,7 +122,6 @@
 08;Telemark;;;;;KYST;Kystpartiet;0,1;128352;13;55;68;0;-0,1;0;0;
 08;Telemark;;;;;MDG;Miljøpartiet de Grønne;2,2;128352;721;1395;2116;1,9;1,1;0;0;
 08;Telemark;;;;;PIR;Piratpartiet;0,2;128352;68;171;239;0,2;0,2;0;0;
-08;Telemark;;;;;BLANKE;Blanke;0,5;128352;88;367;455;0,1;-0,7;0;0;
 09;Aust-Agder;;;;;A;Arbeiderpartiet;28;81864;4911;12712;17623;-4,5;1,2;1;0;
 09;Aust-Agder;;;;;SV;Sosialistisk Venstreparti;2,6;81864;576;1076;1652;-1,7;-1,3;0;0;
 09;Aust-Agder;;;;;RØDT;Rødt;0,5;81864;132;213;345;-0,1;-0,7;0;0;
@@ -145,7 +137,6 @@
 09;Aust-Agder;;;;;MDG;Miljøpartiet de Grønne;2;81864;485;757;1242;1,7;1,3;0;0;
 09;Aust-Agder;;;;;PIR;Piratpartiet;0,3;81864;61;115;176;0,3;0,3;0;0;
 09;Aust-Agder;;;;;PP;Pensjonistpartiet;0,6;81864;143;211;354;0,1;-1,8;0;0;
-09;Aust-Agder;;;;;BLANKE;Blanke;0,5;81864;75;240;315;0,1;-1,2;0;0;
 10;Vest-Agder;;;;;A;Arbeiderpartiet;23,8;126317;6273;16954;23227;-2,7;0,3;2;1;
 10;Vest-Agder;;;;;SV;Sosialistisk Venstreparti;2,6;126317;869;1699;2568;-1,3;-0,2;0;0;
 10;Vest-Agder;;;;;RØDT;Rødt;0,5;126317;197;263;460;0;-0,4;0;0;
@@ -162,7 +153,6 @@
 10;Vest-Agder;;;;;NKP;Norges Kommunistiske Parti;0;126317;9;32;41;0;-0,1;0;0;
 10;Vest-Agder;;;;;PIR;Piratpartiet;0,3;126317;103;181;284;0,3;0,3;0;0;
 10;Vest-Agder;;;;;PP;Pensjonistpartiet;0,9;126317;317;564;881;0,2;-1,1;0;0;
-10;Vest-Agder;;;;;BLANKE;Blanke;0,4;126317;102;242;344;0;-0,9;0;0;
 11;Rogaland;;;;;A;Arbeiderpartiet;22,6;308988;13737;40725;54462;-3,4;-4,7;3;0;
 11;Rogaland;;;;;SV;Sosialistisk Venstreparti;3,3;308988;2022;5886;7908;-1,4;0,4;0;0;
 11;Rogaland;;;;;RØDT;Rødt;0,4;308988;341;719;1060;0;-0,2;0;0;
@@ -180,7 +170,6 @@
 11;Rogaland;;;;;NKP;Norges Kommunistiske Parti;0;308988;22;45;67;0;-0,1;0;0;
 11;Rogaland;;;;;PIR;Piratpartiet;0,4;308988;257;608;865;0,4;0,4;0;0;
 11;Rogaland;;;;;PP;Pensjonistpartiet;0,5;308988;383;808;1191;-0,1;-1,1;0;0;
-11;Rogaland;;;;;BLANKE;Blanke;0,4;308988;252;594;846;-0,1;-0,5;0;0;
 12;Hordaland;;;;;A;Arbeiderpartiet;24,9;357496;23853;47363;71216;-5,6;-2,9;4;0;
 12;Hordaland;;;;;SV;Sosialistisk Venstreparti;4,9;357496;4623;9520;14143;-0,5;0,9;1;0;
 12;Hordaland;;;;;RØDT;Rødt;0,9;357496;1100;1587;2687;-1,6;-1;0;0;
@@ -196,7 +185,6 @@
 12;Hordaland;;;;;NKP;Norges Kommunistiske Parti;0;357496;57;70;127;0;-0,1;0;0;
 12;Hordaland;;;;;PIR;Piratpartiet;0,4;357496;308;754;1062;0,4;0,4;0;0;
 12;Hordaland;;;;;PP;Pensjonistpartiet;0,2;357496;321;310;631;0;-0,3;0;0;
-12;Hordaland;;;;;BLANKE;Blanke;0,5;357496;410;950;1360;0;-0,7;0;0;
 12;Hordaland;;;;;FOLKEM;Folkemakten;0,1;357496;41;134;175;0,1;0,1;0;0;
 14;Sogn og Fjordane;;;;;A;Arbeiderpartiet;28,1;78280;4708;12475;17183;-1,5;1,1;1;0;
 14;Sogn og Fjordane;;;;;SV;Sosialistisk Venstreparti;3,4;78280;715;1361;2076;-2,4;-0,9;0;0;
@@ -211,7 +199,6 @@
 14;Sogn og Fjordane;;;;;KYST;Kystpartiet;0,2;78280;28;72;100;0;-0,2;0;0;
 14;Sogn og Fjordane;;;;;MDG;Miljøpartiet de Grønne;1,7;78280;444;588;1032;1,5;1,1;0;0;
 14;Sogn og Fjordane;;;;;PIR;Piratpartiet;0,2;78280;52;99;151;0,2;0,2;0;0;
-14;Sogn og Fjordane;;;;;BLANKE;Blanke;0,4;78280;82;171;253;0,1;-0,8;0;0;
 15;Møre og Romsdal;;;;;A;Arbeiderpartiet;25,2;187682;10391;25657;36048;-5,5;-0,6;2;0;
 15;Møre og Romsdal;;;;;SV;Sosialistisk Venstreparti;2,5;187682;1215;2317;3532;-1,3;-0,6;0;0;
 15;Møre og Romsdal;;;;;RØDT;Rødt;0,4;187682;264;378;642;0;-0,1;0;0;
@@ -225,7 +212,6 @@
 15;Møre og Romsdal;;;;;KYST;Kystpartiet;0,1;187682;45;114;159;0;-0,1;0;0;
 15;Møre og Romsdal;;;;;MDG;Miljøpartiet de Grønne;1,4;187682;783;1180;1963;1,2;0,9;0;0;
 15;Møre og Romsdal;;;;;PIR;Piratpartiet;0,3;187682;171;308;479;0,3;0,3;0;0;
-15;Møre og Romsdal;;;;;BLANKE;Blanke;0,4;187682;188;403;591;0;-0,7;0;0;
 16;Sør-Trøndelag;;;;;A;Arbeiderpartiet;36,7;222149;20632;43719;64351;-4,3;-3,8;4;0;
 16;Sør-Trøndelag;;;;;SV;Sosialistisk Venstreparti;5,7;222149;3535;6457;9992;-2,2;0,4;1;1;
 16;Sør-Trøndelag;;;;;RØDT;Rødt;1;222149;731;936;1667;-0,3;-1,1;0;0;
@@ -243,7 +229,6 @@
 16;Sør-Trøndelag;;;;;NKP;Norges Kommunistiske Parti;0,1;222149;36;61;97;0;-0,1;0;0;
 16;Sør-Trøndelag;;;;;PIR;Piratpartiet;0,5;222149;317;540;857;0,5;0,5;0;0;
 16;Sør-Trøndelag;;;;;PP;Pensjonistpartiet;0,9;222149;708;882;1590;0,3;-0,3;0;0;
-16;Sør-Trøndelag;;;;;BLANKE;Blanke;0,4;222149;249;528;777;0;-0,7;0;0;
 17;Nord-Trøndelag;;;;;A;Arbeiderpartiet;41,9;99921;8596;23458;32054;-1,6;-1;2;0;
 17;Nord-Trøndelag;;;;;SV;Sosialistisk Venstreparti;3,4;99921;824;1772;2596;-3,1;-2;0;0;
 17;Nord-Trøndelag;;;;;RØDT;Rødt;0,6;99921;150;273;423;-0,1;-0,2;0;0;
@@ -258,7 +243,6 @@
 17;Nord-Trøndelag;;;;;KYST;Kystpartiet;0,1;99921;22;59;81;-0,1;-0,1;0;0;
 17;Nord-Trøndelag;;;;;MDG;Miljøpartiet de Grønne;1,4;99921;409;642;1051;1,2;0,7;0;0;
 17;Nord-Trøndelag;;;;;PIR;Piratpartiet;0,3;99921;64;145;209;0,3;0,3;0;0;
-17;Nord-Trøndelag;;;;;BLANKE;Blanke;0,4;99921;109;234;343;0;-0,7;0;0;
 18;Nordland;;;;;A;Arbeiderpartiet;35,1;179464;15909;30834;46743;-4,2;-0,6;4;0;
 18;Nordland;;;;;SV;Sosialistisk Venstreparti;5,2;179464;2439;4468;6907;-2,6;-0,1;0;0;
 18;Nordland;;;;;RØDT;Rødt;1,6;179464;881;1283;2164;0,2;-2;0;0;
@@ -276,7 +260,6 @@
 18;Nordland;;;;;PP;Pensjonistpartiet;0,3;179464;190;226;416;0,3;-0,3;0;0;
 18;Nordland;;;;;SFP;Samfunnspartiet;0,1;179464;27;65;92;0;0,1;0;0;
 18;Nordland;;;;;AKSJOLJE;Folkeliste mot oljeboring i Lofoten, Vesterålen og Senja;0,2;179464;103;165;268;0,2;0,2;0;0;
-18;Nordland;;;;;BLANKE;Blanke;0,5;179464;271;401;672;0;-0,8;0;0;
 19;Troms;;;;;A;Arbeiderpartiet;31,1;118612;7946;19490;27436;-5,7;0,1;2;0;
 19;Troms;;;;;SV;Sosialistisk Venstreparti;6,4;118612;1578;4110;5688;-1;1,1;1;1;
 19;Troms;;;;;RØDT;Rødt;1,8;118612;642;966;1608;0,3;-1,7;0;0;
@@ -292,7 +275,6 @@
 19;Troms;;;;;MDG;Miljøpartiet de Grønne;2,5;118612;814;1376;2190;2,2;1,2;0;0;
 19;Troms;;;;;NKP;Norges Kommunistiske Parti;0,1;118612;23;55;78;0;-0,1;0;0;
 19;Troms;;;;;PIR;Piratpartiet;0,4;118612;99;283;382;0,4;0,4;0;0;
-19;Troms;;;;;BLANKE;Blanke;0,6;118612;143;347;490;0,1;-0,4;0;0;
 20;Finnmark;;;;;A;Arbeiderpartiet;39,8;53310;5196;9807;15003;-5,5;0,2;2;0;
 20;Finnmark;;;;;SV;Sosialistisk Venstreparti;5,2;53310;645;1307;1952;-2,9;-0,9;1;1;
 20;Finnmark;;;;;RØDT;Rødt;0,9;53310;166;185;351;0,1;0;0;0;
@@ -307,5 +289,4 @@
 20;Finnmark;;;;;KYST;Kystpartiet;1,5;53310;215;335;550;-1,2;-4,9;0;0;
 20;Finnmark;;;;;MDG;Miljøpartiet de Grønne;2,2;53310;387;457;844;2;1,7;0;0;
 20;Finnmark;;;;;PIR;Piratpartiet;0,4;53310;67;77;144;0,4;0,4;0;0;
-20;Finnmark;;;;;BLANKE;Blanke;0,8;53310;120;170;290;0,2;-0,8;0;0;
 20;Finnmark;;;;;SJALTA;Sykehus til Alta;1,2;53310;207;260;467;1,2;1,2;0;0;
