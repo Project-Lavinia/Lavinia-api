@@ -1,5 +1,5 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e6bc02a75590460cb8bed0d158172e89)](https://www.codacy.com/manual/Project-Lavinia/Lavinia-api?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Project-Lavinia/Lavinia-api&amp;utm_campaign=Badge_Grade)
 # Lavinia-api
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e6bc02a75590460cb8bed0d158172e89)](https://www.codacy.com/manual/Project-Lavinia/Lavinia-api?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Project-Lavinia/Lavinia-api&amp;utm_campaign=Badge_Grade)
 
 ## Prerequisites
 
