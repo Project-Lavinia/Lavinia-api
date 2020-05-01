@@ -76,11 +76,11 @@
             </summary>
             <returns>List of all election years in the database</returns>
         </member>
-        <member name="M:LaviniaApi.Controllers.v2.NOController.GetParties(System.Nullable{System.Int32})">
+        <member name="M:LaviniaApi.Controllers.v2.NOController.GetParties">
             <summary>
-                Returns a list of all parties for a given year in the API.
+                Returns a map from party code to party name for all parties in the API.
             </summary>
-            <returns>List of all parties for a given year.</returns>
+            <returns>Map from party code to party name for all parties.</returns>
         </member>
         <member name="M:LaviniaApi.Controllers.v2.NOController.GetDistricts(System.Nullable{System.Int32})">
             <summary>
@@ -558,7 +558,7 @@
             <param name="electionYear">Which year the election was held</param>
             <returns>List of PartyVotes</returns>
         </member>
-        <member name="M:LaviniaApi.Utilities.ModelBuilder.BuildParties(System.Collections.Generic.IEnumerable{LaviniaApi.Utilities.ResultFormat})">
+        <member name="M:LaviniaApi.Utilities.ModelBuilder.BuildParties(System.Collections.Generic.IEnumerable{LaviniaApi.Utilities.ResultFormat},System.Collections.Generic.Dictionary{System.String,System.String})">
             <summary>
             Takes a list of ResultFormat and returns a list of Parties.
             The returned list contains information about which parties participated in a particular election.

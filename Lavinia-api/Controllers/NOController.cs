@@ -70,24 +70,23 @@ namespace LaviniaApi.Controllers.v2
 
 
         /// <summary>
-        ///     Returns a list of all parties for a given year in the API.
+        ///     Returns a map from party code to party name for all parties in the API.
         /// </summary>
-        /// <returns>List of all parties for a given year.</returns>
-        [ProducesResponseType(typeof(IEnumerable<int>), 200)]
+        /// <returns>Map from party code to party name for all parties.</returns>
+        [ProducesResponseType(typeof(IDictionary<string, string>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("parties")]
-        public IActionResult GetParties(int? year)
+        public IActionResult GetParties()
         {
-            _logger.LogInformation("GetParties was called with parameters year = " + year);
+            _logger.LogInformation("GetParties was called");
             try
             {
-                HashSet<string> partyList = _context.PartyVotes
-                    .Where(pv => pv.ElectionYear == year || year == null)
-                    .Select(ep => ep.Party).ToHashSet();
+                List<Party> parties = _context.Parties.ToList();
+                IEnumerable<KeyValuePair<string, string>> partyMapping = parties.Select(p => new KeyValuePair<string, string>(p.Code, p.Name));
+                Dictionary<string, string> partyDict = new Dictionary<string, string>(partyMapping);
 
                 return Ok(
-                    _context.Parties
-                        .Where(p => partyList.Contains(p.Code))
+                    partyDict
                 );
             }
             catch (Exception e)
