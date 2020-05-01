@@ -161,9 +161,55 @@ namespace LaviniaApi.Utilities
         /// <param name="electionType">Election type code</param>
         /// <returns></returns>
         public static IEnumerable<ElectionParameters> BuildElectionParameters(IEnumerable<ElectionFormat> electionData,
-            string electionType)
+            string electionType, IEnumerable<DistrictMetrics> districtMetrics)
         {
-            return electionData.Select(data => new ElectionParameters
+            return electionData.Select(data =>
+            {
+                List<ListElement<int>> districtSeats = new List<ListElement<int>> {
+                    new ListElement<int>
+                    {
+                        Key = "SUM",
+                        Value = data.Seats
+                    }
+                };
+
+                if (data.AreaFactor < 0)
+                {
+                    districtSeats.AddRange(
+                        districtMetrics.Where(dM => dM.ElectionYear == data.Year)
+                            .Select(dM => new ListElement<int>
+                            {
+                                Key = dM.District,
+                                Value = dM.Seats
+                            }));
+                }
+
+
+                return new ElectionParameters
+                {
+                    Algorithm = BuildAlgorithmParameters(data),
+                    AreaFactor = data.AreaFactor,
+                    DistrictSeats = districtSeats,
+                    ElectionType = electionType,
+                    ElectionYear = data.Year,
+                    LevelingSeats = data.LevelingSeats,
+                    Threshold = data.Threshold,
+                    TotalVotes = 0
+                };
+            });
+        }
+
+        /// <summary>
+        /// Takes a list of ElectionFormat, an election type and a list of DistrictMetrics, and returns a list of ElectionParameters.
+        /// The returned list contains information about which parameters were used for each election.
+        /// </summary>
+        /// <param name="electionData">List of ElectionFormat</param>
+        /// <param name="electionType">Election type code</param>
+        /// <returns></returns>
+        public static IEnumerable<ElectionParametersV3> BuildElectionParametersV3(IEnumerable<ElectionFormat> electionData,
+        string electionType)
+        {
+            return electionData.Select(data => new ElectionParametersV3
             {
                 Algorithm = BuildAlgorithmParameters(data),
                 AreaFactor = data.AreaFactor,
@@ -175,7 +221,6 @@ namespace LaviniaApi.Utilities
                 TotalVotes = 0
             });
         }
-
 
         /// <summary>
         /// Takes an ElectionFormat, extracts information about the algorithm used and returns an AlgorithmParameter

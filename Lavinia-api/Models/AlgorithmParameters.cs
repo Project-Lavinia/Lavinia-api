@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using LaviniaApi.Utilities;
 
-// API v2
 namespace LaviniaApi.Models
 {
+    // API v2
     // Contains the parameters used for distributing seats during an election.
     public class AlgorithmParameters
     {

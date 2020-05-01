@@ -17,17 +17,20 @@ namespace LaviniaApi.Data
         public DbSet<PartyVotes> PartyVotes { get; set; }
         public DbSet<DistrictMetrics> DistrictMetrics { get; set; }
         public DbSet<ElectionParameters> ElectionParameters { get; set; }
+        public DbSet<ElectionParametersV3> ElectionParametersV3 { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Party>()
-                .HasAlternateKey(p => new {p.Code});
+                .HasKey(p => p.Code);
             modelBuilder.Entity<PartyVotes>()
                 .HasKey(p => new {p.ElectionYear, p.District, p.Party, p.ElectionType});
             modelBuilder.Entity<DistrictMetrics>()
                 .HasKey(d => new {d.ElectionYear, d.District});
             modelBuilder.Entity<ElectionParameters>()
                 .HasKey(e => new {e.ElectionYear, e.ElectionType});
+            modelBuilder.Entity<ElectionParametersV3>()
+                .HasKey(e => new { e.ElectionYear, e.ElectionType });
         }
     }
 }

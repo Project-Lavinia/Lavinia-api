@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LaviniaApi.Models
 {
-    // API v2
+    // API v3
     // Stores all the parties in the API
     public class Party
     {
