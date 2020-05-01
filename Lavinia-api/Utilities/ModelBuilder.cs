@@ -95,7 +95,7 @@ namespace LaviniaApi.Utilities
                 {
                     continue;
                 }
-                
+
                 try
                 {
                     CountyDataFormat curCountyData =
@@ -150,7 +150,7 @@ namespace LaviniaApi.Utilities
         public static IEnumerable<DistrictMetrics> BuildDistrictMetrics(IEnumerable<CountyDataFormat> countyData)
         {
             return countyData.Select(data => new DistrictMetrics
-                {Area = data.Area, District = data.County, ElectionYear = data.Year, Population = data.Population, Seats = data.Seats});
+            { Area = data.Area, District = data.County, ElectionYear = data.Year, Population = data.Population, Seats = data.Seats });
         }
 
         /// <summary>
@@ -191,7 +191,8 @@ namespace LaviniaApi.Utilities
                 case AlgorithmUtilities.ModifiedSainteLagues:
                     return new AlgorithmParameters
                     {
-                        Algorithm = data.AlgorithmString, Parameters = new List<ListElement<double>>
+                        Algorithm = data.AlgorithmString,
+                        Parameters = new List<ListElement<double>>
                         {
                             new ListElement<double>
                             {
@@ -203,7 +204,7 @@ namespace LaviniaApi.Utilities
                 case AlgorithmUtilities.SainteLagues:
                 case AlgorithmUtilities.DHondt:
                     return new AlgorithmParameters
-                        {Algorithm = data.AlgorithmString, Parameters = new List<ListElement<double>>()};
+                    { Algorithm = data.AlgorithmString, Parameters = new List<ListElement<double>>() };
                 default:
                     throw new ArgumentOutOfRangeException("Did not recognize the algorithm: " + data.AlgorithmString);
             }
@@ -222,8 +223,11 @@ namespace LaviniaApi.Utilities
         {
             return election.Select(data => new PartyVotes
             {
-                District = data.Fylkenavn, ElectionType = electionType, ElectionYear = electionYear,
-                Party = data.Partikode, Votes = data.AntallStemmerTotalt
+                District = data.Fylkenavn,
+                ElectionType = electionType,
+                ElectionYear = electionYear,
+                Party = data.Partikode,
+                Votes = data.AntallStemmerTotalt
             });
         }
 

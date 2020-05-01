@@ -33,7 +33,7 @@ namespace LaviniaApi.Data
                 // Parse all DistrictMetrics
                 IEnumerable<DistrictMetrics> districtMetrics = ParseDistrictMetrics(root).ToList();
                 context.DistrictMetrics.AddRange(districtMetrics);
-                
+
                 // Parse all ElectionParameters
                 root = Path.Combine(root, "PE");
                 List<ElectionParameters> electionParameters = ParseElectionParameters(root, districtMetrics).ToList();
@@ -89,7 +89,7 @@ namespace LaviniaApi.Data
                 {
                     throw new ArgumentException($"Could not find any ElectionParameter for the year: {year}");
                 }
-                    
+
             }
         }
 
@@ -115,7 +115,7 @@ namespace LaviniaApi.Data
         private static Dictionary<int, List<ResultFormat>> ParseResultFormat(string root)
         {
             Dictionary<int, List<ResultFormat>> resultFormats = new Dictionary<int, List<ResultFormat>>();
-            
+
             string[] filePaths = Directory.GetFiles(root);
 
             foreach (string filePath in filePaths)
@@ -124,7 +124,7 @@ namespace LaviniaApi.Data
                 {
                     continue;
                 }
-                
+
                 int electionYear = int.Parse(Path.GetFileNameWithoutExtension(filePath));
                 resultFormats[electionYear] = CsvUtilities.CsvToList<ResultFormat>(filePath);
             }
@@ -148,18 +148,37 @@ namespace LaviniaApi.Data
         // Parses ResultFormat -> Party
         private static IEnumerable<Party> ParseParties(Dictionary<int, List<ResultFormat>> resultFormat)
         {
-            Dictionary<string, Party> parties = new Dictionary<string, Party>();
+            List<Party> parties = new List<Party>();
+            Dictionary<string, string> partyFilter = new Dictionary<string, string>();
 
             foreach (KeyValuePair<int, List<ResultFormat>> pair in resultFormat)
             {
-                IEnumerable<Party> newParties = ModelBuilder.BuildParties(pair.Value);
-                foreach (Party party in newParties)
-                {
-                    parties[party.Name] = party;
-                }
+                partyFilter = UpdateFilter(pair.Value, partyFilter);
+                IEnumerable<ResultFormat> filteredParties = pair.Value.Where(result => !partyFilter.ContainsKey(result.Partikode));
+                IEnumerable<Party> newParties = ModelBuilder.BuildParties(filteredParties);
+                parties.Concat(newParties);
             }
 
-            return parties.Values;
+            return parties;
+        }
+
+        private static Dictionary<string, string> UpdateFilter(List<ResultFormat> parties, Dictionary<string, string> partyDict)
+        {
+            Dictionary<string, string> currentMap = new Dictionary<string, string>(partyDict);
+            parties.ForEach(party =>
+            {
+                if (!currentMap.ContainsKey(party.Partikode))
+                {
+                    currentMap.Add(party.Partikode, party.Partinavn);
+
+                }
+                else if (!currentMap[party.Partikode].Equals(party.Partinavn))
+                {
+                    throw new ArgumentException($"Found duplicate party code mapping! Existing mapping: {party.Partikode} - {currentMap[party.Partikode]}, new mapping: {party.Partikode} - {party.Partinavn}");
+                }
+            });
+
+            return currentMap;
         }
     }
 }
