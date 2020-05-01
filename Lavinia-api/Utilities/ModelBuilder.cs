@@ -275,20 +275,5 @@ namespace LaviniaApi.Utilities
                 Votes = data.AntallStemmerTotalt
             });
         }
-
-        /// <summary>
-        /// Takes a list of ResultFormat and returns a list of Parties.
-        /// The returned list contains information about which parties participated in a particular election.
-        /// </summary>
-        /// <param name="election">List of ResultFormat</param>
-        /// <returns>List of Party</returns>
-        public static IEnumerable<Party> BuildParties(IEnumerable<ResultFormat> election)
-        {
-            return election.Select(data => new Party
-            {
-                Name = data.Partinavn,
-                Code = data.Partikode
-            });
-        }
     }
 }
