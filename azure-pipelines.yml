@@ -20,13 +20,14 @@ steps:
     packageType: 'sdk'
     version: '2.1.x'
 - script: dotnet restore
+  displayName: 'dotnet restore'
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 - task: VSTest@2
   inputs:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
-      **\bin\$(BuildConfiguration)\**\*test*.dll
+      **\bin\$(BuildConfiguration)\**\Lavinia-api.dll
       !**\obj\**
       !**\xunit.runner.visualstudio.testadapter.dll
       !**\xunit.runner.visualstudio.dotnetcore.testadapter.dll
