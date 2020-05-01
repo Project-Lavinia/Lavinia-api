@@ -161,16 +161,18 @@ namespace LaviniaApi.Data
         // Parses ResultFormat -> Party
         private static IEnumerable<Party> ParseParties(Dictionary<int, List<ResultFormat>> resultFormat)
         {
-            List<Party> parties = new List<Party>();
-            Dictionary<string, string> partyFilter = new Dictionary<string, string>();
+            Dictionary<string, string> filteredParties = new Dictionary<string, string>();
 
             foreach (KeyValuePair<int, List<ResultFormat>> pair in resultFormat)
             {
-                partyFilter = UpdateFilter(pair.Value, partyFilter);
-                IEnumerable<ResultFormat> filteredParties = pair.Value.Where(result => !partyFilter.ContainsKey(result.Partikode));
-                IEnumerable<Party> newParties = ModelBuilder.BuildParties(filteredParties);
-                parties.Concat(newParties);
+                filteredParties = UpdateFilter(pair.Value, filteredParties);
             }
+
+            IEnumerable<Party> parties = filteredParties.Keys.Select(partyCode => new Party
+            {
+                Code = partyCode,
+                Name = filteredParties[partyCode]
+            });
 
             return parties;
         }
