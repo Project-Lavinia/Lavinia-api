@@ -7,11 +7,11 @@ namespace LaviniaApi.Models
     // Stores all the parties in the API
     public class Party
     {
-        // The full name of the party
-        [Key]
-        public string Name { get; set; }
-
         // The party code
+        [Key]
         public string Code { get; set; }
+
+        // The full name of the party
+        public string Name { get; set; }
     }
 }
