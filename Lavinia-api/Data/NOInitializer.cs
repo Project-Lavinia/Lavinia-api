@@ -33,15 +33,24 @@ namespace LaviniaApi.Data
                 // Parse all DistrictMetrics
                 IEnumerable<DistrictMetrics> districtMetrics = ParseDistrictMetrics(root).ToList();
                 context.DistrictMetrics.AddRange(districtMetrics);
-                
+
                 // Parse all ElectionParameters
                 root = Path.Combine(root, "PE");
                 List<ElectionParameters> electionParameters = ParseElectionParameters(root, districtMetrics).ToList();
                 context.ElectionParameters.AddRange(electionParameters);
 
+                // Parse all ElectionParameters
+                List<ElectionParametersV3> electionParametersV3 = ParseElectionParametersV3(root).ToList();
+                context.ElectionParametersV3.AddRange(electionParametersV3);
+
                 // Parse all PartyVotes
-                List<PartyVotes> partyVotes = ParsePartyVotes(root).ToList();
+                Dictionary<int, List<ResultFormat>> resultFormats = ParseResultFormat(root);
+                List<PartyVotes> partyVotes = ParsePartyVotes(resultFormats, "PE").ToList();
                 context.PartyVotes.AddRange(partyVotes);
+
+                // Create list of all parties
+                List<Party> parties = ParseParties(resultFormats).ToList();
+                context.Parties.AddRange(parties);
 
                 // Sum the total number of votes cast in an election
                 SumTotalVotes(electionParameters, partyVotes);
@@ -84,7 +93,7 @@ namespace LaviniaApi.Data
                 {
                     throw new ArgumentException($"Could not find any ElectionParameter for the year: {year}");
                 }
-                    
+
             }
         }
 
@@ -106,12 +115,20 @@ namespace LaviniaApi.Data
             return electionParameterModels;
         }
 
-        // Parses <year>.csv -> PartyVotes
-        private static IEnumerable<PartyVotes> ParsePartyVotes(string root)
+        // Parses Elections.csv -> ElectionParameters
+        private static IEnumerable<ElectionParametersV3> ParseElectionParametersV3(string path)
         {
-            IEnumerable<PartyVotes> partyVotes = new List<PartyVotes>();
+            string filePath = Path.Combine(path, "Elections.csv");
+            IEnumerable<ElectionFormat> electionData = CsvUtilities.CsvToList<ElectionFormat>(filePath);
+            IEnumerable<ElectionParametersV3> electionParameterModels = ModelBuilder.BuildElectionParametersV3(electionData, "PE");
+            return electionParameterModels;
+        }
 
-            string electionType = Path.GetFileName(root);
+        // Parses <year>.csv -> ResultFormat
+        private static Dictionary<int, List<ResultFormat>> ParseResultFormat(string root)
+        {
+            Dictionary<int, List<ResultFormat>> resultFormats = new Dictionary<int, List<ResultFormat>>();
+
             string[] filePaths = Directory.GetFiles(root);
 
             foreach (string filePath in filePaths)
@@ -122,11 +139,59 @@ namespace LaviniaApi.Data
                 }
 
                 int electionYear = int.Parse(Path.GetFileNameWithoutExtension(filePath));
-                IEnumerable<ResultFormat> election = CsvUtilities.CsvToList<ResultFormat>(filePath);
-                partyVotes = partyVotes.Concat(ModelBuilder.BuildPartyVotes(election, electionType, electionYear));
+                resultFormats[electionYear] = CsvUtilities.CsvToList<ResultFormat>(filePath);
+            }
+
+            return resultFormats;
+        }
+
+        // Parses ResultFormat -> PartyVotes
+        private static IEnumerable<PartyVotes> ParsePartyVotes(Dictionary<int, List<ResultFormat>> resultFormat, string electionType)
+        {
+            IEnumerable<PartyVotes> partyVotes = new List<PartyVotes>();
+
+            foreach (KeyValuePair<int, List<ResultFormat>> pair in resultFormat)
+            {
+                partyVotes = partyVotes.Concat(ModelBuilder.BuildPartyVotes(pair.Value, electionType, pair.Key));
             }
 
             return partyVotes;
+        }
+
+        // Parses ResultFormat -> Party
+        private static IEnumerable<Party> ParseParties(Dictionary<int, List<ResultFormat>> resultFormat)
+        {
+            List<Party> parties = new List<Party>();
+            Dictionary<string, string> partyFilter = new Dictionary<string, string>();
+
+            foreach (KeyValuePair<int, List<ResultFormat>> pair in resultFormat)
+            {
+                partyFilter = UpdateFilter(pair.Value, partyFilter);
+                IEnumerable<ResultFormat> filteredParties = pair.Value.Where(result => !partyFilter.ContainsKey(result.Partikode));
+                IEnumerable<Party> newParties = ModelBuilder.BuildParties(filteredParties);
+                parties.Concat(newParties);
+            }
+
+            return parties;
+        }
+
+        private static Dictionary<string, string> UpdateFilter(List<ResultFormat> parties, Dictionary<string, string> partyDict)
+        {
+            Dictionary<string, string> currentMap = new Dictionary<string, string>(partyDict);
+            parties.ForEach(party =>
+            {
+                if (!currentMap.ContainsKey(party.Partikode))
+                {
+                    currentMap.Add(party.Partikode, party.Partinavn);
+
+                }
+                else if (!currentMap[party.Partikode].Equals(party.Partinavn))
+                {
+                    throw new ArgumentException($"Found duplicate party code mapping! Existing mapping: {party.Partikode} - {currentMap[party.Partikode]}, new mapping: {party.Partikode} - {party.Partinavn}");
+                }
+            });
+
+            return currentMap;
         }
     }
 }

@@ -258,12 +258,7 @@ namespace LaviniaApi.Data
                 throw new ArgumentException("Party.Name cannot be shorter than 3 characters.");
             }
 
-            if (party.InternationalName?.Length < 1)
-            {
-                throw new ArgumentException("Party.InternationalName cannot be shorter than 1 character.");
-            }
-
-            if (party.ShortName?.Length < 1)
+            if (party.Code?.Length < 1)
             {
                 throw new ArgumentException("Party.ShortName cannot be shorter than 1 character.");
             }

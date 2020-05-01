@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using LaviniaApi.Models;
 using LaviniaApi.Utilities;
 using Xunit;
@@ -16,7 +14,7 @@ namespace LaviniaApi.Tests
         [Fact]
         public static void BuildDistrictMetricsTest()
         {
-            List<CountyDataFormat> countyData = new List<CountyDataFormat>{new CountyDataFormat().Parse("2017;Akershus;4918;556254;16", FieldParser)};
+            List<CountyDataFormat> countyData = new List<CountyDataFormat> { new CountyDataFormat().Parse("2017;Akershus;4918;556254;16", FieldParser) };
             IEnumerable<DistrictMetrics> dmList = ModelBuilder.BuildDistrictMetrics(countyData);
             DistrictMetrics dm = dmList.First();
 
@@ -34,8 +32,9 @@ namespace LaviniaApi.Tests
             {
                 new ElectionFormat().Parse("2017;Sainte Laguës (modified);1.4;4.0;1.8;150;19",
                     FieldParser)
+
             };
-            List<CountyDataFormat> countyData = new List<CountyDataFormat>{new CountyDataFormat().Parse("2017;Akershus;4918;556254;16", FieldParser)};
+            List<CountyDataFormat> countyData = new List<CountyDataFormat> { new CountyDataFormat().Parse("2017;Akershus;4918;556254;16", FieldParser) };
             IEnumerable<DistrictMetrics> dmList = ModelBuilder.BuildDistrictMetrics(countyData);
             IEnumerable<ElectionParameters> epList = ModelBuilder.BuildElectionParameters(election, "PE", dmList);
 
@@ -51,7 +50,6 @@ namespace LaviniaApi.Tests
             ListElement<double> ap = ep.Algorithm.Parameters.First();
             Assert.Equal("First Divisor", ap.Key);
             Assert.Equal(1.4, ap.Value);
-
             ListElement<int>[] seatList = ep.DistrictSeats.ToArray();
             Assert.Equal("SUM", seatList[0].Key);
             Assert.Equal(150, seatList[0].Value);
@@ -67,7 +65,7 @@ namespace LaviniaApi.Tests
                 new ElectionFormat().Parse("2017;Sainte Laguës (modified);1.4;4.0;1.8;150;19",
                     FieldParser)
             };
-            List<CountyDataFormat> countyData = new List<CountyDataFormat>{new CountyDataFormat().Parse("2017;Akershus;4918;556254;16", FieldParser)};
+            List<CountyDataFormat> countyData = new List<CountyDataFormat> { new CountyDataFormat().Parse("2017;Akershus;4918;556254;16", FieldParser) };
             IEnumerable<DistrictMetrics> dmList = ModelBuilder.BuildDistrictMetrics(countyData);
             IEnumerable<ElectionParameters> epList = ModelBuilder.BuildElectionParameters(election, "PE", dmList);
 
@@ -99,6 +97,60 @@ namespace LaviniaApi.Tests
             Assert.Equal(10, seatList[1].Value);
             Assert.Equal("Aust-Agder", seatList[2].Key);
             Assert.Equal(4, seatList[2].Value);
+        }
+
+        // Tests a normal input for BuildElectionParameters
+        [Fact]
+        public static void BuildElectionParametersTestV3()
+        {
+            List<ElectionFormat> election = new List<ElectionFormat>
+            {
+                new ElectionFormat().Parse("2017;Sainte Laguës (modified);1.4;4.0;1.8;150;19",
+                    FieldParser)
+            };
+            IEnumerable<ElectionParametersV3> epList = ModelBuilder.BuildElectionParametersV3(election, "PE");
+
+            ElectionParametersV3 ep = epList.First();
+            Assert.Equal(1.8, ep.AreaFactor);
+            Assert.Equal(2017, ep.ElectionYear);
+            Assert.Equal(19, ep.LevelingSeats);
+            Assert.Equal(4.0, ep.Threshold);
+            Assert.Equal(0, ep.TotalVotes);
+            Assert.Equal("PE", ep.ElectionType);
+
+            Assert.Equal("Sainte Laguës (modified)", ep.Algorithm.Algorithm);
+            ListElement<double> ap = ep.Algorithm.Parameters.First();
+            Assert.Equal("First Divisor", ap.Key);
+            Assert.Equal(1.4, ap.Value);
+            Assert.Equal(150, ep.DistrictSeats);
+        }
+
+        // Tests different DistrictSeat input for BuildElectionParameters
+        [Fact]
+        public static void BuildElectionParametersDistrictSeatTestV3()
+        {
+            // Tests behaviour for when DistrictSeats are computed
+            List<ElectionFormat> election = new List<ElectionFormat>
+            {
+                new ElectionFormat().Parse("2017;Sainte Laguës (modified);1.4;4.0;1.8;150;19",
+                    FieldParser)
+            };
+            IEnumerable<ElectionParametersV3> epList = ModelBuilder.BuildElectionParametersV3(election, "PE");
+
+            ElectionParametersV3 ep = epList.First();
+            Assert.Equal(150, ep.DistrictSeats);
+
+
+            // Tests behaviour for when DistrictSeats are determined before the election
+            election = new List<ElectionFormat>
+            {
+                new ElectionFormat().Parse("1977;Sainte Laguës (modified);1.4;0.0;-1;155;0",
+                    FieldParser)
+            };
+            epList = ModelBuilder.BuildElectionParametersV3(election, "PE");
+
+            ep = epList.First();
+            Assert.Equal(155, ep.DistrictSeats);
         }
 
         // Tests a normal input for BuildAlgorithmParameters
@@ -141,7 +193,7 @@ namespace LaviniaApi.Tests
         [Fact]
         public static void BuildPartyVotesTest()
         {
-            List<ResultFormat> resultFormat = new List<ResultFormat>{new ResultFormat().Parse("01;Østfold;;;;;A;Arbeiderpartiet;32,1;216293;12947;38598;51545;-2,9;-8,1;3;0;", FieldParser)};
+            List<ResultFormat> resultFormat = new List<ResultFormat> { new ResultFormat().Parse("01;Østfold;;;;;A;Arbeiderpartiet;32,1;216293;12947;38598;51545;-2,9;-8,1;3;0;", FieldParser) };
             IEnumerable<PartyVotes> pvList = ModelBuilder.BuildPartyVotes(resultFormat, "PE", 2017);
             PartyVotes pv = pvList.First();
 
