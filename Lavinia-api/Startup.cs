@@ -55,6 +55,12 @@ namespace LaviniaApi
                     Version = "v2",
                     Description = "This API provides the back-end for calculating seats and data for the Lavinia project."
                 });
+                options.SwaggerDoc("v3", new Info
+                {
+                    Title = "API v3.0.0 for election result data",
+                    Version = "v3",
+                    Description = "This API provides the back-end for calculating seats and data for the Lavinia project."
+                });
             });
             services.AddMvc(c => c.Conventions.Add(new ApiExplorerGroupPerVersionConvention())).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             SetUpDatabase(services);
@@ -67,6 +73,7 @@ namespace LaviniaApi
             app.UseSwagger(options => {});
             app.UseSwaggerUI(options =>
             {
+                options.SwaggerEndpoint("/swagger/v3/swagger.json", "Lavinia API v3");
                 options.SwaggerEndpoint("/swagger/v2/swagger.json", "Lavinia API v2");
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Lavinia API v1");
                 options.EnableFilter();

@@ -1,4 +1,5 @@
 # Lavinia-api
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3b6eab6e34ed49f8b4f376b787d05858)](https://www.codacy.com/gh/Project-Lavinia/Lavinia-api?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Project-Lavinia/Lavinia-api&amp;utm_campaign=Badge_Grade)
 
 ## Prerequisites
 

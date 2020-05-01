@@ -65,7 +65,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 06;Buskerud;;;;;A;Arbeiderpartiet;49;;;;62108;;;;;
 06;Buskerud;;;;;FRP;Fremskrittspartiet;2;;;;2030;;;;;
 06;Buskerud;;;;;H;Høyre;25;;;;31159;;;;;
-06;Buskerud;;;;;KRF;Kristelig folkeparti;9;;;;12098;;;;;
+06;Buskerud;;;;;KRF;Kristelig Folkeparti;9;;;;12098;;;;;
 06;Buskerud;;;;;SP;Senterpartiet;9;;;;11750;;;;;
 06;Buskerud;;;;;SV;Sosialistisk Venstreparti;4;;;;5111;;;;;
 06;Buskerud;;;;;NKP;Norges Kommunistiske Parti;0;;;;589;;;;;
@@ -101,7 +101,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 09;Aust-Agder;;;;;A;Arbeiderpartiet;39;;;;19037;;;;;
 09;Aust-Agder;;;;;FRP;Fremskrittspartiet;3;;;;1613;;;;;
 09;Aust-Agder;;;;;H;Høyre;22;;;;10606;;;;;
-09;Aust-Agder;;;;;KRF;Kristelig folkeparti;20;;;;16080;;;;;
+09;Aust-Agder;;;;;KRF;Kristelig Folkeparti;20;;;;16080;;;;;
 09;Aust-Agder;;;;;SV;Sosialistisk Venstreparti;2;;;;965;;;;;
 09;Aust-Agder;;;;;NKP;Norges Kommunistiske Parti;0;;;;60;;;;;
 09;Aust-Agder;;;;;RV;Rød valgallianse;0;;;;81;;;;;
@@ -176,7 +176,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 16;Sør-Trøndelag;;;;;A;Arbeiderpartiet;45;;;;60173;;;;;
 16;Sør-Trøndelag;;;;;FRP;Fremskrittspartiet;1;;;;1740;;;;;
 16;Sør-Trøndelag;;;;;H;Høyre;21;;;;28903;;;;;
-16;Sør-Trøndelag;;;;;KRF;Kristelig folkeparti;7;;;;9682;;;;;
+16;Sør-Trøndelag;;;;;KRF;Kristelig Folkeparti;7;;;;9682;;;;;
 16;Sør-Trøndelag;;;;;SP;Senterpartiet;11;;;;15442;;;;;
 16;Sør-Trøndelag;;;;;SV;Sosialistisk Venstreparti;5;;;;7292;;;;;
 16;Sør-Trøndelag;;;;;V;Venstre;7;;;;9682;;;;;
@@ -231,5 +231,5 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 20;Finnmark;;;;;FF;Frie Folkevalgte;0;;;;47;;;;;
 20;Finnmark;;;;;EP;Ensliges parti;0;;;;45;;;;;
 20;Finnmark;;;;;NDP;Norges demokratiske parti;0;;;;52;;;;;
-20;Finnmark;;;;;KRF;Kristelig folkeparti;14;;;;5587;;;;;
+20;Finnmark;;;;;KRF;Kristelig Folkeparti;14;;;;5587;;;;;
 20;Finnmark;;;;;ANDRE;Andre;1;;;;499;;;;;

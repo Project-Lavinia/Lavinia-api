@@ -95,7 +95,7 @@ namespace LaviniaApi.Utilities
                 {
                     continue;
                 }
-                
+
                 try
                 {
                     CountyDataFormat curCountyData =
@@ -150,7 +150,7 @@ namespace LaviniaApi.Utilities
         public static IEnumerable<DistrictMetrics> BuildDistrictMetrics(IEnumerable<CountyDataFormat> countyData)
         {
             return countyData.Select(data => new DistrictMetrics
-                {Area = data.Area, District = data.County, ElectionYear = data.Year, Population = data.Population, Seats = data.Seats});
+            { Area = data.Area, District = data.County, ElectionYear = data.Year, Population = data.Population, Seats = data.Seats });
         }
 
         /// <summary>
@@ -159,28 +159,29 @@ namespace LaviniaApi.Utilities
         /// </summary>
         /// <param name="electionData">List of ElectionFormat</param>
         /// <param name="electionType">Election type code</param>
-        /// <param name="districtMetrics">List of DistrictMetrics</param>
         /// <returns></returns>
         public static IEnumerable<ElectionParameters> BuildElectionParameters(IEnumerable<ElectionFormat> electionData,
             string electionType, IEnumerable<DistrictMetrics> districtMetrics)
         {
             return electionData.Select(data =>
             {
-                List<ListElement<int>> districtSeats = new List<ListElement<int>>{new ListElement<int>
-                {
-                    Key = "SUM",
-                    Value = data.Seats
-                }};
+                List<ListElement<int>> districtSeats = new List<ListElement<int>> {
+                    new ListElement<int>
+                    {
+                        Key = "SUM",
+                        Value = data.Seats
+                    }
+                };
 
                 if (data.AreaFactor < 0)
                 {
                     districtSeats.AddRange(
                         districtMetrics.Where(dM => dM.ElectionYear == data.Year)
                             .Select(dM => new ListElement<int>
-                                {
-                                    Key = dM.District,
-                                    Value = dM.Seats
-                                }));
+                            {
+                                Key = dM.District,
+                                Value = dM.Seats
+                            }));
                 }
 
 
@@ -198,6 +199,28 @@ namespace LaviniaApi.Utilities
             });
         }
 
+        /// <summary>
+        /// Takes a list of ElectionFormat, an election type and a list of DistrictMetrics, and returns a list of ElectionParameters.
+        /// The returned list contains information about which parameters were used for each election.
+        /// </summary>
+        /// <param name="electionData">List of ElectionFormat</param>
+        /// <param name="electionType">Election type code</param>
+        /// <returns></returns>
+        public static IEnumerable<ElectionParametersV3> BuildElectionParametersV3(IEnumerable<ElectionFormat> electionData,
+        string electionType)
+        {
+            return electionData.Select(data => new ElectionParametersV3
+            {
+                Algorithm = BuildAlgorithmParameters(data),
+                AreaFactor = data.AreaFactor,
+                DistrictSeats = data.Seats,
+                ElectionType = electionType,
+                ElectionYear = data.Year,
+                LevelingSeats = data.LevelingSeats,
+                Threshold = data.Threshold,
+                TotalVotes = 0
+            });
+        }
 
         /// <summary>
         /// Takes an ElectionFormat, extracts information about the algorithm used and returns an AlgorithmParameter
@@ -213,7 +236,8 @@ namespace LaviniaApi.Utilities
                 case AlgorithmUtilities.ModifiedSainteLagues:
                     return new AlgorithmParameters
                     {
-                        Algorithm = data.AlgorithmString, Parameters = new List<ListElement<double>>
+                        Algorithm = data.AlgorithmString,
+                        Parameters = new List<ListElement<double>>
                         {
                             new ListElement<double>
                             {
@@ -225,7 +249,7 @@ namespace LaviniaApi.Utilities
                 case AlgorithmUtilities.SainteLagues:
                 case AlgorithmUtilities.DHondt:
                     return new AlgorithmParameters
-                        {Algorithm = data.AlgorithmString, Parameters = new List<ListElement<double>>()};
+                    { Algorithm = data.AlgorithmString, Parameters = new List<ListElement<double>>() };
                 default:
                     throw new ArgumentOutOfRangeException("Did not recognize the algorithm: " + data.AlgorithmString);
             }
@@ -244,8 +268,26 @@ namespace LaviniaApi.Utilities
         {
             return election.Select(data => new PartyVotes
             {
-                District = data.Fylkenavn, ElectionType = electionType, ElectionYear = electionYear,
-                Party = data.Partikode, Votes = data.AntallStemmerTotalt
+                District = data.Fylkenavn,
+                ElectionType = electionType,
+                ElectionYear = electionYear,
+                Party = data.Partikode,
+                Votes = data.AntallStemmerTotalt
+            });
+        }
+
+        /// <summary>
+        /// Takes a list of ResultFormat and returns a list of Parties.
+        /// The returned list contains information about which parties participated in a particular election.
+        /// </summary>
+        /// <param name="election">List of ResultFormat</param>
+        /// <returns>List of Party</returns>
+        public static IEnumerable<Party> BuildParties(IEnumerable<ResultFormat> election)
+        {
+            return election.Select(data => new Party
+            {
+                Name = data.Partinavn,
+                Code = data.Partikode
             });
         }
     }

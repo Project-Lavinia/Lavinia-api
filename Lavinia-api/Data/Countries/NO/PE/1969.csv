@@ -11,7 +11,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 02;Akershus;;;;;V;Venstre;11;;;;18399;;;;;
 02;Akershus;;;;;NKP;Norges Kommunistiske Parti;1;;;;1554;;;;;
 02;Akershus;;;;;SF;Sosialistisk Folkeparti;4;;;;6818;;;;;
-02;Akershus;;;;;FLKRF;Fellesliste Kristelig folkeparti;5;;;;8560;;;;;
+02;Akershus;;;;;FLKRF;Fellesliste Kristelig Folkeparti;5;;;;8560;;;;;
 02;Akershus;;;;;FLSP;Fellesliste Senterpartiet;8;;;;14756;;;;;
 02;Akershus;;;;;ANDRE;Andre;0;;;;1;;;;;
 03;Oslo;;;;;A;Arbeiderpartiet;45;;;;137676;;;;;
@@ -47,14 +47,14 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 07;Vestfold;;;;;V;Venstre;8;;;;8290;;;;;
 07;Vestfold;;;;;NKP;Norges Kommunistiske Parti;1;;;;641;;;;;
 07;Vestfold;;;;;SF;Sosialistisk Folkeparti;3;;;;2602;;;;;
-07;Vestfold;;;;;FLKRF;Fellesliste Kristelig folkeparti;6;;;;5508;;;;;
+07;Vestfold;;;;;FLKRF;Fellesliste Kristelig Folkeparti;6;;;;5508;;;;;
 07;Vestfold;;;;;FLSP;Fellesliste Senterpartiet;8;;;;8346;;;;;
 08;Telemark;;;;;A;Arbeiderpartiet;52;;;;47002;;;;;
 08;Telemark;;;;;H;Høyre;12;;;;11059;;;;;
 08;Telemark;;;;;V;Venstre;13;;;;11983;;;;;
 08;Telemark;;;;;NKP;Norges Kommunistiske Parti;1;;;;1012;;;;;
 08;Telemark;;;;;SF;Sosialistisk Folkeparti;5;;;;4664;;;;;
-08;Telemark;;;;;FLKRF;Fellesliste Kristelig folkeparti;9;;;;8012;;;;;
+08;Telemark;;;;;FLKRF;Fellesliste Kristelig Folkeparti;9;;;;8012;;;;;
 08;Telemark;;;;;FLSP;Fellesliste Senterpartiet;7;;;;5941;;;;;
 09;Aust-Agder;;;;;A;Arbeiderpartiet;43;;;;19047;;;;;
 09;Aust-Agder;;;;;H;Høyre;17;;;;7529;;;;;
@@ -88,7 +88,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 12;Hordaland;;;;;ANDRE;Andre;0;;;;3;;;;;
 13;Bergen;;;;;A;Arbeiderpartiet;46;;;;30440;;;;;
 13;Bergen;;;;;V;Venstre;15;;;;10292;;;;;
-13;Bergen;;;;;FLKRF;Fellesliste Kristelig folkeparti;9;;;;5919;;;;;
+13;Bergen;;;;;FLKRF;Fellesliste Kristelig Folkeparti;9;;;;5919;;;;;
 13;Bergen;;;;;FLH;Fellesliste Høyre;25;;;;16667;;;;;
 13;Bergen;;;;;FLNKPSP;Fellesliste Norges Kommunistiske Parti og Sosialistisk Folkeparti;5;;;;3203;;;;;
 13;Bergen;;;;;ANDRE;Andre;0;;;;174;;;;;
@@ -131,7 +131,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 19;Troms;;;;;V;Venstre;11;;;;7483;;;;;
 19;Troms;;;;;NKP;Norges Kommunistiske Parti;1;;;;490;;;;;
 19;Troms;;;;;SF;Sosialistisk Folkeparti;4;;;;2437;;;;;
-19;Troms;;;;;FLKRF;Fellesliste Kristelig folkeparti;6;;;;4051;;;;;
+19;Troms;;;;;FLKRF;Fellesliste Kristelig Folkeparti;6;;;;4051;;;;;
 19;Troms;;;;;FLSP;Fellesliste Senterpartiet;8;;;;5313;;;;;
 20;Finnmark;;;;;A;Arbeiderpartiet;61;;;;22315;;;;;
 20;Finnmark;;;;;H;Høyre;18;;;;6392;;;;;
