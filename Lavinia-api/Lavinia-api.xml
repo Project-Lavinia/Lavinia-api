@@ -639,13 +639,5 @@
             <param name="electionYear">Which year the election was held</param>
             <returns>List of PartyVotes</returns>
         </member>
-        <member name="M:LaviniaApi.Utilities.ModelBuilder.BuildParties(System.Collections.Generic.IEnumerable{LaviniaApi.Utilities.ResultFormat})">
-            <summary>
-            Takes a list of ResultFormat and returns a list of Parties.
-            The returned list contains information about which parties participated in a particular election.
-            </summary>
-            <param name="election">List of ResultFormat</param>
-            <returns>List of Party</returns>
-        </member>
     </members>
 </doc>
