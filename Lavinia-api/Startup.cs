@@ -74,6 +74,7 @@ namespace LaviniaApi
             services.AddMvc(c => ConfigureMVC(c)).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             SetUpDatabase(services);
             services.AddRateLimiting(Configuration);
+            services.AddApplicationInsightsTelemetry();
 
         }
 
