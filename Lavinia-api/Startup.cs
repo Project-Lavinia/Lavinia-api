@@ -1,20 +1,23 @@
 ﻿using System;
 using System.IO;
+using AspNetCoreRateLimit;
 using Lavinia_api;
 using LaviniaApi.Data;
+using LaviniaApi.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace LaviniaApi
 {
     public class Startup
     {
-        private IHostingEnvironment _env;
+        private IWebHostEnvironment _env;
 
         public Startup(IConfiguration configuration)
         {
@@ -22,6 +25,12 @@ namespace LaviniaApi
         }
 
         public IConfiguration Configuration { get; }
+
+        private static void ConfigureMVC(MvcOptions options)
+        {
+            options.EnableEndpointRouting = false;
+            options.Conventions.Add(new ApiExplorerGroupPerVersionConvention());
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -31,8 +40,7 @@ namespace LaviniaApi
                 options.AddPolicy("CorsPolicy",
                     builder => builder.AllowAnyOrigin()
                         .AllowAnyMethod()
-                        .AllowAnyHeader()
-                        .AllowCredentials());
+                        .AllowAnyHeader());
             });
             // Swagger generation with default settings
             services.AddSwaggerGen(options =>
@@ -43,31 +51,35 @@ namespace LaviniaApi
                     options.IncludeXmlComments(xmlDocFile);
                 }
 
-                options.SwaggerDoc("v1", new Info
+                options.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Title = "API for election result data",
                     Version = "v1",
                     Description =
                         "This API provides the back-end for calculating seats and data for the Mandater project."
                 });
-                options.SwaggerDoc("v2", new Info {
+                options.SwaggerDoc("v2", new OpenApiInfo
+                {
                     Title = "API v2.0.0 for election result data",
                     Version = "v2",
                     Description = "This API provides the back-end for calculating seats and data for the Lavinia project."
                 });
-                options.SwaggerDoc("v3", new Info
+                options.SwaggerDoc("v3", new OpenApiInfo
                 {
                     Title = "API v3.0.0 for election result data",
                     Version = "v3",
                     Description = "This API provides the back-end for calculating seats and data for the Lavinia project."
                 });
             });
-            services.AddMvc(c => c.Conventions.Add(new ApiExplorerGroupPerVersionConvention())).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(c => ConfigureMVC(c)).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             SetUpDatabase(services);
+            services.AddRateLimiting(Configuration);
+            services.AddApplicationInsightsTelemetry();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             _env = env;
             app.UseSwagger(options => {});
@@ -81,6 +93,7 @@ namespace LaviniaApi
                 options.DocumentTitle = "Lavinia API - Swagger";
             });
             app.UseStaticFiles();
+            app.UseIpRateLimiting();
 
             app.UseMvc();
         }
