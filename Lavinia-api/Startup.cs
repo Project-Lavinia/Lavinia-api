@@ -24,7 +24,7 @@ namespace LaviniaApi
 
         public IConfiguration Configuration { get; }
 
-        private void ConfigureMVC(MvcOptions options)
+        private static void ConfigureMVC(MvcOptions options)
         {
             options.EnableEndpointRouting = false;
             options.Conventions.Add(new ApiExplorerGroupPerVersionConvention());
