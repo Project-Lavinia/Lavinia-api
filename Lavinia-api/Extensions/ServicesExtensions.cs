@@ -12,15 +12,17 @@ namespace LaviniaApi.Extensions
     public static class ServicesExtensions
     {
 
-        public static void AddRateLimiting(this IServiceCollection services, IConfiguration Configuration)
+        public static IServiceCollection AddRateLimiting(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddOptions();
             services.AddMemoryCache();
-            services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));
+            services.Configure<IpRateLimitOptions>(configuration.GetSection("IpRateLimiting"));
             services.TryAddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
             services.TryAddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
             services.TryAddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
             services.AddHttpContextAccessor();
+
+            return services;
         }
     }
 }
