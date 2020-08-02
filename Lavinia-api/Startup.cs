@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using AspNetCoreRateLimit;
 using Lavinia_api;
 using LaviniaApi.Data;
 using Microsoft.AspNetCore.Builder;
@@ -71,6 +72,14 @@ namespace LaviniaApi
             });
             services.AddMvc(c => ConfigureMVC(c)).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             SetUpDatabase(services);
+
+            services.AddOptions();
+            services.AddMemoryCache();
+            services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));
+            services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
+            services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
+            services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -88,6 +97,7 @@ namespace LaviniaApi
                 options.DocumentTitle = "Lavinia API - Swagger";
             });
             app.UseStaticFiles();
+            app.UseIpRateLimiting();
 
             app.UseMvc();
         }
