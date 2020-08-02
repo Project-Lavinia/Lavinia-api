@@ -1,8 +1,6 @@
 ﻿// ReSharper disable StringLiteralTypo
 // ReSharper disable IdentifierTypo
 
-using Microsoft.AspNetCore.Identity.UI.Pages.Internal.Account.Manage;
-
 namespace LaviniaApi.Utilities
 {
     public interface ICsvFormat<out T>
