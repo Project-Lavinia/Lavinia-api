@@ -41,13 +41,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Data\Countries\Countries.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="Data\Countries\NO\CountyData.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Data\Countries\NO\ElectionTypes.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Data\Countries\NO\PE\1945.csv">
