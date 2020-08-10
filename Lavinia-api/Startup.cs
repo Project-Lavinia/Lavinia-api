@@ -11,7 +11,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.Swagger;
 
 namespace LaviniaApi
 {
@@ -50,20 +49,6 @@ namespace LaviniaApi
                 {
                     options.IncludeXmlComments(xmlDocFile);
                 }
-
-                options.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Title = "API for election result data",
-                    Version = "v1",
-                    Description =
-                        "This API provides the back-end for calculating seats and data for the Mandater project."
-                });
-                options.SwaggerDoc("v2", new OpenApiInfo
-                {
-                    Title = "API v2.0.0 for election result data",
-                    Version = "v2",
-                    Description = "This API provides the back-end for calculating seats and data for the Lavinia project."
-                });
                 options.SwaggerDoc("v3", new OpenApiInfo
                 {
                     Title = "API v3.0.0 for election result data",
@@ -86,8 +71,6 @@ namespace LaviniaApi
             app.UseSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/swagger/v3/swagger.json", "Lavinia API v3");
-                options.SwaggerEndpoint("/swagger/v2/swagger.json", "Lavinia API v2");
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Lavinia API v1");
                 options.EnableFilter();
                 options.RoutePrefix = String.Empty;
                 options.DocumentTitle = "Lavinia API - Swagger";
@@ -100,7 +83,6 @@ namespace LaviniaApi
 
         private static void SetUpDatabase(IServiceCollection services)
         {
-            services.AddDbContext<ElectionContext>(options => options.UseInMemoryDatabase("ModelDB"));
             services.AddDbContext<NOContext>(options => options.UseInMemoryDatabase("NODatabase"));
         }
     }

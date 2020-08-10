@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace LaviniaApi.Controllers.v2
+namespace LaviniaApi.Controllers.v3
 {
     /// <inheritdoc />
     /// <summary>
@@ -19,7 +19,7 @@ namespace LaviniaApi.Controllers.v2
     /// </summary>
     [EnableCors("CorsPolicy")]
     [Produces("application/json")]
-    [Route("api/v2.0.0/")]
+    [Route("api/v3.0.0/")]
     public class NOController : Controller
     {
         private const int DefaultNumberOfYears = 3;
@@ -67,6 +67,61 @@ namespace LaviniaApi.Controllers.v2
                 return new StatusCodeResult(500);
             }
         }
+
+
+        /// <summary>
+        ///     Returns a map from party code to party name for all parties in the API.
+        /// </summary>
+        /// <returns>Map from party code to party name for all parties.</returns>
+        [ProducesResponseType(typeof(IDictionary<string, string>), 200)]
+        [ProducesResponseType(500)]
+        [HttpGet("parties")]
+        public IActionResult GetParties()
+        {
+            _logger.LogInformation("GetParties was called");
+            try
+            {
+                List<Party> parties = _context.Parties.ToList();
+                IEnumerable<KeyValuePair<string, string>> partyMapping = parties.Select(p => new KeyValuePair<string, string>(p.Code, p.Name));
+                Dictionary<string, string> partyDict = new Dictionary<string, string>(partyMapping);
+
+                return Ok(
+                    partyDict
+                );
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Something has gone terribly wrong in GetParties");
+                return new StatusCodeResult(500);
+            }
+        }
+
+
+        /// <summary>
+        ///     Returns a list of all districts for a given year in the API.
+        /// </summary>
+        /// <returns>List of all districts for a given year.</returns>
+        [ProducesResponseType(typeof(IEnumerable<int>), 200)]
+        [ProducesResponseType(500)]
+        [HttpGet("districts")]
+        public IActionResult GetDistricts(int? year)
+        {
+            _logger.LogInformation("GetDistricts was called with parameters year = " + year);
+            try
+            {
+                return Ok(
+                    _context.DistrictMetrics
+                        .Where(dm => dm.ElectionYear == year || year == null)
+                        .Select(dm => dm.District).ToHashSet().ToList()
+                );
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Something has gone terribly wrong in GetDistricts");
+                return new StatusCodeResult(500);
+            }
+        }
+
 
         /// <summary>
         ///     Returns a list of all Party votes that meet the required parameters.
@@ -216,7 +271,6 @@ namespace LaviniaApi.Controllers.v2
                 return Ok(
                     _context.ElectionParameters
                         .Include(eP => eP.Algorithm.Parameters)
-                        .Include(eP => eP.DistrictSeats)
                         .Where(eP => eP.ElectionYear == year || year == null)
                 );
             }
@@ -250,7 +304,6 @@ namespace LaviniaApi.Controllers.v2
                 return Ok(
                     _context.ElectionParameters
                         .Include(eP => eP.Algorithm.Parameters)
-                        .Include(eP => eP.DistrictSeats)
                         .Where(eP => years.Contains(eP.ElectionYear))
                 );
             }
