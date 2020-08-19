@@ -4,8 +4,8 @@ pipeline {
     stage('Build') {
       steps {
         sh 'dotnet restore'
-        sh 'dotnet build'
-        sh 'ls'
+        sh 'dotnet build --configuration Release'
+        sh 'ls -R'
       }
     }
 
