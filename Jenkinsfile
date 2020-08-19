@@ -5,11 +5,13 @@ pipeline {
       steps {
         sh 'dotnet restore'
         sh 'dotnet build --configuration Release'
-        sh 'ls -R'
       }
     }
 
     stage('Deploy') {
+      when{
+        branch 'master'
+      }
       steps([$class: 'BapSshPromotionPublisherPlugin']) {
             sshPublisher(
                 continueOnError: false, failOnError: true,
