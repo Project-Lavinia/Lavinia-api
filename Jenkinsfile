@@ -20,8 +20,8 @@ pipeline {
                         transfers: [
                             sshTransfer(execCommand: "sudo /bin/rm -rf /var/netcore/*"),
                             sshTransfer(sourceFiles: "Lavinia-api/bin/Release/netcoreapp3.1/**/*"),
-                            sshTransfer(execCommand: "mv /var/netcore/netcoreapp3.1/* /var/netcore/"),
-                            sshTransfer(execCommand: "rm -r /var/netcore/netcoreapp3.1"),
+                            sshTransfer(execCommand: "mv /var/netcore/Lavinia-api/bin/Release/netcoreapp3.1/* /var/netcore/"),
+                            sshTransfer(execCommand: "rm -r /var/netcore/Lavinia-api"),
                             sshTransfer(execCommand: "sudo chmod -R 0755 /var/netcore"),
                             sshTransfer(execCommand: "sudo systemctl restart api")
                         ],
