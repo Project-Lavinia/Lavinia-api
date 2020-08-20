@@ -25,12 +25,6 @@ namespace LaviniaApi
 
         public IConfiguration Configuration { get; }
 
-        private static void ConfigureMVC(MvcOptions options)
-        {
-            options.EnableEndpointRouting = false;
-            options.Conventions.Add(new ApiExplorerGroupPerVersionConvention());
-        }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -56,7 +50,11 @@ namespace LaviniaApi
                     Description = "This API provides the back-end for calculating seats and data for the Lavinia project."
                 });
             });
-            services.AddMvc(c => ConfigureMVC(c)).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            services.AddMvc(options => {
+                options.EnableEndpointRouting = false;
+                options.Conventions.Add(new ApiExplorerGroupPerVersionConvention());
+            });
             SetUpDatabase(services);
             services.AddRateLimiting(Configuration);
             services.AddApplicationInsightsTelemetry();
