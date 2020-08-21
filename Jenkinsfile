@@ -10,10 +10,12 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        ansiblePlaybook('/storage/web_deploy.yaml') {
-          credentialsId('ansible_key')
-          inventoryPath('/storage/hosts')
-        }
+        ansiblePlaybook(
+          playbook: '/storage/api_deploy.yaml',
+          credentialsId: 'ansible_key',
+          inventory: '/storage/hosts',
+          disableHostKeyChecking: true
+        )
       }
     }
   }
