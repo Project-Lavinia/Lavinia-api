@@ -9,9 +9,6 @@ pipeline {
     }
 
     stage('Deploy') {
-      when{
-        branch 'master'
-      }
       steps {
         ansiblePlaybook('/storage/web_deploy.yaml') {
           credentialsId('ansible_key')
