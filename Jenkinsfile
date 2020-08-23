@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh "dotnet restore"
         sh "dotnet build --configuration Release"
-        sh "cd Lavinia-api/bin/Release/netcoreapp3.1; zip -r ../artifact.zip *; cd ${WORKSPACE}"
+        sh "cd Lavinia-api/bin/Release/netcoreapp3.1; zip -r ${WORKSPACE}/artifact.zip *; cd ${WORKSPACE}"
         archiveArtifacts artifacts: 'artifact.zip'
       }
     }
