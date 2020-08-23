@@ -21,15 +21,15 @@ pipeline {
         )
       }
     }
-  }
 
-  stage('Release') {
-    when { tag "*.*.*" }
-    environment {
-      GITHUB_TOKEN = credentials('jenkins_release_token')
-    }
-    steps {
-      publishArtifact()
+    stage('Release') {
+      when { tag "*.*.*" }
+      environment {
+        GITHUB_TOKEN = credentials('jenkins_release_token')
+      }
+      steps {
+        publishArtifact()
+      }
     }
   }
 }
