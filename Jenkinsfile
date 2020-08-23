@@ -1,12 +1,15 @@
 pipeline {
   agent any
+  environment {
+    ARTIFACT = "artifact.zip"
+  }
   stages {
     stage('Build') {
       steps {
         sh "dotnet restore"
         sh "dotnet build --configuration Release"
-        sh "cd Lavinia-api/bin/Release/netcoreapp3.1; zip -r ${WORKSPACE}/artifact.zip *; cd ${WORKSPACE}"
-        archiveArtifacts artifacts: 'artifact.zip'
+        sh "cd Lavinia-api/bin/Release/netcoreapp3.1; zip -r ${WORKSPACE}/${ARTIFACT} *; cd ${WORKSPACE}"
+        archiveArtifacts artifacts: ARTIFACT
       }
     }
 
@@ -26,6 +29,7 @@ pipeline {
       when { tag "*.*.*" }
       environment {
         GITHUB_TOKEN = credentials('jenkins_release_token')
+        REPOSITORY = "Project-Lavinia/Lavinia-api"
       }
       steps {
         publishArtifact()
@@ -36,8 +40,8 @@ pipeline {
 
 void publishArtifact() {
     def current_tag = sh(returnStdout: true, script: "git tag --sort version:refname | tail -1").trim()
-    def release_data = sh(returnStdout: true, script: "curl https://api.github.com/repos/Project-Lavinia/Lavinia-api/releases/tags/${current_tag}").trim()
+    def release_data = sh(returnStdout: true, script: "curl https://api.github.com/repos/${REPOSITORY}/releases/tags/${current_tag}").trim()
     def release_json = readJSON text: release_data
     def release_id = release_json.id
-    sh "curl -XPOST -H 'Authorization:token ${GITHUB_TOKEN}' -H 'Content-Type:application/octet-stream' --data-binary @artifact.zip https://uploads.github.com/repos/Project-Lavinia/Lavinia-api/releases/${release_id}/assets?name=artifact.zip"
+    sh "curl -XPOST -H 'Authorization:token ${GITHUB_TOKEN}' -H 'Content-Type:application/octet-stream' --data-binary @${ARTIFACT} https://uploads.github.com/repos/${REPOSITORY}/releases/${release_id}/assets?name=${ARTIFACT}"
 }
