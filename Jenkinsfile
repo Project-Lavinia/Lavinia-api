@@ -8,7 +8,8 @@ pipeline {
       steps {
         sh "dotnet restore"
         sh "dotnet build --configuration Release"
-        sh "dotnet test"
+        sh "dotnet test --logger \"trx;LogFileName=TestResults.trx\""
+        mstest testResultsFile:"**/*.trx", keepLongStdio: true
         sh "cd Lavinia-api/bin/Release/netcoreapp3.1; zip -r ${WORKSPACE}/${ARTIFACT} *; cd ${WORKSPACE}"
         archiveArtifacts artifacts: ARTIFACT
       }
