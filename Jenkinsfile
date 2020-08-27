@@ -25,7 +25,7 @@ pipeline {
     }
 
     stage('Deploy') {
-      when { tag "*.*.*" && testPassed }
+      when { (tag "*.*.*") && testPassed }
       steps {
         ansiblePlaybook(
           playbook: '/storage/api_deploy.yaml',
@@ -37,7 +37,7 @@ pipeline {
     }
 
     stage('Release') {
-      when { tag "*.*.*" && testPassed }
+      when { (tag "*.*.*") && testPassed }
       environment {
         GITHUB_TOKEN = credentials('jenkins_release_token')
         REPOSITORY = "Project-Lavinia/Lavinia-api"
