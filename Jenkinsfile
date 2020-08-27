@@ -4,11 +4,17 @@ pipeline {
     ARTIFACT = "artifact.zip"
   }
   stages {
+    boolean testPassed = true
     stage('Build') {
       steps {
         sh "dotnet restore"
         sh "dotnet build --configuration Release"
-        sh "dotnet test --logger \"trx;LogFileName=TestResults.trx\""
+        try {
+          sh "dotnet test --logger \"trx;LogFileName=TestResults.trx\""
+        } catch (ex) {
+          unstable('Some tests failed')
+          testPassed = false
+        }
         mstest testResultsFile:"**/*.trx", keepLongStdio: true
         sh "cd Lavinia-api/bin/Release/netcoreapp3.1; zip -r ${WORKSPACE}/${ARTIFACT} *; cd ${WORKSPACE}"
         archiveArtifacts artifacts: ARTIFACT
@@ -16,7 +22,7 @@ pipeline {
     }
 
     stage('Deploy') {
-      when { tag "*.*.*" }
+      when { tag "*.*.*" && testPassed }
       steps {
         ansiblePlaybook(
           playbook: '/storage/api_deploy.yaml',
@@ -28,7 +34,7 @@ pipeline {
     }
 
     stage('Release') {
-      when { tag "*.*.*" }
+      when { tag "*.*.*" && testPassed }
       environment {
         GITHUB_TOKEN = credentials('jenkins_release_token')
         REPOSITORY = "Project-Lavinia/Lavinia-api"
