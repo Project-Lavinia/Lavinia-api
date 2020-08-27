@@ -25,9 +25,10 @@ pipeline {
     }
 
     stage('Deploy') {
-      when { 
-          expression {
-              tag "*.*.*" && testPassed
+      when {
+          allOf {
+              tag "*.*.*"
+              testPassed
           }
       }
       steps {
@@ -41,9 +42,10 @@ pipeline {
     }
 
     stage('Release') {
-      when { 
-          expression {
-              tag "*.*.*" && testPassed
+      when {
+        allOf {
+            tag "*.*.*"
+            testPassed
           }
       }
       environment {
