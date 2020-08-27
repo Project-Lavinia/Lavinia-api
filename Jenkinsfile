@@ -26,10 +26,10 @@ pipeline {
 
     stage('Deploy') {
       when {
-          allOf {
-              tag "*.*.*"
-              testPassed
-          }
+        allOf {
+          tag "*.*.*"
+          expression { testPassed }
+        }
       }
       steps {
         ansiblePlaybook(
@@ -45,7 +45,7 @@ pipeline {
       when {
         allOf {
             tag "*.*.*"
-            testPassed
+            expression { testPassed }
           }
       }
       environment {
