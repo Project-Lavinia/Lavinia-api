@@ -35,8 +35,7 @@ pipeline {
         ansiblePlaybook(
           playbook: '/storage/api_deploy.yaml',
           credentialsId: 'ansible_key',
-          inventory: '/storage/hosts',
-          disableHostKeyChecking: true
+          inventory: '/storage/hosts'
         )
       }
     }
