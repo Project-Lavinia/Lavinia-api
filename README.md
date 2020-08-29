@@ -3,7 +3,7 @@
 
 ## Prerequisites
 
-- [.NET Core SDK 2.1.302](https://www.microsoft.com/net/download/dotnet-core/2.1)
+- [.NET Core SDK 3.1.401](https://www.microsoft.com/net/download/dotnet-core/3.1)
 
 ## Running the development build
 
