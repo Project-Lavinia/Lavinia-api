@@ -10,7 +10,6 @@ using Microsoft.Extensions.Logging;
 
 namespace LaviniaApi.Data
 {
-    // API v2
     public static class NOInitializer
     {
         /// <summary>
@@ -34,14 +33,10 @@ namespace LaviniaApi.Data
                 IEnumerable<DistrictMetrics> districtMetrics = ParseDistrictMetrics(root).ToList();
                 context.DistrictMetrics.AddRange(districtMetrics);
 
-                // Parse all ElectionParameters
                 root = Path.Combine(root, "PE");
-                List<ElectionParameters> electionParameters = ParseElectionParameters(root, districtMetrics).ToList();
-                context.ElectionParameters.AddRange(electionParameters);
-
                 // Parse all ElectionParameters
-                List<ElectionParametersV3> electionParametersV3 = ParseElectionParametersV3(root).ToList();
-                context.ElectionParametersV3.AddRange(electionParametersV3);
+                List<ElectionParameters> electionParameters = ParseElectionParameters(root).ToList();
+                context.ElectionParameters.AddRange(electionParameters);
 
                 // Parse all PartyVotes
                 Dictionary<int, List<ResultFormat>> resultFormats = ParseResultFormat(root);
@@ -107,20 +102,11 @@ namespace LaviniaApi.Data
         }
 
         // Parses Elections.csv -> ElectionParameters
-        private static IEnumerable<ElectionParameters> ParseElectionParameters(string path, IEnumerable<DistrictMetrics> districtMetrics)
+        private static IEnumerable<ElectionParameters> ParseElectionParameters(string path)
         {
             string filePath = Path.Combine(path, "Elections.csv");
             IEnumerable<ElectionFormat> electionData = CsvUtilities.CsvToList<ElectionFormat>(filePath);
-            IEnumerable<ElectionParameters> electionParameterModels = ModelBuilder.BuildElectionParameters(electionData, "PE", districtMetrics);
-            return electionParameterModels;
-        }
-
-        // Parses Elections.csv -> ElectionParameters
-        private static IEnumerable<ElectionParametersV3> ParseElectionParametersV3(string path)
-        {
-            string filePath = Path.Combine(path, "Elections.csv");
-            IEnumerable<ElectionFormat> electionData = CsvUtilities.CsvToList<ElectionFormat>(filePath);
-            IEnumerable<ElectionParametersV3> electionParameterModels = ModelBuilder.BuildElectionParametersV3(electionData, "PE");
+            IEnumerable<ElectionParameters> electionParameterModels = ModelBuilder.BuildElectionParameters(electionData, "PE");
             return electionParameterModels;
         }
 

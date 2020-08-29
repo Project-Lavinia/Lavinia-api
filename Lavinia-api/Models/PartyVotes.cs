@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 
 namespace LaviniaApi.Models
 {
-    // API v2
     // Stores how many votes a party received during an election on a per district basis.
     public class PartyVotes
     {

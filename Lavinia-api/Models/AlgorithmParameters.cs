@@ -7,7 +7,6 @@ using LaviniaApi.Utilities;
 
 namespace LaviniaApi.Models
 {
-    // API v2
     // Contains the parameters used for distributing seats during an election.
     public class AlgorithmParameters
     {
