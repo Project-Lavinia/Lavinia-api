@@ -6,7 +6,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 01;Østfold;;;;;SP;Senterpartiet;6;;;;9116;;;;;
 01;Østfold;;;;;SV;Sosialistisk Venstreparti;10;;;;14891;;;;;
 01;Østfold;;;;;V;Venstre;2;;;;2739;;;;;
-01;Østfold;;;;;MDG;Miljøpartiet de Grønne;1;;;;796;;;;;
+01;Østfold;;;;;MDG;Miljøpartiet De Grønne;1;;;;796;;;;;
 01;Østfold;;;;;PP;Pensjonistpartiet;0;;;;689;;;;;
 01;Østfold;;;;;DLF;Det Liberale Folkepartiet;0;;;;44;;;;;
 01;Østfold;;;;;FLMS;Fylkeslistene for miljø og solidaritet;0;;;;757;;;;;
@@ -17,7 +17,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 02;Akershus;;;;;SP;Senterpartiet;5;;;;12187;;;;;
 02;Akershus;;;;;SV;Sosialistisk Venstreparti;10;;;;26295;;;;;
 02;Akershus;;;;;V;Venstre;3;;;;7634;;;;;
-02;Akershus;;;;;MDG;Miljøpartiet de Grønne;1;;;;1353;;;;;
+02;Akershus;;;;;MDG;Miljøpartiet De Grønne;1;;;;1353;;;;;
 02;Akershus;;;;;DLF;Det Liberale Folkepartiet;0;;;;116;;;;;
 02;Akershus;;;;;SI;Stopp Innvandringen;1;;;;1342;;;;;
 02;Akershus;;;;;FLMS;Fylkeslistene for miljø og solidaritet;1;;;;1464;;;;;
@@ -29,7 +29,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 03;Oslo;;;;;SP;Senterpartiet;1;;;;2189;;;;;
 03;Oslo;;;;;SV;Sosialistisk Venstreparti;12;;;;34882;;;;;
 03;Oslo;;;;;V;Venstre;3;;;;7963;;;;;
-03;Oslo;;;;;MDG;Miljøpartiet de Grønne;1;;;;1727;;;;;
+03;Oslo;;;;;MDG;Miljøpartiet De Grønne;1;;;;1727;;;;;
 03;Oslo;;;;;PP;Pensjonistpartiet;1;;;;1770;;;;;
 03;Oslo;;;;;DLF;Det Liberale Folkepartiet;0;;;;110;;;;;
 03;Oslo;;;;;SI;Stopp Innvandringen;1;;;;2636;;;;;
@@ -42,7 +42,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 04;Hedmark;;;;;SP;Senterpartiet;10;;;;12324;;;;;
 04;Hedmark;;;;;SV;Sosialistisk Venstreparti;12;;;;14316;;;;;
 04;Hedmark;;;;;V;Venstre;2;;;;1893;;;;;
-04;Hedmark;;;;;MDG;Miljøpartiet de Grønne;0;;;;471;;;;;
+04;Hedmark;;;;;MDG;Miljøpartiet De Grønne;0;;;;471;;;;;
 04;Hedmark;;;;;DLF;Det Liberale Folkepartiet;0;;;;42;;;;;
 04;Hedmark;;;;;FLMS;Fylkeslistene for miljø og solidaritet;0;;;;453;;;;;
 04;Hedmark;;;;;FF;Frie Folkevalgte;0;;;;42;;;;;
@@ -53,7 +53,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 05;Oppland;;;;;SP;Senterpartiet;13;;;;15087;;;;;
 05;Oppland;;;;;SV;Sosialistisk Venstreparti;9;;;;10136;;;;;
 05;Oppland;;;;;V;Venstre;2;;;;2283;;;;;
-05;Oppland;;;;;MDG;Miljøpartiet de Grønne;0;;;;348;;;;;
+05;Oppland;;;;;MDG;Miljøpartiet De Grønne;0;;;;348;;;;;
 05;Oppland;;;;;FLMS;Fylkeslistene for miljø og solidaritet;0;;;;363;;;;;
 06;Buskerud;;;;;A;Arbeiderpartiet;40;;;;56852;;;;;
 06;Buskerud;;;;;FRP;Fremskrittspartiet;14;;;;20013;;;;;
@@ -62,7 +62,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 06;Buskerud;;;;;SP;Senterpartiet;6;;;;8694;;;;;
 06;Buskerud;;;;;SV;Sosialistisk Venstreparti;8;;;;10815;;;;;
 06;Buskerud;;;;;V;Venstre;2;;;;2914;;;;;
-06;Buskerud;;;;;MDG;Miljøpartiet de Grønne;0;;;;532;;;;;
+06;Buskerud;;;;;MDG;Miljøpartiet De Grønne;0;;;;532;;;;;
 06;Buskerud;;;;;SI;Stopp Innvandringen;1;;;;844;;;;;
 06;Buskerud;;;;;FLMS;Fylkeslistene for miljø og solidaritet;0;;;;645;;;;;
 06;Buskerud;;;;;FF;Frie Folkevalgte;0;;;;46;;;;;
@@ -73,7 +73,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 07;Vestfold;;;;;SP;Senterpartiet;5;;;;5713;;;;;
 07;Vestfold;;;;;SV;Sosialistisk Venstreparti;8;;;;10474;;;;;
 07;Vestfold;;;;;V;Venstre;3;;;;3414;;;;;
-07;Vestfold;;;;;MDG;Miljøpartiet de Grønne;1;;;;645;;;;;
+07;Vestfold;;;;;MDG;Miljøpartiet De Grønne;1;;;;645;;;;;
 07;Vestfold;;;;;PP;Pensjonistpartiet;1;;;;950;;;;;
 07;Vestfold;;;;;DLF;Det Liberale Folkepartiet;0;;;;34;;;;;
 07;Vestfold;;;;;FLMS;Fylkeslistene for miljø og solidaritet;1;;;;664;;;;;
@@ -85,7 +85,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 08;Telemark;;;;;SP;Senterpartiet;5;;;;5266;;;;;
 08;Telemark;;;;;SV;Sosialistisk Venstreparti;14;;;;14371;;;;;
 08;Telemark;;;;;V;Venstre;3;;;;2590;;;;;
-08;Telemark;;;;;MDG;Miljøpartiet de Grønne;0;;;;331;;;;;
+08;Telemark;;;;;MDG;Miljøpartiet De Grønne;0;;;;331;;;;;
 08;Telemark;;;;;PP;Pensjonistpartiet;1;;;;586;;;;;
 08;Telemark;;;;;DLF;Det Liberale Folkepartiet;0;;;;24;;;;;
 08;Telemark;;;;;FLMS;Fylkeslistene for miljø og solidaritet;1;;;;589;;;;;
@@ -96,7 +96,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 09;Aust-Agder;;;;;SP;Senterpartiet;6;;;;3283;;;;;
 09;Aust-Agder;;;;;SV;Sosialistisk Venstreparti;7;;;;3870;;;;;
 09;Aust-Agder;;;;;V;Venstre;4;;;;2600;;;;;
-09;Aust-Agder;;;;;MDG;Miljøpartiet de Grønne;0;;;;201;;;;;
+09;Aust-Agder;;;;;MDG;Miljøpartiet De Grønne;0;;;;201;;;;;
 09;Aust-Agder;;;;;SI;Stopp Innvandringen;0;;;;163;;;;;
 09;Aust-Agder;;;;;FLMS;Fylkeslistene for miljø og solidaritet;0;;;;199;;;;;
 10;Vest-Agder;;;;;A;Arbeiderpartiet;24;;;;20953;;;;;
@@ -106,7 +106,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 10;Vest-Agder;;;;;SP;Senterpartiet;4;;;;3774;;;;;
 10;Vest-Agder;;;;;SV;Sosialistisk Venstreparti;5;;;;4824;;;;;
 10;Vest-Agder;;;;;V;Venstre;4;;;;3692;;;;;
-10;Vest-Agder;;;;;MDG;Miljøpartiet de Grønne;1;;;;469;;;;;
+10;Vest-Agder;;;;;MDG;Miljøpartiet De Grønne;1;;;;469;;;;;
 10;Vest-Agder;;;;;PP;Pensjonistpartiet;2;;;;1655;;;;;
 10;Vest-Agder;;;;;FLMS;Fylkeslistene for miljø og solidaritet;0;;;;287;;;;;
 11;Rogaland;;;;;A;Arbeiderpartiet;27;;;;53832;;;;;
@@ -116,7 +116,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 11;Rogaland;;;;;SP;Senterpartiet;8;;;;15340;;;;;
 11;Rogaland;;;;;SV;Sosialistisk Venstreparti;7;;;;14552;;;;;
 11;Rogaland;;;;;V;Venstre;5;;;;10452;;;;;
-11;Rogaland;;;;;MDG;Miljøpartiet de Grønne;0;;;;571;;;;;
+11;Rogaland;;;;;MDG;Miljøpartiet De Grønne;0;;;;571;;;;;
 11;Rogaland;;;;;SI;Stopp Innvandringen;1;;;;1054;;;;;
 11;Rogaland;;;;;FLMS;Fylkeslistene for miljø og solidaritet;0;;;;571;;;;;
 12;Hordaland;;;;;A;Arbeiderpartiet;30;;;;75757;;;;;
@@ -126,7 +126,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 12;Hordaland;;;;;SP;Senterpartiet;5;;;;13485;;;;;
 12;Hordaland;;;;;SV;Sosialistisk Venstreparti;9;;;;23068;;;;;
 12;Hordaland;;;;;V;Venstre;4;;;;9961;;;;;
-12;Hordaland;;;;;MDG;Miljøpartiet de Grønne;0;;;;1160;;;;;
+12;Hordaland;;;;;MDG;Miljøpartiet De Grønne;0;;;;1160;;;;;
 12;Hordaland;;;;;PP;Pensjonistpartiet;0;;;;901;;;;;
 12;Hordaland;;;;;DLF;Det Liberale Folkepartiet;0;;;;56;;;;;
 12;Hordaland;;;;;SI;Stopp Innvandringen;0;;;;890;;;;;
@@ -149,7 +149,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 15;Møre og Romsdal;;;;;SP;Senterpartiet;9;;;;12604;;;;;
 15;Møre og Romsdal;;;;;SV;Sosialistisk Venstreparti;8;;;;11313;;;;;
 15;Møre og Romsdal;;;;;V;Venstre;5;;;;7614;;;;;
-15;Møre og Romsdal;;;;;MDG;Miljøpartiet de Grønne;0;;;;261;;;;;
+15;Møre og Romsdal;;;;;MDG;Miljøpartiet De Grønne;0;;;;261;;;;;
 15;Møre og Romsdal;;;;;PP;Pensjonistpartiet;0;;;;338;;;;;
 15;Møre og Romsdal;;;;;DLF;Det Liberale Folkepartiet;0;;;;30;;;;;
 15;Møre og Romsdal;;;;;SI;Stopp Innvandringen;0;;;;484;;;;;
@@ -161,7 +161,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 16;Sør-Trøndelag;;;;;SP;Senterpartiet;8;;;;12577;;;;;
 16;Sør-Trøndelag;;;;;SV;Sosialistisk Venstreparti;12;;;;19098;;;;;
 16;Sør-Trøndelag;;;;;V;Venstre;3;;;;5114;;;;;
-16;Sør-Trøndelag;;;;;MDG;Miljøpartiet de Grønne;0;;;;701;;;;;
+16;Sør-Trøndelag;;;;;MDG;Miljøpartiet De Grønne;0;;;;701;;;;;
 16;Sør-Trøndelag;;;;;SI;Stopp Innvandringen;0;;;;488;;;;;
 16;Sør-Trøndelag;;;;;FLMS;Fylkeslistene for miljø og solidaritet;1;;;;1692;;;;;
 17;Nord-Trøndelag;;;;;A;Arbeiderpartiet;39;;;;30326;;;;;
@@ -171,7 +171,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 17;Nord-Trøndelag;;;;;SP;Senterpartiet;19;;;;14816;;;;;
 17;Nord-Trøndelag;;;;;SV;Sosialistisk Venstreparti;13;;;;10216;;;;;
 17;Nord-Trøndelag;;;;;V;Venstre;5;;;;3626;;;;;
-17;Nord-Trøndelag;;;;;MDG;Miljøpartiet de Grønne;0;;;;130;;;;;
+17;Nord-Trøndelag;;;;;MDG;Miljøpartiet De Grønne;0;;;;130;;;;;
 17;Nord-Trøndelag;;;;;SI;Stopp Innvandringen;0;;;;180;;;;;
 17;Nord-Trøndelag;;;;;FLMS;Fylkeslistene for miljø og solidaritet;0;;;;266;;;;;
 18;Nordland;;;;;A;Arbeiderpartiet;39;;;;55457;;;;;
@@ -191,7 +191,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 19;Troms;;;;;SP;Senterpartiet;4;;;;3747;;;;;
 19;Troms;;;;;SV;Sosialistisk Venstreparti;14;;;;11955;;;;;
 19;Troms;;;;;V;Venstre;3;;;;2396;;;;;
-19;Troms;;;;;MDG;Miljøpartiet de Grønne;0;;;;300;;;;;
+19;Troms;;;;;MDG;Miljøpartiet De Grønne;0;;;;300;;;;;
 19;Troms;;;;;PP;Pensjonistpartiet;0;;;;341;;;;;
 19;Troms;;;;;SI;Stopp Innvandringen;0;;;;261;;;;;
 19;Troms;;;;;FLMS;Fylkeslistene for miljø og solidaritet;1;;;;704;;;;;
@@ -202,7 +202,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 20;Finnmark;;;;;SP;Senterpartiet;2;;;;727;;;;;
 20;Finnmark;;;;;SV;Sosialistisk Venstreparti;14;;;;5706;;;;;
 20;Finnmark;;;;;V;Venstre;2;;;;627;;;;;
-20;Finnmark;;;;;MDG;Miljøpartiet de Grønne;0;;;;140;;;;;
+20;Finnmark;;;;;MDG;Miljøpartiet De Grønne;0;;;;140;;;;;
 20;Finnmark;;;;;SI;Stopp Innvandringen;0;;;;108;;;;;
 20;Finnmark;;;;;FLMS;Fylkeslistene for miljø og solidaritet;1;;;;338;;;;;
 20;Finnmark;;;;;FAFF;Folkeaksjonen Fremtid for Finnmark;21;;;;8817;;;;;
