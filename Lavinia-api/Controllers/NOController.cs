@@ -104,7 +104,7 @@ namespace LaviniaApi.Controllers.v3
         [ProducesResponseType(typeof(IEnumerable<int>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("districts")]
-        public IActionResult GetDistricts(int? year)
+        public IActionResult GetDistricts(int? year = null)
         {
             _logger.LogInformation("GetDistricts was called with parameters year = " + year);
             try
@@ -133,7 +133,7 @@ namespace LaviniaApi.Controllers.v3
         [ProducesResponseType(typeof(IEnumerable<PartyVotes>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("votes")]
-        public IActionResult GetVotes(int? year, string partyCode = DefaultPartyCode, string district = DefaultDistrict)
+        public IActionResult GetVotes(int? year = null, string partyCode = DefaultPartyCode, string district = DefaultDistrict)
         {
             _logger.LogInformation("GetVotes called with parameters year = " + year + ", partyCode = " + partyCode +
                                    ", district = " + district);
@@ -166,7 +166,7 @@ namespace LaviniaApi.Controllers.v3
         [ProducesResponseType(typeof(IEnumerable<PartyVotes>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("votes/previous")]
-        public IActionResult GetPreviousVotes(int? year, int? number, string partyCode = DefaultPartyCode,
+        public IActionResult GetPreviousVotes(int? year = null, int? number = null, string partyCode = DefaultPartyCode,
             string district = DefaultDistrict)
         {
             _logger.LogInformation("GetVotes called with parameters year = " + year + ", partyCode = " + partyCode +
@@ -202,7 +202,7 @@ namespace LaviniaApi.Controllers.v3
         [ProducesResponseType(typeof(IEnumerable<DistrictMetrics>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("metrics")]
-        public IActionResult GetMetrics(int? year, string district = DefaultDistrict)
+        public IActionResult GetMetrics(int? year = null, string district = DefaultDistrict)
         {
             _logger.LogInformation("GetMetrics called with parameters year = " + year + ", district = " + district);
             try
@@ -231,7 +231,7 @@ namespace LaviniaApi.Controllers.v3
         [ProducesResponseType(typeof(IEnumerable<DistrictMetrics>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("metrics/previous")]
-        public IActionResult GetPreviousMetrics(int? year, int? number, string district = DefaultDistrict)
+        public IActionResult GetPreviousMetrics(int? year = null, int? number = null, string district = DefaultDistrict)
         {
             _logger.LogInformation("GetMetrics called with parameters year = " + year + ", district = " + district);
             try
@@ -263,7 +263,7 @@ namespace LaviniaApi.Controllers.v3
         [ProducesResponseType(typeof(IEnumerable<ElectionParameters>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("parameters")]
-        public IActionResult GetParameters(int? year)
+        public IActionResult GetParameters(int? year = null)
         {
             _logger.LogInformation("GetParameters called with parameters year = " + year);
             try
@@ -291,7 +291,7 @@ namespace LaviniaApi.Controllers.v3
         [ProducesResponseType(typeof(IEnumerable<ElectionParameters>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("parameters/previous")]
-        public IActionResult GetPreviousParameters(int? year, int? number)
+        public IActionResult GetPreviousParameters(int? year = null, int? number = null)
         {
             _logger.LogInformation("GetParameters called with parameters year = " + year);
             try
