@@ -9,10 +9,10 @@ namespace LaviniaApi.Utilities
     public static class AlgorithmUtilities
     {
         // Our internal textual representations of the algorithm names
-        public static readonly string ModifiedSainteLagues = "Sainte Laguës (modified)";
-        public static readonly string SainteLagues = "Sainte Laguës";
-        public static readonly string DHondt = "d'Hondt";
-        public static readonly string Undefined = "Undefined Algorithm";
+        public const string ModifiedSainteLagues = "Sainte Laguës (modified)";
+        public const string SainteLagues = "Sainte Laguës";
+        public const string DHondt = "d'Hondt";
+        public const string Undefined = "Undefined Algorithm";
 
         // Our accepted names for the different algorithms
         private static readonly string[] ModifiedSainteLaguesSet = { ModifiedSainteLagues.ToLowerInvariant() };
