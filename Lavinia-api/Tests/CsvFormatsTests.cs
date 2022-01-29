@@ -22,36 +22,9 @@ namespace LaviniaApi.Tests
             Assert.Equal(150, election.Seats);
             Assert.Equal(4.0, election.Threshold);
             Assert.Equal(2017, election.Year);
-            Assert.Equal(Algorithm.ModifiedSainteLagues, election.Algorithm);
             Assert.Equal("Sainte Laguës (modified)", election.AlgorithmString);
         }
         
-        // Tests different algorithms for ElectionFormat
-        [Fact]
-        public static void ParseElectionFormatAlgorithmTest()
-        {
-            FieldParser tmpParser = new FieldParser("TEST", ";");
-
-            ElectionFormat election = new ElectionFormat().Parse("2017;Sainte Laguës (modified);1.4;4.0;1.8;150;19",
-                tmpParser
-            );
-            Assert.Equal(Algorithm.ModifiedSainteLagues, election.Algorithm);
-            Assert.Equal("Sainte Laguës (modified)", election.AlgorithmString);
-
-            election = new ElectionFormat().Parse("2017;Sainte Laguës;1.4;4.0;1.8;150;19",
-                tmpParser);
-            Assert.Equal(Algorithm.SainteLagues, election.Algorithm);
-            Assert.Equal("Sainte Laguës", election.AlgorithmString);
-
-            election = new ElectionFormat().Parse("2017;d'Hondt;1.4;4.0;1.8;150;19",
-                tmpParser);
-            Assert.Equal(Algorithm.DHondt, election.Algorithm);
-            Assert.Equal("d'Hondt", election.AlgorithmString);
-
-            Assert.Throws<CsvFileFormatException>(() => new ElectionFormat().Parse("2017;MALFORMED INPUT;1.4;4.0;1.8;150;19",
-                    tmpParser));
-    }
-
         // Tests a normal input to ResultFormat
         [Fact]
         public static void ParseResultFormatTest()

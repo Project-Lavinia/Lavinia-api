@@ -8,14 +8,12 @@ namespace LaviniaApi.Utilities
         T Parse(string line, FieldParser parser);
     }
 
-    // API v1
     /// <summary>
     ///     Represents the parsed values of a line from the Elections.csv file
     /// </summary>
     public class ElectionFormat : ICsvFormat<ElectionFormat>
     {
         public int Year { get; private set; }
-        public Algorithm Algorithm { get; private set; }
         public string AlgorithmString { get; private set; }
         public double FirstDivisor { get; private set; }
         public double Threshold { get; private set; }
@@ -33,7 +31,6 @@ namespace LaviniaApi.Utilities
         {
             string[] fields = parser.ParseLength(line, 7);
             int year = parser.ParseInt(fields[0], "Year");
-            Algorithm algorithm = parser.ParseAlgorithm(fields[1], "Algorithm");
             string algorithmString = parser.ParseAlgorithmToString(fields[1], "Algorithm");
             double firstDivisor = parser.ParseDouble(fields[2], "FirstDivisor");
             double threshold = parser.ParseDouble(fields[3], "Threshold");
@@ -44,7 +41,6 @@ namespace LaviniaApi.Utilities
             return new ElectionFormat
             {
                 Year = year,
-                Algorithm = algorithm,
                 AlgorithmString = algorithmString,
                 FirstDivisor = firstDivisor,
                 Threshold = threshold,
@@ -187,6 +183,4 @@ namespace LaviniaApi.Utilities
             };
         }
     }
-
-    // API v2
 }

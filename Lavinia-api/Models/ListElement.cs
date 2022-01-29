@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using LaviniaApi.Utilities;
 
-// API v2
 namespace LaviniaApi.Models
 {
     // As EF does not support lists of native types, this class can be used to store values in a list
