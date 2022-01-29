@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Security.Policy;
 
 namespace LaviniaApi.Utilities
 {
@@ -10,16 +9,15 @@ namespace LaviniaApi.Utilities
     public static class AlgorithmUtilities
     {
         // Our internal textual representations of the algorithm names
-        public const string ModifiedSainteLagues = "Sainte Laguës (modified)";
-        public const string SainteLagues = "Sainte Laguës";
-        public const string DHondt = "d'Hondt";
-        public const string Undefined = "Undefined Algorithm";
+        public static readonly string ModifiedSainteLagues = "Sainte Laguës (modified)";
+        public static readonly string SainteLagues = "Sainte Laguës";
+        public static readonly string DHondt = "d'Hondt";
+        public static readonly string Undefined = "Undefined Algorithm";
 
         // Our accepted names for the different algorithms
-        private static readonly string[] ModifiedSainteLaguesSet = {ModifiedSainteLagues.ToLowerInvariant()};
-        private static readonly string[] SainteLaguesSet = {SainteLagues.ToLowerInvariant()};
-        private static readonly string[] DHondtSet = {DHondt.ToLowerInvariant()};
-
+        private static readonly string[] ModifiedSainteLaguesSet = { ModifiedSainteLagues.ToLowerInvariant() };
+        private static readonly string[] SainteLaguesSet = { SainteLagues.ToLowerInvariant() };
+        private static readonly string[] DHondtSet = { DHondt.ToLowerInvariant() };
 
         /// <summary>
         ///     Accepts a string and returns the matching algorithm enum.
@@ -61,7 +59,6 @@ namespace LaviniaApi.Utilities
                    || SainteLaguesSet.Contains(curName)
                    || DHondtSet.Contains(curName);
         }
-
 
         /// <summary>
         ///     Attempts to convert the name to an algorithm.
