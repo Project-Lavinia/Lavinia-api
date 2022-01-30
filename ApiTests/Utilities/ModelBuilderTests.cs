@@ -1,10 +1,9 @@
 ﻿using Lavinia.Api.Models;
-using Lavinia.Api.Utilities;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace Lavinia.Api.Tests
+namespace Lavinia.Api.Utilities.Tests
 {
     public static class ModelBuilderTests
     {

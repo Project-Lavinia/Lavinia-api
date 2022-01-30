@@ -1,7 +1,6 @@
-﻿using Lavinia.Api.Utilities;
-using Xunit;
+﻿using Xunit;
 
-namespace Lavinia.Api.Tests
+namespace Lavinia.Api.Utilities.Tests
 {
     public static class FieldParserTests
     {
