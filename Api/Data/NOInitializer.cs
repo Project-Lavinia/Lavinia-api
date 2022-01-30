@@ -124,7 +124,7 @@ namespace Lavinia.Api.Data
         }
 
         /// <summary>
-        /// Parses <year>.csv -> ResultFormat
+        /// Parses <c>&lt;year&gt;.csv</c> -> ResultFormat
         /// </summary>
         /// <param name="root"></param>
         /// <returns></returns>
