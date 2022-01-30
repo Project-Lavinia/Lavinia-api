@@ -13,11 +13,12 @@ namespace Lavinia.Api
 {
     public class Startup
     {
-        private IWebHostEnvironment _env;
+        private readonly IWebHostEnvironment _env;
 
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
+            _env = environment;
         }
 
         public IConfiguration Configuration { get; }
@@ -51,7 +52,7 @@ namespace Lavinia.Api
                 });
             });
 
-            services.AddMvc(options =>
+            services.AddControllers(options =>
             {
                 options.EnableEndpointRouting = false;
                 options.Conventions.Add(new ApiExplorerGroupPerVersionConvention());
@@ -65,10 +66,11 @@ namespace Lavinia.Api
         /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         /// </summary>
         /// <param name="app"></param>
-        /// <param name="env"></param>
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            _env = env;
+            app.UseHttpsRedirection();
+            app.UseHsts();
+            app.UseRouting();
             app.UseSwagger(options => { });
             app.UseSwaggerUI(options =>
             {
@@ -77,10 +79,12 @@ namespace Lavinia.Api
                 options.RoutePrefix = string.Empty;
                 options.DocumentTitle = "Lavinia API - Swagger";
             });
-            app.UseStaticFiles();
             app.UseIpRateLimiting();
 
-            app.UseMvc();
+            app.UseEndpoints(configure =>
+            {
+                configure.MapControllers();
+            });
         }
 
         private static void SetUpDatabase(IServiceCollection services)
