@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 
 namespace LaviniaApi.Models
 {
-    // API v2
     // Contains the metrics for a district, valid for a particular election.
     public class DistrictMetrics
     {
