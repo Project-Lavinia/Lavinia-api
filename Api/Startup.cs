@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
 using System.IO;
@@ -54,8 +55,8 @@ namespace Lavinia.Api
 
             services.AddControllers(options =>
             {
-                options.EnableEndpointRouting = false;
-                options.Conventions.Add(new ApiExplorerGroupPerVersionConvention());
+                options.Conventions.Add(
+                    new ApiExplorerGroupPerVersionConvention());
             });
             SetUpDatabase(services);
             services.AddRateLimiting(Configuration);
@@ -70,16 +71,33 @@ namespace Lavinia.Api
         {
             app.UseHttpsRedirection();
             app.UseHsts();
+
+            app.UseHttpLogging();
+
+            if (_env.IsDevelopment())
+            {
+                app.Use(async (context, next) =>
+                {
+                    var request = context.Request;
+                    request.Headers.Add(
+                        "X-Real-IP", 
+                        "0.0.0.0");
+                    await next(context);
+                });
+            }
+
+            app.UseIpRateLimiting();
             app.UseRouting();
+            app.UseCors("CorsPolicy");
             app.UseSwagger(options => { });
             app.UseSwaggerUI(options =>
             {
+                options.DisplayRequestDuration();
                 options.SwaggerEndpoint("/swagger/v3/swagger.json", "Lavinia API v3");
                 options.EnableFilter();
                 options.RoutePrefix = string.Empty;
                 options.DocumentTitle = "Lavinia API - Swagger";
             });
-            app.UseIpRateLimiting();
 
             app.UseEndpoints(configure =>
             {
