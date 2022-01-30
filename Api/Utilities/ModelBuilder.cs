@@ -24,9 +24,12 @@ namespace Lavinia.Api.Utilities
         /// </summary>
         /// <param name="electionData">List of ElectionFormat</param>
         /// <param name="electionType">Election type code</param>
+        /// <param name="yearTotalVotesMap">Map of year to sum of votes for that year</param>
         /// <returns></returns>
-        public static IEnumerable<ElectionParameters> BuildElectionParameters(IEnumerable<ElectionFormat> electionData,
-        string electionType)
+        public static IEnumerable<ElectionParameters> BuildElectionParameters(
+            IEnumerable<ElectionFormat> electionData,
+            string electionType,
+            IReadOnlyDictionary<int, int> yearTotalVotesMap)
         {
             return electionData.Select(data => new ElectionParameters
             {
@@ -37,7 +40,7 @@ namespace Lavinia.Api.Utilities
                 ElectionYear = data.Year,
                 LevelingSeats = data.LevelingSeats,
                 Threshold = data.Threshold,
-                TotalVotes = 0
+                TotalVotes = yearTotalVotesMap[data.Year]
             });
         }
 
@@ -48,33 +51,24 @@ namespace Lavinia.Api.Utilities
         /// <returns>AlgorithmParameters - Parameters used in the election</returns>
         public static AlgorithmParameters BuildAlgorithmParameters(ElectionFormat data)
         {
-            switch (data.AlgorithmString)
+            return data.AlgorithmString switch
             {
-                case AlgorithmUtilities.Undefined:
-                    return null;
-
-                case AlgorithmUtilities.ModifiedSainteLagues:
-                    return new AlgorithmParameters
-                    {
-                        Algorithm = data.AlgorithmString,
-                        Parameters = new List<ListElement<double>>
-                        {
-                            new ListElement<double>
-                            {
-                                Key = "First Divisor",
-                                Value = data.FirstDivisor
-                            }
-                        }
-                    };
-
-                case AlgorithmUtilities.SainteLagues:
-                case AlgorithmUtilities.DHondt:
-                    return new AlgorithmParameters
-                    { Algorithm = data.AlgorithmString, Parameters = new List<ListElement<double>>() };
-
-                default:
-                    throw new ArgumentOutOfRangeException("Did not recognize the algorithm: " + data.AlgorithmString);
-            }
+                AlgorithmUtilities.ModifiedSainteLagues => new AlgorithmParameters(
+                    data.AlgorithmString,
+                    new List<ListElement<double>>
+                     {
+                                            new ListElement<double>
+                                            {
+                                                Key = "First Divisor",
+                                                Value = data.FirstDivisor
+                                            }
+                     }),
+                AlgorithmUtilities.SainteLagues or AlgorithmUtilities.DHondt => new AlgorithmParameters(
+                    data.AlgorithmString,
+                    new List<ListElement<double>>()),
+                _ => throw new ArgumentOutOfRangeException(
+                    $"Did not recognize the algorithm: {data.AlgorithmString}"),
+            };
         }
 
         /// <summary>

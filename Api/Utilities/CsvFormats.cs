@@ -10,13 +10,13 @@
     /// </summary>
     public class ElectionFormat : ICsvFormat<ElectionFormat>
     {
-        public int Year { get; private set; }
-        public string AlgorithmString { get; private set; }
-        public double FirstDivisor { get; private set; }
-        public double Threshold { get; private set; }
-        public double AreaFactor { get; private set; }
-        public int Seats { get; private set; }
-        public int LevelingSeats { get; private set; }
+        public int Year { get; private set; } = default!;
+        public string AlgorithmString { get; private set; } = default!;
+        public double FirstDivisor { get; private set; } = default!;
+        public double Threshold { get; private set; } = default!;
+        public double AreaFactor { get; private set; } = default!;
+        public int Seats { get; private set; } = default!;
+        public int LevelingSeats { get; private set; } = default!;
 
         /// <summary>
         ///     Parses a line following the ElectionFormat and returns an ElectionFormat object
@@ -53,12 +53,11 @@
     /// </summary>
     public class ResultFormat : ICsvFormat<ResultFormat>
     {
-        private int Fylkenummer { get; set; }
-        public string Fylkenavn { get; private set; }
-        public string Partikode { get; private set; }
-        public string Partinavn { get; private set; }
-        public double OppslutningProsentvis { get; private set; }
-        public int AntallStemmerTotalt { get; private set; }
+        public string Fylkenavn { get; private set; } = default!;
+        public string Partikode { get; private set; } = default!;
+        public string Partinavn { get; private set; } = default!;
+        public double OppslutningProsentvis { get; private set; } = default!;
+        public int AntallStemmerTotalt { get; private set; } = default!;
 
         /// <summary>
         ///     Parses a line following the ResultFormat and returns an ResultFormat object
@@ -69,7 +68,6 @@
         public ResultFormat Parse(string line, FieldParser parser)
         {
             string[] fields = parser.ParseLength(line, 18);
-            int fylkenummer = parser.ParseInt(fields[0], "Fylkenummer");
             string fylkenavn = parser.ParseString(fields[1], "Fylkenavn", 3, -1);
             string partikode = parser.ParseString(fields[6], "Partikode", 1, 10);
             string partinavn = parser.ParseString(fields[7], "Partinavn", 1, -1);
@@ -78,7 +76,6 @@
 
             return new ResultFormat
             {
-                Fylkenummer = fylkenummer,
                 Fylkenavn = fylkenavn,
                 Partikode = partikode,
                 Partinavn = partinavn,
@@ -89,71 +86,15 @@
     }
 
     /// <summary>
-    ///     Represents the parsed values of a line from the Countries.csv file
-    /// </summary>
-    public class CountryFormat : ICsvFormat<CountryFormat>
-    {
-        public string CountryCode { get; private set; }
-        public string InternationalName { get; private set; }
-
-        /// <summary>
-        ///     Parses a line following the CountryFormat and returns an CountryFormat object
-        /// </summary>
-        /// <param name="line">The line to parse</param>
-        /// <param name="parser">The field parser to use</param>
-        /// <returns>An CountryFormat object containing the parsed values</returns>
-        public CountryFormat Parse(string line, FieldParser parser)
-        {
-            string[] fields = parser.ParseLength(line, 2);
-            string countryCode = parser.ParseString(fields[0], "Country code", 2, 5);
-            string internationalName = parser.ParseString(fields[1], "International name", 3, 30);
-
-            return new CountryFormat
-            {
-                CountryCode = countryCode,
-                InternationalName = internationalName
-            };
-        }
-    }
-
-    /// <summary>
-    ///     Represents the parsed values of a line from the ElectionTypes.csv file
-    /// </summary>
-    public class ElectionTypeFormat : ICsvFormat<ElectionTypeFormat>
-    {
-        public string ElectionTypeCode { get; private set; }
-        public string InternationalName { get; private set; }
-
-        /// <summary>
-        ///     Parses a line following the ElectionTypeFormat and returns an ElectionTypeFormat object
-        /// </summary>
-        /// <param name="line">The line to parse</param>
-        /// <param name="parser">The field parser to use</param>
-        /// <returns>An ElectionTypeFormat object containing the parsed values</returns>
-        public ElectionTypeFormat Parse(string line, FieldParser parser)
-        {
-            string[] fields = parser.ParseLength(line, 2);
-            string electionTypeCode = parser.ParseString(fields[0], "Election type code", 2, 5);
-            string internationalName = parser.ParseString(fields[1], "International name", 3, 30);
-
-            return new ElectionTypeFormat
-            {
-                ElectionTypeCode = electionTypeCode,
-                InternationalName = internationalName
-            };
-        }
-    }
-
-    /// <summary>
     ///     Represents the parsed values of a line from the CountyData.csv file
     /// </summary>
     public class CountyDataFormat : ICsvFormat<CountyDataFormat>
     {
-        public double Area { get; private set; }
-        public string County { get; private set; }
-        public int Population { get; private set; }
-        public int Seats { get; private set; }
-        public int Year { get; private set; }
+        public double Area { get; private set; } = default!;
+        public string County { get; private set; } = default!;
+        public int Population { get; private set; } = default!;
+        public int Seats { get; private set; } = default!;
+        public int Year { get; private set; } = default!;
 
         /// <summary>
         ///     Parses a line following the CountyDataFormat and returns an CountyDataFormat object

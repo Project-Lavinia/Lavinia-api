@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Lavinia.Api.Data
 {
+    /// <summary>
+    /// Context for Norwegian elections.
+    /// </summary>
     public class NOContext : DbContext
     {
         public NOContext()

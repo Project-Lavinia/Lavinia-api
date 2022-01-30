@@ -1,19 +1,19 @@
-﻿using Lavinia.Api.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+using Lavinia.Api.Data;
 using Lavinia.Api.Models;
+
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Lavinia.Api.Controllers.v3
+namespace Lavinia.Api.Controllers.V3
 {
-
-
     /// <inheritdoc />
     /// <summary>
     ///     Controller that serves data regarding political elections in various levels, for the Mandater project at the
@@ -153,9 +153,9 @@ namespace Lavinia.Api.Controllers.v3
         ///     Returns a list of all Party votes from a number of elections before the specified year.
         /// </summary>
         /// <param name="year">Four digit election year</param>
+        /// <param name="number">Number of elections</param>
         /// <param name="partyCode">One to N character party code</param>
         /// <param name="district">Name of district</param>
-        /// <param name="number">Number of elections</param>
         /// <returns>Party votes for a number of elections</returns>
         [ProducesResponseType(typeof(IEnumerable<PartyVotes>), 200)]
         [ProducesResponseType(500)]

@@ -44,13 +44,14 @@ namespace Lavinia.Api.Utilities
             {
                 return SainteLagues;
             }
-
-            if (DHondtSet.Contains(curName))
+            else if (DHondtSet.Contains(curName))
             {
                 return DHondt;
             }
-
-            throw new ArgumentException($"{name} is not a valid algorithm name.");
+            else
+            {
+                throw new ArgumentException($"{name} is not a valid algorithm name.");
+            }
         }
 
         /// <summary>
@@ -74,7 +75,7 @@ namespace Lavinia.Api.Utilities
         /// <param name="name">The name of the algorithm.</param>
         /// <param name="algorithm">Where the algorithm should be returned.</param>
         /// <returns>True if successful, false otherwise.</returns>
-        public static bool TryParseToString(string name, out string algorithm)
+        public static bool TryParseToString(string name, out string? algorithm)
         {
             if (IsAlgorithm(name))
             {

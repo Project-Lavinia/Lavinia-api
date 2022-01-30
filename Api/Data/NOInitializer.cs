@@ -1,10 +1,12 @@
-﻿using Lavinia.Api.Models;
-using Lavinia.Api.Utilities;
-using Microsoft.Extensions.Logging;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+
+using Lavinia.Api.Models;
+using Lavinia.Api.Utilities;
+
+using Microsoft.Extensions.Logging;
 
 namespace Lavinia.Api.Data
 {
@@ -32,9 +34,6 @@ namespace Lavinia.Api.Data
                 context.DistrictMetrics.AddRange(districtMetrics);
 
                 root = Path.Combine(root, "PE");
-                // Parse all ElectionParameters
-                List<ElectionParameters> electionParameters = ParseElectionParameters(root).ToList();
-                context.ElectionParameters.AddRange(electionParameters);
 
                 // Parse all PartyVotes
                 Dictionary<int, List<ResultFormat>> resultFormats = ParseResultFormat(root);
@@ -46,7 +45,12 @@ namespace Lavinia.Api.Data
                 context.Parties.AddRange(parties);
 
                 // Sum the total number of votes cast in an election
-                SumTotalVotes(electionParameters, partyVotes);
+                IReadOnlyDictionary<int, int> yearTotalVotesMap = SumTotalVotes(partyVotes);
+
+                // Parse all ElectionParameters
+                List<ElectionParameters> electionParameters = ParseElectionParameters(root, yearTotalVotesMap).ToList();
+                context.ElectionParameters.AddRange(electionParameters);
+
                 context.SaveChanges();
             }
             catch (ArgumentException argumentException)
@@ -78,23 +82,19 @@ namespace Lavinia.Api.Data
         /// <summary>
         /// Sum total votes
         /// </summary>
-        /// <param name="electionParameters"></param>
         /// <param name="partyVotes"></param>
-        private static void SumTotalVotes(IReadOnlyCollection<ElectionParameters> electionParameters, IEnumerable<PartyVotes> partyVotes)
+        private static IReadOnlyDictionary<int, int> SumTotalVotes(IEnumerable<PartyVotes> partyVotes)
         {
-            foreach (PartyVotes partyVote in partyVotes)
-            {
-                int year = partyVote.ElectionYear;
-                int votes = partyVote.Votes;
-                try
+            return partyVotes.Aggregate(
+                new Dictionary<int, int>(),
+                (acc, cur) =>
                 {
-                    electionParameters.First(eP => eP.ElectionYear == year).TotalVotes += votes;
-                }
-                catch (InvalidOperationException)
-                {
-                    throw new ArgumentException($"Could not find any ElectionParameter for the year: {year}");
-                }
-            }
+                    if (!acc.TryAdd(cur.ElectionYear, cur.Votes))
+                    {
+                        acc[cur.ElectionYear] += cur.Votes;
+                    }
+                    return acc;
+                });
         }
 
         /// <summary>
@@ -113,14 +113,16 @@ namespace Lavinia.Api.Data
         /// <summary>
         /// Parses Elections.csv -> ElectionParameters
         /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        private static IEnumerable<ElectionParameters> ParseElectionParameters(string path)
+        private static IEnumerable<ElectionParameters> ParseElectionParameters(
+            string path,
+            IReadOnlyDictionary<int, int> yearTotalVotesMap)
         {
             string filePath = Path.Combine(path, "Elections.csv");
             IEnumerable<ElectionFormat> electionData = CsvUtilities.CsvToList<ElectionFormat>(filePath);
-            IEnumerable<ElectionParameters> electionParameterModels = ModelBuilder.BuildElectionParameters(electionData, "PE");
-            return electionParameterModels;
+            return ModelBuilder.BuildElectionParameters(
+                electionData,
+                "PE",
+                yearTotalVotesMap);
         }
 
         /// <summary>
@@ -130,7 +132,7 @@ namespace Lavinia.Api.Data
         /// <returns></returns>
         private static Dictionary<int, List<ResultFormat>> ParseResultFormat(string root)
         {
-            Dictionary<int, List<ResultFormat>> resultFormats = new Dictionary<int, List<ResultFormat>>();
+            Dictionary<int, List<ResultFormat>> resultFormats = new();
 
             string[] filePaths = Directory.GetFiles(root);
 
@@ -173,7 +175,7 @@ namespace Lavinia.Api.Data
         /// <returns></returns>
         private static IEnumerable<Party> ParseParties(Dictionary<int, List<ResultFormat>> resultFormat)
         {
-            Dictionary<string, string> filteredParties = new Dictionary<string, string>();
+            Dictionary<string, string> filteredParties = new();
 
             foreach (KeyValuePair<int, List<ResultFormat>> pair in resultFormat)
             {
@@ -191,7 +193,7 @@ namespace Lavinia.Api.Data
 
         private static Dictionary<string, string> UpdateFilter(List<ResultFormat> parties, Dictionary<string, string> partyDict)
         {
-            Dictionary<string, string> currentMap = new Dictionary<string, string>(partyDict);
+            Dictionary<string, string> currentMap = new(partyDict);
             parties.ForEach(party =>
             {
                 if (!currentMap.ContainsKey(party.Partikode))

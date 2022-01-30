@@ -10,7 +10,7 @@ namespace Lavinia.Api.Utilities.Tests
         [Fact]
         public static void ParseLengthTest()
         {
-            FieldParser fieldParser = new FieldParser("TEST", ";");
+            FieldParser fieldParser = new("TEST", ";");
 
             Assert.Collection(fieldParser.ParseLength("A;B;C;", 4),
                 field => Assert.Contains("A", field),
@@ -25,7 +25,7 @@ namespace Lavinia.Api.Utilities.Tests
         [Fact]
         public static void ParseLengthErroneousTest()
         {
-            FieldParser fieldParser = new FieldParser("TEST", ";");
+            FieldParser fieldParser = new("TEST", ";");
 
             // Testing 1 field input when expected length is 2
             Assert.Throws<CsvFileFormatException>(() => fieldParser.ParseLength("", 2));
@@ -40,7 +40,7 @@ namespace Lavinia.Api.Utilities.Tests
         [Fact]
         public static void ParseAlgorithmToStringTest()
         {
-            FieldParser fieldParser = new FieldParser("TEST", ";");
+            FieldParser fieldParser = new("TEST", ";");
 
             Assert.Equal("Sainte Laguës (modified)", fieldParser.ParseAlgorithmToString("sainte Laguës (modified)", "TEST"));
             Assert.Equal("Sainte Laguës", fieldParser.ParseAlgorithmToString("Sainte laguës", "TEST"));
@@ -54,7 +54,7 @@ namespace Lavinia.Api.Utilities.Tests
         [Fact]
         public static void ParseIntTest()
         {
-            FieldParser fieldParser = new FieldParser("TEST", ";");
+            FieldParser fieldParser = new("TEST", ";");
 
             // Normal multi-character integer
             Assert.Equal(123, fieldParser.ParseInt("123", "TEST"));
@@ -87,7 +87,7 @@ namespace Lavinia.Api.Utilities.Tests
         [Fact]
         public static void ParseDoubleTest()
         {
-            FieldParser fieldParser = new FieldParser("TEST", ";");
+            FieldParser fieldParser = new("TEST", ";");
 
             // Normal double
             Assert.Equal(0.123, fieldParser.ParseDouble("0.123", "TEST"));
@@ -117,7 +117,7 @@ namespace Lavinia.Api.Utilities.Tests
         [Fact]
         public static void ParseStringTest()
         {
-            FieldParser fieldParser = new FieldParser("TEST", ";");
+            FieldParser fieldParser = new("TEST", ";");
 
             // Within bounds
             Assert.Equal("Hey", fieldParser.ParseString("Hey", "TEST", 0, 5));

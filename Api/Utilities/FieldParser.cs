@@ -18,7 +18,7 @@
 
         private string File { get; }
         private string Separator { get; }
-        private string Line { get; set; }
+        private string Line { get; set; } = "No line defined";
 
         /// <summary>
         ///     Verifies that the string array matches the expected length.
@@ -49,12 +49,9 @@
         /// <exception cref="CsvFileFormatException">Is thrown if the string does not match any known algorithm</exception>
         public string ParseAlgorithmToString(string value, string field)
         {
-            if (!AlgorithmUtilities.TryParseToString(value, out string algorithm))
-            {
-                throw new CsvFileFormatException($"The {field} \"{value}\" is not a valid algorithm name.", File, Line);
-            }
-
-            return algorithm;
+            return !AlgorithmUtilities.TryParseToString(value, out string? algorithm)
+                ? throw new CsvFileFormatException($"The {field} \"{value}\" is not a valid algorithm name.", File, Line)
+                : algorithm!;
         }
 
         /// <summary>
@@ -66,12 +63,9 @@
         /// <exception cref="CsvFileFormatException">Is thrown if the string cannot be parsed to an integer</exception>
         public int ParseInt(string value, string field)
         {
-            if (!int.TryParse(value, out int result))
-            {
-                throw new CsvFileFormatException($"The {field} \"{value}\" is not a valid integer.", File, Line);
-            }
-
-            return result;
+            return !int.TryParse(value, out int result)
+                ? throw new CsvFileFormatException($"The {field} \"{value}\" is not a valid integer.", File, Line)
+                : result;
         }
 
         /// <summary>
@@ -85,12 +79,9 @@
         {
             string finalValue = value.Replace(",", ".");
 
-            if (!double.TryParse(finalValue, out double result))
-            {
-                throw new CsvFileFormatException($"The {field} \"{value}\" is not a valid double.", File, Line);
-            }
-
-            return result;
+            return !double.TryParse(finalValue, out double result)
+                ? throw new CsvFileFormatException($"The {field} \"{value}\" is not a valid double.", File, Line)
+                : result;
         }
 
         /// <summary>
@@ -113,14 +104,11 @@
                     File, Line);
             }
 
-            if (maxLength != -1 && value.Length > maxLength)
-            {
-                throw new CsvFileFormatException(
+            return maxLength != -1 && value.Length > maxLength
+                ? throw new CsvFileFormatException(
                     $"The field {field} \"{value}\" is longer than the maximum length. Expected a value < {maxLength}, got: {value.Length}",
-                    File, Line);
-            }
-
-            return value;
+                    File, Line)
+                : value;
         }
     }
 }

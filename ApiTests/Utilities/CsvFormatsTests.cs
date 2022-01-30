@@ -37,30 +37,6 @@ namespace Lavinia.Api.Utilities.Tests
         }
 
         /// <summary>
-        /// Tests a normal input to CountryFormat
-        /// </summary>
-        [Fact]
-        public static void ParseCountryFormatTest()
-        {
-            CountryFormat country = new CountryFormat().Parse("NO;Norway",
-                new FieldParser("TEST", ";"));
-            Assert.Equal("NO", country.CountryCode);
-            Assert.Equal("Norway", country.InternationalName);
-        }
-
-        /// <summary>
-        /// Tests a normal input to ElectionTypeFormat
-        /// </summary>
-        [Fact]
-        public static void ParseElectionTypeFormatTest()
-        {
-            ElectionTypeFormat electionType = new ElectionTypeFormat().Parse("PE;Parliamentary Election",
-                new FieldParser("TEST", ";"));
-            Assert.Equal("PE", electionType.ElectionTypeCode);
-            Assert.Equal("Parliamentary Election", electionType.InternationalName);
-        }
-
-        /// <summary>
         /// Tests a normal input to CountyDataFormat
         /// </summary>
         [Fact]

@@ -10,17 +10,29 @@ namespace Lavinia.Api.Utilities
             exText + "\nPath: " + path + "\nLine: " + line)
         {
         }
+
+        public CsvFileFormatException() : base()
+        {
+        }
+
+        public CsvFileFormatException(string? message) : base(message)
+        {
+        }
+
+        public CsvFileFormatException(string? message, Exception? innerException) : base(message, innerException)
+        {
+        }
     }
 
     public static class CsvUtilities
     {
         public static List<T> CsvToList<T>(string filePath) where T : ICsvFormat<T>, new()
         {
-            List<T> objects = new List<T>();
-            StreamReader file = new StreamReader(filePath);
-            FieldParser parser = new FieldParser(filePath, ";");
+            List<T> objects = new();
+            StreamReader file = new(filePath);
+            FieldParser parser = new(filePath, ";");
             file.ReadLine(); // Skip header string
-            string currentLine;
+            string? currentLine;
             while ((currentLine = file.ReadLine()) != null)
             {
                 if (!currentLine.Contains('#'))

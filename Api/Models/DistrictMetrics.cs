@@ -8,26 +8,26 @@
         /// <summary>
         /// Name of the district these data are valid for
         /// </summary>
-        public string District { get; set; }
+        public string District { get; init; } = default!;
 
         /// <summary>
         /// The election year these data are valid for
         /// </summary>
-        public int ElectionYear { get; set; }
+        public int ElectionYear { get; init; } = default!;
 
         /// <summary>
         /// The geographical size of the district
         /// </summary>
-        public double Area { get; set; }
+        public double Area { get; init; } = default!;
 
         /// <summary>
         /// The population size of the district
         /// </summary>
-        public int Population { get; set; }
+        public int Population { get; init; } = default!;
 
         /// <summary>
         /// The number of district seats predetermined for the district
         /// </summary>
-        public int Seats { get; set; }
+        public int Seats { get; init; } = default!;
     }
 }

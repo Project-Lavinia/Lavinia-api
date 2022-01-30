@@ -14,16 +14,16 @@ namespace Lavinia.Api.Models
         /// ID only for use by the Database
         /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int Id { get; init; } = default!;
 
         /// <summary>
         /// For storing an identifier for the value
         /// </summary>
-        public string Key { get; set; }
+        public string Key { get; init; } = default!;
 
         /// <summary>
         /// For storing the actual value
         /// </summary>
-        public T Value { get; set; }
+        public T Value { get; init; } = default!;
     }
 }

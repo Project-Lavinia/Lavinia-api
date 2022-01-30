@@ -24,4 +24,10 @@
     <ProjectReference Include="..\Api\Api.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="2017.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

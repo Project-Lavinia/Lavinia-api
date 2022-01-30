@@ -11,11 +11,11 @@ namespace Lavinia.Api.Models
         /// The party code
         /// </summary>
         [Key]
-        public string Code { get; set; }
+        public string Code { get; init; } = default!;
 
         /// <summary>
         /// The full name of the party
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; init; } = default!;
     }
 }

@@ -31,12 +31,9 @@ namespace Lavinia.Api.Utilities
         {
             string lowerName = name.ToLowerInvariant();
 
-            if (ParliamentaryElectionSet.Contains(lowerName))
-            {
-                return PARLIAMENTARY_ELECTION_CODE;
-            }
-
-            throw new ArgumentException($"{name} is not a valid ElectionType name.");
+            return ParliamentaryElectionSet.Contains(lowerName)
+                ? PARLIAMENTARY_ELECTION_CODE
+                : throw new ArgumentException($"{name} is not a valid ElectionType name.");
         }
 
         /// <summary>
@@ -47,12 +44,7 @@ namespace Lavinia.Api.Utilities
         /// <returns>The full name of the ElectionType</returns>
         public static string CodeToName(string code)
         {
-            if (code == PARLIAMENTARY_ELECTION_CODE)
-            {
-                return PARLIAMENTARY_ELECTION_NAME;
-            }
-
-            throw new ArgumentException($"{code} is not recognized.");
+            return code == PARLIAMENTARY_ELECTION_CODE ? PARLIAMENTARY_ELECTION_NAME : throw new ArgumentException($"{code} is not recognized.");
         }
 
         /// <summary>
@@ -73,7 +65,7 @@ namespace Lavinia.Api.Utilities
         /// <param name="name">The name of the ElectionType.</param>
         /// <param name="code">Where the code should be returned.</param>
         /// <returns>True if successful, false otherwise.</returns>
-        public static bool TryParse(string name, out string code)
+        public static bool TryParse(string name, out string? code)
         {
             if (IsElectionType(name))
             {
