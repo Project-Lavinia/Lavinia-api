@@ -26,9 +26,13 @@ namespace Lavinia.Api.Models
         /// </summary>
         public List<ListElement<double>> Parameters { get; private set; }
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+        protected AlgorithmParameters() { }
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+
         public AlgorithmParameters(
             string algorithm,
-            List<ListElement<double>> parameters)
+            List<ListElement<double>> parameters) : this()
         {
             Algorithm = algorithm;
             Parameters = parameters;
