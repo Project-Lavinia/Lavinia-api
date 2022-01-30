@@ -15,16 +15,14 @@ namespace Lavinia.Api
             using (IServiceScope scope = host.Services.CreateScope())
             {
                 IServiceProvider services = scope.ServiceProvider;
+                ILogger<Program> logger = services.GetRequiredService<ILogger<Program>>();
                 try
                 {
                     NOContext noContext = services.GetRequiredService<NOContext>();
-                    ILogger logger = services.GetRequiredService<ILogger<Program>>();
-
                     NOInitializer.Initialize(noContext, logger);
                 }
                 catch (Exception ex)
                 {
-                    ILogger logger = services.GetRequiredService<ILogger<Program>>();
                     logger.LogError(ex, "An error occurred while seeding the contexts");
                 }
             }
