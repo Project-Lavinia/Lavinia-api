@@ -1,16 +1,21 @@
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using System;
 using System.Linq;
 
 namespace Lavinia.Api
 {
-    public class ApiExplorerGroupPerVersionConvention : IControllerModelConvention
+    internal class ApiExplorerGroupPerVersionConvention : IControllerModelConvention
     {
         public void Apply(ControllerModel controller)
         {
             var controllerNamespace = controller.ControllerType.Namespace; // e.g. "Controllers.V1"
-            var apiVersion = controllerNamespace.Split('.').Last().ToLower();
 
-            controller.ApiExplorer.GroupName = apiVersion;
+            if (controllerNamespace is null)
+            {
+                throw new InvalidOperationException("A namespace for a controller cannot be null!");
+            }
+
+            controller.ApiExplorer.GroupName = controllerNamespace.Split('.').Last().ToLower();
         }
     }
 }
