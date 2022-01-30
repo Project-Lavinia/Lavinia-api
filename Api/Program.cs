@@ -26,4 +26,4 @@ using (IServiceScope scope = host.Services.CreateScope())
     }
 }
 
-host.RunAsync();
+await host.RunAsync();
