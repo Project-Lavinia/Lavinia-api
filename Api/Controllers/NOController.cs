@@ -58,8 +58,7 @@ namespace Lavinia.Api.Controllers.V3
                 return Ok(
                     _context.ElectionParameters
                     .Select(ep => ep.ElectionYear)
-                    .OrderByDescending(ks => ks)
-                    .AsAsyncEnumerable());
+                    .OrderByDescending(ks => ks));
             }
             catch (Exception e)
             {
@@ -109,7 +108,6 @@ namespace Lavinia.Api.Controllers.V3
                         .Where(dm => dm.ElectionYear == year || year == null)
                         .Select(dm => dm.District)
                         .Distinct()
-                        .AsAsyncEnumerable()
                 );
             }
             catch (Exception e)
@@ -129,23 +127,25 @@ namespace Lavinia.Api.Controllers.V3
         [ProducesResponseType(typeof(IEnumerable<PartyVotes>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("votes")]
-        public IActionResult GetVotes(int? year = null, string partyCode = DefaultPartyCode, string district = DefaultDistrict)
+        public ActionResult GetVotes(
+            int? year = null,
+            string? partyCode = DefaultPartyCode,
+            string? district = DefaultDistrict)
         {
             try
             {
-                return Ok(
-                    _context.PartyVotes
+                var votes = _context.PartyVotes
                         .Where(pV =>
                             (pV.ElectionYear == year || year == null) &&
-                            (pV.Party.Equals(partyCode) || partyCode.Equals(DefaultPartyCode)) &&
-                            (pV.District.Equals(district) || district.Equals(DefaultDistrict))
-                        )
-                );
+                            (pV.Party.Equals(partyCode) || partyCode!.Equals(DefaultPartyCode)) &&
+                            (pV.District.Equals(district) || district!.Equals(DefaultDistrict))
+                        );
+                return Ok(votes);
             }
             catch (Exception e)
             {
                 _logger.LogError(e, "Something has gone terribly wrong in {MethodName}", nameof(GetVotes));
-                return new StatusCodeResult(500);
+                return Problem("Something has gone wrong", HttpContext.Request.Path, StatusCodes.Status500InternalServerError);
             }
         }
 
@@ -160,8 +160,11 @@ namespace Lavinia.Api.Controllers.V3
         [ProducesResponseType(typeof(IEnumerable<PartyVotes>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("votes/previous")]
-        public IActionResult GetPreviousVotes(int? year = null, int? number = null, string partyCode = DefaultPartyCode,
-            string district = DefaultDistrict)
+        public IActionResult GetPreviousVotes(
+            int? year = null,
+            int? number = null,
+            string? partyCode = DefaultPartyCode,
+            string? district = DefaultDistrict)
         {
             try
             {
@@ -174,14 +177,14 @@ namespace Lavinia.Api.Controllers.V3
                     _context.PartyVotes
                         .Where(pV =>
                             years.Contains(pV.ElectionYear) &&
-                            (pV.Party.Equals(partyCode) || partyCode.Equals(DefaultPartyCode)) &&
-                            (pV.District.Equals(district) || district.Equals(DefaultDistrict)))
+                            (pV.Party.Equals(partyCode) || partyCode!.Equals(DefaultPartyCode)) &&
+                            (pV.District.Equals(district) || district!.Equals(DefaultDistrict)))
                 );
             }
             catch (Exception e)
             {
                 _logger.LogError(e, "Something has gone terribly wrong in {MethodName}", nameof(GetPreviousVotes));
-                return new StatusCodeResult(500);
+                return Problem("Something has gone wrong", HttpContext.Request.Path, StatusCodes.Status500InternalServerError);
             }
         }
 
@@ -194,7 +197,7 @@ namespace Lavinia.Api.Controllers.V3
         [ProducesResponseType(typeof(IEnumerable<DistrictMetrics>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("metrics")]
-        public IActionResult GetMetrics(int? year = null, string district = DefaultDistrict)
+        public IActionResult GetMetrics(int? year = null, string? district = DefaultDistrict)
         {
             try
             {
@@ -202,13 +205,13 @@ namespace Lavinia.Api.Controllers.V3
                     _context.DistrictMetrics
                         .Where(dM =>
                             (dM.ElectionYear == year || year == null) &&
-                            (dM.District.Equals(district) || district.Equals(DefaultDistrict)))
+                            (dM.District.Equals(district) || district!.Equals(DefaultDistrict)))
                 );
             }
             catch (Exception e)
             {
                 _logger.LogError(e, "Something has gone terribly wrong in {MethodName}", nameof(GetMetrics));
-                return new StatusCodeResult(500);
+                return Problem("Something has gone wrong", HttpContext.Request.Path, StatusCodes.Status500InternalServerError);
             }
         }
 
@@ -222,7 +225,7 @@ namespace Lavinia.Api.Controllers.V3
         [ProducesResponseType(typeof(IEnumerable<DistrictMetrics>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("metrics/previous")]
-        public IActionResult GetPreviousMetrics(int? year = null, int? number = null, string district = DefaultDistrict)
+        public IActionResult GetPreviousMetrics(int? year = null, int? number = null, string? district = DefaultDistrict)
         {
             try
             {
@@ -235,13 +238,13 @@ namespace Lavinia.Api.Controllers.V3
                     _context.DistrictMetrics
                         .Where(dM =>
                             years.Contains(dM.ElectionYear) &&
-                            (dM.District.Equals(district) || district.Equals(DefaultDistrict)))
+                            (dM.District.Equals(district) || district!.Equals(DefaultDistrict)))
                 );
             }
             catch (Exception e)
             {
                 _logger.LogError(e, "Something has gone terribly wrong in {MethodName}", nameof(GetPreviousMetrics));
-                return new StatusCodeResult(500);
+                return Problem("Something has gone wrong", HttpContext.Request.Path, StatusCodes.Status500InternalServerError);
             }
         }
 
@@ -266,7 +269,7 @@ namespace Lavinia.Api.Controllers.V3
             catch (Exception e)
             {
                 _logger.LogError(e, "Something has gone terribly wrong in {MethodName}", nameof(GetParameters));
-                return new StatusCodeResult(500);
+                return Problem("Something has gone wrong", HttpContext.Request.Path, StatusCodes.Status500InternalServerError);
             }
         }
 
@@ -297,7 +300,7 @@ namespace Lavinia.Api.Controllers.V3
             catch (Exception e)
             {
                 _logger.LogError(e, "Something has gone terribly wrong in {MethodName}", nameof(GetPreviousParameters));
-                return new StatusCodeResult(500);
+                return Problem("Something has gone wrong", HttpContext.Request.Path, StatusCodes.Status500InternalServerError);
             }
         }
 
