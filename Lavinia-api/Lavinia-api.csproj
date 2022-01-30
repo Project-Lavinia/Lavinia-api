@@ -6,6 +6,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
     <GenerateProgramFile>false</GenerateProgramFile>
   </PropertyGroup>
 
