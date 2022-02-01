@@ -95,11 +95,14 @@ namespace Lavinia.Api.Controllers.V3
         /// <summary>
         ///     Returns a list of all districts for a given year in the API.
         /// </summary>
+        /// <remarks>
+        ///     If no year is provided, all districts for all years are returned.
+        /// </remarks>
         /// <returns>List of all districts for a given year.</returns>
         [ProducesResponseType(typeof(IEnumerable<int>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("districts")]
-        public IActionResult GetDistricts(int? year = null)
+        public IActionResult GetDistricts(int? year)
         {
             try
             {
