@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -123,26 +124,26 @@ namespace Lavinia.Api.Controllers.V3
         /// <summary>
         ///     Returns a list of all Party votes that meet the required parameters.
         /// </summary>
-        /// <param name="year">Four digit election year</param>
-        /// <param name="partyCode">One to N character party code</param>
-        /// <param name="district">Name of district</param>
+        /// <param name="year">Four digit election year. If none is provided, data for all years is returned.</param>
+        /// <param name="partyCode">One to N character party code.</param>
+        /// <param name="district">Name of district.</param>
         /// <returns>Party votes meeting the requirements</returns>
         [ProducesResponseType(typeof(IEnumerable<PartyVotes>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("votes")]
         public ActionResult GetVotes(
-            int? year = null,
-            string? partyCode = DefaultPartyCode,
-            string? district = DefaultDistrict)
+            int? year,
+            [DefaultValue(DefaultPartyCode)]string? partyCode,
+            [DefaultValue(DefaultDistrict)]string? district)
         {
             try
             {
                 var votes = _context.PartyVotes
-                        .Where(pV =>
-                            (pV.ElectionYear == year || year == null) &&
-                            (pV.Party.Equals(partyCode) || partyCode!.Equals(DefaultPartyCode)) &&
-                            (pV.District.Equals(district) || district!.Equals(DefaultDistrict))
-                        );
+                        .Where(
+                            partyVote =>
+                                (partyVote.ElectionYear == year || year == null) &&
+                                partyVote.Party.Equals(partyCode ?? DefaultPartyCode) &&
+                                partyVote.District.Equals(district ?? DefaultDistrict));
                 return Ok(votes);
             }
             catch (Exception e)
@@ -155,7 +156,7 @@ namespace Lavinia.Api.Controllers.V3
         /// <summary>
         ///     Returns a list of all Party votes from a number of elections before the specified year.
         /// </summary>
-        /// <param name="year">Four digit election year</param>
+        /// <param name="year">Four digit election year. Defaults to current year and calculates last election years from that.</param>
         /// <param name="number">Number of elections</param>
         /// <param name="partyCode">One to N character party code</param>
         /// <param name="district">Name of district</param>
@@ -164,10 +165,10 @@ namespace Lavinia.Api.Controllers.V3
         [ProducesResponseType(500)]
         [HttpGet("votes/previous")]
         public IActionResult GetPreviousVotes(
-            int? year = null,
-            int? number = null,
-            string? partyCode = DefaultPartyCode,
-            string? district = DefaultDistrict)
+            int? year,
+            [DefaultValue(DefaultNumberOfYears)]int? number,
+            [DefaultValue(DefaultPartyCode)]string? partyCode,
+            [DefaultValue(DefaultDistrict)]string? district)
         {
             try
             {
@@ -178,11 +179,10 @@ namespace Lavinia.Api.Controllers.V3
 
                 return Ok(
                     _context.PartyVotes
-                        .Where(pV =>
-                            years.Contains(pV.ElectionYear) &&
-                            (pV.Party.Equals(partyCode) || partyCode!.Equals(DefaultPartyCode)) &&
-                            (pV.District.Equals(district) || district!.Equals(DefaultDistrict)))
-                );
+                        .Where(partyVotes =>
+                            years.Contains(partyVotes.ElectionYear) &&
+                            partyVotes.Party.Equals(partyCode ?? DefaultPartyCode) &&
+                            partyVotes.District.Equals(district ?? DefaultDistrict)));
             }
             catch (Exception e)
             {
@@ -194,13 +194,15 @@ namespace Lavinia.Api.Controllers.V3
         /// <summary>
         ///     Returns a list of all District metrics that matches the required parameters.
         /// </summary>
-        /// <param name="year">Four digit election year</param>
+        /// <param name="year">Four digit election year. If none is provided, returns district metrics for all years.</param>
         /// <param name="district">Name of district</param>
         /// <returns>District metrics matching the requirements</returns>
         [ProducesResponseType(typeof(IEnumerable<DistrictMetrics>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("metrics")]
-        public IActionResult GetMetrics(int? year = null, string? district = DefaultDistrict)
+        public IActionResult GetMetrics(
+            int? year,
+            [DefaultValue(DefaultDistrict)]string? district)
         {
             try
             {
@@ -208,8 +210,7 @@ namespace Lavinia.Api.Controllers.V3
                     _context.DistrictMetrics
                         .Where(dM =>
                             (dM.ElectionYear == year || year == null) &&
-                            (dM.District.Equals(district) || district!.Equals(DefaultDistrict)))
-                );
+                            dM.District.Equals(district ?? DefaultDistrict)));
             }
             catch (Exception e)
             {
@@ -221,14 +222,17 @@ namespace Lavinia.Api.Controllers.V3
         /// <summary>
         ///     Returns a list of all District metrics from a number of elections before the specified year.
         /// </summary>
-        /// <param name="year">Four digit election year</param>
+        /// <param name="year">Four digit election year. Assumes current year if none is provided.</param>
         /// <param name="number">Number of District metrics to return</param>
         /// <param name="district">Name of district</param>
         /// <returns>District metrics for a number of elections</returns>
         [ProducesResponseType(typeof(IEnumerable<DistrictMetrics>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("metrics/previous")]
-        public IActionResult GetPreviousMetrics(int? year = null, int? number = null, string? district = DefaultDistrict)
+        public IActionResult GetPreviousMetrics(
+            int? year,
+            [DefaultValue(DefaultNumberOfYears)]int? number,
+            [DefaultValue(DefaultDistrict)]string? district)
         {
             try
             {
@@ -241,8 +245,7 @@ namespace Lavinia.Api.Controllers.V3
                     _context.DistrictMetrics
                         .Where(dM =>
                             years.Contains(dM.ElectionYear) &&
-                            (dM.District.Equals(district) || district!.Equals(DefaultDistrict)))
-                );
+                            dM.District.Equals(district ?? DefaultDistrict)));
             }
             catch (Exception e)
             {
@@ -254,12 +257,12 @@ namespace Lavinia.Api.Controllers.V3
         /// <summary>
         ///     Returns a list of all Election parameters that matches the required parameters.
         /// </summary>
-        /// <param name="year">Four digit election year</param>
+        /// <param name="year">Four digit election year. Assumes all years if none is provided.</param>
         /// <returns>Election parameters matching the requirements</returns>
         [ProducesResponseType(typeof(IEnumerable<ElectionParameters>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("parameters")]
-        public IActionResult GetParameters(int? year = null)
+        public IActionResult GetParameters(int? year)
         {
             try
             {
@@ -279,13 +282,15 @@ namespace Lavinia.Api.Controllers.V3
         /// <summary>
         ///     Returns a list of all Election parameters from a number of elections before the specified year.
         /// </summary>
-        /// <param name="year">Four digit election year</param>
+        /// <param name="year">Four digit election year. Assumes all years if none is provided.</param>
         /// <param name="number">Number of years to return</param>
         /// <returns>Election parameters for a number of years</returns>
         [ProducesResponseType(typeof(IEnumerable<ElectionParameters>), 200)]
         [ProducesResponseType(500)]
         [HttpGet("parameters/previous")]
-        public IActionResult GetPreviousParameters(int? year = null, int? number = null)
+        public IActionResult GetPreviousParameters(
+            int? year,
+            [DefaultValue(DefaultNumberOfYears)]int? number)
         {
             try
             {
