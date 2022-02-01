@@ -1,5 +1,6 @@
 def testPassed = true
 def configuration = "Release"
+def outputDirectory = "output"
 
 pipeline {
   agent any
@@ -8,7 +9,6 @@ pipeline {
   }
   stages {
     stage('Build') {
-      def outputDirectory = "output"
       steps {
         sh "dotnet restore"
         sh "dotnet build --configuration ${configuration} --output ${outputDirectory}"
