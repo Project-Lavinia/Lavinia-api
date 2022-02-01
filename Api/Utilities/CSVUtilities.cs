@@ -4,7 +4,7 @@ using System.IO;
 
 namespace Lavinia.Api.Utilities
 {
-    public class CsvFileFormatException : FormatException
+     sealed class CsvFileFormatException : FormatException
     {
         public CsvFileFormatException(string exText, string path, string line) : base(
             exText + "\nPath: " + path + "\nLine: " + line)
