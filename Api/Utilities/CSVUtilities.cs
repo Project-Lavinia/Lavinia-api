@@ -11,7 +11,7 @@ namespace Lavinia.Api.Utilities
         {
         }
 
-        public CsvFileFormatException() : base()
+        public CsvFileFormatException()
         {
         }
 
