@@ -11,7 +11,7 @@ namespace Lavinia.Api.Utilities.Tests
     {
         private static readonly FieldParser FieldParser = new("TEST", ";");
 
-        private static readonly IReadOnlyDictionary<int, int> YearTotalVotesMap = new Dictionary<int, int>()
+        private static readonly IReadOnlyDictionary<int, int> YearTotalVotesMap = new Dictionary<int, int>
             {
                 { 2017, 0 },
                 { 1977, 0 }
@@ -45,7 +45,7 @@ namespace Lavinia.Api.Utilities.Tests
                     FieldParser)
             };
 
-            IReadOnlyDictionary<int, int> yearTotalVotesMap = new Dictionary<int, int>()
+            IReadOnlyDictionary<int, int> yearTotalVotesMap = new Dictionary<int, int>
             {
                 {2017, 0 }
             };
