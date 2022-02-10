@@ -25,7 +25,7 @@ steps:
     inputs:
       command: "test"
       projects: '**/*Tests/*.csproj'
-      arguments: "--no-build --configuration $(buildConfiguration) --collect "Code coverage""
+      arguments: '--no-build --configuration $(buildConfiguration) --collect "Code coverage"'
 
   - task: DotNetCoreCLI@2
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
