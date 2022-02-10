@@ -36,8 +36,7 @@ steps:
       arguments: "--configuration $(buildConfiguration) --no-restore --output $(Build.ArtifactStagingDirectory)"
       zipAfterPublish: true
   
-  - publish: $(Build.ArtifactStagingDirectory)
+  - publish: $(Build.ArtifactStagingDirectory)/**/*.zip
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
     artifact: drop
-    patterns: "**/*.zip"
     displayName: "Upload Artifacts"
