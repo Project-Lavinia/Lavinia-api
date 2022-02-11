@@ -28,7 +28,6 @@ steps:
       arguments: '--no-build --configuration $(buildConfiguration) --collect "Code coverage"'
 
   - task: DotNetCoreCLI@2
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
     displayName: "Publish Artifacts"
     inputs:
       command: "publish"
@@ -36,7 +35,6 @@ steps:
       arguments: "--configuration $(buildConfiguration) --no-restore --output $(Build.ArtifactStagingDirectory)"
       zipAfterPublish: true
   
-  - publish: $(Build.ArtifactStagingDirectory)/**/*.zip
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  - publish: $(Build.ArtifactStagingDirectory)/Api.zip
     artifact: drop
     displayName: "Upload Artifacts"
