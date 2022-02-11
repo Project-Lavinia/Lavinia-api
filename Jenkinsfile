@@ -1,4 +1,6 @@
 def testPassed = true
+def configuration = "Release"
+def outputDirectory = "output"
 
 pipeline {
   agent any
@@ -9,8 +11,8 @@ pipeline {
     stage('Build') {
       steps {
         sh "dotnet restore"
-        sh "dotnet build --configuration Release"
-        sh "cd Lavinia-api/bin/Release/netcoreapp3.1; zip -r ${WORKSPACE}/${ARTIFACT} *; cd ${WORKSPACE}"
+        sh "dotnet build --configuration ${configuration} --output ${outputDirectory}"
+        sh "zip -r ${WORKSPACE}/${ARTIFACT} ${outputDirectory}/*"
         archiveArtifacts artifacts: ARTIFACT
       }
     }
@@ -19,7 +21,7 @@ pipeline {
       steps {
         script {
           try {
-            sh "dotnet test --logger \"trx;LogFileName=TestResults.trx\""
+            sh "dotnet test --configuration ${configuration} --no-restore --logger \"trx;LogFileName=TestResults.trx\""
           } catch (ex) {
             unstable('Some tests failed')
             testPassed = false
