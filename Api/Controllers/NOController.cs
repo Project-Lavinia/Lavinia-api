@@ -142,8 +142,8 @@ namespace Lavinia.Api.Controllers.V3
                         .Where(
                             partyVote =>
                                 (partyVote.ElectionYear == year || year == null) &&
-                                partyVote.Party.Equals(partyCode ?? DefaultPartyCode) &&
-                                partyVote.District.Equals(district ?? DefaultDistrict));
+                                (partyVote.Party.Equals(partyCode) || partyCode == DefaultPartyCode) &&
+                                (partyVote.District.Equals(district) || district == DefaultDistrict));
                 return Ok(votes);
             }
             catch (Exception e)
@@ -181,8 +181,8 @@ namespace Lavinia.Api.Controllers.V3
                     _context.PartyVotes
                         .Where(partyVotes =>
                             years.Contains(partyVotes.ElectionYear) &&
-                            partyVotes.Party.Equals(partyCode ?? DefaultPartyCode) &&
-                            partyVotes.District.Equals(district ?? DefaultDistrict)));
+                            (partyVotes.Party.Equals(partyCode) || partyCode == DefaultPartyCode) &&
+                            (partyVotes.District.Equals(district) || district == DefaultDistrict)));
             }
             catch (Exception e)
             {
@@ -210,7 +210,7 @@ namespace Lavinia.Api.Controllers.V3
                     _context.DistrictMetrics
                         .Where(dM =>
                             (dM.ElectionYear == year || year == null) &&
-                            dM.District.Equals(district ?? DefaultDistrict)));
+                            (dM.District.Equals(district) || district == DefaultDistrict)));
             }
             catch (Exception e)
             {
@@ -245,7 +245,7 @@ namespace Lavinia.Api.Controllers.V3
                     _context.DistrictMetrics
                         .Where(dM =>
                             years.Contains(dM.ElectionYear) &&
-                            dM.District.Equals(district ?? DefaultDistrict)));
+                            (dM.District.Equals(district) || district ==  DefaultDistrict)));
             }
             catch (Exception e)
             {
