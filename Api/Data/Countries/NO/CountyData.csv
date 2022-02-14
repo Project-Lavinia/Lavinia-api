@@ -248,10 +248,10 @@
 1973;Hordaland;0;376928;15
 1973;Møre og Romsdal;0;225741;10
 1973;Nord-Trøndelag;0;119087;6
-1973;Nordland;0;240874;11
+1973;Nordland;0;240874;12
 1973;Oppland;0;174074;7
 1973;Oslo;0;475563;15
-1973;Rogaland;0;272453;12
+1973;Rogaland;0;272453;10
 1973;Sogn og Fjordane;0;101672;5
 1973;Sør-Trøndelag;0;235721;10
 1973;Telemark;0;157426;6
@@ -385,6 +385,15 @@
 1949;Vest-Agder;0;0;4
 1949;Vestfold;0;0;4
 1949;Østfold;0;0;6
+1949;Byer Østfold & Akershus;0;0;4
+1949;Byer Hedmark & Oppland;0;0;3
+1949;Byer Buskerud;0;0;3
+1949;Byer Vestfold;0;0;4
+1949;Byer Telemark & Aust-Agder;0;0;5
+1949;Byer Vest-Agder & Rogaland;0;0;7
+1949;Byer Møre & Romsdal;0;0;3
+1949;Byer Sør & Nord-Trøndelag;0;0;5
+1949;Byer Nordland, Troms & Finnmark;0;0;4
 # 1945
 1945;Akershus;0;0;7
 1945;Aust-Agder;0;0;4
@@ -406,3 +415,12 @@
 1945;Vest-Agder;0;0;4
 1945;Vestfold;0;0;4
 1945;Østfold;0;0;6
+1945;Byer Østfold & Akershus;0;0;4
+1945;Byer Hedmark & Oppland;0;0;3
+1945;Byer Buskerud;0;0;3
+1945;Byer Vestfold;0;0;4
+1945;Byer Telemark & Aust-Agder;0;0;5
+1945;Byer Vest-Agder & Rogaland;0;0;7
+1945;Byer Møre & Romsdal;0;0;3
+1945;Byer Sør & Nord-Trøndelag;0;0;5
+1945;Byer Nordland, Troms & Finnmark;0;0;4
