@@ -106,7 +106,7 @@
         {
             string[] fields = parser.ParseLength(line, 5);
             int year = parser.ParseInt(fields[0], "Year");
-            string county = parser.ParseString(fields[1], "County", 3, 20);
+            string county = parser.ParseString(fields[1], "County", 3, 35);
             double areal = parser.ParseDouble(fields[2], "Area");
             int population = parser.ParseInt(fields[3], "Population");
             int seats = parser.ParseInt(fields[4], "Seats");
