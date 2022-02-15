@@ -69,7 +69,10 @@ namespace Lavinia.Api
         /// <param name="app"></param>
         public void Configure(IApplicationBuilder app)
         {
-            app.UseHttpsRedirection();
+            // Nginx handles https redirection
+            // This option causes nginx to fail
+            // app.UseHttpsRedirection();
+
             app.UseHsts();
 
             app.UseHttpLogging();
