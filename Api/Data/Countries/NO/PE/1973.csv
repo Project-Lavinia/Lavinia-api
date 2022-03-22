@@ -32,8 +32,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 03;Oslo;;;;;ALP;Anders Langes parti;6;;;;18578;;;;;
 03;Oslo;;;;;EP;Ensliges parti;1;;;;1987;;;;;
 03;Oslo;;;;;NDP;Norges demokratiske parti;0;;;;85;;;;;
-03;Oslo;;;;;FLV;Fellesliste Venstre;2;;;;5793;;;;;
-03;Oslo;;;;;FLSP;Fellesliste Senterpartiet;2;;;;4620;;;;;
+03;Oslo;;;;;SP;Senterpartiet;2;;;;10413;;;;;
 03;Oslo;;;;;ANDRE;Andre;0;;;;2;;;;;
 04;Hedmark;;;;;A;Arbeiderpartiet;52;;;;55857;;;;;
 04;Hedmark;;;;;H;Høyre;10;;;;10872;;;;;
@@ -44,9 +43,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 04;Hedmark;;;;;EP;Ensliges parti;0;;;;184;;;;;
 04;Hedmark;;;;;KFF;Kvinnenes frie folkevalgte;0;;;;135;;;;;
 04;Hedmark;;;;;NDP;Norges demokratiske parti;0;;;;148;;;;;
-04;Hedmark;;;;;FLV;Fellesliste Venstre;1;;;;1117;;;;;
-04;Hedmark;;;;;FLKRF;Fellesliste Kristelig Folkeparti;5;;;;5203;;;;;
-04;Hedmark;;;;;FLSP;Fellesliste Senterpartiet;14;;;;15463;;;;;
+04;Hedmark;;;;;SP;Senterpartiet;14;;;;21783;;;;;
 05;Oppland;;;;;A;Arbeiderpartiet;49;;;;49737;;;;;
 05;Oppland;;;;;H;Høyre;9;;;;8650;;;;;
 05;Oppland;;;;;KRF;Kristelig Folkeparti;8;;;;7604;;;;;
@@ -57,8 +54,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 05;Oppland;;;;;EP;Ensliges parti;0;;;;117;;;;;
 05;Oppland;;;;;KFF;Kvinnenes frie folkevalgte;0;;;;128;;;;;
 05;Oppland;;;;;NDP;Norges demokratiske parti;0;;;;66;;;;;
-05;Oppland;;;;;FLV;Fellesliste Venstre;2;;;;2463;;;;;
-05;Oppland;;;;;FLSP;Fellesliste Senterpartiet;20;;;;19856;;;;;
+05;Oppland;;;;;SP;Senterpartiet;20;;;;22319;;;;;
 06;Buskerud;;;;;A;Arbeiderpartiet;43;;;;49744;;;;;
 06;Buskerud;;;;;H;Høyre;20;;;;23188;;;;;
 06;Buskerud;;;;;KRF;Kristelig Folkeparti;7;;;;8594;;;;;
@@ -80,8 +76,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 07;Vestfold;;;;;ALP;Anders Langes parti;7;;;;6591;;;;;
 07;Vestfold;;;;;EP;Ensliges parti;0;;;;266;;;;;
 07;Vestfold;;;;;NDP;Norges demokratiske parti;0;;;;143;;;;;
-07;Vestfold;;;;;FLV;Fellesliste Venstre;3;;;;2891;;;;;
-07;Vestfold;;;;;FLSP;Fellesliste Senterpartiet;8;;;;7707;;;;;
+07;Vestfold;;;;;SP;Senterpartiet;8;;;;10598;;;;;
 08;Telemark;;;;;A;Arbeiderpartiet;37;;;;32536;;;;;
 08;Telemark;;;;;H;Høyre;11;;;;9965;;;;;
 08;Telemark;;;;;KRF;Kristelig Folkeparti;14;;;;12577;;;;;
@@ -92,8 +87,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 08;Telemark;;;;;EP;Ensliges parti;0;;;;122;;;;;
 08;Telemark;;;;;KFF;Kvinnenes frie folkevalgte;0;;;;84;;;;;
 08;Telemark;;;;;NDP;Norges demokratiske parti;0;;;;69;;;;;
-08;Telemark;;;;;FLV;Fellesliste Venstre;5;;;;4385;;;;;
-08;Telemark;;;;;FLSP;Fellesliste Senterpartiet;9;;;;7528;;;;;
+08;Telemark;;;;;V;Venstre;5;;;;11913;;;;;
 09;Aust-Agder;;;;;A;Arbeiderpartiet;33;;;;14594;;;;;
 09;Aust-Agder;;;;;H;Høyre;16;;;;6876;;;;;
 09;Aust-Agder;;;;;KRF;Kristelig Folkeparti;19;;;;8254;;;;;
@@ -104,8 +98,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 09;Aust-Agder;;;;;EP;Ensliges parti;0;;;;62;;;;;
 09;Aust-Agder;;;;;KFF;Kvinnenes frie folkevalgte;0;;;;57;;;;;
 09;Aust-Agder;;;;;NDP;Norges demokratiske parti;0;;;;59;;;;;
-09;Aust-Agder;;;;;FLV;Fellesliste Venstre;4;;;;1574;;;;;
-09;Aust-Agder;;;;;FLSP;Fellesliste Senterpartiet;11;;;;4722;;;;;
+09;Aust-Agder;;;;;SP;Senterpartiet;11;;;;6296;;;;;
 10;Vest-Agder;;;;;A;Arbeiderpartiet;24;;;;16289;;;;;
 10;Vest-Agder;;;;;H;Høyre;15;;;;9956;;;;;
 10;Vest-Agder;;;;;KRF;Kristelig Folkeparti;22;;;;14628;;;;;
@@ -187,10 +180,8 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 17;Nord-Trøndelag;;;;;EP;Ensliges parti;0;;;;66;;;;;
 17;Nord-Trøndelag;;;;;KFF;Kvinnenes frie folkevalgte;0;;;;63;;;;;
 17;Nord-Trøndelag;;;;;NDP;Norges demokratiske parti;0;;;;63;;;;;
-17;Nord-Trøndelag;;;;;FLV;Fellesliste Venstre;8;;;;4739;;;;;
-17;Nord-Trøndelag;;;;;FLKRF;Fellesliste Kristelig Folkeparti;8;;;;5025;;;;;
-17;Nord-Trøndelag;;;;;FLH;Fellesliste Høyre;6;;;;3644;;;;;
-17;Nord-Trøndelag;;;;;FLSP;Fellesliste Senterpartiet;25;;;;15651;;;;;
+17;Nord-Trøndelag;;;;;KRF;Kristelig Folkeparti;8;;;;8669;;;;;
+17;Nord-Trøndelag;;;;;SP;Senterpartiet;25;;;;20390;;;;;
 18;Nordland;;;;;A;Arbeiderpartiet;36;;;;42073;;;;;
 18;Nordland;;;;;H;Høyre;11;;;;12878;;;;;
 18;Nordland;;;;;KRF;Kristelig Folkeparti;13;;;;15040;;;;;
@@ -214,8 +205,7 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 19;Troms;;;;;EP;Ensliges parti;0;;;;97;;;;;
 19;Troms;;;;;KFF;Kvinnenes frie folkevalgte;0;;;;54;;;;;
 19;Troms;;;;;NDP;Norges demokratiske parti;0;;;;60;;;;;
-19;Troms;;;;;FLV;Fellesliste Venstre;5;;;;3144;;;;;
-19;Troms;;;;;FLSP;Fellesliste Senterpartiet;14;;;;9101;;;;;
+19;Troms;;;;;SP;Senterpartiet;14;;;;12245;;;;;
 20;Finnmark;;;;;A;Arbeiderpartiet;44;;;;15639;;;;;
 20;Finnmark;;;;;H;Høyre;13;;;;4612;;;;;
 20;Finnmark;;;;;KRF;Kristelig Folkeparti;7;;;;2397;;;;;
@@ -226,6 +216,5 @@ Fylkenummer;Fylkenavn;Kommunenummer;Kommunenavn;Stemmekretsnummer;Stemmekretsnav
 20;Finnmark;;;;;EP;Ensliges parti;0;;;;51;;;;;
 20;Finnmark;;;;;KFF;Kvinnenes frie folkevalgte;0;;;;37;;;;;
 20;Finnmark;;;;;NDP;Norges demokratiske parti;0;;;;48;;;;;
-20;Finnmark;;;;;FLV;Fellesliste Venstre;3;;;;1037;;;;;
-20;Finnmark;;;;;FLSP;Fellesliste Senterpartiet;7;;;;2428;;;;;
+20;Finnmark;;;;;SP;Senterpartiet;7;;;;3465;;;;;
 20;Finnmark;;;;;ANDRE;Andre;2;;;;849;;;;;
