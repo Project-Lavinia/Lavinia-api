@@ -1,0 +1,52 @@
+name: PR Validation
+
+on:
+  pull_request:
+    branches: [ development, master ]
+
+permissions:
+  contents: read
+  actions: read
+  checks: write
+
+jobs:
+  build-test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    concurrency:
+      group: pr-validation-${{ github.ref }}
+      cancel-in-progress: true
+    env:
+      CONFIGURATION: Release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Restore
+        run: dotnet restore Lavinia-api.sln
+
+      - name: Build
+        run: dotnet build Lavinia-api.sln --configuration $CONFIGURATION --no-restore
+
+      - name: Test
+        run: dotnet test Lavinia-api.sln --configuration $CONFIGURATION --no-build --verbosity minimal
+
+      - name: Publish API
+        run: dotnet publish Api/Api.csproj --configuration $CONFIGURATION --no-build --output published
+
+      - name: Zip Artifact
+        run: (cd published && zip -r ../Api.zip .)
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-build
+          path: Api.zip
+          if-no-files-found: error

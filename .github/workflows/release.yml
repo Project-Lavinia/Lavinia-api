@@ -1,0 +1,56 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+permissions:
+  contents: write
+  actions: read
+  checks: write
+
+jobs:
+  build-test-publish:
+    name: Build, Test & Publish
+    runs-on: ubuntu-latest
+    concurrency:
+      group: release-${{ github.ref_name }}
+      cancel-in-progress: false
+    env:
+      CONFIGURATION: Release
+      ARTIFACT: Api.zip
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Restore
+        run: dotnet restore Lavinia-api.sln
+
+      - name: Build
+        run: dotnet build Lavinia-api.sln --configuration $CONFIGURATION --no-restore
+
+      - name: Test
+        run: dotnet test Lavinia-api.sln --configuration $CONFIGURATION --no-build --verbosity minimal
+
+      - name: Publish API
+        run: dotnet publish Api/Api.csproj --configuration $CONFIGURATION --no-build --output published
+
+      - name: Zip Artifact
+        run: (cd published && zip -r ../$ARTIFACT .)
+
+      - name: Create / Update GitHub Release
+        id: release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          files: ${{ env.ARTIFACT }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
