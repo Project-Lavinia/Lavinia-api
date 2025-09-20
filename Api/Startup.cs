@@ -1,5 +1,7 @@
 ﻿using AspNetCoreRateLimit;
+
 using Lavinia.Api.Data;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+
 using System;
 using System.IO;
 
@@ -53,6 +56,10 @@ namespace Lavinia.Api
                 });
             });
 
+            services.AddHttpLogging(options =>
+            {
+            });
+
             services.AddControllers(options =>
             {
                 options.Conventions.Add(
@@ -82,9 +89,7 @@ namespace Lavinia.Api
                 app.Use(async (context, next) =>
                 {
                     var request = context.Request;
-                    request.Headers.Add(
-                        "X-Real-IP", 
-                        "0.0.0.0");
+                    request.Headers["X-Real-IP"] = "0.0.0.0";
                     await next(context);
                 });
             }
