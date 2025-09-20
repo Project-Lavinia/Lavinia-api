@@ -7,7 +7,7 @@
 01;Østfold;;;;;V;Venstre;3,6;209038;1492;4231;5723;1,1;0;0;0;
 01;Østfold;;;;;H;Høyre;25,2;209038;11808;27895;39703;10,5;0,1;3;0;
 01;Østfold;;;;;FRP;Fremskrittspartiet;19,6;209038;8333;22468;30801;-6,5;6,7;2;0;
-01;Østfold;;;;;DEMN;Demokratene;0,1;209038;34;65;99;0;-0,1;0;0;
+01;Østfold;;;;;DEMN;Norgesdemokratene;0,1;209038;34;65;99;0;-0,1;0;0;
 01;Østfold;;;;;PDK;Partiet De Kristne;0,7;209038;335;788;1123;0,7;0,7;0;0;
 01;Østfold;;;;;KSP;Kristent Samlingsparti;0,1;209038;28;117;145;-0,1;-0,2;0;0;
 01;Østfold;;;;;KYST;Kystpartiet;0;209038;19;49;68;0;-0,1;0;0;
@@ -22,7 +22,7 @@
 02;Akershus;;;;;V;Venstre;6,3;394439;4860;15357;20217;1,4;0,1;1;0;
 02;Akershus;;;;;H;Høyre;33,9;394439;30231;78629;108860;10,8;-2,5;7;0;
 02;Akershus;;;;;FRP;Fremskrittspartiet;17;394439;14146;40512;54658;-7,4;5,2;3;0;
-02;Akershus;;;;;DEMN;Demokratene;0;394439;32;83;115;0;-0,1;0;0;
+02;Akershus;;;;;DEMN;Norgesdemokratene;0;394439;32;83;115;0;-0,1;0;0;
 02;Akershus;;;;;DLF;Det Liberale Folkepartiet;0,1;394439;68;127;195;0,1;0,1;0;0;
 02;Akershus;;;;;PDK;Partiet De Kristne;0,2;394439;239;553;792;0,2;0,2;0;0;
 02;Akershus;;;;;KSP;Kristent Samlingsparti;0,1;394439;51;146;197;0;-0,1;0;0;
@@ -39,7 +39,7 @@
 03;Oslo;;;;;V;Venstre;8,2;435787;9851;18768;28619;1,8;0;2;0;
 03;Oslo;;;;;H;Høyre;29,8;435787;42719;61115;103834;8,1;-5,9;6;0;
 03;Oslo;;;;;FRP;Fremskrittspartiet;11,7;435787;16839;23821;40660;-6;4,6;2;0;
-03;Oslo;;;;;DEMN;Demokratene;0,1;435787;145;91;236;0;0;0;0;
+03;Oslo;;;;;DEMN;Norgesdemokratene;0,1;435787;145;91;236;0;0;0;0;
 03;Oslo;;;;;DLF;Det Liberale Folkepartiet;0,1;435787;129;138;267;0;0;0;0;
 03;Oslo;;;;;PDK;Partiet De Kristne;0,2;435787;296;438;734;0,2;0,2;0;0;
 03;Oslo;;;;;KSP;Kristent Samlingsparti;0;435787;41;56;97;-0,1;0;0;0;
@@ -57,7 +57,7 @@
 04;Hedmark;;;;;V;Venstre;3,4;148098;1059;2746;3805;0,9;-1,2;0;0;
 04;Hedmark;;;;;H;Høyre;18,3;148098;6060;14540;20600;8,1;1,2;1;0;
 04;Hedmark;;;;;FRP;Fremskrittspartiet;13,6;148098;3965;11351;15316;-4,3;5,2;1;0;
-04;Hedmark;;;;;DEMN;Demokratene;0,1;148098;18;45;63;0;-0,2;0;0;
+04;Hedmark;;;;;DEMN;Norgesdemokratene;0,1;148098;18;45;63;0;-0,2;0;0;
 04;Hedmark;;;;;PDK;Partiet De Kristne;0,4;148098;135;279;414;0,4;0,4;0;0;
 04;Hedmark;;;;;KYST;Kystpartiet;0,1;148098;17;40;57;0;-0,1;0;0;
 04;Hedmark;;;;;MDG;Miljøpartiet De Grønne;2;148098;763;1461;2224;1,7;0,9;0;0;
@@ -71,7 +71,7 @@
 05;Oppland;;;;;V;Venstre;4;142014;1044;3204;4248;1;-1;1;1;
 05;Oppland;;;;;H;Høyre;19,1;142014;5403;15134;20537;8;1,4;1;0;
 05;Oppland;;;;;FRP;Fremskrittspartiet;12,7;142014;3353;10330;13683;-4,8;4,9;1;0;
-05;Oppland;;;;;DEMN;Demokratene;0,1;142014;16;38;54;0;-0,2;0;0;
+05;Oppland;;;;;DEMN;Norgesdemokratene;0,1;142014;16;38;54;0;-0,2;0;0;
 05;Oppland;;;;;DLF;Det Liberale Folkepartiet;0,1;142014;17;41;58;0,1;0,1;0;0;
 05;Oppland;;;;;PDK;Partiet De Kristne;0,4;142014;140;320;460;0,4;0,4;0;0;
 05;Oppland;;;;;KYST;Kystpartiet;0,1;142014;20;54;74;0;0;0;0;
@@ -86,7 +86,7 @@
 06;Buskerud;;;;;V;Venstre;4,6;193404;1778;5135;6913;1,6;-0,3;0;0;
 06;Buskerud;;;;;H;Høyre;29;193404;12613;30902;43515;9,7;-4,9;3;0;
 06;Buskerud;;;;;FRP;Fremskrittspartiet;18,6;193404;7762;20092;27854;-6,5;7,6;2;0;
-06;Buskerud;;;;;DEMN;Demokratene;0,1;193404;33;47;80;0;-0,2;0;0;
+06;Buskerud;;;;;DEMN;Norgesdemokratene;0,1;193404;33;47;80;0;-0,2;0;0;
 06;Buskerud;;;;;PDK;Partiet De Kristne;0,5;193404;253;483;736;0,5;0,5;0;0;
 06;Buskerud;;;;;KSP;Kristent Samlingsparti;0,1;193404;37;88;125;-0,1;-0,1;0;0;
 06;Buskerud;;;;;KYST;Kystpartiet;0,1;193404;42;93;135;0;0;0;0;
@@ -101,7 +101,7 @@
 07;Vestfold;;;;;V;Venstre;4,5;176779;1740;4488;6228;1,5;0,2;0;0;
 07;Vestfold;;;;;H;Høyre;30;176779;13266;28091;41357;10,3;-3,7;2;0;
 07;Vestfold;;;;;FRP;Fremskrittspartiet;19,5;176779;8376;18601;26977;-7,7;6,8;2;0;
-07;Vestfold;;;;;DEMN;Demokratene;0;176779;23;42;65;0;-0,1;0;0;
+07;Vestfold;;;;;DEMN;Norgesdemokratene;0;176779;23;42;65;0;-0,1;0;0;
 07;Vestfold;;;;;PDK;Partiet De Kristne;0,5;176779;241;450;691;0,5;0,5;0;0;
 07;Vestfold;;;;;KSP;Kristent Samlingsparti;0,1;176779;76;129;205;-0,1;-0,2;0;0;
 07;Vestfold;;;;;KYST;Kystpartiet;0,1;176779;49;108;157;0;-0,1;0;0;
@@ -116,7 +116,7 @@
 08;Telemark;;;;;V;Venstre;3,5;128352;837;2556;3393;0,9;-0,9;0;0;
 08;Telemark;;;;;H;Høyre;21,8;128352;4957;16343;21300;8,6;-0,5;1;0;
 08;Telemark;;;;;FRP;Fremskrittspartiet;19;128352;4000;14564;18564;-4;6,6;1;0;
-08;Telemark;;;;;DEMN;Demokratene;0,1;128352;12;44;56;0;-0,2;0;0;
+08;Telemark;;;;;DEMN;Norgesdemokratene;0,1;128352;12;44;56;0;-0,2;0;0;
 08;Telemark;;;;;PDK;Partiet De Kristne;1;128352;266;751;1017;1;1;0;0;
 08;Telemark;;;;;KSP;Kristent Samlingsparti;0,1;128352;37;79;116;-0,1;-0,2;0;0;
 08;Telemark;;;;;KYST;Kystpartiet;0,1;128352;13;55;68;0;-0,1;0;0;
@@ -130,7 +130,7 @@
 09;Aust-Agder;;;;;V;Venstre;4,8;81864;967;2066;3033;1,4;-1,5;0;0;
 09;Aust-Agder;;;;;H;Høyre;25,9;81864;5172;11131;16303;9,6;-0,4;1;0;
 09;Aust-Agder;;;;;FRP;Fremskrittspartiet;17,9;81864;3208;8070;11278;-8,1;4,2;1;0;
-09;Aust-Agder;;;;;DEMN;Demokratene;0,1;81864;14;32;46;0;-0,2;0;0;
+09;Aust-Agder;;;;;DEMN;Norgesdemokratene;0,1;81864;14;32;46;0;-0,2;0;0;
 09;Aust-Agder;;;;;PDK;Partiet De Kristne;1,4;81864;302;560;862;1,4;1,4;0;0;
 09;Aust-Agder;;;;;KSP;Kristent Samlingsparti;0,2;81864;35;82;117;-0,1;0,2;0;0;
 09;Aust-Agder;;;;;KYST;Kystpartiet;0,1;81864;11;24;35;0;-0,1;0;0;
@@ -145,7 +145,7 @@
 10;Vest-Agder;;;;;V;Venstre;4,3;126317;1134;3071;4205;1,2;-0,2;0;0;
 10;Vest-Agder;;;;;H;Høyre;27,5;126317;7815;19003;26818;9,9;2,9;2;0;
 10;Vest-Agder;;;;;FRP;Fremskrittspartiet;18,3;126317;4935;12928;17863;-9,1;4,1;1;0;
-10;Vest-Agder;;;;;DEMN;Demokratene;0,5;126317;197;319;516;0;-1,5;0;0;
+10;Vest-Agder;;;;;DEMN;Norgesdemokratene;0,5;126317;197;319;516;0;-1,5;0;0;
 10;Vest-Agder;;;;;DLF;Det Liberale Folkepartiet;0,1;126317;16;49;65;0,1;0,1;0;0;
 10;Vest-Agder;;;;;PDK;Partiet De Kristne;2;126317;558;1417;1975;2;2;0;0;
 10;Vest-Agder;;;;;KYST;Kystpartiet;0;126317;12;31;43;0;-0,1;0;0;
@@ -161,7 +161,7 @@
 11;Rogaland;;;;;V;Venstre;4,5;308988;2814;8013;10827;0,1;-0,2;1;1;
 11;Rogaland;;;;;H;Høyre;30,1;308988;20000;52470;72470;10,6;1,2;4;0;
 11;Rogaland;;;;;FRP;Fremskrittspartiet;18,7;308988;12600;32482;45082;-7,7;3;3;0;
-11;Rogaland;;;;;DEMN;Demokratene;0;308988;32;83;115;0;-0,1;0;0;
+11;Rogaland;;;;;DEMN;Norgesdemokratene;0;308988;32;83;115;0;-0,1;0;0;
 11;Rogaland;;;;;DLF;Det Liberale Folkepartiet;0,1;308988;67;159;226;0;0,1;0;0;
 11;Rogaland;;;;;PDK;Partiet De Kristne;1;308988;699;1597;2296;1;1;0;0;
 11;Rogaland;;;;;KSP;Kristent Samlingsparti;0,1;308988;71;280;351;-0,2;-0,3;0;0;
@@ -178,7 +178,7 @@
 12;Hordaland;;;;;V;Venstre;5,8;357496;5223;11391;16614;1,2;-0,7;1;0;
 12;Hordaland;;;;;H;Høyre;31,3;357496;31083;58599;89682;11,1;2,5;6;1;
 12;Hordaland;;;;;FRP;Fremskrittspartiet;15,1;357496;15621;27736;43357;-7,7;1,1;2;0;
-12;Hordaland;;;;;DEMN;Demokratene;0,1;357496;105;170;275;0;-0,3;0;0;
+12;Hordaland;;;;;DEMN;Norgesdemokratene;0,1;357496;105;170;275;0;-0,3;0;0;
 12;Hordaland;;;;;PDK;Partiet De Kristne;0,8;357496;966;1456;2422;0,8;0,8;0;0;
 12;Hordaland;;;;;KYST;Kystpartiet;0,1;357496;85;182;267;0;-0,2;0;0;
 12;Hordaland;;;;;MDG;Miljøpartiet De Grønne;3,2;357496;3517;5654;9171;2,8;1,6;0;0;
@@ -194,7 +194,7 @@
 14;Sogn og Fjordane;;;;;V;Venstre;6,3;78280;1107;2776;3883;3;-1;1;1;
 14;Sogn og Fjordane;;;;;H;Høyre;19;78280;3691;7944;11635;6,9;2,1;1;0;
 14;Sogn og Fjordane;;;;;FRP;Fremskrittspartiet;10,8;78280;2100;4508;6608;-5;3,2;0;0;
-14;Sogn og Fjordane;;;;;DEMN;Demokratene;0,1;78280;14;18;32;0;0,1;0;0;
+14;Sogn og Fjordane;;;;;DEMN;Norgesdemokratene;0,1;78280;14;18;32;0;0,1;0;0;
 14;Sogn og Fjordane;;;;;PDK;Partiet De Kristne;0,8;78280;161;354;515;0,8;0,8;0;0;
 14;Sogn og Fjordane;;;;;KYST;Kystpartiet;0,2;78280;28;72;100;0;-0,2;0;0;
 14;Sogn og Fjordane;;;;;MDG;Miljøpartiet De Grønne;1,7;78280;444;588;1032;1,5;1,1;0;0;
@@ -207,7 +207,7 @@
 15;Møre og Romsdal;;;;;V;Venstre;5,6;187682;2229;5736;7965;1,7;-2;1;1;
 15;Møre og Romsdal;;;;;H;Høyre;26,2;187682;12194;25400;37594;10,1;4,3;2;0;
 15;Møre og Romsdal;;;;;FRP;Fremskrittspartiet;20,1;187682;9242;19504;28746;-7,3;3,7;2;0;
-15;Møre og Romsdal;;;;;DEMN;Demokratene;0,1;187682;32;62;94;0;-0,1;0;0;
+15;Møre og Romsdal;;;;;DEMN;Norgesdemokratene;0,1;187682;32;62;94;0;-0,1;0;0;
 15;Møre og Romsdal;;;;;PDK;Partiet De Kristne;1,1;187682;456;1078;1534;1,1;1,1;0;0;
 15;Møre og Romsdal;;;;;KYST;Kystpartiet;0,1;187682;45;114;159;0;-0,1;0;0;
 15;Møre og Romsdal;;;;;MDG;Miljøpartiet De Grønne;1,4;187682;783;1180;1963;1,2;0,9;0;0;
@@ -220,7 +220,7 @@
 16;Sør-Trøndelag;;;;;V;Venstre;5,4;222149;3167;6293;9460;1,8;0,3;0;0;
 16;Sør-Trøndelag;;;;;H;Høyre;22,2;222149;13647;25283;38930;8,3;-0,8;2;0;
 16;Sør-Trøndelag;;;;;FRP;Fremskrittspartiet;13,6;222149;7961;15910;23871;-6;4,5;2;0;
-16;Sør-Trøndelag;;;;;DEMN;Demokratene;0,1;222149;86;124;210;0;-0,4;0;0;
+16;Sør-Trøndelag;;;;;DEMN;Norgesdemokratene;0,1;222149;86;124;210;0;-0,4;0;0;
 16;Sør-Trøndelag;;;;;DLF;Det Liberale Folkepartiet;0,1;222149;54;44;98;0,1;0,1;0;0;
 16;Sør-Trøndelag;;;;;PDK;Partiet De Kristne;0,3;222149;190;332;522;0,3;0,3;0;0;
 16;Sør-Trøndelag;;;;;KSP;Kristent Samlingsparti;0,1;222149;41;88;129;-0,1;-0,1;0;0;
@@ -237,7 +237,7 @@
 17;Nord-Trøndelag;;;;;V;Venstre;4,1;99921;857;2301;3158;1,2;-0,8;1;1;
 17;Nord-Trøndelag;;;;;H;Høyre;14,5;99921;3330;7798;11128;5,6;2;1;0;
 17;Nord-Trøndelag;;;;;FRP;Fremskrittspartiet;12,9;99921;2752;7117;9869;-4,6;4,4;0;0;
-17;Nord-Trøndelag;;;;;DEMN;Demokratene;0;99921;13;25;38;0;-0,1;0;0;
+17;Nord-Trøndelag;;;;;DEMN;Norgesdemokratene;0;99921;13;25;38;0;-0,1;0;0;
 17;Nord-Trøndelag;;;;;PDK;Partiet De Kristne;0,4;99921;90;193;283;0,4;0,4;0;0;
 17;Nord-Trøndelag;;;;;KSP;Kristent Samlingsparti;0,1;99921;30;77;107;0;-0,1;0;0;
 17;Nord-Trøndelag;;;;;KYST;Kystpartiet;0,1;99921;22;59;81;-0,1;-0,1;0;0;
@@ -251,7 +251,7 @@
 18;Nordland;;;;;V;Venstre;3,7;179464;1702;3236;4938;1,4;-0,3;0;0;
 18;Nordland;;;;;H;Høyre;21,2;179464;11034;17237;28271;9,7;-0,1;2;0;
 18;Nordland;;;;;FRP;Fremskrittspartiet;18,8;179464;9438;15582;25020;-5,6;3,5;2;0;
-18;Nordland;;;;;DEMN;Demokratene;0;179464;22;38;60;0;-0,2;0;0;
+18;Nordland;;;;;DEMN;Norgesdemokratene;0;179464;22;38;60;0;-0,2;0;0;
 18;Nordland;;;;;PDK;Partiet De Kristne;0,5;179464;297;401;698;0,5;0,5;0;0;
 18;Nordland;;;;;KYST;Kystpartiet;0,3;179464;145;279;424;-0,6;-0,9;0;0;
 18;Nordland;;;;;MDG;Miljøpartiet De Grønne;2;179464;1150;1503;2653;1,7;1;0;0;
@@ -268,7 +268,7 @@
 19;Troms;;;;;V;Venstre;4,2;118612;1027;2660;3687;1,6;0,1;0;0;
 19;Troms;;;;;H;Høyre;22,3;118612;6087;13576;19663;9,4;-1,2;2;0;
 19;Troms;;;;;FRP;Fremskrittspartiet;19,6;118612;5051;12264;17315;-5,6;4,2;1;0;
-19;Troms;;;;;DEMN;Demokratene;0;118612;13;24;37;0;-0,1;0;0;
+19;Troms;;;;;DEMN;Norgesdemokratene;0;118612;13;24;37;0;-0,1;0;0;
 19;Troms;;;;;PDK;Partiet De Kristne;0,4;118612;113;209;322;0,4;0,4;0;0;
 19;Troms;;;;;KSP;Kristent Samlingsparti;0,1;118612;27;65;92;-0,1;-0,1;0;0;
 19;Troms;;;;;KYST;Kystpartiet;0,5;118612;126;351;477;-0,6;-2,4;0;0;
@@ -283,7 +283,7 @@
 20;Finnmark;;;;;V;Venstre;3,6;53310;533;826;1359;1,3;-1,2;0;0;
 20;Finnmark;;;;;H;Høyre;21,3;53310;3086;4946;8032;10,6;0,9;1;0;
 20;Finnmark;;;;;FRP;Fremskrittspartiet;16;53310;2441;3597;6038;-6,3;6,5;1;0;
-20;Finnmark;;;;;DEMN;Demokratene;0,1;53310;3;20;23;0;-0,1;0;0;
+20;Finnmark;;;;;DEMN;Norgesdemokratene;0,1;53310;3;20;23;0;-0,1;0;0;
 20;Finnmark;;;;;PDK;Partiet De Kristne;0,9;53310;131;204;335;0,9;0,9;0;0;
 20;Finnmark;;;;;KSP;Kristent Samlingsparti;0,1;53310;20;21;41;-0,3;-0,3;0;0;
 20;Finnmark;;;;;KYST;Kystpartiet;1,5;53310;215;335;550;-1,2;-4,9;0;0;
