@@ -89,9 +89,7 @@ namespace Lavinia.Api
                 app.Use(async (context, next) =>
                 {
                     var request = context.Request;
-                    request.Headers.Add(
-                        "X-Real-IP", 
-                        "0.0.0.0");
+                    request.Headers["X-Real-IP"] = "0.0.0.0";
                     await next(context);
                 });
             }
