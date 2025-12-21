@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace LaviniaJsonExporter;
 
 public record Party(string Code, string Name);
@@ -20,3 +22,14 @@ public record ElectionParameters(
     int LevelingSeats,
     int TotalVotes
 );
+
+[JsonSerializable(typeof(List<int>))]
+[JsonSerializable(typeof(Dictionary<string, string>))]
+[JsonSerializable(typeof(List<string>))]
+[JsonSerializable(typeof(List<PartyVotes>))]
+[JsonSerializable(typeof(List<DistrictMetrics>))]
+[JsonSerializable(typeof(List<ElectionParameters>))]
+[JsonSourceGenerationOptions(WriteIndented = true)]
+public partial class AppJsonContext : JsonSerializerContext
+{
+}
