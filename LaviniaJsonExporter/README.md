@@ -18,6 +18,12 @@ dotnet run -- -o /path/to/output
 # Specify both output and data directories
 dotnet run -- -o /path/to/output -d /path/to/data
 
+# Generate a summary report for CI/CD review
+dotnet run -- -r
+
+# Combine parameters
+dotnet run -- -o /path/to/output -d /path/to/data -r
+
 # Show help
 dotnet run -- --help
 ```
@@ -26,6 +32,22 @@ dotnet run -- --help
 
 - **-o, --output-dir** (optional) - Output directory for JSON files (default: `output`)
 - **-d, --data-dir** (optional) - Data directory containing CSV files (default: `../Api/Data/Countries/NO`)
+- **-r, --report** (optional) - Generate a summary report for CI/CD review (default: `false`)
+
+### Summary Report
+
+When the `-r` or `--report` flag is used, the tool generates a comprehensive summary report (`export-report.txt`) alongside the JSON files. This report includes:
+
+- **Overview**: Export timestamp and output directory
+- **Election Years**: Total count, year range, and list of all years
+- **Political Parties**: Total count and top 5 parties by vote count
+- **Districts**: Total count and complete list
+- **Vote Data**: Total records, total votes cast, and votes by year
+- **District Metrics**: Total records and latest year statistics (population, area, seats)
+- **Election Parameters**: Latest election configuration (algorithm, threshold, seats)
+- **Output Files**: Individual and total file sizes
+
+The report is designed for CI/CD pipelines to review data changes, track historical trends, and validate exports.
 
 ## Building and Running
 

@@ -16,10 +16,12 @@ public class ExportCommands
     /// </summary>
     /// <param name="outputDir">-o, Output directory for JSON files (default: output)</param>
     /// <param name="dataDir">-d, Data directory containing CSV files (default: ../Api/Data/Countries/NO)</param>
+    /// <param name="report">-r, Generate a summary report for CI/CD review (default: false)</param>
     [Command("")]
     public void Export(
         string outputDir = "output",
-        string? dataDir = null)
+        string? dataDir = null,
+        bool report = false)
     {
         Directory.CreateDirectory(outputDir);
 
@@ -129,5 +131,151 @@ public class ExportCommands
         Console.WriteLine($"  - votes.json ({partyVotes.Count} records)");
         Console.WriteLine($"  - metrics.json ({districtMetrics.Count} records)");
         Console.WriteLine($"  - parameters.json ({electionParameters.Count} records)");
+
+        if (report)
+        {
+            GenerateReport(years, parties, districts, partyVotes, districtMetrics, electionParameters, outputDir);
+        }
+    }
+
+    private void GenerateReport(
+        List<int> years,
+        Dictionary<string, string> parties,
+        List<string> districts,
+        List<PartyVotes> partyVotes,
+        List<DistrictMetrics> districtMetrics,
+        List<ElectionParameters> electionParameters,
+        string outputDir)
+    {
+        var report = new System.Text.StringBuilder();
+        
+        report.AppendLine();
+        report.AppendLine("═══════════════════════════════════════════════════════════");
+        report.AppendLine("           DATA EXPORT SUMMARY REPORT");
+        report.AppendLine("═══════════════════════════════════════════════════════════");
+        report.AppendLine();
+        
+        // Overview section
+        report.AppendLine("OVERVIEW");
+        report.AppendLine("─────────────────────────────────────────────────────────");
+        report.AppendLine($"Export Date: {DateTime.UtcNow:yyyy-MM-dd HH:mm:ss} UTC");
+        report.AppendLine($"Output Directory: {outputDir}");
+        report.AppendLine();
+        
+        // Years section
+        report.AppendLine("ELECTION YEARS");
+        report.AppendLine("─────────────────────────────────────────────────────────");
+        report.AppendLine($"Total Years: {years.Count}");
+        report.AppendLine($"Year Range: {years.Min()} - {years.Max()}");
+        report.AppendLine($"Years: {string.Join(", ", years)}");
+        report.AppendLine();
+        
+        // Parties section
+        report.AppendLine("POLITICAL PARTIES");
+        report.AppendLine("─────────────────────────────────────────────────────────");
+        report.AppendLine($"Total Parties: {parties.Count}");
+        var topParties = partyVotes
+            .GroupBy(v => v.Party)
+            .Select(g => new { Party = g.Key, TotalVotes = g.Sum(v => v.Votes) })
+            .OrderByDescending(p => p.TotalVotes)
+            .Take(5)
+            .ToList();
+        report.AppendLine("Top 5 Parties by Total Votes:");
+        foreach (var p in topParties)
+        {
+            var partyName = parties.ContainsKey(p.Party) ? parties[p.Party] : p.Party;
+            report.AppendLine($"  {p.Party,-6} {partyName,-30} {p.TotalVotes,12:N0} votes");
+        }
+        report.AppendLine();
+        
+        // Districts section
+        report.AppendLine("DISTRICTS");
+        report.AppendLine("─────────────────────────────────────────────────────────");
+        report.AppendLine($"Total Districts: {districts.Count}");
+        report.AppendLine($"Districts: {string.Join(", ", districts.OrderBy(d => d))}");
+        report.AppendLine();
+        
+        // Votes section
+        report.AppendLine("VOTE DATA");
+        report.AppendLine("─────────────────────────────────────────────────────────");
+        report.AppendLine($"Total Vote Records: {partyVotes.Count}");
+        report.AppendLine($"Total Votes Cast: {partyVotes.Sum(v => v.Votes):N0}");
+        var votesPerYear = partyVotes
+            .GroupBy(v => v.ElectionYear)
+            .Select(g => new { Year = g.Key, Votes = g.Sum(v => v.Votes) })
+            .OrderByDescending(v => v.Year)
+            .ToList();
+        report.AppendLine("Votes by Year:");
+        foreach (var y in votesPerYear)
+        {
+            report.AppendLine($"  {y.Year}: {y.Votes,12:N0} votes");
+        }
+        report.AppendLine();
+        
+        // District Metrics section
+        report.AppendLine("DISTRICT METRICS");
+        report.AppendLine("─────────────────────────────────────────────────────────");
+        report.AppendLine($"Total Metric Records: {districtMetrics.Count}");
+        var latestMetrics = districtMetrics.Where(m => m.ElectionYear == years.Max()).ToList();
+        report.AppendLine($"Latest Year ({years.Max()}) Metrics:");
+        report.AppendLine($"  Total Population: {latestMetrics.Sum(m => m.Population):N0}");
+        report.AppendLine($"  Total Area: {latestMetrics.Sum(m => m.Area):N0} km²");
+        report.AppendLine($"  Total Seats: {latestMetrics.Sum(m => m.Seats):N0}");
+        report.AppendLine();
+        
+        // Election Parameters section
+        report.AppendLine("ELECTION PARAMETERS");
+        report.AppendLine("─────────────────────────────────────────────────────────");
+        report.AppendLine($"Total Parameter Records: {electionParameters.Count}");
+        var latestParams = electionParameters.FirstOrDefault(p => p.ElectionYear == years.Max());
+        if (latestParams != null)
+        {
+            report.AppendLine($"Latest Election ({latestParams.ElectionYear}) Parameters:");
+            report.AppendLine($"  Algorithm: {latestParams.Algorithm.Algorithm}");
+            report.AppendLine($"  Threshold: {latestParams.Threshold}%");
+            report.AppendLine($"  District Seats: {latestParams.DistrictSeats}");
+            report.AppendLine($"  Leveling Seats: {latestParams.LevelingSeats}");
+            report.AppendLine($"  Total Seats: {latestParams.DistrictSeats + latestParams.LevelingSeats}");
+        }
+        report.AppendLine();
+        
+        // File sizes section
+        report.AppendLine("OUTPUT FILES");
+        report.AppendLine("─────────────────────────────────────────────────────────");
+        var files = new[]
+        {
+            "years.json", "parties.json", "districts.json",
+            "votes.json", "metrics.json", "parameters.json"
+        };
+        long totalSize = 0;
+        foreach (var file in files)
+        {
+            var path = Path.Combine(outputDir, file);
+            if (File.Exists(path))
+            {
+                var size = new FileInfo(path).Length;
+                totalSize += size;
+                report.AppendLine($"  {file,-18} {FormatFileSize(size),10}");
+            }
+        }
+        report.AppendLine($"  {"Total:",-18} {FormatFileSize(totalSize),10}");
+        report.AppendLine();
+        
+        report.AppendLine("═══════════════════════════════════════════════════════════");
+        
+        var reportText = report.ToString();
+        Console.WriteLine(reportText);
+        
+        // Save report to file
+        var reportPath = Path.Combine(outputDir, "export-report.txt");
+        File.WriteAllText(reportPath, reportText);
+        Console.WriteLine($"Report saved to: {reportPath}");
+    }
+
+    private string FormatFileSize(long bytes)
+    {
+        if (bytes < 1024) return $"{bytes} B";
+        if (bytes < 1024 * 1024) return $"{bytes / 1024.0:F1} KB";
+        return $"{bytes / (1024.0 * 1024.0):F1} MB";
     }
 }
