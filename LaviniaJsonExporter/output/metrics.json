@@ -1,0 +1,2970 @@
+[
+  {
+    "District": "Akershus",
+    "ElectionYear": 2025,
+    "Area": 5895,
+    "Population": 728803,
+    "Seats": 0
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 2025,
+    "Area": 9155,
+    "Population": 122968,
+    "Seats": 0
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 2025,
+    "Area": 14694,
+    "Population": 269819,
+    "Seats": 0
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 2025,
+    "Area": 48638,
+    "Population": 75053,
+    "Seats": 0
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 2025,
+    "Area": 27398,
+    "Population": 202048,
+    "Seats": 0
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 2025,
+    "Area": 15438,
+    "Population": 541875,
+    "Seats": 0
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 2025,
+    "Area": 14356,
+    "Population": 270624,
+    "Seats": 0
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 2025,
+    "Area": 38155,
+    "Population": 243081,
+    "Seats": 0
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 2025,
+    "Area": 21945,
+    "Population": 135440,
+    "Seats": 0
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 2025,
+    "Area": 24675,
+    "Population": 174256,
+    "Seats": 0
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 2025,
+    "Area": 454,
+    "Population": 717710,
+    "Seats": 0
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 2025,
+    "Area": 9377,
+    "Population": 499417,
+    "Seats": 0
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 2025,
+    "Area": 18433,
+    "Population": 109424,
+    "Seats": 0
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 2025,
+    "Area": 20257,
+    "Population": 347516,
+    "Seats": 0
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 2025,
+    "Area": 15298,
+    "Population": 177093,
+    "Seats": 0
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 2025,
+    "Area": 26198,
+    "Population": 169610,
+    "Seats": 0
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 2025,
+    "Area": 7278,
+    "Population": 196882,
+    "Seats": 0
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 2025,
+    "Area": 2168,
+    "Population": 256432,
+    "Seats": 0
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 2025,
+    "Area": 4004,
+    "Population": 312152,
+    "Seats": 0
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 2021,
+    "Area": 5669,
+    "Population": 675240,
+    "Seats": 0
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 2021,
+    "Area": 9155,
+    "Population": 118273,
+    "Seats": 0
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 2021,
+    "Area": 14920,
+    "Population": 266478,
+    "Seats": 0
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 2021,
+    "Area": 48631,
+    "Population": 75472,
+    "Seats": 0
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 2021,
+    "Area": 27398,
+    "Population": 197920,
+    "Seats": 0
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 2021,
+    "Area": 15438,
+    "Population": 528127,
+    "Seats": 0
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 2021,
+    "Area": 14356,
+    "Population": 265238,
+    "Seats": 0
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 2021,
+    "Area": 38155,
+    "Population": 241235,
+    "Seats": 0
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 2021,
+    "Area": 21944,
+    "Population": 134188,
+    "Seats": 0
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 2021,
+    "Area": 24675,
+    "Population": 173465,
+    "Seats": 0
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 2021,
+    "Area": 454,
+    "Population": 693494,
+    "Seats": 0
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 2021,
+    "Area": 9377,
+    "Population": 479892,
+    "Seats": 0
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 2021,
+    "Area": 18433,
+    "Population": 108404,
+    "Seats": 0
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 2021,
+    "Area": 20257,
+    "Population": 334514,
+    "Seats": 0
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 2021,
+    "Area": 15298,
+    "Population": 173355,
+    "Seats": 0
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 2021,
+    "Area": 26198,
+    "Population": 167839,
+    "Seats": 0
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 2021,
+    "Area": 7278,
+    "Population": 188958,
+    "Seats": 0
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 2021,
+    "Area": 2168,
+    "Population": 246041,
+    "Seats": 0
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 2021,
+    "Area": 4004,
+    "Population": 299447,
+    "Seats": 0
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 2017,
+    "Area": 4918,
+    "Population": 556254,
+    "Seats": 16
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 2017,
+    "Area": 9157,
+    "Population": 111495,
+    "Seats": 3
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 2017,
+    "Area": 14911,
+    "Population": 265164,
+    "Seats": 8
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 2017,
+    "Area": 48617,
+    "Population": 73787,
+    "Seats": 4
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 2017,
+    "Area": 27398,
+    "Population": 192791,
+    "Seats": 6
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 2017,
+    "Area": 15440,
+    "Population": 490570,
+    "Seats": 15
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 2017,
+    "Area": 15115,
+    "Population": 256628,
+    "Seats": 8
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 2017,
+    "Area": 38462,
+    "Population": 238320,
+    "Seats": 8
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 2017,
+    "Area": 22415,
+    "Population": 133390,
+    "Seats": 4
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 2017,
+    "Area": 25192,
+    "Population": 187147,
+    "Seats": 6
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 2017,
+    "Area": 454,
+    "Population": 613285,
+    "Seats": 18
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 2017,
+    "Area": 9376,
+    "Population": 443115,
+    "Seats": 13
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 2017,
+    "Area": 18623,
+    "Population": 108201,
+    "Seats": 3
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 2017,
+    "Area": 18856,
+    "Population": 297950,
+    "Seats": 9
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 2017,
+    "Area": 15298,
+    "Population": 170023,
+    "Seats": 5
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 2017,
+    "Area": 25870,
+    "Population": 158650,
+    "Seats": 5
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 2017,
+    "Area": 7277,
+    "Population": 174324,
+    "Seats": 5
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 2017,
+    "Area": 2224,
+    "Population": 236424,
+    "Seats": 6
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 2017,
+    "Area": 4182,
+    "Population": 278352,
+    "Seats": 8
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 2013,
+    "Area": 4918,
+    "Population": 556254,
+    "Seats": 16
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 2013,
+    "Area": 9157,
+    "Population": 111495,
+    "Seats": 3
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 2013,
+    "Area": 14911,
+    "Population": 265164,
+    "Seats": 8
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 2013,
+    "Area": 48617,
+    "Population": 73787,
+    "Seats": 4
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 2013,
+    "Area": 27398,
+    "Population": 192791,
+    "Seats": 6
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 2013,
+    "Area": 15440,
+    "Population": 490570,
+    "Seats": 15
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 2013,
+    "Area": 15115,
+    "Population": 256628,
+    "Seats": 8
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 2013,
+    "Area": 38462,
+    "Population": 238320,
+    "Seats": 8
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 2013,
+    "Area": 22415,
+    "Population": 133390,
+    "Seats": 4
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 2013,
+    "Area": 25192,
+    "Population": 187147,
+    "Seats": 6
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 2013,
+    "Area": 454,
+    "Population": 613285,
+    "Seats": 18
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 2013,
+    "Area": 9376,
+    "Population": 443115,
+    "Seats": 13
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 2013,
+    "Area": 18623,
+    "Population": 108201,
+    "Seats": 3
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 2013,
+    "Area": 18856,
+    "Population": 297950,
+    "Seats": 9
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 2013,
+    "Area": 15298,
+    "Population": 170023,
+    "Seats": 5
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 2013,
+    "Area": 25870,
+    "Population": 158650,
+    "Seats": 5
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 2013,
+    "Area": 7277,
+    "Population": 174324,
+    "Seats": 5
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 2013,
+    "Area": 2224,
+    "Population": 236424,
+    "Seats": 6
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 2013,
+    "Area": 4182,
+    "Population": 278352,
+    "Seats": 8
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 2009,
+    "Area": 4918,
+    "Population": 488618,
+    "Seats": 15
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 2009,
+    "Area": 9157,
+    "Population": 103374,
+    "Seats": 3
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 2009,
+    "Area": 14910,
+    "Population": 242331,
+    "Seats": 8
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 2009,
+    "Area": 48618,
+    "Population": 73210,
+    "Seats": 4
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 2009,
+    "Area": 27397,
+    "Population": 188326,
+    "Seats": 7
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 2009,
+    "Area": 15460,
+    "Population": 445059,
+    "Seats": 14
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 2009,
+    "Area": 15121,
+    "Population": 244570,
+    "Seats": 8
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 2009,
+    "Area": 38456,
+    "Population": 237057,
+    "Seats": 9
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 2009,
+    "Area": 22412,
+    "Population": 127973,
+    "Seats": 5
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 2009,
+    "Area": 25192,
+    "Population": 183690,
+    "Seats": 6
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 2009,
+    "Area": 454,
+    "Population": 521886,
+    "Seats": 16
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 2009,
+    "Area": 9378,
+    "Population": 388848,
+    "Seats": 12
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 2009,
+    "Area": 18623,
+    "Population": 107222,
+    "Seats": 4
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 2009,
+    "Area": 18848,
+    "Population": 270266,
+    "Seats": 9
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 2009,
+    "Area": 15299,
+    "Population": 166124,
+    "Seats": 5
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 2009,
+    "Area": 25877,
+    "Population": 152628,
+    "Seats": 6
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 2009,
+    "Area": 7276,
+    "Population": 160127,
+    "Seats": 5
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 2009,
+    "Area": 2224,
+    "Population": 219480,
+    "Seats": 6
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 2009,
+    "Area": 4182,
+    "Population": 256668,
+    "Seats": 8
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 2005,
+    "Area": 4918,
+    "Population": 488618,
+    "Seats": 15
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 2005,
+    "Area": 9157,
+    "Population": 103374,
+    "Seats": 3
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 2005,
+    "Area": 14910,
+    "Population": 242331,
+    "Seats": 8
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 2005,
+    "Area": 48618,
+    "Population": 73210,
+    "Seats": 4
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 2005,
+    "Area": 27397,
+    "Population": 188326,
+    "Seats": 7
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 2005,
+    "Area": 15460,
+    "Population": 445059,
+    "Seats": 14
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 2005,
+    "Area": 15121,
+    "Population": 244570,
+    "Seats": 8
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 2005,
+    "Area": 38456,
+    "Population": 237057,
+    "Seats": 9
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 2005,
+    "Area": 22412,
+    "Population": 127973,
+    "Seats": 5
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 2005,
+    "Area": 25192,
+    "Population": 183690,
+    "Seats": 6
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 2005,
+    "Area": 454,
+    "Population": 521886,
+    "Seats": 16
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 2005,
+    "Area": 9378,
+    "Population": 388848,
+    "Seats": 12
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 2005,
+    "Area": 18623,
+    "Population": 107222,
+    "Seats": 4
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 2005,
+    "Area": 18848,
+    "Population": 270266,
+    "Seats": 9
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 2005,
+    "Area": 15299,
+    "Population": 166124,
+    "Seats": 5
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 2005,
+    "Area": 25877,
+    "Population": 152628,
+    "Seats": 6
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 2005,
+    "Area": 7276,
+    "Population": 160127,
+    "Seats": 5
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 2005,
+    "Area": 2224,
+    "Population": 219480,
+    "Seats": 6
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 2005,
+    "Area": 4182,
+    "Population": 256668,
+    "Seats": 8
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 2001,
+    "Area": 4918,
+    "Population": 488618,
+    "Seats": 12
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 2001,
+    "Area": 9157,
+    "Population": 103374,
+    "Seats": 4
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 2001,
+    "Area": 14910,
+    "Population": 242331,
+    "Seats": 7
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 2001,
+    "Area": 48618,
+    "Population": 73210,
+    "Seats": 4
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 2001,
+    "Area": 27397,
+    "Population": 188326,
+    "Seats": 8
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 2001,
+    "Area": 15460,
+    "Population": 445059,
+    "Seats": 15
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 2001,
+    "Area": 15121,
+    "Population": 244570,
+    "Seats": 10
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 2001,
+    "Area": 38456,
+    "Population": 237057,
+    "Seats": 12
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 2001,
+    "Area": 22412,
+    "Population": 127973,
+    "Seats": 6
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 2001,
+    "Area": 25192,
+    "Population": 183690,
+    "Seats": 7
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 2001,
+    "Area": 454,
+    "Population": 521886,
+    "Seats": 15
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 2001,
+    "Area": 9378,
+    "Population": 388848,
+    "Seats": 10
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 2001,
+    "Area": 18623,
+    "Population": 107222,
+    "Seats": 5
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 2001,
+    "Area": 18848,
+    "Population": 270266,
+    "Seats": 10
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 2001,
+    "Area": 15299,
+    "Population": 166124,
+    "Seats": 6
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 2001,
+    "Area": 25877,
+    "Population": 152628,
+    "Seats": 6
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 2001,
+    "Area": 7276,
+    "Population": 160127,
+    "Seats": 5
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 2001,
+    "Area": 2224,
+    "Population": 219480,
+    "Seats": 7
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 2001,
+    "Area": 4182,
+    "Population": 256668,
+    "Seats": 8
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 439928,
+    "Seats": 12
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 100211,
+    "Seats": 4
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 229366,
+    "Seats": 7
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 76461,
+    "Seats": 4
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 186247,
+    "Seats": 8
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 425247,
+    "Seats": 15
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 241032,
+    "Seats": 10
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 127325,
+    "Seats": 6
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 241147,
+    "Seats": 12
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 182883,
+    "Seats": 7
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 488659,
+    "Seats": 15
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 357027,
+    "Seats": 10
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 107738,
+    "Seats": 5
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 257196,
+    "Seats": 10
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 163213,
+    "Seats": 6
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 151160,
+    "Seats": 6
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 150426,
+    "Seats": 5
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 204440,
+    "Seats": 7
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 1997,
+    "Area": 0,
+    "Population": 240251,
+    "Seats": 8
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 405991,
+    "Seats": 12
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 96011,
+    "Seats": 4
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 223266,
+    "Seats": 7
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 74073,
+    "Seats": 4
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 186418,
+    "Seats": 8
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 405063,
+    "Seats": 15
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 237599,
+    "Seats": 10
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 126769,
+    "Seats": 6
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 240078,
+    "Seats": 12
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 182341,
+    "Seats": 7
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 453730,
+    "Seats": 15
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 329542,
+    "Seats": 10
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 106066,
+    "Seats": 5
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 248076,
+    "Seats": 10
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 163240,
+    "Seats": 6
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 146489,
+    "Seats": 6
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 142015,
+    "Seats": 5
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 194477,
+    "Seats": 7
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 1993,
+    "Area": 0,
+    "Population": 237045,
+    "Seats": 8
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 405991,
+    "Seats": 12
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 96011,
+    "Seats": 4
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 223266,
+    "Seats": 7
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 74073,
+    "Seats": 4
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 186418,
+    "Seats": 8
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 405063,
+    "Seats": 15
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 237599,
+    "Seats": 10
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 126769,
+    "Seats": 6
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 240078,
+    "Seats": 12
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 182341,
+    "Seats": 7
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 453730,
+    "Seats": 15
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 329542,
+    "Seats": 10
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 106066,
+    "Seats": 5
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 248076,
+    "Seats": 10
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 163240,
+    "Seats": 6
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 146489,
+    "Seats": 6
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 142015,
+    "Seats": 5
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 194477,
+    "Seats": 7
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 1989,
+    "Area": 0,
+    "Population": 237045,
+    "Seats": 8
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 366673,
+    "Seats": 12
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 89733,
+    "Seats": 4
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 213608,
+    "Seats": 7
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 78692,
+    "Seats": 4
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 186698,
+    "Seats": 8
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 390526,
+    "Seats": 15
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 235719,
+    "Seats": 10
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 125233,
+    "Seats": 6
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 243808,
+    "Seats": 12
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 180285,
+    "Seats": 7
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 454872,
+    "Seats": 15
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 302386,
+    "Seats": 10
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 105271,
+    "Seats": 5
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 243709,
+    "Seats": 10
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 161673,
+    "Seats": 6
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 145996,
+    "Seats": 6
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 135696,
+    "Seats": 5
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 185922,
+    "Seats": 7
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 1985,
+    "Area": 0,
+    "Population": 232400,
+    "Seats": 8
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 366673,
+    "Seats": 10
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 89733,
+    "Seats": 4
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 213608,
+    "Seats": 7
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 78692,
+    "Seats": 4
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 186698,
+    "Seats": 8
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 390526,
+    "Seats": 15
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 235719,
+    "Seats": 10
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 125233,
+    "Seats": 6
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 243808,
+    "Seats": 12
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 180285,
+    "Seats": 7
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 454872,
+    "Seats": 15
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 302386,
+    "Seats": 10
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 105271,
+    "Seats": 5
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 243709,
+    "Seats": 10
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 161673,
+    "Seats": 6
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 145996,
+    "Seats": 6
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 135696,
+    "Seats": 5
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 185922,
+    "Seats": 7
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 1981,
+    "Area": 0,
+    "Population": 232400,
+    "Seats": 8
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 332561,
+    "Seats": 10
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 81734,
+    "Seats": 4
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 201306,
+    "Seats": 7
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 76929,
+    "Seats": 4
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 179994,
+    "Seats": 8
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 376928,
+    "Seats": 15
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 225741,
+    "Seats": 10
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 119087,
+    "Seats": 6
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 240874,
+    "Seats": 12
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 174074,
+    "Seats": 7
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 475563,
+    "Seats": 15
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 272453,
+    "Seats": 10
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 101672,
+    "Seats": 5
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 235721,
+    "Seats": 10
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 157426,
+    "Seats": 6
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 137925,
+    "Seats": 6
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 126178,
+    "Seats": 5
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 177584,
+    "Seats": 7
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 1977,
+    "Area": 0,
+    "Population": 224023,
+    "Seats": 8
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 332561,
+    "Seats": 10
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 81734,
+    "Seats": 4
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 201306,
+    "Seats": 7
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 76929,
+    "Seats": 4
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 179994,
+    "Seats": 8
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 376928,
+    "Seats": 15
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 225741,
+    "Seats": 10
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 119087,
+    "Seats": 6
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 240874,
+    "Seats": 12
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 174074,
+    "Seats": 7
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 475563,
+    "Seats": 15
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 272453,
+    "Seats": 10
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 101672,
+    "Seats": 5
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 235721,
+    "Seats": 10
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 157426,
+    "Seats": 6
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 137925,
+    "Seats": 6
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 126178,
+    "Seats": 5
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 177584,
+    "Seats": 7
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 1973,
+    "Area": 0,
+    "Population": 224023,
+    "Seats": 8
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 257647,
+    "Seats": 7
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 77721,
+    "Seats": 4
+  },
+  {
+    "District": "Bergen",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 116876,
+    "Seats": 5
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 186805,
+    "Seats": 7
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 73929,
+    "Seats": 4
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 177462,
+    "Seats": 8
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 233656,
+    "Seats": 10
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 215452,
+    "Seats": 10
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 116336,
+    "Seats": 6
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 241990,
+    "Seats": 12
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 166684,
+    "Seats": 7
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 484711,
+    "Seats": 13
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 246565,
+    "Seats": 10
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 100568,
+    "Seats": 5
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 217071,
+    "Seats": 10
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 152911,
+    "Seats": 6
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 129880,
+    "Seats": 6
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 112953,
+    "Seats": 5
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 163527,
+    "Seats": 7
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 1969,
+    "Area": 0,
+    "Population": 207324,
+    "Seats": 8
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 257647,
+    "Seats": 7
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 77721,
+    "Seats": 4
+  },
+  {
+    "District": "Bergen",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 116876,
+    "Seats": 5
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 186805,
+    "Seats": 7
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 73929,
+    "Seats": 4
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 177462,
+    "Seats": 8
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 233656,
+    "Seats": 10
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 215452,
+    "Seats": 10
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 116336,
+    "Seats": 6
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 241990,
+    "Seats": 12
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 166684,
+    "Seats": 7
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 484711,
+    "Seats": 13
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 246565,
+    "Seats": 10
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 100568,
+    "Seats": 5
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 217071,
+    "Seats": 10
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 152911,
+    "Seats": 6
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 129880,
+    "Seats": 6
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 112953,
+    "Seats": 5
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 163527,
+    "Seats": 7
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 1965,
+    "Area": 0,
+    "Population": 207324,
+    "Seats": 8
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 206403,
+    "Seats": 7
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 76347,
+    "Seats": 4
+  },
+  {
+    "District": "Bergen",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 114720,
+    "Seats": 5
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 162760,
+    "Seats": 7
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 69139,
+    "Seats": 4
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 176434,
+    "Seats": 8
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 212054,
+    "Seats": 10
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 204652,
+    "Seats": 10
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 114717,
+    "Seats": 6
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 233379,
+    "Seats": 12
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 164639,
+    "Seats": 7
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 451247,
+    "Seats": 13
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 225754,
+    "Seats": 10
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 98478,
+    "Seats": 5
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 204717,
+    "Seats": 10
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 143589,
+    "Seats": 6
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 123271,
+    "Seats": 6
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 103409,
+    "Seats": 5
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 165235,
+    "Seats": 7
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 1961,
+    "Area": 0,
+    "Population": 194729,
+    "Seats": 8
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 206403,
+    "Seats": 7
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 76347,
+    "Seats": 4
+  },
+  {
+    "District": "Bergen",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 114720,
+    "Seats": 5
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 162760,
+    "Seats": 7
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 69139,
+    "Seats": 4
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 176434,
+    "Seats": 8
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 212054,
+    "Seats": 10
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 204652,
+    "Seats": 10
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 114717,
+    "Seats": 6
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 233379,
+    "Seats": 12
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 164639,
+    "Seats": 7
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 451247,
+    "Seats": 13
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 225754,
+    "Seats": 10
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 98478,
+    "Seats": 5
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 204717,
+    "Seats": 10
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 143589,
+    "Seats": 6
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 123271,
+    "Seats": 6
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 103409,
+    "Seats": 5
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 165235,
+    "Seats": 7
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 1957,
+    "Area": 0,
+    "Population": 194729,
+    "Seats": 8
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 7
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 4
+  },
+  {
+    "District": "Bergen",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 7
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 4
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 8
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 10
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 10
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 6
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 12
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 7
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 13
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 10
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 10
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 6
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 6
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 7
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 1953,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 8
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 7
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 4
+  },
+  {
+    "District": "Bergen",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 3
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 7
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 8
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 7
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 8
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 6
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 7
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 6
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 4
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 4
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 6
+  },
+  {
+    "District": "Byer \u00D8stfold \u0026 Akershus",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 4
+  },
+  {
+    "District": "Byer Hedmark \u0026 Oppland",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 3
+  },
+  {
+    "District": "Byer Buskerud",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 3
+  },
+  {
+    "District": "Byer Vestfold",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 4
+  },
+  {
+    "District": "Byer Telemark \u0026 Aust-Agder",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Byer Vest-Agder \u0026 Rogaland",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 7
+  },
+  {
+    "District": "Byer M\u00F8re \u0026 Romsdal",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 3
+  },
+  {
+    "District": "Byer S\u00F8r \u0026 Nord-Tr\u00F8ndelag",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Byer Nordland, Troms \u0026 Finnmark",
+    "ElectionYear": 1949,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 4
+  },
+  {
+    "District": "Akershus",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 7
+  },
+  {
+    "District": "Aust-Agder",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 4
+  },
+  {
+    "District": "Bergen",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Buskerud",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Finnmark",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 3
+  },
+  {
+    "District": "Hedmark",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 7
+  },
+  {
+    "District": "Hordaland",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 8
+  },
+  {
+    "District": "M\u00F8re og Romsdal",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 7
+  },
+  {
+    "District": "Nord-Tr\u00F8ndelag",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Nordland",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 8
+  },
+  {
+    "District": "Oppland",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 6
+  },
+  {
+    "District": "Oslo",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 7
+  },
+  {
+    "District": "Rogaland",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Sogn og Fjordane",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "S\u00F8r-Tr\u00F8ndelag",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 6
+  },
+  {
+    "District": "Telemark",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Troms",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Vest-Agder",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 4
+  },
+  {
+    "District": "Vestfold",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 4
+  },
+  {
+    "District": "\u00D8stfold",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 6
+  },
+  {
+    "District": "Byer \u00D8stfold \u0026 Akershus",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 4
+  },
+  {
+    "District": "Byer Hedmark \u0026 Oppland",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 3
+  },
+  {
+    "District": "Byer Buskerud",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 3
+  },
+  {
+    "District": "Byer Vestfold",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 4
+  },
+  {
+    "District": "Byer Telemark \u0026 Aust-Agder",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Byer Vest-Agder \u0026 Rogaland",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 7
+  },
+  {
+    "District": "Byer M\u00F8re \u0026 Romsdal",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 3
+  },
+  {
+    "District": "Byer S\u00F8r \u0026 Nord-Tr\u00F8ndelag",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 5
+  },
+  {
+    "District": "Byer Nordland, Troms \u0026 Finnmark",
+    "ElectionYear": 1945,
+    "Area": 0,
+    "Population": 0,
+    "Seats": 4
+  }
+]
