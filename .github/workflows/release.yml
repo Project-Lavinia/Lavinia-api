@@ -20,6 +20,7 @@ jobs:
     env:
       CONFIGURATION: Release
       ARTIFACT: Api.zip
+      DATA_ARTIFACT: election-data.zip
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -46,11 +47,55 @@ jobs:
       - name: Zip Artifact
         run: (cd published && zip -r ../$ARTIFACT .)
 
+      - name: Export static election data
+        run: |
+          mkdir -p election-data
+          dotnet run --project Api/Api.csproj --configuration $CONFIGURATION --no-build -- --export-static ./election-data
+
+      - name: Build data manifest
+        env:
+          DATA_VERSION: ${{ github.ref_name }}
+          GIT_SHA: ${{ github.sha }}
+        run: |
+          CHECKSUMS_JSON=$(
+            cd election-data
+            sha256sum years.json parties.json votes.json metrics.json parameters.json \
+              | awk '{print $2 " " $1}' \
+              | jq -Rn '[inputs | split(" ") | {(.[0]): .[1]}] | add'
+          )
+
+          jq -n \
+            --arg dataVersion "$DATA_VERSION" \
+            --arg sourceCommit "$GIT_SHA" \
+            --arg generatedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --arg schemaVersion "1" \
+            --argjson checksums "$CHECKSUMS_JSON" \
+            '{
+              dataVersion: $dataVersion,
+              sourceCommit: $sourceCommit,
+              generatedAt: $generatedAt,
+              schemaVersion: $schemaVersion,
+              checksums: $checksums
+            }' > election-data/manifest.json
+
+      - name: Zip static election data bundle
+        run: (cd election-data && zip -r ../$DATA_ARTIFACT .)
+
+      - name: Upload workflow data artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: election-data-bundle
+          path: ${{ env.DATA_ARTIFACT }}
+          if-no-files-found: error
+
       - name: Create / Update GitHub Release
         id: release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
-          files: ${{ env.ARTIFACT }}
+          files: |
+            ${{ env.ARTIFACT }}
+            ${{ env.DATA_ARTIFACT }}
+            election-data/manifest.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
