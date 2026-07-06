@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-- [.NET Core SDK 9.0.x](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+- [.NET Core SDK 10.0.x](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
 
 ## Running the development build
 
