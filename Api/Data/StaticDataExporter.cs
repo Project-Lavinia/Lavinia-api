@@ -20,10 +20,15 @@ namespace Lavinia.Api.Data
             WriteIndented = true
         };
 
+        public static Task ExportAsync(
+            NOContext context,
+            string outputDirectory)
+            => ExportAsync(context, outputDirectory, CancellationToken.None);
+
         public static async Task ExportAsync(
             NOContext context,
             string outputDirectory,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             Directory.CreateDirectory(outputDirectory);
 
