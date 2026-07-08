@@ -4,15 +4,18 @@ using System.Runtime.CompilerServices;
 using Lavinia.Api;
 using Lavinia.Api.Data;
 
-using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 [assembly: InternalsVisibleTo("ApiTests")]
 
-IWebHost host = WebHost.CreateDefaultBuilder(args)
-    .UseStartup<Startup>()
+IHost host = Host.CreateDefaultBuilder(args)
+    .ConfigureWebHostDefaults(webBuilder =>
+    {
+        webBuilder.UseStartup<Startup>();
+    })
     .Build();
 using (IServiceScope scope = host.Services.CreateScope())
 {
