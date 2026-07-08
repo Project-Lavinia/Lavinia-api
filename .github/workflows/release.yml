@@ -21,6 +21,7 @@ jobs:
       CONFIGURATION: Release
       ARTIFACT: Api.zip
       DATA_ARTIFACT: election-data.zip
+      CHECKSUM_ARTIFACT: election-data.sha256
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -81,11 +82,22 @@ jobs:
       - name: Zip static election data bundle
         run: (cd election-data && zip -r ../$DATA_ARTIFACT .)
 
+      - name: Build artifact checksums
+        run: |
+          sha256sum "$DATA_ARTIFACT" > "$CHECKSUM_ARTIFACT"
+
       - name: Upload workflow data artifact
         uses: actions/upload-artifact@v4
         with:
           name: election-data-bundle
           path: ${{ env.DATA_ARTIFACT }}
+          if-no-files-found: error
+
+      - name: Upload workflow checksum artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: election-data-checksum
+          path: ${{ env.CHECKSUM_ARTIFACT }}
           if-no-files-found: error
 
       - name: Create / Update GitHub Release
@@ -96,6 +108,7 @@ jobs:
           files: |
             ${{ env.ARTIFACT }}
             ${{ env.DATA_ARTIFACT }}
+            ${{ env.CHECKSUM_ARTIFACT }}
             election-data/manifest.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
