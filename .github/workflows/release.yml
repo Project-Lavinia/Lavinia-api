@@ -51,8 +51,7 @@ jobs:
 
       - name: Export static election data
         run: |
-          mkdir -p election-data
-          dotnet run --project Api/Api.csproj --configuration $CONFIGURATION --no-build -- --export-static ./election-data
+          dotnet run --project Api/Api.csproj --configuration $CONFIGURATION --no-build -- --export-static "$(pwd)/election-data"
 
       - name: Build data manifest
         env:
